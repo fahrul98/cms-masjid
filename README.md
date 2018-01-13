@@ -1,6 +1,4 @@
 # cms-masjid
-cms for masjid
-# cms-masjid
 
 <h3>CMS Masjid - nama</h3>
 
