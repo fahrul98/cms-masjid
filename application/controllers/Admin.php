@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Admin extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,8 +18,27 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function __construct()
+	{
+		parent::__construct();
+		//pendefinisian folder
+		if (!defined('APP')){
+		define('APP', '\application');
+		}
+		if (!defined('CONF')) {
+		define('CONF', '\config');
+		}
+	}
+
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		if (file_exists(FCPATH.APP.CONF.'\cms_settings.php')) {
+			//ke halamnan index
+			$this->load->view('welcome_message');
+		}else{
+			//ke halaman instalasi
+			$this->load->view('install/i_database');
+		}
+		
 	}
 }
