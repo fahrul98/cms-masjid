@@ -34,7 +34,9 @@ class Admin extends CI_Controller {
 	{
 		if (file_exists(FCPATH.APP.CONF.'\cms_settings.php')) {
 			//ke halamnan index
-			$this->load->view('welcome_message');
+			$data['page'] = "Beranda";
+			$this->load->view('core/core',$data);
+			$this->load->view('vadmin');
 		}else{
 			//ke halaman instalasi
 			$this->load->view('install/i_database');
