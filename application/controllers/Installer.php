@@ -13,8 +13,7 @@ class Installer extends CI_Controller {
 		$data['password']=$this->input->post('password');
 		$data['dbaname']=$this->input->post('dbname');
 		$this->stgGenerator($data);
-		//$this->dbImporter();
-		$this->load->view("install/i_webstg");
+		redirect(base_url('installer/dbimporter'));
 		unset($data);
 	}
 
@@ -32,6 +31,7 @@ class Installer extends CI_Controller {
 		";
 		fwrite($ourFileHandle,$written);
 		fclose($ourFileHandle);
+		unset($data);
 	}
 
 	public function dbImporter(){
@@ -40,11 +40,9 @@ class Installer extends CI_Controller {
 		$lines = file(FCPATH.APP.'\cmsmasjid.sql'); 
 		foreach ($lines as $line){
 			// Skip it if it's a comment
-			if (substr($line, 0, 2) == '--' || $line == '')
-			continue;
+			if (substr($line, 0, 2) == '--' || $line == '')continue;
 			// Add this line to the current templine we are creating
 			$templine .= $line;
-
 			// If it has a semicolon at the end, it's the end of the query so can process this templine
 			if (substr(trim($line), -1, 1) == ';'){
 			// Perform the query
@@ -53,6 +51,6 @@ class Installer extends CI_Controller {
 			$templine = '';
 			}
 		}
-		redirect(base_url('admin'));
+		redirect(base_url());
 	}	
 }

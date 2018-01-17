@@ -41,6 +41,6 @@ class Admin extends CI_Controller {
 			//ke halaman instalasi
 			$this->load->view('install/i_database');
 		}
-		
+		unset($data);
 	}
 }
