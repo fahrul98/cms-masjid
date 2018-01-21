@@ -25,7 +25,16 @@ input->proses->hapus dari memori
 
 	public function __construct(){
 		parent::__construct();
-		//load model
+	}
+
+	public function adminlogin($data){
+		$username = 0;
+		$q = $this->db->query("select * from cmusers where username=? and userpass=?",array(
+			$data['username'],
+			$data['userpass']
+		));
+
+		return $q;
 	}
 
 	public function tampilpadmin(){
@@ -61,4 +70,5 @@ input->proses->hapus dari memori
 		redirect(base_url('profiladmin'));
 		unset($data);
 	}
+
 }

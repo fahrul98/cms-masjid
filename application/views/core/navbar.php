@@ -35,6 +35,9 @@
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('pengaturan')?>">Pengaturan</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('admin/logout')?>">Logout</a>
+      </li>
     </ul>
     <span class="navbar-text">
       <!-- 160db33763e54957726dc8e62489d6df -->
