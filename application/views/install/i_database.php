@@ -4,8 +4,6 @@
 	<title>form db</title>
 </head>
 <body>
-	<?php echo $d.'<br>';
-	 echo $d2; ?>
 <form method="POST" id="form" action="<?php echo base_url('installer/dbGenerator'); ?>">
 	host:
 	<input type="text" name="host"><br/>

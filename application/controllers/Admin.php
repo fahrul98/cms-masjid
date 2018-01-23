@@ -32,23 +32,24 @@ class Admin extends CI_Controller {
 		//pendefinisian folder
 		if (!defined('APP')){
 		// define('APP', '\application');
-			define('APP', '/application');
+			define('APP', '\application');
 		}
 		if (!defined('CONF')) {
 		// define('CONF', '\config');
-			define('CONF', '/config');
+			define('CONF', '\config');
 		}
 	}
 
 	public function index(){
 		//cek cms setting
-		if (!file_exists(FCPATH.APP.CONF.'\cms_settings.php')) {
+		if (file_exists(FCPATH.APP.CONF.'\cms_settings.php')) {
 			//cek login
 			if ($this->session->userdata('username') and $this->session->userdata('userpass')){
 				// redirect(base_url('admin'));
 				$data['page'] = "Beranda";
 				$this->load->view('core/core',$data);
 				$this->load->view('vadmin');
+				print(FCPATH.APP.CONF.'\cms_settings.php');
 			}else{
 				redirect(base_url('login'));
 			}

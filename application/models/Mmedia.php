@@ -65,11 +65,11 @@ unset(variabel) => hapus variabel dari memori
 			$data['usid']
 		));
 
-		unset($data);
+		unset($data,$q);
 	}
 
-	public function hapusust($data){
-		$q = $this->db->query("delete from cmustadz where usid=?",array($data['usid']));
+	public function hapusmedia($data){
+		$q = $this->db->query("delete from cmmedia where mediaid=".$data['mediaid']);
 		unset($data,$q);
 	}
 }

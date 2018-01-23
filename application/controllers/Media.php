@@ -3,16 +3,19 @@
 class Media extends CI_Controller{
   public function __construct(){
     parent::__construct();
-
+    // if (!defined('UPLD')){
+    //   define('UPLD', '/uploads');
+    // }
+    $this->load->helper("file");
     $this->load->model('mmedia');
   }
 
   public function index(){
     $data['page'] = "Media";
     $data['imgs'] = $this->mmedia->tampilmedia()->result();
-
 		$this->load->view('core/core',$data);
 		$this->load->view('vmedia',$data);
+    unset($data);
   }
 
   public function do_upload(){
@@ -43,13 +46,26 @@ class Media extends CI_Controller{
   		$this->load->view('vmedia',$data);
       // $this->load->view('upload_success', $data);
     }
+    unset($data);
   }
 
   public function dbmbuat($data){
     $data['mdir'] = $data['filename'];
-
     $this->mmedia->tambahmedia($data);
+    unset($data);
   }
 
+  public function dbmhapus(){
+    $data['mediaid']=$this->input->get('mediaid');
+    $data['mdir']=$this->input->get('mdir');
+    $data['path']="./uploads/".$data['mdir'];
+    if (unlink($data['path'])) {
+      $this->mmedia->hapusmedia($data);
+      redirect(base_url('media'));
+    }else{
+      print("gagal");
+    }
+    unset($data);
+  }
 }
  ?>

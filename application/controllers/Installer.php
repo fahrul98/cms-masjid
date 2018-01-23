@@ -5,27 +5,25 @@ class Installer extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		//pendefinisian folder
-		if (defined('APP')){
+		if (!defined('APP')){
 		// define('APP', '\application');
 			define('APP', '/application');
 		}
-		if (defined('CONF')) {
+		if (!defined('CONF')) {
 		// define('CONF', '\config');
 			define('CONF', '/config');
 		}
 	}
 
 	public function index(){
-		$data['d'] = FCPATH.APP.CONF;
-		$data['d2'] = FCPATH.APP;
-		$this->load->view('install/i_database',$data);
+		$this->load->view('install/i_database');
 	}
 
 	public function dbGenerator(){
 		$data['host']=$this->input->post('host');
 		$data['username']=$this->input->post('username');
 		$data['password']=$this->input->post('password');
-		$data['dbaname']=$this->input->post('dbname');
+		$data['dbname']=$this->input->post('dbname');
 		$this->stgGenerator($data);
 		redirect(base_url('installer/dbimporter'));
 		unset($data);
@@ -40,12 +38,12 @@ class Installer extends CI_Controller {
 		    \$host='".$data['host']."';
 		    \$username='".$data['username']."';
 		    \$password='".$data['password']."';
-		    \$dbname='".$data['dbaname']."';
+		    \$dbname='".$data['dbname']."';
 		    ?>
 		";
 		fwrite($ourFileHandle,$written);
 		fclose($ourFileHandle);
-		unset($data);
+		unset($ourFileHandle,$written,$data);
 	}
 
 	public function dbImporter(){

@@ -16,7 +16,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<?php if(isset($error))echo $error;
 if ($page=="Media") {
 	foreach ($imgs as $v) {
-		echo $v->mdir."<br>";
+		echo "<img src='./uploads/".$v->mdir."'/>
+		<a href='".base_url('media/dbmhapus')."?mediaid=".$v->mediaid."&mdir=".$v->mdir."'>hapus</a><br>";
 	}
 	?>
 
