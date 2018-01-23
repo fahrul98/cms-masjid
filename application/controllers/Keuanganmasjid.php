@@ -13,7 +13,6 @@ kmketerangan
 kmpengeluaran
 kmsaldo
 
-
 */
 
 	public function __construct(){

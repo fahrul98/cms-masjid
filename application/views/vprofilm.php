@@ -9,7 +9,7 @@ psejarah
 pvisimisi
 */
 ?>
-<h2>Profil masjid</h2>
+<h2><?php echo $page; ?></h2>
 <a href="<?php echo base_url('#');?>">Lihat profil</a>
 
 <?php echo form_open('profilm/dbubahprofilm');?>

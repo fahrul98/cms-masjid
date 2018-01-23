@@ -27,10 +27,19 @@
         <a class="nav-link" href="<?php echo base_url('profilm')?>">Profil Masjid</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('ustadz')?>">Ustadz</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('media')?>">Media</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('jadwalkegiatan')?>">Jadwal Kegiatan</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('keuanganmasjid')?>">Keuangan Masjid</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('rekamdonasi')?>">R. Donasi</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('pengaturan')?>">Pengaturan</a>

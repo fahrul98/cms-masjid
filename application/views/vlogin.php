@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <div id="container">
 	<!-- <h1>Welcome to CodeIgniter!</h1> -->
-	<h2>Login</h2>
+	<h2><?php echo $page; ?></h2>
 	</div>
 	<?php echo form_open('login/dblogin');?>
 	<label for="username">Username</label><input type="text" name="username" value="">

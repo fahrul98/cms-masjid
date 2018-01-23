@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
 
-<<<<<<< HEAD
 	/*
 	 isi :
 	 1. Home admin (statistik). Setelah login langsung access method index().
@@ -32,38 +31,33 @@ class Admin extends CI_Controller {
 		parent::__construct();
 		//pendefinisian folder
 		if (!defined('APP')){
-		define('APP', '\application');
+		// define('APP', '\application');
+			define('APP', '/application');
 		}
 		if (!defined('CONF')) {
-		define('CONF', '\config');
+		// define('CONF', '\config');
+			define('CONF', '/config');
 		}
 	}
 
-<<<<<<< HEAD
 	public function index(){
-		if ($this->session->userdata('username') and $this->session->userdata('userpass')){
-		// if(false){
-			// redirect(base_url('admin'));
-		}else{
-			redirect(base_url('login'));
-		}
-    $data['page'] = "Beranda";
-		$this->load->view('core/core',$data);
-		$this->load->view('vadmin');
-=======
-	public function index()
-	{
-		if (file_exists(FCPATH.APP.CONF.'\cms_settings.php')) {
-			//ke halamnan index
-			$data['page'] = "Beranda";
-			$this->load->view('core/core',$data);
-			$this->load->view('vadmin');
+		//cek cms setting
+		if (!file_exists(FCPATH.APP.CONF.'\cms_settings.php')) {
+			//cek login
+			if ($this->session->userdata('username') and $this->session->userdata('userpass')){
+				// redirect(base_url('admin'));
+				$data['page'] = "Beranda";
+				$this->load->view('core/core',$data);
+				$this->load->view('vadmin');
+			}else{
+				redirect(base_url('login'));
+			}
 		}else{
 			//ke halaman instalasi
-			$this->load->view('install/i_database');
+			redirect(base_url('installer'));
 		}
 		unset($data);
->>>>>>> 90f62dae72ee1ffc17be3aab81d2241be3dea6f7
+
 	}
 
 	public function logout(){

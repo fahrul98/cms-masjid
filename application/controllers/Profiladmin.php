@@ -19,7 +19,6 @@ mediaid
 useralamat
 usertelp
 
-
 */
 
 	public function __construct(){
@@ -27,6 +26,7 @@ usertelp
 		//load model
 		$this->load->model('mprofiladmin');
 	}
+	
 	public function index(){
 	    $data['page'] = "Profil Admin";
 			$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();

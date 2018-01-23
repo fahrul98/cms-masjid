@@ -11,7 +11,7 @@ kmsaldo
 
 ?>
 
-	<h2>Post</h2>
+	<h2><?php echo $page; ?></h2>
 <?php
 if ($page=="Keuangan Masjid") {
 	if (isset($tanya)) {
