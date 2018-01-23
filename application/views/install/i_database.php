@@ -4,14 +4,16 @@
 	<title>form db</title>
 </head>
 <body>
+	<?php echo $d.'<br>';
+	 echo $d2; ?>
 <form method="POST" id="form" action="<?php echo base_url('installer/dbGenerator'); ?>">
-	host: 
+	host:
 	<input type="text" name="host"><br/>
-	username: 
+	username:
 	<input type="text" name="username"><br/>
-	password: 
+	password:
 	<input type="text" name="password"><br/>
-	dbname: 
+	dbname:
 	<input type="text" name="dbname"><br/>
 	<input type="submit" name="submit" value="lanjut>>">
 </form>

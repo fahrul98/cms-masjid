@@ -2,9 +2,23 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Installer extends CI_Controller {
+	public function __construct(){
+		parent::__construct();
+		//pendefinisian folder
+		if (defined('APP')){
+		// define('APP', '\application');
+			define('APP', '/application');
+		}
+		if (defined('CONF')) {
+		// define('CONF', '\config');
+			define('CONF', '/config');
+		}
+	}
 
 	public function index(){
-
+		$data['d'] = FCPATH.APP.CONF;
+		$data['d2'] = FCPATH.APP;
+		$this->load->view('install/i_database',$data);
 	}
 
 	public function dbGenerator(){
@@ -37,7 +51,7 @@ class Installer extends CI_Controller {
 	public function dbImporter(){
 		$templine = '';
 		// Read in entire file
-		$lines = file(FCPATH.APP.'\cmsmasjid.sql'); 
+		$lines = file(FCPATH.APP.'\cmsmasjid.sql');
 		foreach ($lines as $line){
 			// Skip it if it's a comment
 			if (substr($line, 0, 2) == '--' || $line == '')continue;
@@ -51,6 +65,6 @@ class Installer extends CI_Controller {
 			$templine = '';
 			}
 		}
-		redirect(base_url());
-	}	
+		redirect(base_url('admin'));
+	}
 }

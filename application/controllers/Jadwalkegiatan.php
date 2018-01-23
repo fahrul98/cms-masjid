@@ -19,6 +19,7 @@ jkwaktu
 		//load model
 		$this->load->model('mjkegiatan');
 	}
+
 	public function index(){
 	  $data['page'] = "Jadwal Kegiatan";
 		$data['jadwalk'] = $this->mjkegiatan->tampiljkegiatan()->result();
@@ -29,7 +30,6 @@ jkwaktu
 
 	public function tambahkegiatan(){
 		$data['page'] = "Tambah Kegiatan";
-
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vjkegiatan',$data);
@@ -65,6 +65,7 @@ jkwaktu
 		$this->mjkegiatan->ubahjkegiatan($data);
 		redirect(base_url('jadwalkegiatan'));
 	}
+	
 	public function dbhapus($jkid){
 		$data['jkid'] = $jkid;
 		$this->mjkegiatan->hapusjkegiatan($data);

@@ -4,8 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // view admin
 if ($page=="Jadwal Kegiatan") {
 ?>
-<h2>Jadwal Kegiatan</h2>
-<h3><a href="<?php echo base_url('jadwalkegiatan/tambahkegiatan');?>">Tambah kegiatan</a></h3>
+<h2><?php echo $page; ?></h2>
+<h3><a href="<?php echo base_url('jadwalkegiatan/tambahkegiatan');?>">Tambah Entri</a></h3>
 <table class="table">
 	<thead>
 		<th>No.</th>

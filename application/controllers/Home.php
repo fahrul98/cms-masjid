@@ -1,64 +1,26 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Post extends CI_Controller {
+class Home extends CI_Controller {
 
 /*
 isi :
-1. Post. operasi CRUD
-vars:
-postid
-psbuat
-psubah
-tagid
-psjudul
-psustadz
-pstext
-mediaid
+Beranda untuk netizen/ non-admin view
 */
 
-	public function __construct($postid = null){
+	public function __construct(){
 		parent::__construct();
 		//load model
 		$this->load->model('mpost');
 	}
 
 	//view all post
+	public function index(){
+		$data['page'] = "Home";
+		$data['cmpost'] = $this->mpost->tampilpost()->result();
 
-	public function index($postid = null){
-		//jika admin login
-		if (true) {
-			$data['mode'] = '';
-			$data['page'] = "Post";
-			$data['cmpost'] = $this->mpost->tampilpost()->result();
-
-			$this->load->view('core/core',$data);
-			$this->load->view('vpost',$data);
-		}else {
-
-		}
-	}
-
-	//view post untuk netizen
-	public function view($postid=null){
-		//jika postid null maka muncul daftar post
-		if (!isset($postid)) {
-			// $postid = 1;
-			$data['mode'] = 'viewall';
-			$data['page'] = "Semua Post";
-			$data['cmpost'] = $this->mpost->tampilpost()->result();
-
-			$this->load->view('core/core',$data);
-			$this->load->view('vpost',$data);
-		}else {
-			$data['mode'] = 'view';
-			$data['postid'] = $postid;
-			$data['post'] = $this->mpost->tampilpost($data)->row();
-			$data['page'] = $data['post']->psjudul;
-
-			$this->load->view('core/core',$data);
-			$this->load->view('vpost',$data);
-		}
+		$this->load->view('core/core',$data);
+		$this->load->view('vpost',$data);
 	}
 
 /*
@@ -120,7 +82,6 @@ method-method untuk operasi admin
 		$this->load->view('vpost',$data);
 		redirect(base_url('post'));
 	}
-
 /*
 
 method-method untuk user view
