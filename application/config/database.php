@@ -2,10 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 //define('url', '\application\config');
 if (!defined('APP')) {
-	define('APP', '\application');
+	// define('APP', '\application'); //w#
+	define('APP', '/application');//linux
 }
 if (!defined('CONF')) {
-	define('CONF', '\config');
+	// define('CONF', '\config'); //w#
+	define('CONF', '/config');//linux
 }
 
 /*
@@ -80,7 +82,10 @@ if (!defined('CONF')) {
 $active_group = 'default';
 $query_builder = TRUE;
 
-if (file_exists(FCPATH.APP.CONF.'\cms_settings.php')) {
+// if (file_exists(FCPATH.APP.CONF.'\cms_settings.php')) {
+
+// direktori linux gawe slash, windows gawe backslash. lol
+if (file_exists(FCPATH.APP.CONF.'/cms_settings.php')) {
 include 'cms_settings.php';
 $db['default'] = array(
 	'dsn'	=> '',

@@ -5,7 +5,7 @@ class Mmedia extends CI_Model {
 
 /*
 isi :
-1. Ustadz. operasi CRUD
+1. Media. operasi CRUD
 vars:
 usid
 usnama
@@ -26,7 +26,8 @@ unset(variabel) => hapus variabel dari memori
 	public function tampilmedia($data = null){
 		// jika null maka fullselect, else ambil idpost
 		if ($data===null||$data==null) {
-			$q = $this->db->query("select * from cmmedia");
+			//mediaid>2 , mediaid 1 & 2 dipakai sebagai default media. tidak untuk dihapus
+			$q = $this->db->query("select * from cmmedia where mediaid>2");
 		}else{
 			$q = $this->db->query("select * from cmmedia where mediaid=?",array($data['mediaidid']));
 		}
@@ -42,7 +43,6 @@ unset(variabel) => hapus variabel dari memori
 		// }
 		$data['metadata']='meta';
 		$q = $this->db->query("insert into cmmedia (mmeta,mdir) values (?,?)",
-		// $q = $this->db->query("insert into cmustadz (usnama,usnotelp,usalamat) values (?,?,?,?)",
 		array(
 			// $data['usid'],
 			$data['metadata'],

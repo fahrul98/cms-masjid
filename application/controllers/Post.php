@@ -28,7 +28,7 @@ mediaid
 	public function index($postid = null){
 		//jika admin login
 		if (true) {
-			$data['mode'] = '';
+			// $data['mode'] = '';
 			$data['page'] = "Post";
 			$data['cmpost'] = $this->mpost->tampilpost()->result();
 
@@ -44,14 +44,14 @@ mediaid
 		//jika postid null maka muncul daftar post
 		if (!isset($postid)) {
 			// $postid = 1;
-			$data['mode'] = 'viewall';
+			// $data['mode'] = 'viewall';
 			$data['page'] = "Semua Post";
 			$data['cmpost'] = $this->mpost->tampilpost()->result();
 
 			$this->load->view('core/core',$data);
 			$this->load->view('vpost',$data);
 		}else {
-			$data['mode'] = 'view';
+			// $data['mode'] = 'view';
 			$data['postid'] = $postid;
 			$data['post'] = $this->mpost->tampilpost($data)->row();
 			$data['page'] = $data['post']->psjudul;

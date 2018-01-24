@@ -16,7 +16,13 @@
     <!-- head  -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo "-".$title."-" ;?></title>
+    <title><?php
+    //switch page title, (page ini kelakuannya ini, dsb)
+    switch ($page) {
+      case "Beranda":echo "- ".$title." - ".$cmprofil->pnama;break;
+      default:echo "- ".$title." - ";break;
+    }
+    ?></title>
   	<link href="<?php echo site_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
   	<!-- <link href="<?php echo site_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet"> -->
   	<!-- <link href="<?php echo site_url('assets/css/w3.css'); ?>" rel="stylesheet"> -->
