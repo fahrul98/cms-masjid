@@ -22,6 +22,7 @@ if ($page=="Post"&&!$mode=="viewall") {
 ?>
 <h2><?php echo $page; ?></h2>
 <h3><a href="<?php echo base_url('post/tulis');?>">Tulis postingan</a></h3>
+<h3><a href="<?php echo base_url('post/view');?>">Tampil semua</a></h3>
 	<table class="table">
 		<thead>
 			<th>No.</th>

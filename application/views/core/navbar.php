@@ -49,7 +49,6 @@
       </li>
     </ul>
     <span class="navbar-text">
-      <!-- 160db33763e54957726dc8e62489d6df -->
       <?php echo md5('dib') ?>
     </span>
   </div>
@@ -57,4 +56,3 @@
 <?php
 
 ?>
-</nav>
