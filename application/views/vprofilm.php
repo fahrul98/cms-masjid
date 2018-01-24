@@ -8,6 +8,17 @@ pdeskripsi
 psejarah
 pvisimisi
 */
+
+$adminlogin = $this->session->userdata('username')&&$this->session->userdata('userpass')?'notnull':null;
+
+//$adminlogin vars test
+// echo $adminlogin."--";
+// $val = $adminlogin==1?'nice':'not nice';
+// $val = isset($adminlogin)?'nice':'not nice';
+// if ($adminlogin) {
+// 	echo "val -> ".$val;
+// }
+
 ?>
 <h2><?php echo $page; ?></h2>
 <a href="<?php echo base_url('#');?>">Lihat profil</a>

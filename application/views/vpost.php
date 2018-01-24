@@ -15,14 +15,14 @@ mediaid
 
 
 <?php
-if ($page=="Post"&&!$mode=="viewall") {
+if ($page=="Post") {
 	if (isset($tanya)) {
 		echo $tanya;
 	}
 ?>
 <h2><?php echo $page; ?></h2>
 <h3><a href="<?php echo base_url('post/tulis');?>">Tulis postingan</a></h3>
-<h3><a href="<?php echo base_url('post/view');?>">Tampil semua</a></h3>
+<h3><a href="<?php echo base_url('pengunjung/post');?>">Tampil semua</a></h3>
 	<table class="table">
 		<thead>
 			<th>No.</th>

@@ -5,7 +5,7 @@ class Mlogin extends CI_Model {
 
 /*
 isi :
-1. Post. operasi CRUD
+1. Credential. operasi CRUD
 vars:
 postid
 psbuat
