@@ -10,7 +10,7 @@ kmsaldo
 */
 
 ?>
-
+<div class="container">
 	<h2>Post</h2>
 <?php
 if ($page=="Keuangan Masjid") {
@@ -19,8 +19,8 @@ if ($page=="Keuangan Masjid") {
 	}
 ?>
 <h3><a href="<?php echo base_url('keuanganmasjid/tambahentri');?>">Tambah Entri</a></h3>
-	<table class="table">
-		<thead>
+	<table class="table table-bordered table-striped table-hover">
+		<thead align="center">
 			<th>No.</th>
 			<th>Waktu</th>
 			<th>Keterangan</th>
@@ -69,3 +69,4 @@ $n = 1;
 	<label for="kmsaldo">kmsaldo</label><input type="textarea" name="kmsaldo" value="<?php echo $kmasjid->kmsaldo;?>">
 	<input type="submit" name="submit" value="entri">
 <?php } ?>
+</div>

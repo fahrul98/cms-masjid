@@ -80,7 +80,7 @@ if (!defined('CONF')) {
 $active_group = 'default';
 $query_builder = TRUE;
 
-if (file_exists(FCPATH.APP.CONF.'\cms_settings.php')) {
+if (!file_exists(FCPATH.APP.CONF.'\cms_settings.php')) {
 include 'cms_settings.php';
 $db['default'] = array(
 	'dsn'	=> '',
@@ -107,9 +107,9 @@ $db['default'] = array(
 	$db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => '',
+	'username' => 'root',
 	'password' => '',
-	'database' => '',
+	'database' => 'cmsmasjid',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

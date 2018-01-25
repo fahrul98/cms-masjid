@@ -1,21 +1,20 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 // view admin
 if ($page=="Jadwal Kegiatan") {
 ?>
-<h2>Jadwal Kegiatan</h2>
-<h3><a href="<?php echo base_url('jadwalkegiatan/tambahkegiatan');?>">Tambah kegiatan</a></h3>
-<table class="table">
-	<thead>
-		<th>No.</th>
-		<th>Nama Kegiatan</th>
-		<th>Pihak terkait</th>
-		<th>Waktu</th>
-		<th>Tag</th>
-		<th colspan="2">Operasi</th>
-	</thead>
-<?php
+<div class="container">
+	<h2>Jadwal Kegiatan</h2>
+	<table class="table table-bordered table-striped table-hover">
+		<thead align="center">
+			<th>No.</th>
+			<th>Nama Kegiatan</th>
+			<th>Pihak terkait</th>
+			<th>Waktu</th>
+			<th>Tag</th>
+			<th colspan="2">Operasi</th>
+		</thead>
+	<?php
 	$n = 1;
 		foreach ($jadwalk as $v) {
 			echo "<tr>
@@ -32,6 +31,7 @@ if ($page=="Jadwal Kegiatan") {
 		}
 		 ?>
 	</table>
+	<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('jadwalkegiatan/tambahkegiatan');?>"> Tambah Kegiatan</a></button> 
 	<?php }else if ($page=="Tambah Kegiatan") {?>
 	<h3><a href="<?php echo base_url('jadwalkegiatan');?>">Kembali</a></h3>
 		<h3>Tambah kegiatan</h3>
@@ -55,3 +55,4 @@ if ($page=="Jadwal Kegiatan") {
 		<label for="tagid">Tag</label><input type="textarea" name="tagid" value="<?php echo $jadwalk->tagid;?>">
 		<input type="submit" name="submit" value="Ubah">
 	<?php } ?>
+</div>

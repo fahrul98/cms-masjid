@@ -12,7 +12,7 @@ mediaid
 */
 // view admin
 ?>
-
+<div class="container">
 	<h2>Post</h2>
 <?php
 if ($page=="Post") {
@@ -20,9 +20,8 @@ if ($page=="Post") {
 		echo $tanya;
 	}
 ?>
-<h3><a href="<?php echo base_url('post/tulis');?>">Tulis postingan</a></h3>
-	<table class="table">
-		<thead>
+	<table class="table table-bordered table-striped table-hover">
+		<thead align="center">
 			<th>No.</th>
 			<th>Judul</th>
 			<th>Ustadz</th>
@@ -48,7 +47,7 @@ $n = 1;
 		}
 		 ?>
 	</table>
-
+	<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('post/tulis');?>"> Tulis postingan</a></button> 
 <?php }else if ($page=="Tulis Postingan") {?>
 <h3><a href="<?php echo base_url('post');?>">Kembali</a></h3>
 	<h3>Tulis postingan</h3>
@@ -72,3 +71,5 @@ $n = 1;
 	<label for="text">Tagid</label><input type="textarea" name="tagid" value="<?php echo $post->tagid;?>">
 	<input type="submit" name="submit" value="Tulis">
 <?php } ?>
+	
+</div>
