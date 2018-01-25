@@ -4,9 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // view admin
 if ($page=="Jadwal Kegiatan") {
 ?>
+<div class="container" style="margin-left: 400px; margin-top: 50px;">
 <h2><?php echo $page; ?></h2>
-<h3><a href="<?php echo base_url('jadwalkegiatan/tambahkegiatan');?>">Tambah Entri</a></h3>
-<table class="table">
+<table class="table table-bordered table-striped table-hover">
 	<thead>
 		<th>No.</th>
 		<th>Nama Kegiatan</th>
@@ -32,6 +32,7 @@ if ($page=="Jadwal Kegiatan") {
 		}
 		 ?>
 	</table>
+	<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('jadwalkegiatan/tambahkegiatan');?>"> Tambah Kegiatan</a></button> 
 	<?php }else if ($page=="Tambah Kegiatan") {?>
 	<h3><a href="<?php echo base_url('jadwalkegiatan');?>">Kembali</a></h3>
 		<h3>Tambah kegiatan</h3>
@@ -55,3 +56,4 @@ if ($page=="Jadwal Kegiatan") {
 		<label for="tagid">Tag</label><input type="textarea" name="tagid" value="<?php echo $jadwalk->tagid;?>">
 		<input type="submit" name="submit" value="Ubah">
 	<?php } ?>
+</div>

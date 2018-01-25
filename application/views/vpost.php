@@ -13,7 +13,7 @@ mediaid
 // view admin
 ?>
 
-
+<div class="container" style="margin-left: 300px; margin-top: 70px" >
 <?php
 if ($page=="Post") {
 	if (isset($tanya)) {
@@ -21,9 +21,7 @@ if ($page=="Post") {
 	}
 ?>
 <h2><?php echo $page; ?></h2>
-<h3><a href="<?php echo base_url('post/tulis');?>">Tulis postingan</a></h3>
-<h3><a href="<?php echo base_url('pengunjung/post');?>">Tampil semua</a></h3>
-	<table class="table">
+	<table class="table table-bordered table-striped table-hover">
 		<thead>
 			<th>No.</th>
 			<th>Judul</th>
@@ -50,7 +48,8 @@ $n = 1;
 		}
 		 ?>
 	</table>
-
+<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('post/tulis');?>"> Tulis postingan</a></button> 
+<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('pengunjung/post');?>"> Tampil Semua </a></button> 
 <?php }else if ($page=="Tulis Postingan") {?>
 	<h2><?php echo $page; ?></h2>
 <h3><a href="<?php echo base_url('post');?>">Kembali</a></h3>
@@ -113,3 +112,4 @@ $n = 1;
 		 ?>
 	</table>
 <?php } ?>
+</div>

@@ -10,7 +10,7 @@ kmsaldo
 */
 
 ?>
-
+<div class="container" style="margin-left: 400px; margin-top: 50px;">
 	<h2><?php echo $page; ?></h2>
 <?php
 if ($page=="Keuangan Masjid") {
@@ -18,8 +18,7 @@ if ($page=="Keuangan Masjid") {
 		echo $tanya;
 	}
 ?>
-<h3><a href="<?php echo base_url('keuanganmasjid/tambahentri');?>">Tambah Entri</a></h3>
-	<table class="table">
+	<table class="table table-bordered table-striped table-hover">
 		<thead>
 			<th>No.</th>
 			<th>Waktu</th>
@@ -46,7 +45,7 @@ $n = 1;
 		}
 		 ?>
 	</table>
-
+	<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('keuanganmasjid/tambahentri');?>"> Tambah Kegiatan</a></button> 
 <?php }else if ($page=="Tambah Entri") {?>
 <h3><a href="<?php echo base_url('keuanganmasjid');?>">Kembali</a></h3>
 	<h3><?php echo $page; ?></h3>
@@ -69,3 +68,4 @@ $n = 1;
 	<label for="kmsaldo">kmsaldo</label><input type="textarea" name="kmsaldo" value="<?php echo $kmasjid->kmsaldo;?>">
 	<input type="submit" name="submit" value="entri">
 <?php } ?>
+</div>
