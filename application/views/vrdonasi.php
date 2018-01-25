@@ -12,7 +12,7 @@ rdtotal
 */
 // view admin
 ?>
-
+<div class="container" style="margin-top: 50px; margin-left: 400px">
 	<h2><?php echo $page; ?></h2>
 <?php
 if ($page=="Rekam Donasi") {
@@ -20,8 +20,8 @@ if ($page=="Rekam Donasi") {
 		echo $tanya;
 	}
 ?>
-<h3><a href="<?php echo base_url('rekamdonasi/tambahrdonasi');?>">Tambah Entri</a></h3>
-	<table class="table">
+
+	<table class="table table-bordered table-striped table-hover">
 		<thead>
 			<th>No.</th>
 			<th>Waktu</th>
@@ -48,26 +48,50 @@ $n = 1;
 		}
 		 ?>
 	</table>
-
+	<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('rekamdonasi/tambahrdonasi');?>"> Tambah Entri</a></button> 
 <?php }else if ($page=="Tambah rekamdonasi") {?>
-<h3><a href="<?php echo base_url('rekamdonasi');?>">Kembali</a></h3>
-	<h3>Tambah rekamdonasi</h3>
 	<?php echo form_open('rekamdonasi/dbtambahrdonasi','class=form');	?>
-	<label for="rdwaktu">Waktu</label><input type="text" name="rdwaktu" value="">
-	<label for="rdjumlah">Jumlah</label><input type="text" name="rdjumlah" value="">
-	<label for="rddonatur">Donatur</label><input type="textarea" name="rddonatur" value="">
-	<label for="rdtotal">Total</label><input type="text" name="rdtotal" value="">
-	<input type="submit" name="submit" value="tambah">
-
+	<div class="form-group">
+		<label for="rdwaktu">Waktu :  </label>
+		<input type="text" class="form-control" name="rdwaktu" value="">
+	</div>
+	<div class="form-group">
+		<label for="rdjumlah">Jumlah : </label>
+		<input type="text" class="form-control" name="rdjumlah" value="">
+	</div>
+	<div class="form-group">
+		<label for="rddonatur">Donatur : </label>
+		<input type="textarea" class="form-control" name="rddonatur" value="">	
+	</div>
+	<div class="form-group">
+		<label for="rdtotal">Total : </label>
+		<input type="text" class="form-control" name="rdtotal" value="">
+	</div>
+	
+		<button type="submit" class="btn btn-primary" name="submit" value="tambah">Tambah</button>
+		<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('rekamdonasi');?>">Kembali</a></button>
+	
 <?php }else if ($page=="Ubah rekamdonasi") {?>
-	<h3><a href="<?php echo base_url('rekamdonasi');?>">Kembali</a></h3>
-	<h3>Ubah rekamdonasi</h3>
-	<a href="<?php echo base_url('rekamdonasi/dbhapus/'.$cmrdonasi->rdid) ?>">Hapus rekamdonasi</a>
 	<?php echo form_open('rekamdonasi/dbubah','class=form');	?>
 	<input type="hidden" name="rdid" value="<?php echo $cmrdonasi->rdid;?>">
-	<label for="rdwaktu">Waktu</label><input type="text" name="rdwaktu" value="<?php echo $cmrdonasi->rdwaktu;?>">
-	<label for="rdjumlah">Jumlah</label><input type="text" name="rdjumlah" value="<?php echo $cmrdonasi->rdjumlah;?>">
-	<label for="rddonatur">Donatur</label><input type="textarea" name="rddonatur" value="<?php echo $cmrdonasi->rddonatur;?>">
-	<label for="rdtotal">Total</label><input type="text" name="rdtotal" value="<?php echo $cmrdonasi->rdtotal;?>">
-	<input type="submit" name="submit" value="update">
+	<div class="form-group">
+		<label for="rdwaktu">Waktu : </label>
+		<input type="text" class="form-control" name="rdwaktu" value="<?php echo $cmrdonasi->rdwaktu;?>">
+	</div>
+	<div class="form-group">
+		<label for="rdjumlah">Jumlah</label>
+		<input type="text" class="form-control" name="rdjumlah" value="<?php echo $cmrdonasi->rdjumlah;?>">
+	</div>
+	<div class="form-group">
+		<label for="rddonatur">Donatur</label>
+		<input type="textarea" class="form-control" name="rddonatur" value="<?php echo $cmrdonasi->rddonatur;?>">
+	</div>
+	<div class="form-group">
+		<label for="rdtotal">Total</label>
+		<input type="text" class="form-control" name="rdtotal" value="<?php echo $cmrdonasi->rdtotal;?>">
+	</div>
+	<button type="submit" class="btn btn-primary" name="submit" value="update">Update</button>
+	<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('rekamdonasi');?>">Kembali</a></button>
+	<button type="submit" class="btn btn-danger" name="submit" value="hapus"><a style="text-decoration: none" href="<?php echo base_url('rekamdonasi/dbhapus/'.$cmrdonasi->rdid);?>">Hapus Rekamdonasi</a></button>
 <?php } ?>
+</div>

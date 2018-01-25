@@ -13,7 +13,7 @@ mediaid
 // view admin
 ?>
 
-
+<div class="container">
 <?php
 if ($page=="Beranda") {
 	if (isset($tanya)) {
@@ -22,7 +22,7 @@ if ($page=="Beranda") {
 ?>
 <h2><?php echo $page;?></h2>
 <h2><?php echo $cmprofil->pnama;?></h2>
-	<table class="table">
+	<table class="table  table-bordered table-striped table-hover">
 		<thead>
 			<th>No.</th>
 			<th>Judul</th>
@@ -65,3 +65,4 @@ $n = 1;
 	<h2><?php echo $page;?><h3><?php echo $mode; ?></h3></h2>
 
 <?php }?>
+</div>
