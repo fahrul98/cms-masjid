@@ -53,7 +53,7 @@ class Admin extends CI_Controller {
 				// print(FCPATH.APP.CONF.'\cms_settings.php');
 				print(FCPATH.APP.CONF.'/cms_settings.php');
 			}else{
-				redirect(base_url('login'));
+				redirect(base_url('beranda'));
 			}
 		}else{
 			//ke halaman instalasi

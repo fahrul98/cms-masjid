@@ -17,22 +17,25 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url('pengunjung/post')?>">post <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?php echo base_url('beranda/post')?>">post <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url('pengunjung/profilm')?>">profil m <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?php echo base_url('beranda/profilm')?>">profil m <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url('pengunjung/takmirm')?>">takmir m <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?php echo base_url('beranda/takmirm')?>">takmir m <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url('pengunjung/ustadz')?>">Daftar ustadz <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?php echo base_url('beranda/ustadz')?>">Daftar ustadz <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url('pengunjung/keuanganmasjid')?>">Keuangan Masjid <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?php echo base_url('beranda/keuanganmasjid')?>">Keuangan Masjid <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url('pengunjung/jadwalkegiatan')?>">Jadwal Kegiatan<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?php echo base_url('beranda/jadwalkegiatan')?>">Jadwal Kegiatan<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('login')?>">Login</a>
       </li>
     </ul>
     <span class="navbar-text">
