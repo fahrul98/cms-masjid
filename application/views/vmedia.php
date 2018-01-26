@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<label for="tagid">Tagid</label><input type="textarea" name="tagid" value="">
 	<label for="mediaid">Tagid</label><input type="file" name="mediaid" value="">
 	<input type="submit" name="submit" value="Tulis"> -->
-
+<div class="container" style="margin-top: 160px; margin-left: 400px">
 	<?php if(isset($error))echo $error;
 if ($page=="Media") {
 	foreach ($imgs as $v) {
@@ -38,3 +38,4 @@ if ($page=="Media") {
 
 	<p><?php echo anchor('media', 'Upload Another File!'); ?></p>
 <?php } ?>
+</div>

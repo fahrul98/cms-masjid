@@ -24,11 +24,232 @@
     }
     ?></title>
   	<link href="<?php echo site_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo site_url('assets/css/bootstrap.css'); ?>" rel="stylesheet">
   	<!-- <link href="<?php echo site_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet"> -->
   	<!-- <link href="<?php echo site_url('assets/css/w3.css'); ?>" rel="stylesheet"> -->
     <script src="<?php echo site_url('assets/js/jquery-3.2.1.min.js');?>"></script>
     <script src="<?php echo site_url('assets/js/jquery-ui.min.js'); ?>"></script>
   	<script src="<?php echo site_url('assets/js/bootstrap.js');?>"></script>
+    <!-- ini Amin Edit -->
+    <style type="text/css">
+    .nav-side-menu {
+      overflow: none;
+      font-family: verdana;
+      font-size: 15px;
+      font-weight: 200;
+      background-color: #2e353d;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 300px;
+      height: 2 00%;
+      color: #e1ffff;
+    }
+    .nav-side-menu .brand {
+      background-color: #23282e;
+      line-height: 150px;
+      display: block;
+      text-align: center;
+      font-size: 20px;
+      text-decoration: none;
+    }
+    .nav-side-menu .toggle-btn {
+      display: none;
+    }
+    .nav-side-menu ul,
+    .nav-side-menu li {
+      list-style: none;
+      padding: 0px;
+      margin: 0px;
+      line-height: 65px;
+      cursor: pointer;    
+    }
+
+    .nav-side-menu ul .active, .nav-side-menu li .active {
+      height: 70px;
+      border-left: 15px solid #d19b3d;
+      background-color: #4f5b69;
+    }
+    .nav-side-menu li {
+      height: 70px;
+      padding-left: 0px;
+      border-left: 15px solid #2e353d;
+      border-bottom: 1px solid #23282e;
+    }
+    .nav-side-menu li a {
+      text-decoration: none;
+      color: #e1ffff;
+      height: 200px;
+    }
+    .nav-side-menu li a i {
+      padding-left: 10px;
+      width: 20px;
+      padding-right: 20px;
+    }
+    .nav-side-menu li:hover {
+      border-left: 3px solid #d19b3d;
+      background-color: #4f5b69;
+      transition: all 1s ease;
+    }
+    @media (max-width: 767px) {
+    .nav-side-menu {
+          position: relative;
+          width: 100%;
+          margin-bottom: 10px;
+    }
+    .nav-side-menu .toggle-btn {
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        z-index: 10!important;
+        padding: 3px;
+        background-color: #ffffff;
+        color: #000;
+        width: 40px;
+        text-align: center;
+    }
+    .brand {
+      text-align: left !important;
+      font-size: 22px;
+      padding-left: 20px;
+      line-height: 50px !important;
+    }
+  }
+  @media (min-width: 767px) {
+    .nav-side-menu .menu-list .menu-content {
+      display: block;
+    }
+  }
+  body {
+    margin: 0px;
+    padding: 0px;
+  }
+  .container {
+    width: 500px;
+    margin-left: 140px;
+    margin-right: 110px;
+    
+  }
+
+  /*CSS LOGIN*/
+  body {
+    padding-top: 90px;
+}
+.panel-login {
+  border-color: #ccc;
+  -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+}
+.panel-login>.panel-heading {
+  color: #00415d;
+  background-color: #fff;
+  border-color: #fff;
+  text-align:center;
+}
+.panel-login>.panel-heading a{
+  text-decoration: none;
+  color: #666;
+  font-weight: bold;
+  font-size: 15px;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+.panel-login>.panel-heading a.active{
+  color: #029f5b;
+  font-size: 18px;
+}
+.panel-login>.panel-heading hr{
+  margin-top: 10px;
+  margin-bottom: 0px;
+  clear: both;
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+  background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+  background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+}
+.panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
+  height: 45px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+.panel-login input:hover,
+.panel-login input:focus {
+  outline:none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-color: #ccc;
+}
+.btn-login {
+  background-color: #59B2E0;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  height: auto;
+  font-weight: normal;
+  padding: 14px 0;
+  text-transform: uppercase;
+  border-color: #59B2E6;
+}
+.btn-login:hover,
+.btn-login:focus {
+  color: #fff;
+  background-color: #53A3CD;
+  border-color: #53A3CD;
+}
+.forgot-password {
+  text-decoration: underline;
+  color: #888;
+}
+.forgot-password:hover,
+.forgot-password:focus {
+  text-decoration: underline;
+  color: #666;
+}
+
+.btn-register {
+  background-color: #1CB94E;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  height: auto;
+  font-weight: normal;
+  padding: 14px 0;
+  text-transform: uppercase;
+  border-color: #1CB94A;
+}
+.btn-register:hover,
+.btn-register:focus {
+  color: #fff;
+  background-color: #1CA347;
+  border-color: #1CA347;
+}
+/*END of CSS LOGIN*/
+</style>
+    <script src="js/jquery.js"></script>
+    <script src="css/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        window.alert = function(){};
+        var defaultCSS = document.getElementById('bootstrap-css');
+        function changeCSS(css){
+            if(css) $('head > link').filter(':first').replaceWith('<link rel="stylesheet" href="'+ css +'" type="text/css" />'); 
+            else $('head > link').filter(':first').replaceWith(defaultCSS); 
+        }
+        $( document ).ready(function() {
+          var iframe_height = parseInt($('html').height()); 
+          window.parent.postMessage( iframe_height, 'https://bootsnipp.com');
+        });
+    </script>
+   <script src="https://use.fontawesome.com/417e198f5e.js"></script>
 <?php
 //php code
 
