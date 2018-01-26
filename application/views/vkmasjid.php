@@ -10,7 +10,7 @@ kmsaldo
 */
 
 ?>
-<div class="container" style="margin-left: 400px; margin-top: 50px;">
+<div class="container" style="margin-left: 400px; margin-top: 50px;"	>
 	<h2><?php echo $page; ?></h2>
 <?php
 if ($page=="Keuangan Masjid") {
@@ -45,27 +45,59 @@ $n = 1;
 		}
 		 ?>
 	</table>
-	<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('keuanganmasjid/tambahentri');?>"> Tambah Kegiatan</a></button> 
+	<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('keuanganmasjid/tambahentri');?>"> Tambah Entri</a></button> 
 <?php }else if ($page=="Tambah Entri") {?>
-<h3><a href="<?php echo base_url('keuanganmasjid');?>">Kembali</a></h3>
-	<h3><?php echo $page; ?></h3>
+
+	
 	<?php echo form_open('keuanganmasjid/dbentri','class=form');	?>
-	<label for="kmwaktu">kmwaktu</label><input type="text" name="kmwaktu" value="">
-	<label for="kmketerangan">kmketerangan</label><input type="text" name="kmketerangan" value="">
-	<label for="kmpengeluaran">kmpengeluaran</label><input type="textarea" name="kmpengeluaran" value="">
-	<label for="kmsaldo">kmsaldo</label><input type="textarea" name="kmsaldo" value="">
-	<input type="submit" name="submit" value="entri">
+	
+	<div class="form-group">
+			<label for="kmwaktu">kmwaktu</label>
+			<input type="text" class="form-control" name="kmwaktu" value="">
+		</div>
+		<div class="form-group">
+			<label for="kmketerangan">kmketerangan</label>
+			<input type="text" class="form-control" name="kmketerangan" value="">
+		</div>
+		<div class="form-group">
+			<label for="kmpengeluaran">kmpengeluaran</label>
+			<input type="textarea" class="form-control" name="kmpengeluaran" value="">
+		</div>
+		<div class="form-group">
+				<label for="kmsaldo">kmsaldo</label>
+				<input type="textarea" class="form-control" name="kmsaldo" value="">
+		</div>
+
+	<button type="submit" class="btn btn-primary" name="submit" value="entri">Tambah</button>
+		<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('keuanganmasjid');?>">Kembali</a></button>
+	</div>
 
 <?php }else if ($page=="Ubah Entri") {?>
-	<h3><a href="<?php echo base_url('keuanganmasjid');?>">Kembali</a></h3>
-	<h3><?php echo $page; ?></h3>
-	<a href="<?php echo base_url('keuanganmasjid/dbhapus/'.$kmasjid->kmid) ?>">Hapus entri</a>
+	
+	
 	<?php echo form_open('keuanganmasjid/dbubah','class=form');	?>
 	<input type="hidden" name="kmid" value="<?php echo $kmasjid->kmid;?>">
-	<label for="kmwaktu">kmwaktu</label><input type="text" name="kmwaktu" value="<?php echo $kmasjid->kmwaktu;?>">
-	<label for="kmketerangan">kmketerangan</label><input type="text" name="kmwaktu" value="<?php echo $kmasjid->kmketerangan;?>">
-	<label for="kmpengeluaran">kmpengeluaran</label><input type="textarea" name="kmpengeluaran" value="<?php echo $kmasjid->kmpengeluaran;?>">
-	<label for="kmsaldo">kmsaldo</label><input type="textarea" name="kmsaldo" value="<?php echo $kmasjid->kmsaldo;?>">
-	<input type="submit" name="submit" value="entri">
+	<div class="form-group">
+			<label for="kmwaktu">kmwaktu</label>
+			<input type="text" class="form-control" name="kmwaktu" value="<?php echo $kmasjid->kmwaktu;?>">
+		</div>
+		<div class="form-group">
+			<label for="kmketerangan">kmketerangan</label>
+			<input type="text" class="form-control" name="kmketerangan" value="<?php echo $kmasjid->kmketerangan;?>">
+		</div>
+		<div class="form-group">
+			<label for="kmpengeluaran">kmpengeluaran</label>
+			<input type="textarea" class="form-control" name="kmpengeluaran" value="<?php echo $kmasjid->kmpengeluaran;?>">
+		</div>
+		<div class="form-group">
+				<label for="kmsaldo">kmsaldo</label>
+				<input type="textarea" class="form-control" name="kmsaldo" value="<?php echo $kmasjid->kmsaldo;?>">
+		</div>
+
+	<button type="submit" class="btn btn-primary" name="submit" value="entri">Update</button>
+		<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('keuanganmasjid');?>">Kembali</a></button>
+		<button type="submit" class="btn btn-danger" name="submit" value="hapus"><a style="text-decoration: none" href="<?php echo base_url('keuanganmasjid/dbhapus/'.$kmasjid->kmid);?>">Hapus Entri</a></button>
+	</div
+	
 <?php } ?>
 </div>
