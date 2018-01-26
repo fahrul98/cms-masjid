@@ -10,7 +10,7 @@ kmsaldo
 */
 
 ?>
-<div class="container" style="margin-left: 400px; margin-top: 50px;">
+<div class="container" style="margin-left: 400px; margin-top: 50px;"	>
 	<h2><?php echo $page; ?></h2>
 <?php
 if ($page=="Keuangan Masjid") {
