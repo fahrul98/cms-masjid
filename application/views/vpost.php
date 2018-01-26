@@ -65,7 +65,7 @@ $n = 1;
 	</div>
 	<div class="form-group">
 		<label for="text">Text</label>
-		<input type="textarea" class="form-control" name="text" value="">
+		<input type="textarea" style="height: 300px; width: 600px" class="form-control" name="text" value="">
 	</div>
 	<div class="form-group">
 		<label for="tagid">Tagid</label>
@@ -93,7 +93,7 @@ $n = 1;
 	</div>
 	<div class="form-group">
 		<label for="text">Text</label>
-		<input type="textarea" class="form-control" name="text" value="<?php echo $post->pstext;?>">
+		<input type="textarea" style="height: 300px; width: 600px" class="form-control" name="text" value="<?php echo $post->pstext;?>">
 	</div>
 	<div class="form-group">
 		<label for="text">Tagid</label>
