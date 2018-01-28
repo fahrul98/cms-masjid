@@ -18,11 +18,13 @@ jkwaktu
 		parent::__construct();
 		//load model
 		$this->load->model('mjkegiatan');
+		$this->load->model('mprofiladmin');
 	}
 
 	public function index(){
 	  $data['page'] = "Jadwal Kegiatan";
 		$data['jadwalk'] = $this->mjkegiatan->tampiljkegiatan()->result();
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vjkegiatan',$data);
@@ -31,6 +33,8 @@ jkwaktu
 
 	public function tambahkegiatan(){
 		$data['page'] = "Tambah Kegiatan";
+		$this->load->model('mprofiladmin');
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vjkegiatan',$data);
@@ -38,6 +42,7 @@ jkwaktu
 	}
 
 	public function ubahjkegiatan($jkid){
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Ubah Kegiatan";
 		$data['jkid'] = $jkid;
 		$data['jadwalk'] = $this->mjkegiatan->tampiljkegiatan($data)->row();
@@ -49,6 +54,7 @@ jkwaktu
 
 	public function dbtambahjk(){
 		// $data['jkid']=$this->input->post('');
+
 		$data['jknama']=$this->input->post('jknama');
 		$data['jkpihak']=$this->input->post('jkpihak');
 		$data['jkwaktu']=$this->input->post('jkwaktu');

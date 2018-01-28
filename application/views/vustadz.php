@@ -12,7 +12,8 @@ mediaid
 */
 // view admin
 ?>
-<div class="container" style="margin-left: 400px; margin-top: 50px;">
+<div id="main-content">
+<!-- <div class="container" style="margin-left: 400px; margin-top: 50px;"> -->
 	<h2><?php echo $page; ?></h2>
 <?php
 if ($page=="Ustadz") {
@@ -67,7 +68,7 @@ $n = 1;
 		<label for="mediaid">Media id</label>
 		<input type="file" class="form-control" name="mediaid" value="">
 	</div>
- 	
+
  	<button type="submit" class="btn btn-primary" name="submit" value="tambah">Tambah</button>
 		<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('ustadz');?>">Kembali</a></button>
 
@@ -91,7 +92,7 @@ $n = 1;
 		<label for="mediaid">Media id</label>
 		<input type="file" class="form-control" name="mediaid" value="<?php echo $ustadz->mediaid;?>">
 	</div>
- 	
+
 	<button type="submit" class="btn btn-primary" name="submit" value="update">Update</button>
 	<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('ustadz');?>">Kembali</a></button>
 	<button type="submit" class="btn btn-danger" name="submit" value="hapus"><a style="text-decoration: none" href="<?php echo base_url('ustadz/dbhapus/'.$ustadz->usid);?>">Hapus Ustadz</a></button>

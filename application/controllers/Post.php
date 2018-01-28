@@ -21,6 +21,7 @@ mediaid
 		parent::__construct();
 		//load model
 		$this->load->model('mpost');
+		$this->load->model('mprofiladmin');
 	}
 
 	//view all post
@@ -28,6 +29,7 @@ mediaid
 	public function index($postid = null){
 		//jika admin login
 		if (true) {
+			$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 			// $data['mode'] = '';
 			$data['page'] = "Post";
 			$data['cmpost'] = $this->mpost->tampilpost()->result();
@@ -46,6 +48,7 @@ mediaid
 		if (!isset($postid)) {
 			// $postid = 1;
 			// $data['mode'] = 'viewall';
+			$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 			$data['page'] = "Semua Post";
 			$data['cmpost'] = $this->mpost->tampilpost()->result();
 
@@ -53,7 +56,7 @@ mediaid
 			$this->load->view('vpost',$data);
 			$this->load->view('core/footer',$data);
 		}else {
-			// $data['mode'] = 'view';
+			$data['mode'] = 'view';
 			$data['postid'] = $postid;
 			$data['post'] = $this->mpost->tampilpost($data)->row();
 			$data['page'] = $data['post']->psjudul;
@@ -70,6 +73,7 @@ method-method untuk operasi admin
 
 */
 	public function tulis(){
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Tulis Postingan";
 
 		$this->load->view('core/core',$data);
@@ -107,6 +111,7 @@ method-method untuk operasi admin
 	}
 
 	public function ubahpost($postid){
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Ubah Postingan";
 		$data['postid'] = $postid;
 		$data['post'] = $this->mpost->tampilpost($data)->row();
@@ -117,6 +122,7 @@ method-method untuk operasi admin
 	}
 
 	public function hapuspost(){
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Hapus Postingan";
 		// $data['tanya'] = "<script>alert('yakin hapus ?')</script>";
 		// $this->mpost->

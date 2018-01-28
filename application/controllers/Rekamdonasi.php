@@ -19,15 +19,18 @@ rdtotal
 		parent::__construct();
 		//load model
 		$this->load->model('mrdonasi');
+		$this->load->model('mprofiladmin');
 	}
 
 	//view all rekamdonasi
 	public function index(){
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Rekam Donasi";
 		$data['cmrdonasi'] = $this->mrdonasi->tampilrdonasi()->result();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vrdonasi',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 /*
@@ -36,10 +39,12 @@ insert + delete
 
 */
 	public function tambahrdonasi(){
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Tambah rekamdonasi";
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vrdonasi',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 	public function dbtambahrdonasi(){
@@ -78,15 +83,18 @@ insert + delete
 	}
 
 	public function ubahrdonasi($rdid){
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Ubah rekamdonasi";
 		$data['rdid'] = $rdid;
 		$data['cmrdonasi'] = $this->mrdonasi->tampilrdonasi($data)->row();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vrdonasi',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 	public function hapusrdonasi(){
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Hapus rekamdonasi";
 		// $data['tanya'] = "<script>alert('yakin hapus ?')</script>";
 		// $this->mpost->

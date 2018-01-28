@@ -24,6 +24,7 @@ class Login extends CI_Controller {
 			// $this->load->view('v_login');
 			$this->load->view('core/core',$data);
 			$this->load->view('vlogin');
+			$this->load->view('core/footer',$data);
 		}
 	}
 

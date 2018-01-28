@@ -13,7 +13,7 @@ mediaid
 // view admin
 ?>
 
-<div class="container" style="margin-left: 300px; margin-top: 70px" >
+<div id="main-content">
 <?php
 if ($page=="Post") {
 	if (isset($tanya)) {
@@ -48,32 +48,63 @@ $n = 1;
 		}
 		 ?>
 	</table>
-<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('post/tulis');?>"> Tulis postingan</a></button> 
-<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('pengunjung/post');?>"> Tampil Semua </a></button> 
+<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('post/tulis');?>"> Tulis postingan</a></button>
+<button type="submit" class="btn " name="submit" value="kembali"><a style="text-decoration: none; text-decoration-color: white" href="<?php echo base_url('pengunjung/post');?>">Tampil Semua</a></button>
+
 <?php }else if ($page=="Tulis Postingan") {?>
 	<h2><?php echo $page; ?></h2>
-<h3><a href="<?php echo base_url('post');?>">Kembali</a></h3>
-	<?php echo form_open('post/dbtulis','class=form');	?>
-	<label for="judul">Judul</label><input type="text" name="judul" value="">
-	<label for="ustadz">Ustadz</label><input type="text" name="ustadz" value="">
-	<label for="text">Text</label><input type="textarea" name="text" value="">
-	<label for="tagid">Tagid</label><input type="textarea" name="tagid" value="">
-	<label for="mediaid">Tagid</label><input type="file" name="mediaid" value="">
-	<input type="submit" name="submit" value="Tulis">
 
+	<?php echo form_open('post/dbtulis','class=form');	?>
+	<div class="form-group">
+		<label for="judul">Judul</label>
+		<input type="text" class="form-control" name="judul" value="">
+	</div>
+	<div class="form-group">
+		<label for="ustadz">Ustadz</label>
+		<input type="text" class="form-control" name="ustadz" value="">
+	</div>
+	<div class="form-group">
+		<label for="text">Text</label>
+		<input type="textarea" style="height: 300px; width: 600px" class="form-control" name="text" value="">
+	</div>
+	<div class="form-group">
+		<label for="tagid">Tagid</label>
+		<input type="textarea" class="form-control" name="tagid" value="">
+	</div>
+	<div class="form-group">
+		<label for="mediaid">Mediaid</label>
+		<input type="file" class="form-control" name="mediaid" value="">
+	</div>
+
+	<button type="submit" class="btn btn-primary" name="submit" value="Tulis">Tulis</button>
+		<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('post');?>">Kembali</a></button>
 <?php }else if ($page=="Ubah Postingan") {?>
 	<h2><?php echo $page; ?></h2>
-	<h3><a href="<?php echo base_url('post');?>">Kembali</a></h3>
-	<a href="<?php echo base_url('post/dbhapus/'.$post->postid) ?>">Hapus Post</a>
+
 	<?php echo form_open('post/dbubah','class=form');	?>
 	<input type="hidden" name="postid" value="<?php echo $post->postid;?>">
-	<label for="judul">Judul</label><input type="text" name="judul" value="<?php echo $post->psjudul;?>">
-	<label for="ustadz">Ustadz</label><input type="text" name="ustadz" value="<?php echo $post->psustadz;?>">
-	<label for="text">Text</label><input type="textarea" name="text" value="<?php echo $post->pstext;?>">
-	<label for="text">Tagid</label><input type="textarea" name="tagid" value="<?php echo $post->tagid;?>">
-	<input type="submit" name="submit" value="Tulis">
+	<div class="form-group">
+		<label for="judul">Judul</label>
+		<input type="text" class="form-control" name="judul" value="<?php echo $post->psjudul;?>">
+	</div>
+	<div class="form-group">
+		<label for="ustadz">Ustadz</label>
+		<input type="text" class="form-control" name="ustadz" value="<?php echo $post->psustadz;?>">
+	</div>
+	<div class="form-group">
+		<label for="text">Text</label>
+		<input type="textarea" style="height: 300px; width: 600px" class="form-control" name="text" value="<?php echo $post->pstext;?>">
+	</div>
+	<div class="form-group">
+		<label for="text">Tagid</label>
+		<input type="textarea" class="form-control" name="tagid" value="<?php echo $post->tagid;?>">
+	</div>
 
 
+
+	<button type="submit" class="btn btn-primary" name="submit" value="Tulis">Update</button>
+	<button type="submit" class="btn btn-danger" name="submit" value="hapus"><a style="text-decoration: none" href="<?php echo base_url('post/dbhapus/'.$post->postid);?>">Hapus Post</a></button>
+	<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('post');?>">Kembali</a></button>
 <?php
 //view berdasarkan idpost
 }else if ($mode=="view") {?>
@@ -88,7 +119,7 @@ $n = 1;
 //view semua post
 }else if ($mode=="viewall") {?>
 	<h2><?php echo $page; ?></h2>
-	<table class="table">
+	<table class="table table-bordered table-striped table-hover">
 		<thead>
 			<th>No.</th>
 			<th>Judul</th>
@@ -97,6 +128,7 @@ $n = 1;
 			<th>Tag</th>
 		</thead>
 <?php
+
 
 $n = 1;
 		foreach ($cmpost as $v) {
@@ -111,5 +143,6 @@ $n = 1;
 		}
 		 ?>
 	</table>
+	<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('post');?>">Kembali</a></button>
 <?php } ?>
 </div>
