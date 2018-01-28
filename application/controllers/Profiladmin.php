@@ -26,13 +26,14 @@ usertelp
 		//load model
 		$this->load->model('mprofiladmin');
 	}
-	
+
 	public function index(){
 	    $data['page'] = "Profil Admin";
 			$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 
 			$this->load->view('core/core',$data);
 			$this->load->view('vprofiladmin',$data);
+			$this->load->view('core/footer',$data);
 	}
 
 	public function dbubahprofiladmin(){

@@ -13,7 +13,7 @@ mediaid
 // view admin
 ?>
 
-<div class="container" style="margin-left: 300px; margin-top: 70px" >
+<div id="main-content">
 <?php
 if ($page=="Post") {
 	if (isset($tanya)) {
@@ -48,7 +48,7 @@ $n = 1;
 		}
 		 ?>
 	</table>
-<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('post/tulis');?>"> Tulis postingan</a></button> 
+<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('post/tulis');?>"> Tulis postingan</a></button>
 <button type="submit" class="btn " name="submit" value="kembali"><a style="text-decoration: none; text-decoration-color: white" href="<?php echo base_url('pengunjung/post');?>">Tampil Semua</a></button>
 
 <?php }else if ($page=="Tulis Postingan") {?>
@@ -75,12 +75,12 @@ $n = 1;
 		<label for="mediaid">Mediaid</label>
 		<input type="file" class="form-control" name="mediaid" value="">
 	</div>
-	
+
 	<button type="submit" class="btn btn-primary" name="submit" value="Tulis">Tulis</button>
 		<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('post');?>">Kembali</a></button>
 <?php }else if ($page=="Ubah Postingan") {?>
 	<h2><?php echo $page; ?></h2>
-	
+
 	<?php echo form_open('post/dbubah','class=form');	?>
 	<input type="hidden" name="postid" value="<?php echo $post->postid;?>">
 	<div class="form-group">
@@ -99,8 +99,8 @@ $n = 1;
 		<label for="text">Tagid</label>
 		<input type="textarea" class="form-control" name="tagid" value="<?php echo $post->tagid;?>">
 	</div>
-	
-	
+
+
 
 	<button type="submit" class="btn btn-primary" name="submit" value="Tulis">Update</button>
 	<button type="submit" class="btn btn-danger" name="submit" value="hapus"><a style="text-decoration: none" href="<?php echo base_url('post/dbhapus/'.$post->postid);?>">Hapus Post</a></button>

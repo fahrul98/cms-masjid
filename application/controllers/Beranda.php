@@ -1,7 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+//<<<<<<< HEAD:application/controllers/Pengunjung.php
+// class Pengunjung extends CI_Controller {
+
+// =======
 class Beranda extends CI_Controller {
+// >>>>>>> c2eac725a7395d57dcb94ef6e071f3eaf92b29ec:application/controllers/Beranda.php
 /*
 isi :
 Halaman untuk netizen/ non-admin view. rencana : akses controller pengunjung menggunakan .htaccess biar urlnya lebih bagus
@@ -33,6 +38,7 @@ sidebar?
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 /*
@@ -58,6 +64,7 @@ method-method halaman pengunjung
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 	public function profilm(){
@@ -68,6 +75,7 @@ method-method halaman pengunjung
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 	public function takmirm(){
@@ -78,6 +86,7 @@ method-method halaman pengunjung
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 	public function ustadz(){
@@ -88,26 +97,31 @@ method-method halaman pengunjung
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 	public function keuanganmasjid(){
-		// $this->load->model('mustadz');
+		$this->load->model('mkmasjid');
 		$data['mode'] = "pengunjung";
 		$data['page'] = "Keuangan Masjid";
-		// $data['cmustadz'] = $this->mustadz->tampilustadz()->result();
+		$data['kmasjid'] = $this->mkmasjid->tampilkmasjid()->result();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
+		$this->load->view('core/footer',$data);
 	}
+
 	public function jadwalkegiatan(){
-		// $this->load->model('mustadz');
+		$this->load->model('mjkegiatan');
 		$data['mode'] = "pengunjung";
 		$data['page'] = "Jadwal Kegiatan";
-		// $data['cmustadz'] = $this->mustadz->tampilustadz()->result();
+		$data['jadwalk'] = $this->mjkegiatan->tampiljkegiatan()->result();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
+		$this->load->view('core/footer',$data);
 	}
+
 	public function mmm(){
 		// $this->load->model('mustadz');
 		$data['mode'] = "pengunjung";
@@ -116,5 +130,6 @@ method-method halaman pengunjung
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
+
 	}
 }

@@ -47,11 +47,16 @@ class Admin extends CI_Controller {
 			//cek login
 			if ($this->session->userdata('username') and $this->session->userdata('userpass')){
 				// redirect(base_url('admin'));
-				$data['page'] = "Beranda";
+				//load fullname admin
+				$this->load->model('mprofiladmin');
+				$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
+
+				$data['page'] = "Beranda Admin";
+				$data['configpath'] = FCPATH.APP.CONF.'/cms_settings.php';
 				$this->load->view('core/core',$data);
 				$this->load->view('vadmin');
+				$this->load->view('core/footer',$data);
 				// print(FCPATH.APP.CONF.'\cms_settings.php');
-				print(FCPATH.APP.CONF.'/cms_settings.php');
 			}else{
 				redirect(base_url('beranda'));
 			}

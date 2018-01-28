@@ -19,15 +19,18 @@ mediaid
 		parent::__construct();
 		//load model
 		$this->load->model('mustadz');
+		$this->load->model('mprofiladmin');
 	}
 
 	//view all ustadz
 	public function index(){
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Ustadz";
 		$data['cmustadz'] = $this->mustadz->tampilustadz()->result();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vustadz',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 /*
@@ -36,10 +39,12 @@ insert + delete
 
 */
 	public function tambahust(){
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Tambah Ustadz";
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vustadz',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 	public function dbtambahust(){
@@ -77,21 +82,25 @@ insert + delete
 	}
 
 	public function ubahust($usid){
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Ubah Ustadz";
 		$data['usid'] = $usid;
 		$data['ustadz'] = $this->mustadz->tampilustadz($data)->row();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vustadz',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 	public function hapusustadz(){
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Hapus Ustadz";
 		// $data['tanya'] = "<script>alert('yakin hapus ?')</script>";
 		// $this->mpost->
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vustadz',$data);
+		$this->load->view('core/footer',$data);
 		redirect(base_url('ustadz'));
 	}
 }

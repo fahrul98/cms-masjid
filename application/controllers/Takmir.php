@@ -20,15 +20,18 @@ mediaid
 		parent::__construct();
 		//load model
 		$this->load->model('mtakmir');
+		$this->load->model('mprofiladmin');
 	}
 
 	//view all takmir
 	public function index(){
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Takmir";
 		$data['cmtakmir'] = $this->mtakmir->tampiltakmir()->result();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vtakmir',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 /*
@@ -37,6 +40,7 @@ insert + delete
 
 */
 	public function tambahtk(){
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Tambah Takmir";
 
 		$this->load->view('core/core',$data);
@@ -80,21 +84,25 @@ insert + delete
 	}
 
 	public function ubahtk($tkid){
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Ubah Takmir";
 		$data['tkid'] = $tkid;
 		$data['takmir'] = $this->mtakmir->tampiltakmir($data)->row();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vtakmir',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 	public function haptkakmir(){
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Hapus takmir";
 		// $data['tanya'] = "<script>alert('yakin hapus ?')</script>";
 		// $this->mpost->
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vtakmir',$data);
+		$this->load->view('core/footer',$data);
 		redirect(base_url('takmir'));
 	}
 }

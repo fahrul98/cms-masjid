@@ -4,136 +4,330 @@
   updates
   16/1/2018
     - bootstrap navbar
+  28/1/2018
+
+  - diffdash : navbar ada 2 komponen, navbar atas & sidebar
+
   */
 
-  //jika mode di controller ada, maka muncul navbar utk pengunjung
+  //jika $mode di controller ada, maka muncul navbar utk pengunjung
   if (isset($mode)&&$mode=="pengunjung") {
 ?>
-<<<<<<< HEAD
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="<?php echo base_url('');?>">[][][]Situs[][][]</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url('beranda/post')?>">post <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url('beranda/profilm')?>">profil m <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url('beranda/takmirm')?>">takmir m <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url('beranda/ustadz')?>">Daftar ustadz <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url('beranda/keuanganmasjid')?>">Keuangan Masjid <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url('beranda/jadwalkegiatan')?>">Jadwal Kegiatan<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('login')?>">Login</a>
-      </li>
-    </ul>
-    <span class="navbar-text">
-      <?php echo md5('pengunjung') ?>
-    </span>
-  </div>
-</nav>
-=======
-<div class="container">
-<div class="nav-side-menu">
-    <div class="brand"><a href="#Profile" style="text-decoration: none; color: #e1ffff;">CMS Masjid</a></div>
-      <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-        <div class="menu-list">
-            <ul id="menu-content" class="menu-content collapse out">            
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('pengunjung/post')?>"><i class="fa fa-pencil fa-lg"></i> Post </span></a>
-              </li>  
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('pengunjung/profilm')?>"><i class="fa fa-id-card-o fa-lg" aria-hidden="true"></i> Profil m </a>
+<!-- NAVBAR -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-btn">
+      <button type="button" class="btn-toggle-offcanvas"><i class="lnr lnr-menu"></i></button>
+    </div>
+    <!-- logo -->
+    <div class="navbar-brand">
+
+      <a href="index.html"><img src="assets/img/logo.png" alt="DiffDash Logo" class="img-responsive logo"></a>
+    </div>
+    <!-- end logo -->
+    <div class="navbar-right">
+      <!-- search form -->
+      <form id="navbar-search" class="navbar-form search-form">
+        <input value="" class="form-control" placeholder="Search here..." type="text">
+        <button type="button" class="btn btn-default"><i class="fa fa-search"></i></button>
+      </form>
+      <!-- end search form -->
+      <!-- navbar menu -->
+      <div id="navbar-menu">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
+              <i class="lnr lnr-alarm"></i>
+              <span class="notification-dot"></span>
+            </a>
+            <ul class="dropdown-menu notifications">
+              <li class="header"><strong>You have 7 new notifications</strong></li>
+              <li>
+                <a href="#">
+                  <div class="media">
+                    <div class="media-left">
+                      <i class="fa fa-fw fa-flag-checkered text-muted"></i>
+                    </div>
+                    <div class="media-body">
+                      <p class="text">Your campaign <strong>Holiday Sale</strong> is starting to engage potential customers.</p>
+                      <span class="timestamp">24 minutes ago</span>
+                    </div>
+                  </div>
+                </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('pengunjung/takmirm')?>"><i class="fa fa-pencil fa-lg"></i> Takmir m </span></a>
-              </li>  
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('pengunjung/ustadz')?>"><i class="fa fa-pencil fa-lg"></i> Daftar Ustadz  <span class="sr-only">(current)</span></a>
+              <li>
+                <a href="#">
+                  <div class="media">
+                    <div class="media-left">
+                      <i class="fa fa-fw fa-exclamation-triangle text-warning"></i>
+                    </div>
+                    <div class="media-body">
+                      <p class="text">Campaign <strong>Holiday Sale</strong> is nearly reach budget limit.</p>
+                      <span class="timestamp">2 hours ago</span>
+                    </div>
+                  </div>
+                </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('pengunjung/keuanganmasjid')?>"><i class="fa fa-usd fa-lg"></i>Keuangan Masjid <span class="sr-only">(current)</span></a>
-              </li> 
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('pengunjung/jadwalkegiatan')?>"><i class="fa fa-calendar-check-o fa-lg"></i> Jadwal Kegiatan  <span class="sr-only">(current)</span></a>
+              <li>
+                <a href="#">
+                  <div class="media">
+                    <div class="media-left">
+                      <i class="fa fa-fw fa-bar-chart text-muted"></i>
+                    </div>
+                    <div class="media-body">
+                      <p class="text">Website visits from Facebook is 27% higher than last week.</p>
+                      <span class="timestamp">Yesterday</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="media">
+                    <div class="media-left">
+                      <i class="fa fa-fw fa-check-circle text-success"></i>
+                    </div>
+                    <div class="media-body">
+                      <p class="text">Your campaign <strong>Holiday Sale</strong> is approved.</p>
+                      <span class="timestamp">2 days ago</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="media">
+                    <div class="media-left">
+                      <i class="fa fa-fw fa-exclamation-circle text-danger"></i>
+                    </div>
+                    <div class="media-body">
+                      <p class="text">Error on website analytics configurations</p>
+                      <span class="timestamp">3 days ago</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="footer"><a href="#" class="more">See all notifications</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
+              <i class="lnr lnr-cog"></i>
+            </a>
+            <ul class="dropdown-menu user-menu menu-icon">
+              <li class="menu-heading">ACCOUNT SETTINGS</li>
+              <li><a href="#"><i class="fa fa-fw fa-edit"></i> <span>Basic</span></a></li>
+              <li><a href="#"><i class="fa fa-fw fa-bell"></i> <span>Notifications</span></a></li>
+              <li><a href="#"><i class="fa fa-fw fa-sliders"></i> <span>Preferences</span></a></li>
+              <li><a href="#"><i class="fa fa-fw fa-lock"></i> <span>Privacy</span></a></li>
+              <li class="menu-heading">BILLING</li>
+              <li><a href="#"><i class="fa fa-fw fa-file-text-o"></i> <span>Invoices</span></a></li>
+              <li><a href="#"><i class="fa fa-fw fa-credit-card"></i> <span>Payments</span></a></li>
+              <li><a href="#"><i class="fa fa-fw fa-refresh"></i> <span>Renewals</span></a></li>
+              <li class="menu-button">
+                <a href="#" class="btn btn-primary"><i class="fa fa-rocket"></i> UPGRADE PLAN</a>
               </li>
             </ul>
-            <span class="navbar-text">
-             <?php echo md5('pengunjung') ?>
-            </span>
-     </div>
-</div>
-</div>
->>>>>>> 1ccb56942216d0120ba8f442ed3d964c6fd11770
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
+              <i class="lnr lnr-question-circle"></i>
+            </a>
+            <ul class="dropdown-menu user-menu">
+              <li>
+                <form class="search-form help-search-form">
+                  <input value="" class="form-control" placeholder="How can we help?" type="text">
+                  <button type="button" class="btn btn-default"><i class="fa fa-search"></i></button>
+                </form>
+              </li>
+              <li class="menu-heading">HOW-TO</li>
+              <li><a href="#">Setting up Campaign</a></li>
+              <li><a href="#">Understanding Website Analytics</a></li>
+              <li><a href="#">Boost Your Sales</a></li>
+              <li><a href="#">Knowing Your Audience</a></li>
+              <li class="menu-heading">ACCOUNT</li>
+              <li><a href="#">Change Password</a></li>
+              <li><a href="#">Privacy &amp; Security</a></li>
+              <li><a href="#">Membership</a></li>
+              <li class="menu-heading">BILLING</li>
+              <li><a href="#">Setup Payment</a></li>
+              <li><a href="#">Auto-Renewal Program</a></li>
+              <li><a href="#">Cancellation</a></li>
+              <li class="menu-button">
+                <a href="#" class="btn btn-primary"><i class="fa fa-question-circle"></i> HELP CENTER</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- end navbar menu -->
+    </div>
+  </div>
+</nav>
+<!-- END NAVBAR -->
+
+
 <?php
 
 //jika tidak maka muncul punya si admin
 
-  }else if (!isset($mode)){
+  }else if (!isset($mode)||$mode=='view'){
+
+// tema memakai wrapper sbg container, jadi di wrap. gk usah pake tag penutup untuk div wrapper.
 
 ?>
-<!-- navbar -->
-<div class="container">
-<div class="nav-side-menu">
-    <div class="brand"><a href="#Profile" style="text-decoration: none; color: #e1ffff;">CMS Masjid</a></div>
-      <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-        <div class="menu-list">
-            <ul id="menu-content" class="menu-content collapse out">
-              <li  class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('admin')?>"><i class="fa fa-user-o fa-lg"></i><span class="sr-only">(current)</span> admin</a>
-              </li>               
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('post')?>"><i class="fa fa-pencil fa-lg"></i> Post </span></a>
-              </li>  
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('profiladmin')?>"><i class="fa fa-id-card-o fa-lg" aria-hidden="true"></i>    Profil Admin</a>
+<!-- WRAPPER -->
+<div id="wrapper">
+<!-- NAVBAR -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-btn">
+      <button type="button" class="btn-toggle-offcanvas"><i class="lnr lnr-menu"></i></button>
+    </div>
+    <!-- logo -->
+    <div class="navbar-brand">
+      <a href="<?php echo base_url('')?>"><img src="<?php echo base_url('assets/img/logo.png')?>" alt="CMS Masjid" class="img-responsive logo"></a>
+    </div>
+    <div class="navbar-brand">
+      <a href="<?php echo base_url('beranda')?>">Lihat situs</a>
+    </div>
+    <!-- end logo -->
+    <div class="navbar-right">
+      <!-- search form -->
+      <form id="navbar-search" class="navbar-form search-form">
+        <input value="" class="form-control" placeholder="Cari..." type="text">
+        <button type="button" class="btn btn-default"><i class="fa fa-search"></i></button>
+      </form>
+      <!-- end search form -->
+      <!-- navbar menu -->
+      <div id="navbar-menu">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
+              <i class="lnr lnr-alarm"></i>
+              <span class="notification-dot"></span>
+            </a>
+
+            <!-- notif -->
+
+            <ul class="dropdown-menu notifications">
+              <li class="header"><strong>x notifikasi baru</strong></li>
+              <li>
+                <a href="#">
+                  <div class="media">
+                    <div class="media-left">
+                      <i class="fa fa-fw fa-flag-checkered text-muted"></i>
+                    </div>
+                    <div class="media-body">
+                      <p class="text">Your campaign <strong>Holiday Sale</strong> is starting to engage potential customers.</p>
+                      <span class="timestamp">24 minutes ago</span>
+                    </div>
+                  </div>
+                </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('profilm')?>"><i class="fa fa-list-alt fa-lg"></i> Profil Masjid </span></a>
+              <li class="footer"><a href="#" class="more">See all notifications</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
+              <i class="lnr lnr-cog"></i>
+            </a>
+            <ul class="dropdown-menu user-menu menu-icon">
+              <li class="menu-heading">Akun</li>
+              <li><a href="<?php echo base_url('profiladmin')?>"><i class="fa fa-fw fa-edit"></i>Profil Saya</a></li>
+              <li class="divider"></li>
+              <li><a href="<?php echo base_url('admin/logout')?>"><i class="fa fa-fw fa-lock"></i> <span>Logout</span></a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
+              <i class="lnr lnr-question-circle"></i>
+            </a>
+            <ul class="dropdown-menu user-menu">
+              <li>
+                <form class="search-form help-search-form">
+                  <input value="" class="form-control" placeholder="How can we help?" type="text">
+                  <button type="button" class="btn btn-default"><i class="fa fa-search"></i></button>
+                </form>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('takmir')?>"><i class="fa fa-pencil fa-lg"></i> Takmir </span></a>
-              </li>  
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('ustadz')?>"><i class="fa fa-pencil fa-lg"></i> Ustadz </span></a>
-              </li> 
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('media')?>"><i class="fa fa-calendar-check-o fa-lg"></i> Media </span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('jadwalkegiatan')?>"><i class="fa fa-calendar-check-o fa-lg"></i> Jadwal Kegiatan </span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('keuanganmasjid')?>"><i class="fa fa-usd fa-lg"></i>Keuangan Masjid</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('rekamdonasi')?>"><i class="fa fa-usd fa-lg"></i> Rekam Donasi </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url('pengaturan')?>""><i class="fa fa-cog fa-lg"></i> Pengaturan</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url('admin/logout')?>""><i class="fa fa-cog fa-lg"></i> Logout</a>
+              <li class="menu-heading">Bantuan</li>
+              <li><a href="#">Setting up Campaign</a></li>
+              <li><a href="#">Understanding Website Analytics</a></li>
+              <li><a href="#">Boost Your Sales</a></li>
+              <li><a href="#">Knowing Your Audience</a></li>
+              <li class="menu-heading">ACCOUNT</li>
+              <li><a href="#">Change Password</a></li>
+              <li><a href="#">Privacy &amp; Security</a></li>
+              <li><a href="#">Membership</a></li>
+              <li class="menu-heading">BILLING</li>
+              <li><a href="#">Setup Payment</a></li>
+              <li><a href="#">Auto-Renewal Program</a></li>
+              <li><a href="#">Cancellation</a></li>
+              <li class="menu-button">
+                <a href="#" class="btn btn-primary"><i class="fa fa-question-circle"></i> HELP CENTER</a>
               </li>
             </ul>
-    <span class="navbar-text">
-      <?php echo md5('dib') ?>
-    </span>
-     </div>
+          </li>
+        </ul>
+      </div>
+      <!-- end navbar menu -->
+    </div>
+  </div>
+</nav>
+<!-- END NAVBAR -->
+<!-- LEFT SIDEBAR -->
+<div id="left-sidebar" class="sidebar">
+  <button type="button" class="btn btn-xs btn-link btn-toggle-fullwidth">
+    <span class="sr-only">Toggle Fullwidth</span>
+    <i class="fa fa-angle-left"></i>
+  </button>
+  <div class="sidebar-scroll">
+    <div class="user-account">
+      <img src="<?php echo base_url('assets/img/user.png')?>" class="img-responsive img-circle user-photo" alt="Admin Masjid">
+      <div class="dropdown">
+        <a href="#" class="dropdown-toggle user-name" data-toggle="dropdown">Assalamualaikum, <strong><?php if(isset($padmin))echo $padmin->username;?></strong> <i class="fa fa-caret-down"></i></a>
+        <ul class="dropdown-menu dropdown-menu-right account">
+          <li><a href="<?php echo base_url('profiladmin')?>">Profil Saya</a></li>
+          <li><a href="<?php echo base_url('pengaturan')?>">Pengaturan</a></li>
+          <li class="divider"></li>
+          <li><a href="<?php echo base_url('admin/logout')?>">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+    <nav id="left-sidebar-nav" class="sidebar-nav">
+      <ul id="main-menu" class="metismenu">
+        <li class="active"><a href="<?php echo base_url('admin')?>"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+        <li class="">
+          <a href="#uiElements" class="has-arrow" aria-expanded="false"><i class="lnr lnr-magic-wand"></i> <span>Masjid</span></a>
+          <ul>
+            <li class=""><a href="<?php echo base_url('profilm')?>">Profil Masjid</a></li>
+            <li class=""><a href="<?php echo base_url('takmir')?>">Takmir</a></li>
+            <li class=""><a href="<?php echo base_url('ustadz')?>">Ustadz</a></li>
+            <!-- <li class=""><a href="ui-buttons.html">Buttons</a></li>
+            <li class=""><a href="ui-bootstrap.html">Bootstrap UI</a></li>
+            <li class=""><a href="ui-icons.html"><span>Icons</span></a></li> -->
+          </ul>
+        </li>
+        <li class="">
+          <a href="<?php echo base_url('post')?>" class="" aria-expanded="false"><i class="lnr lnr-pencil"></i> <span>Post</span></a>
+        </li>
+        <li class="">
+          <a href="<?php echo base_url('jadwalkegiatan')?>" class="" aria-expanded="false"><i class="lnr lnr-file-empty"></i> <span>Jadwal Kegiatan</span></a>
+        </li>
+        <li class="">
+          <a href="#charts" class="has-arrow" aria-expanded="false"><i class="lnr lnr-chart-bars"></i> <span>Keuangan Masjid</span></a>
+          <ul aria-expanded="true">
+            <li class=""><a href="<?php echo base_url('keuanganmasjid')?>">Keuangan</a></li>
+            <li class=""><a href="<?php echo base_url('rekamdonasi')?>">Rekam Donasi</a></li>
+          </ul>
+        </li>
+        <!-- <li class=""><a href="notifications.html"><i class="lnr lnr-alarm"></i> <span>Notifications</span> <span class="badge bg-danger">15</span></a></li>
+        <li class=""><a href="typography.html"><i class="lnr lnr-text-format"></i> <span>Typography</span></a></li> -->
+      </ul>
+    </nav>
+  </div>
 </div>
-</div>
+<!-- END LEFT SIDEBAR -->
 <?php
 }
 ?>
