@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pengunjung extends CI_Controller {
+
 /*
 isi :
 Halaman untuk netizen/ non-admin view. rencana : akses controller pengunjung menggunakan .htaccess biar urlnya lebih bagus
@@ -91,23 +92,25 @@ method-method halaman pengunjung
 	}
 
 	public function keuanganmasjid(){
-		// $this->load->model('mustadz');
+		$this->load->model('mkmasjid');
 		$data['mode'] = "pengunjung";
 		$data['page'] = "Keuangan Masjid";
-		// $data['cmustadz'] = $this->mustadz->tampilustadz()->result();
+		$data['kmasjid'] = $this->mkmasjid->tampilkmasjid()->result();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
 	}
+
 	public function jadwalkegiatan(){
-		// $this->load->model('mustadz');
+		$this->load->model('mjkegiatan');
 		$data['mode'] = "pengunjung";
 		$data['page'] = "Jadwal Kegiatan";
-		// $data['cmustadz'] = $this->mustadz->tampilustadz()->result();
+		$data['jadwalk'] = $this->mjkegiatan->tampiljkegiatan()->result();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
 	}
+	
 	public function mmm(){
 		// $this->load->model('mustadz');
 		$data['mode'] = "pengunjung";

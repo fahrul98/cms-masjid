@@ -28,6 +28,7 @@ kmsaldo
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vkmasjid',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 /*
@@ -40,6 +41,7 @@ insert + delete
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vkmasjid',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 	public function dbentri(){
@@ -81,6 +83,7 @@ insert + delete
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vkmasjid',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 	public function hapuspost(){

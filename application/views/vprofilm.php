@@ -12,6 +12,7 @@ pvisimisi
 $adminlogin = $this->session->userdata('username')&&$this->session->userdata('userpass')?'notnull':null;
 
 //$adminlogin vars test
+
 // echo $adminlogin."--";
 // $val = $adminlogin==1?'nice':'not nice';
 // $val = isset($adminlogin)?'nice':'not nice';

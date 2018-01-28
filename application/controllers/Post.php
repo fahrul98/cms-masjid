@@ -34,6 +34,7 @@ mediaid
 
 			$this->load->view('core/core',$data);
 			$this->load->view('vpost',$data);
+			$this->load->view('core/footer',$data);
 		}else {
 
 		}
@@ -50,6 +51,7 @@ mediaid
 
 			$this->load->view('core/core',$data);
 			$this->load->view('vpost',$data);
+			$this->load->view('core/footer',$data);
 		}else {
 			// $data['mode'] = 'view';
 			$data['postid'] = $postid;
@@ -58,6 +60,7 @@ mediaid
 
 			$this->load->view('core/core',$data);
 			$this->load->view('vpost',$data);
+			$this->load->view('core/footer',$data);
 		}
 	}
 
@@ -71,6 +74,7 @@ method-method untuk operasi admin
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpost',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 	public function dbtulis(){
@@ -109,6 +113,7 @@ method-method untuk operasi admin
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpost',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 	public function hapuspost(){

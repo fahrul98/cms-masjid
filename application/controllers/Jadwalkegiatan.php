@@ -26,6 +26,7 @@ jkwaktu
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vjkegiatan',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 	public function tambahkegiatan(){
@@ -33,6 +34,7 @@ jkwaktu
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vjkegiatan',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 	public function ubahjkegiatan($jkid){
@@ -42,6 +44,7 @@ jkwaktu
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vjkegiatan',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 	public function dbtambahjk(){
@@ -65,7 +68,7 @@ jkwaktu
 		$this->mjkegiatan->ubahjkegiatan($data);
 		redirect(base_url('jadwalkegiatan'));
 	}
-	
+
 	public function dbhapus($jkid){
 		$data['jkid'] = $jkid;
 		$this->mjkegiatan->hapusjkegiatan($data);
