@@ -55,56 +55,79 @@ $n = 1;
 	<h2><?php echo $page; ?></h2>
 
 	<?php echo form_open('post/dbtulis','class=form');	?>
-	<div class="form-group">
-		<label for="judul">Judul</label>
-		<input type="text" class="form-control" name="judul" value="">
+	<div class="row">
+		<div class="form-group col-md-3">
+			<label for="judul">Judul</label>
+			<input type="text" class="form-control" name="judul" value="">
+		</div>
+		<div class="form-group col-md-3">
+			<label for="ustadz">Ustadz</label>
+			<input type="text" class="form-control" name="ustadz" value="">
+		</div>
+		<div class="form-group col-md-3">
+			<label for="tagid">Tagid</label>
+			<input type="text" class="form-control" name="tagid" value="">
+		</div>
+		<div class="form-group col-md-3">
+			<label for="mediaid">Mediaid</label>
+			<input type="file" class="form-control" name="mediaid" value="">
+		</div>
 	</div>
-	<div class="form-group">
-		<label for="ustadz">Ustadz</label>
-		<input type="text" class="form-control" name="ustadz" value="">
-	</div>
-	<div class="form-group">
+
+	<!-- gk jadi <div class="form-group ">
 		<label for="text">Text</label>
 		<input type="textarea" style="height: 300px; width: 600px" class="form-control" name="text" value="">
+	</div> -->
+	<div class="row">
+		<div class="form-group col-md-6">
+			<button type="submit" class="btn btn-primary" name="submit" value="Tulis">Tulis</button>
+			<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('post');?>">Kembali</a></button>
+		</div>
 	</div>
-	<div class="form-group">
-		<label for="tagid">Tagid</label>
-		<input type="textarea" class="form-control" name="tagid" value="">
+	<div class="row">
+		<div class="form-group col-md-12">
+			<textarea class="summernote" id="textpost" name="text"></textarea>
+		</div>
 	</div>
-	<div class="form-group">
-		<label for="mediaid">Mediaid</label>
-		<input type="file" class="form-control" name="mediaid" value="">
-	</div>
+</form>
 
-	<button type="submit" class="btn btn-primary" name="submit" value="Tulis">Tulis</button>
-		<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('post');?>">Kembali</a></button>
 <?php }else if ($page=="Ubah Postingan") {?>
-	<h2><?php echo $page; ?></h2>
 
+	<h2><?php echo $page; ?></h2>
 	<?php echo form_open('post/dbubah','class=form');	?>
 	<input type="hidden" name="postid" value="<?php echo $post->postid;?>">
-	<div class="form-group">
-		<label for="judul">Judul</label>
-		<input type="text" class="form-control" name="judul" value="<?php echo $post->psjudul;?>">
+	<div class="row">
+		<div class="form-group col-md-3">
+			<label for="judul">Judul</label>
+			<input type="text" class="form-control" name="judul" value="<?php echo $post->psjudul;?>">
+		</div>
+		<div class="form-group col-md-3">
+			<label for="ustadz">Ustadz</label>
+			<input type="text" class="form-control" name="ustadz" value="<?php echo $post->psustadz;?>">
+		</div>
+		<div class="form-group col-md-3">
+			<label for="tagid">Tagid</label>
+			<input type="text" class="form-control" name="tagid" value="<?php echo $post->tagid;?>">
+		</div>
+		<div class="form-group col-md-3">
+			<label for="mediaid">Mediaid</label>
+			<input type="file" class="form-control" name="mediaid" value="">
+		</div>
 	</div>
-	<div class="form-group">
-		<label for="ustadz">Ustadz</label>
-		<input type="text" class="form-control" name="ustadz" value="<?php echo $post->psustadz;?>">
+	<div class="row">
+		<div class="form-group col-md-6">
+			<button type="submit" class="btn btn-primary" name="submit" value="ubah">Ubah</button>
+			<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('post');?>">Kembali</a></button>
+			<button type="submit" class="btn btn-danger" name="submit" value="hapus"><a style="text-decoration: none" href="<?php echo base_url('post/dbhapus/'.$post->postid);?>">Hapus Post</a></button>
+		</div>
 	</div>
-	<div class="form-group">
-		<label for="text">Text</label>
-		<input type="textarea" style="height: 300px; width: 600px" class="form-control" name="text" value="<?php echo $post->pstext;?>">
+	<div class="row">
+		<div class="form-group col-md-12">
+			<textarea class="summernote" id="textpost" name="text"><?php echo $post->pstext;?></textarea>
+		</div>
 	</div>
-	<div class="form-group">
-		<label for="text">Tagid</label>
-		<input type="textarea" class="form-control" name="tagid" value="<?php echo $post->tagid;?>">
-	</div>
-
-
-
-	<button type="submit" class="btn btn-primary" name="submit" value="Tulis">Update</button>
-	<button type="submit" class="btn btn-danger" name="submit" value="hapus"><a style="text-decoration: none" href="<?php echo base_url('post/dbhapus/'.$post->postid);?>">Hapus Post</a></button>
-	<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('post');?>">Kembali</a></button>
+	</form>
+	
 <?php
 //view berdasarkan idpost
 }else if ($mode=="view") {?>

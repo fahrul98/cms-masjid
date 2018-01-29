@@ -1,5 +1,5 @@
 <?php
-
+defined('BASEPATH') OR exit('No direct script access allowed');
 /*
 
 file core untuk load head html dan navbar. jadi di controller tinggal load file ini.

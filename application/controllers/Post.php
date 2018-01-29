@@ -42,7 +42,7 @@ mediaid
 		}
 	}
 
-	//view post untuk netizen
+	//view post untuk pratinjau admin
 	public function view($postid=null){
 		//jika postid null maka muncul daftar post
 		if (!isset($postid)) {
@@ -85,6 +85,7 @@ method-method untuk operasi admin
 		$data['psjudul'] = $this->input->post('judul');
 		$data['psustadz'] = $this->input->post('ustadz');
 		$data['pstext'] = $this->input->post('text');
+		$data['tagid'] = $this->input->post('tagid');
 
 		$this->mpost->buatpost($data);
 		redirect(base_url('post'));

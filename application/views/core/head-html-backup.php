@@ -20,7 +20,8 @@
     //switch page title, (page ini kelakuannya ini, dsb)
     switch ($page) {
       case "Beranda":echo "- ".$title." - ".$cmprofil->pnama;break;
-      default:echo "- ".$title." - ";break;
+      case "tampilpost":echo "- ".$page2." - ".$post->psjudul;break;
+      default:echo "- aa".$title." - ";break;
     }
     ?></title>
 

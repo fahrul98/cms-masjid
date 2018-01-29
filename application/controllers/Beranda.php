@@ -56,10 +56,13 @@ method-method halaman pengunjung
 			$data['page'] = "Semua Post";
 			$data['cmpost'] = $this->mpost->tampilpost()->result();
 		}else {
-			// $data['mode'] = 'view';
 			$data['postid'] = $postid;
 			$data['post'] = $this->mpost->tampilpost($data)->row();
-			$data['page'] = $data['post']->psjudul;
+			if($data['post']==null){
+				redirect(base_url(''));
+			}
+			$data['page'] = "tampilpost";
+			$data['page2'] = $data['post']->psjudul;
 		}
 
 		$this->load->view('core/core',$data);

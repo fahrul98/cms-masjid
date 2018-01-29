@@ -41,21 +41,25 @@ if ($page=="Jadwal Kegiatan") {
 	<?php }else if ($page=="Tambah Kegiatan") {?>
 		<h3>Tambah kegiatan</h3>
 		<?php echo form_open('jadwalkegiatan/dbtambahjk','class=form');	?>
-		<div class="form-group">
-			<label for="jknama">jknama</label>
-			<input type="text" class="form-control" name="jknama" value="">
-		</div>
-		<div class="form-group">
-			<label for="jkpihak">jkpihak</label>
-			<input type="text" class="form-control" name="jkpihak" value="">
-		</div>
-		<div class="form-group">
-			<label for="jkwaktu">Text</label>
-			<input type="textarea" class="form-control" name="jkwaktu" value="">
-		</div>
-		<div class="form-group">
-				<label for="tagid">tag</label>
-				<input type="textarea" class="form-control" name="tagid" value="">
+		<div class="row">
+			<div class="panel col-md-4">
+				<div class="form-group ">
+					<label for="jknama">Nama Kegiatan</label>
+					<input type="text" class="form-control" name="jknama" value="">
+				</div>
+				<div class="form-group">
+					<label for="tagid">Tag</label>
+					<input type="textarea" class="form-control" name="tagid" value="">
+				</div>
+				<div class="form-group">
+					<label for="jkpihak">Pihak bersangkutan</label>
+					<input type="text" class="form-control" name="jkpihak" value="">
+				</div>
+				<div class="form-group">
+					<label for="jkwaktu">Waktu</label>
+					<input type="textarea" class="form-control" name="jkwaktu" value="">
+				</div>
+			</div>
 		</div>
 
 		<button type="submit" class="btn btn-primary" name="submit" value="Tambah">Tambah</button>
@@ -65,12 +69,20 @@ if ($page=="Jadwal Kegiatan") {
 		<h3>Ubah kegiatan</h3>
 		<?php echo form_open('jadwalkegiatan/dbubahjk','class=form');	?>
 		<input type="hidden" name="jkid" value="<?php echo $jadwalk->jkid;?>">
+	<div class="container">
+		<div class="row panel">
+			<button type="submit" class="btn btn-primary" name="submit" value="Ubah">Ubah</button>
+			<button type="submit" class="btn btn-danger" name="submit" value="hapus"><a style="text-decoration: none" href="<?php echo base_url('jadwalkegiatan/dbhapus/'.$jadwalk->jkid);?>">Hapus</a></button>
+			<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('jadwalkegiatan');?>">Kembali</a></button>
+		</div>
+		<div class="row">
+			<div class="panel col-md-4">
 		<div class="form-group">
-			<label for="jknama">jknama</label>
+			<label for="jknama">Nama Kegiatan</label>
 			<input type="text" class="form-control" name="jknama" value="<?php echo $jadwalk->jknama;?>">
 		</div>
 		<div class="form-group">
-			<label for="jkpihak">jkpihak</label>
+			<label for="jkpihak">Pihak bersangkutan</label>
 			<input type="text" class="form-control" name="jkpihak" value="<?php echo $jadwalk->jkpihak;?>">
 		</div>
 		<div class="form-group">
@@ -78,12 +90,13 @@ if ($page=="Jadwal Kegiatan") {
 			<input type="textarea" class="form-control" name="jkwaktu" value="<?php echo $jadwalk->jkwaktu;?>">
 		</div>
 		<div class="form-group">
-				<label for="tagid">tag</label>
-				<input type="textarea" class="form-control" name="tagid" value="<?php echo $jadwalk->tagid;?>">
+			<label for="tagid">Tag</label>
+			<input type="textarea" class="form-control" name="tagid" value="<?php echo $jadwalk->tagid;?>">
 		</div>
-		<button type="submit" class="btn btn-primary" name="submit" value="Ubah">Ubah</button>
-		<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('jadwalkegiatan');?>">Kembali</a></button>
-		<button type="submit" class="btn btn-danger" name="submit" value="hapus"><a style="text-decoration: none" href="<?php echo base_url('jadwalkegiatan/dbhapus/'.$jadwalk->jkid);?>">Hapus Kegiatan</a></button>
+		</div>
+		</div>
+	</div>
+
 	</div>
 	<?php } ?>
 </div>

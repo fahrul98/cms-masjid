@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
   /*
   navbar.php navigasi di sebelah
   updates
@@ -21,9 +22,23 @@
     </div>
     <!-- logo -->
     <div class="navbar-brand">
-
-      <a href="index.html"><img src="assets/img/logo.png" alt="DiffDash Logo" class="img-responsive logo"></a>
+      <a href="<?php echo base_url('');?>"><img src="<?php echo base_url('assets/img/logo.png');?>" alt="DiffDash Logo" class="img-responsive logo"></a>
     </div>
+    <?php
+      if ($this->session->userdata('username') and $this->session->userdata('userpass')){
+?>
+<div class="navbar-brand">
+  <a href="<?php echo base_url('admin');?>">Kembali ke admin</a>
+</div>
+<?php
+      }else{
+    ?>
+    <div class="navbar-brand">
+      <a href="<?php echo base_url('login');?>">Login</a>
+    </div>
+    <?php
+      }
+    ?>
     <!-- end logo -->
     <div class="navbar-right">
       <!-- search form -->
@@ -313,6 +328,9 @@
         </li>
         <li class="">
           <a href="<?php echo base_url('jadwalkegiatan')?>" class="" aria-expanded="false"><i class="lnr lnr-file-empty"></i> <span>Jadwal Kegiatan</span></a>
+        </li>
+        <li class="">
+          <a href="<?php echo base_url('media')?>" class="" aria-expanded="false"><i class="lnr lnr-file-empty"></i> <span>Media</span></a>
         </li>
         <li class="">
           <a href="#charts" class="has-arrow" aria-expanded="false"><i class="lnr lnr-chart-bars"></i> <span>Keuangan Masjid</span></a>
