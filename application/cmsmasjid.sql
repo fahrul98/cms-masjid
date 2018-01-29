@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Jan 17, 2018 at 05:35 AM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.1
+-- Host: 127.0.0.1
+-- Generation Time: 26 Jan 2018 pada 07.32
+-- Versi Server: 10.1.16-MariaDB
+-- PHP Version: 7.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cmsmasjid`
+-- Database: `dump`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cmdesign`
+-- Struktur dari tabel `cmdesign`
 --
 
 CREATE TABLE `cmdesign` (
@@ -34,7 +34,7 @@ CREATE TABLE `cmdesign` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cmjkegiatan`
+-- Struktur dari tabel `cmjkegiatan`
 --
 
 CREATE TABLE `cmjkegiatan` (
@@ -46,7 +46,7 @@ CREATE TABLE `cmjkegiatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `cmjkegiatan`
+-- Dumping data untuk tabel `cmjkegiatan`
 --
 
 INSERT INTO `cmjkegiatan` (`jkid`, `jknama`, `jkpihak`, `jkwaktu`, `tagid`) VALUES
@@ -55,7 +55,7 @@ INSERT INTO `cmjkegiatan` (`jkid`, `jknama`, `jkpihak`, `jkwaktu`, `tagid`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cmkmasjid`
+-- Struktur dari tabel `cmkmasjid`
 --
 
 CREATE TABLE `cmkmasjid` (
@@ -69,7 +69,7 @@ CREATE TABLE `cmkmasjid` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cmmedia`
+-- Struktur dari tabel `cmmedia`
 --
 
 CREATE TABLE `cmmedia` (
@@ -79,17 +79,17 @@ CREATE TABLE `cmmedia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `cmmedia`
+-- Dumping data untuk tabel `cmmedia`
 --
 
 INSERT INTO `cmmedia` (`mediaid`, `mmeta`, `mdir`) VALUES
 (1, 'xxdefaultxx', '/'),
-(2, 'xxdefault2xx', '/');
+(4, 'meta', '10.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cmpost`
+-- Struktur dari tabel `cmpost`
 --
 
 CREATE TABLE `cmpost` (
@@ -104,18 +104,18 @@ CREATE TABLE `cmpost` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `cmpost`
+-- Dumping data untuk tabel `cmpost`
 --
 
 INSERT INTO `cmpost` (`postid`, `psbuat`, `psubah`, `psjudul`, `tagid`, `psustadz`, `pstext`, `mediaid`) VALUES
-(1, '2018-01-16 00:00:00', '2018-01-16 14:37:54', 'aa', 1, 'bb', 'cc', 1),
-(2, '2018-01-16 00:00:00', '2018-01-16 14:14:12', 'judul post 2', 1, NULL, 'text post 2', 1),
-(3, '2018-01-16 00:00:00', '2018-01-16 14:14:12', 'judul post 3', 1, 'ust 3', 'text post 3', 1);
+(1, '2018-01-16 00:00:00', '2018-01-23 11:03:04', 'aa', 1, 'bb', 'cc', 4),
+(2, '2018-01-16 00:00:00', '2018-01-23 11:03:14', 'judul post 2', 1, NULL, 'text post 2', 4),
+(3, '2018-01-16 00:00:00', '2018-01-23 11:03:21', 'judul post 3', 1, 'ust 3', 'text post 3', 4);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cmprofilm`
+-- Struktur dari tabel `cmprofilm`
 --
 
 CREATE TABLE `cmprofilm` (
@@ -126,7 +126,7 @@ CREATE TABLE `cmprofilm` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `cmprofilm`
+-- Dumping data untuk tabel `cmprofilm`
 --
 
 INSERT INTO `cmprofilm` (`pnama`, `pdeskripsi`, `psejarah`, `pvisimisi`) VALUES
@@ -135,7 +135,7 @@ INSERT INTO `cmprofilm` (`pnama`, `pdeskripsi`, `psejarah`, `pvisimisi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cmrdonasi`
+-- Struktur dari tabel `cmrdonasi`
 --
 
 CREATE TABLE `cmrdonasi` (
@@ -149,7 +149,7 @@ CREATE TABLE `cmrdonasi` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cmsconfig`
+-- Struktur dari tabel `cmsconfig`
 --
 
 CREATE TABLE `cmsconfig` (
@@ -161,7 +161,7 @@ CREATE TABLE `cmsconfig` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cmtag`
+-- Struktur dari tabel `cmtag`
 --
 
 CREATE TABLE `cmtag` (
@@ -170,7 +170,7 @@ CREATE TABLE `cmtag` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `cmtag`
+-- Dumping data untuk tabel `cmtag`
 --
 
 INSERT INTO `cmtag` (`tagid`, `tag`) VALUES
@@ -180,7 +180,7 @@ INSERT INTO `cmtag` (`tagid`, `tag`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cmtakmirm`
+-- Struktur dari tabel `cmtakmirm`
 --
 
 CREATE TABLE `cmtakmirm` (
@@ -193,7 +193,7 @@ CREATE TABLE `cmtakmirm` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `cmtakmirm`
+-- Dumping data untuk tabel `cmtakmirm`
 --
 
 INSERT INTO `cmtakmirm` (`tkid`, `tknama`, `tknotelp`, `tkjabatan`, `tkmasajabatan`, `mediaid`) VALUES
@@ -202,7 +202,7 @@ INSERT INTO `cmtakmirm` (`tkid`, `tknama`, `tknotelp`, `tkjabatan`, `tkmasajabat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cmusers`
+-- Struktur dari tabel `cmusers`
 --
 
 CREATE TABLE `cmusers` (
@@ -219,16 +219,16 @@ CREATE TABLE `cmusers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `cmusers`
+-- Dumping data untuk tabel `cmusers`
 --
 
 INSERT INTO `cmusers` (`userid`, `username`, `userpass`, `userfullname`, `useremail`, `usertgldaftar`, `displayname`, `mediaid`, `useralamat`, `usertelp`) VALUES
-(1, 'admin', 'passsecret', 'admiiinlengkap', 'admin@admin', '2018-01-10 00:00:00', 'admin', 1, 'web', '088');
+(1, 'admin', 'pass', 'admiiinlengkap', 'admin@admin', '2018-01-10 00:00:00', 'admin', 1, 'web', '088');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cmustadz`
+-- Struktur dari tabel `cmustadz`
 --
 
 CREATE TABLE `cmustadz` (
@@ -338,7 +338,7 @@ ALTER TABLE `cmkmasjid`
 -- AUTO_INCREMENT for table `cmmedia`
 --
 ALTER TABLE `cmmedia`
-  MODIFY `mediaid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `mediaid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `cmpost`
 --
@@ -375,39 +375,33 @@ ALTER TABLE `cmusers`
 ALTER TABLE `cmustadz`
   MODIFY `usid` int(11) NOT NULL AUTO_INCREMENT;
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `cmjkegiatan`
+-- Ketidakleluasaan untuk tabel `cmjkegiatan`
 --
 ALTER TABLE `cmjkegiatan`
   ADD CONSTRAINT `cmjkegiatan_ibfk_1` FOREIGN KEY (`tagid`) REFERENCES `cmtag` (`tagid`);
 
 --
--- Constraints for table `cmpost`
+-- Ketidakleluasaan untuk tabel `cmpost`
 --
 ALTER TABLE `cmpost`
   ADD CONSTRAINT `cmpost_ibfk_1` FOREIGN KEY (`tagid`) REFERENCES `cmtag` (`tagid`),
   ADD CONSTRAINT `cmpost_ibfk_2` FOREIGN KEY (`mediaid`) REFERENCES `cmmedia` (`mediaid`);
 
 --
--- Constraints for table `cmtakmirm`
+-- Ketidakleluasaan untuk tabel `cmtakmirm`
 --
 ALTER TABLE `cmtakmirm`
   ADD CONSTRAINT `cmtakmirm_ibfk_1` FOREIGN KEY (`mediaid`) REFERENCES `cmmedia` (`mediaid`);
 
 --
--- Constraints for table `cmusers`
+-- Ketidakleluasaan untuk tabel `cmusers`
 --
 ALTER TABLE `cmusers`
   ADD CONSTRAINT `cmusers_ibfk_1` FOREIGN KEY (`mediaid`) REFERENCES `cmmedia` (`mediaid`);
-
---
--- Constraints for table `cmustadz`
---
-ALTER TABLE `cmustadz`
-  ADD CONSTRAINT `cmustadz_ibfk_1` FOREIGN KEY (`mediaid`) REFERENCES `cmmedia` (`mediaid`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

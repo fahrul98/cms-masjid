@@ -52,22 +52,22 @@
         <div class="menu-list">
             <ul id="menu-content" class="menu-content collapse out">            
               <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('pengunjung/post')?>"><i class="fa fa-pencil fa-lg"></i> Post </span></a>
+                <a class="nav-link" href="<?php echo base_url('beranda/post')?>"><i class="fa fa-pencil fa-lg"></i> Post </span></a>
               </li>  
               <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('pengunjung/profilm')?>"><i class="fa fa-id-card-o fa-lg" aria-hidden="true"></i> Profil m </a>
+                <a class="nav-link" href="<?php echo base_url('beranda/profilm')?>"><i class="fa fa-id-card-o fa-lg" aria-hidden="true"></i> Profil m </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('pengunjung/takmirm')?>"><i class="fa fa-pencil fa-lg"></i> Takmir m </span></a>
+                <a class="nav-link" href="<?php echo base_url('beranda/takmirm')?>"><i class="fa fa-pencil fa-lg"></i> Takmir m </span></a>
               </li>  
               <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('pengunjung/ustadz')?>"><i class="fa fa-pencil fa-lg"></i> Daftar Ustadz  <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="<?php echo base_url('beranda/ustadz')?>"><i class="fa fa-pencil fa-lg"></i> Daftar Ustadz  <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('pengunjung/keuanganmasjid')?>"><i class="fa fa-usd fa-lg"></i>Keuangan Masjid <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="<?php echo base_url('beranda/keuanganmasjid')?>"><i class="fa fa-usd fa-lg"></i>Keuangan Masjid <span class="sr-only">(current)</span></a>
               </li> 
               <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('pengunjung/jadwalkegiatan')?>"><i class="fa fa-calendar-check-o fa-lg"></i> Jadwal Kegiatan  <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="<?php echo base_url('beranda/jadwalkegiatan')?>"><i class="fa fa-calendar-check-o fa-lg"></i> Jadwal Kegiatan  <span class="sr-only">(current)</span></a>
               </li>
             </ul>
             <span class="navbar-text">

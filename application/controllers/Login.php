@@ -22,8 +22,8 @@ class Login extends CI_Controller {
 				 redirect(base_url('admin'));
 		}else{
 			// $this->load->view('v_login');
-			$this->load->view('core/core',$data);
-			$this->load->view('vlogin');
+			//$this->load->view('core/core',$data);
+			$this->load->view('vlogin', $data);
 		}
 	}
 

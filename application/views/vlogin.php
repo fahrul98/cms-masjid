@@ -8,17 +8,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<h2><?php echo $page; ?></h2>
 </div>
 	<?php echo form_open('login/dblogin');?>
-<<<<<<< HEAD
-	<label for="username">Username</label><input type="text" name="username" value="admin">
-	<label for="userpass">Password</label><input type="textarea" name="userpass" value="pass">
-=======
+
+<!-- 	<label for="username">Username</label><input type="text" name="username" value="admin">
+	<label for="userpass">Password</label><input type="textarea" name="userpass" value="pass"> -->
+
 <div class="container" style="margin-left: 400px; margin-top: 150px;">
     	  <div class="modal-dialog">
 				<div class="loginmodal-container">
 					<h1>Login</h1><br>
 				  <form>
 					<input type="text" name="username" value="admin" placeholder="Username">
-					<input type="password" name="userpass" value ="passsecret" placeholder="Password">
+					<input type="password" name="userpass" value ="pass" placeholder="Password">
 					<input type="submit" name="login" class="login loginmodal-submit" value="login">
 				  </form>
 					

@@ -51,7 +51,7 @@ class Admin extends CI_Controller {
 				$this->load->view('core/core',$data);
 				$this->load->view('vadmin');
 				// print(FCPATH.APP.CONF.'\cms_settings.php');
-				print(FCPATH.APP.CONF.'/cms_settings.php');
+				//print(FCPATH.APP.CONF.'/cms_settings.php');
 			}else{
 				redirect(base_url('beranda'));
 			}
