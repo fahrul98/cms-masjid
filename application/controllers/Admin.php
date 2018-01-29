@@ -8,23 +8,6 @@ class Admin extends CI_Controller {
 	 1. Home admin (statistik). Setelah login langsung access method index().
 
 	 vars:
-
-=======
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
->>>>>>> 90f62dae72ee1ffc17be3aab81d2241be3dea6f7
 	 */
 	public function __construct()
 	{
@@ -40,9 +23,9 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	// if (file_exists(FCPATH.APP.CONF.'\cms_settings.php')) {
 	public function index(){
 		//cek cms setting
-		// if (file_exists(FCPATH.APP.CONF.'\cms_settings.php')) {
 		if (file_exists(FCPATH.APP.CONF.'/cms_settings.php')) {
 			//cek login
 			if ($this->session->userdata('username') and $this->session->userdata('userpass')){
@@ -57,10 +40,8 @@ class Admin extends CI_Controller {
 				$this->load->view('vadmin');
 				$this->load->view('core/footer',$data);
 				// print(FCPATH.APP.CONF.'\cms_settings.php');
-<<<<<<< HEAD
+
 				//print(FCPATH.APP.CONF.'/cms_settings.php');
-=======
->>>>>>> 30bf19f2c8e5d757b97f66dd89e2a50f1a197e71
 			}else{
 				redirect(base_url('beranda'));
 			}

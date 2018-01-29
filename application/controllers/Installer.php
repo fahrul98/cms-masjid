@@ -16,8 +16,11 @@ class Installer extends CI_Controller {
 	}
 
 	public function index(){
+		$data['page']='Instalasi';
+
+		$this->load->view('core/core',$data);
 		$this->load->view('install/i_database');
-		$this->load->view('core/footer',$data);
+		// $this->load->view('core/footer',$data);
 	}
 
 	public function dbGenerator(){

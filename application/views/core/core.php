@@ -1,5 +1,5 @@
 <?php
-
+defined('BASEPATH') OR exit('No direct script access allowed');
 /*
 
 file core untuk load head html dan navbar. jadi di controller tinggal load file ini.
@@ -20,11 +20,14 @@ ok?
 
   // if($this->session->userdata('username')&&$this->session->userdata('password')){
 
-  // cek jika ada login maka muncul navbar, smentara bypass dulu
-
+  // jika ada login, muncul navbar admin. jika tidak muncul navbar pengunjung
   if(true){
     $this->load->view('core/navbar',$data);
   }
+  if($this->session->userdata('username') and $this->session->userdata('userpass')){
+?>
+<div class="container">
+<?php
+  }
 ?>
 <!-- isi -->
-<div class="container">
