@@ -10,7 +10,8 @@ kmsaldo
 */
 
 ?>
-<div class="container" style="margin-left: 400px; margin-top: 50px;"	>
+<!-- <div class="container" style="margin-left: 400px; margin-top: 50px;"	> -->
+<div id="main-content">
 	<h2><?php echo $page; ?></h2>
 <?php
 if ($page=="Keuangan Masjid") {
@@ -45,12 +46,12 @@ $n = 1;
 		}
 		 ?>
 	</table>
-	<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('keuanganmasjid/tambahentri');?>"> Tambah Entri</a></button> 
+	<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('keuanganmasjid/tambahentri');?>"> Tambah Entri</a></button>
 <?php }else if ($page=="Tambah Entri") {?>
 
-	
+
 	<?php echo form_open('keuanganmasjid/dbentri','class=form');	?>
-	
+
 	<div class="form-group">
 			<label for="kmwaktu">kmwaktu</label>
 			<input type="text" class="form-control" name="kmwaktu" value="">
@@ -73,8 +74,8 @@ $n = 1;
 	</div>
 
 <?php }else if ($page=="Ubah Entri") {?>
-	
-	
+
+
 	<?php echo form_open('keuanganmasjid/dbubah','class=form');	?>
 	<input type="hidden" name="kmid" value="<?php echo $kmasjid->kmid;?>">
 	<div class="form-group">
@@ -98,6 +99,6 @@ $n = 1;
 		<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('keuanganmasjid');?>">Kembali</a></button>
 		<button type="submit" class="btn btn-danger" name="submit" value="hapus"><a style="text-decoration: none" href="<?php echo base_url('keuanganmasjid/dbhapus/'.$kmasjid->kmid);?>">Hapus Entri</a></button>
 	</div
-	
+
 <?php } ?>
 </div>

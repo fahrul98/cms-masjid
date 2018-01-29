@@ -11,10 +11,13 @@ class Media extends CI_Controller{
   }
 
   public function index(){
+    $this->load->model('mprofiladmin');
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
     $data['page'] = "Media";
     $data['imgs'] = $this->mmedia->tampilmedia()->result();
 		$this->load->view('core/core',$data);
 		$this->load->view('vmedia',$data);
+    $this->load->view('core/footer',$data);
     unset($data);
   }
 
@@ -33,6 +36,7 @@ class Media extends CI_Controller{
       $data['page'] = "Stats";
   		$this->load->view('core/core',$data);
   		$this->load->view('vmedia',$data);
+      $this->load->view('core/footer',$data);
       // $this->load->view('upload_form', $error);
     }else{
         // echo "suks";
@@ -44,6 +48,7 @@ class Media extends CI_Controller{
       $data['page'] = "Stats";
       $this->load->view('core/core',$data);
   		$this->load->view('vmedia',$data);
+      $this->load->view('core/footer',$data);
       // $this->load->view('upload_success', $data);
     }
     unset($data);

@@ -16,9 +16,10 @@ useralamat
 usertelp
 */
 ?>
-<div class="container" style="margin-left: 300px;">
+<div id="main-content">
+<!-- <div class="container" style="margin-left: 300px;"> -->
 	<h2><?php echo $page; ?></h2>
-	
+
 
 <?php echo form_open('profiladmin/dbubahprofiladmin');?>
 	<div class="panel panel-default">
@@ -61,6 +62,6 @@ usertelp
 			</div>
 			<button type="submit" name="submit" class="btn btn-lg btn-primary">Terapkan</button>
 			<a href="<?php echo base_url('#');?>"><button type="submit" name="submit" class="btn btn-lg btn-primary">Lihat Profile</button></a>
-		</form>			
+		</form>
 	</div>
 </div>

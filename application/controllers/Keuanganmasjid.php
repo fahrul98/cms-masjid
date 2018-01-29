@@ -19,15 +19,18 @@ kmsaldo
 		parent::__construct();
 		//load model
 		$this->load->model('mkmasjid');
+		$this->load->model('mprofiladmin');
 	}
 //view all post
 
 	public function index(){
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Keuangan Masjid";
 		$data['kmasjid'] = $this->mkmasjid->tampilkmasjid()->result();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vkmasjid',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 /*
@@ -36,10 +39,12 @@ insert + delete
 
 */
 	public function tambahentri(){
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Tambah Entri";
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vkmasjid',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 	public function dbentri(){
@@ -75,12 +80,14 @@ insert + delete
 	}
 
 	public function ubahkmasjid($kmid){
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Ubah Entri";
 		$data['kmid'] = $kmid;
 		$data['kmasjid'] = $this->mkmasjid->tampilkmasjid($data)->row();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vkmasjid',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 	public function hapuspost(){

@@ -12,6 +12,7 @@ pvisimisi
 $adminlogin = $this->session->userdata('username')&&$this->session->userdata('userpass')?'notnull':null;
 
 //$adminlogin vars test
+
 // echo $adminlogin."--";
 // $val = $adminlogin==1?'nice':'not nice';
 // $val = isset($adminlogin)?'nice':'not nice';
@@ -20,9 +21,10 @@ $adminlogin = $this->session->userdata('username')&&$this->session->userdata('us
 // }
 
 ?>
-<div class="container" style="margin-left: 300px; margin-top: 40px">
+<div id="main-content">
+<!-- <div class="container" style="margin-left: 300px; margin-top: 40px"> -->
 <h2><?php echo $page; ?></h2>
-		<form>
+		<?php echo form_open('profilm/dbubahprofilm','class=form');	?>
 			<div class="form-group">
 				<input type="hidden" name="pnama" value="<?php echo $profil->pnama;?>">
 			</div>

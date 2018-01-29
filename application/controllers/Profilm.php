@@ -16,13 +16,16 @@ pvisimisi
 		parent::__construct();
 		//load model
 		$this->load->model('mprofilm');
+		$this->load->model('mprofiladmin');
 	}
 	public function index(){
-	    $data['page'] = "Profil Masjid";
-	    $data['profil'] = $this->mprofilm->tampilprofilm()->row();
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
+    $data['page'] = "Profil Masjid";
+    $data['profil'] = $this->mprofilm->tampilprofilm()->row();
 
-			$this->load->view('core/core',$data);
-			$this->load->view('vprofilm',$data);
+		$this->load->view('core/core',$data);
+		$this->load->view('vprofilm',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 	public function dbubahprofilm(){

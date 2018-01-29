@@ -17,6 +17,7 @@ class Installer extends CI_Controller {
 
 	public function index(){
 		$this->load->view('install/i_database');
+		$this->load->view('core/footer',$data);
 	}
 
 	public function dbGenerator(){

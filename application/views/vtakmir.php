@@ -13,7 +13,8 @@ mediaid
 */
 // view admin
 ?>
-<div class="container" style="margin-left: 400px; margin-top: 50px;">
+<div id="main-content">
+<!-- <div class="container" style="margin-left: 400px; margin-top: 50px;"> -->
 	<h2><?php echo $page; ?></h2>
 <?php
 if ($page=="Takmir") {
@@ -97,9 +98,9 @@ $n = 1;
 	<div class="form-group">
 		<label for="tknotelp">No. telp</label>
 		<input type="text" class="form-control" name="tknotelp" value="<?php echo $takmir->tknotelp;?>">
-	
+
 	</div>
-	
+
 	<button type="submit" class="btn btn-primary" name="submit" value="update">Update</button>
 	<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('takmir');?>">Kembali</a></button>
 	<button type="submit" class="btn btn-danger" name="submit" value="hapus"><a style="text-decoration: none" href="<?php echo base_url('takmir/dbhapus/'.$takmir->tkid);?>">Hapus Takmir</a></button>
