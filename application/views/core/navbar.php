@@ -9,71 +9,14 @@
   - diffdash : navbar ada 2 komponen, navbar atas & sidebar
 
   */
-
+?>
+<!-- WRAPPER -->
+<div id="wrapper">
+<?php
   //jika $mode di controller ada, maka muncul navbar utk pengunjung
   if (isset($mode)&&$mode=="pengunjung") {
 ?>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="<?php echo base_url('');?>">[][][]Situs[][][]</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url('beranda/post')?>">post <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url('beranda/profilm')?>">profil m <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url('beranda/takmirm')?>">takmir m <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url('beranda/ustadz')?>">Daftar ustadz <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url('beranda/keuanganmasjid')?>">Keuangan Masjid <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url('beranda/jadwalkegiatan')?>">Jadwal Kegiatan<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('login')?>">Login</a>
-      </li>
-    </ul>
-    <span class="navbar-text">
-      <?php echo md5('pengunjung') ?>
-    </span>
-  </div>
-</nav>
-=======
-<div class="container">
-<div class="nav-side-menu">
-    <div class="brand"><a href="#Profile" style="text-decoration: none; color: #e1ffff;">CMS Masjid</a></div>
-      <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-        <div class="menu-list">
-            <ul id="menu-content" class="menu-content collapse out">            
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('beranda/post')?>"><i class="fa fa-pencil fa-lg"></i> Post </span></a>
-              </li>  
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('beranda/profilm')?>"><i class="fa fa-id-card-o fa-lg" aria-hidden="true"></i> Profil m </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('beranda/takmirm')?>"><i class="fa fa-pencil fa-lg"></i> Takmir m </span></a>
-              </li>  
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('beranda/ustadz')?>"><i class="fa fa-pencil fa-lg"></i> Daftar Ustadz  <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('beranda/keuanganmasjid')?>"><i class="fa fa-usd fa-lg"></i>Keuangan Masjid <span class="sr-only">(current)</span></a>
-              </li> 
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('beranda/jadwalkegiatan')?>"><i class="fa fa-calendar-check-o fa-lg"></i> Jadwal Kegiatan  <span class="sr-only">(current)</span></a>
-=======
+
 <!-- NAVBAR -->
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
@@ -154,7 +97,6 @@
                     </div>
                   </div>
                 </a>
->>>>>>> 30bf19f2c8e5d757b97f66dd89e2a50f1a197e71
               </li>
               <li>
                 <a href="#">
@@ -238,8 +180,7 @@
 // tema memakai wrapper sbg container, jadi di wrap. gk usah pake tag penutup untuk div wrapper.
 
 ?>
-<!-- WRAPPER -->
-<div id="wrapper">
+
 <!-- NAVBAR -->
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">

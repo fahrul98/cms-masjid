@@ -6,7 +6,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div id="main-content">
 	<!-- <h1>Welcome to CodeIgniter!</h1> -->
 	<h2><?php echo $page; ?></h2>
-<<<<<<< HEAD
 </div>
 	<?php echo form_open('login/dblogin');?>
 
@@ -14,9 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<label for="userpass">Password</label><input type="textarea" name="userpass" value="pass"> -->
 
 <div class="container" style="margin-left: 400px; margin-top: 150px;">
-=======
 <!-- <div class="container" style="margin-left: 400px; margin-top: 150px;"> -->
->>>>>>> 30bf19f2c8e5d757b97f66dd89e2a50f1a197e71
     	  <div class="modal-dialog">
 				<div class="loginmodal-container">
 					<?php echo form_open('login/dblogin');?>

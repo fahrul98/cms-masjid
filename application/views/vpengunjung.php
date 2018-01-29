@@ -36,7 +36,7 @@ $n = 1;
 		foreach ($cmpost as $v) {
 			echo "<tr>
 			<td>".$n."</td>
-			<td><a href=".base_url('post/ubahpost/'.$v->postid).">".$v->psjudul."</a></td>
+			<td><a href=".base_url('post/view/'.urlencode($v->psjudul)).">".$v->psjudul."</a></td>
 			<td>".$v->psustadz."</td>
 			<td>".$v->psubah."</td>
 			<td>".$v->tagid."</td>

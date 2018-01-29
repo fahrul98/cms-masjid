@@ -43,9 +43,9 @@ mediaid
 	}
 
 	//view post untuk netizen
-	public function view($postid=null){
+	public function view($slug=null){
 		//jika postid null maka muncul daftar post
-		if (!isset($postid)) {
+		if (!isset($slug)) {
 			// $postid = 1;
 			// $data['mode'] = 'viewall';
 			$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
@@ -57,7 +57,7 @@ mediaid
 			$this->load->view('core/footer',$data);
 		}else {
 			$data['mode'] = 'view';
-			$data['postid'] = $postid;
+			$data['slug'] = $slug;
 			$data['post'] = $this->mpost->tampilpost($data)->row();
 			$data['page'] = $data['post']->psjudul;
 
@@ -65,7 +65,29 @@ mediaid
 			$this->load->view('vpost',$data);
 			$this->load->view('core/footer',$data);
 		}
+		$this->add_count($data['post']->postid);
+		unset($data, $slug);
 	}
+
+	//view counter
+	public function add_count($postid){
+		$this->load->helper('cookie');
+		$data['visitor']=$this->input->cookie($postid, FALSE);
+		$data['ip'] = $this->input->ip_address();
+		$data['expire']=60*60*24;
+		if ($data['visitor'] == false) {
+	        $cookie = array(
+	            "name"   => $postid,
+	            "value"  => $data['ip'],
+	            "expire" => $data['expire'],
+	            "secure" => false
+	        );
+	        $this->input->set_cookie($cookie);
+	        $this->mpost->update_counter($postid);
+    	}
+		unset($data, $postid, $cookie);
+	}
+
 
 /*
 

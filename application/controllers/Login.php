@@ -22,14 +22,11 @@ class Login extends CI_Controller {
 				 redirect(base_url('admin'));
 		}else{
 			// $this->load->view('v_login');
-<<<<<<< HEAD
 			//$this->load->view('core/core',$data);
-			$this->load->view('vlogin', $data);
-=======
+			//$this->load->view('vlogin', $data);
 			$this->load->view('core/core',$data);
 			$this->load->view('vlogin');
 			$this->load->view('core/footer',$data);
->>>>>>> 30bf19f2c8e5d757b97f66dd89e2a50f1a197e71
 		}
 	}
 
