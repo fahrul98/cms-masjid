@@ -10,10 +10,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   - diffdash : navbar ada 2 komponen, navbar atas & sidebar
 
   */
-
-  //jika $mode di controller ada, maka muncul navbar utk pengunjung
-  if (isset($mode)&&$mode=="pengunjung") {
 ?>
+<!-- WRAPPER -->
+<div id="wrapper">
+<?php
+  //jika $mode di controller ada dan halaman bukan hal.instalasi , maka muncul navbar utk pengunjung
+  if ($page!='Instalasi'&&!$this->session->userdata('username')&&!$this->session->userdata('userpass')) {
+?>
+
 <!-- NAVBAR -->
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
@@ -40,145 +44,88 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       }
     ?>
     <!-- end logo -->
-    <div class="navbar-right">
-      <!-- search form -->
-      <form id="navbar-search" class="navbar-form search-form">
-        <input value="" class="form-control" placeholder="Search here..." type="text">
-        <button type="button" class="btn btn-default"><i class="fa fa-search"></i></button>
-      </form>
-      <!-- end search form -->
-      <!-- navbar menu -->
-      <div id="navbar-menu">
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-              <i class="lnr lnr-alarm"></i>
-              <span class="notification-dot"></span>
-            </a>
-            <ul class="dropdown-menu notifications">
-              <li class="header"><strong>You have 7 new notifications</strong></li>
-              <li>
-                <a href="#">
-                  <div class="media">
-                    <div class="media-left">
-                      <i class="fa fa-fw fa-flag-checkered text-muted"></i>
-                    </div>
-                    <div class="media-body">
-                      <p class="text">Your campaign <strong>Holiday Sale</strong> is starting to engage potential customers.</p>
-                      <span class="timestamp">24 minutes ago</span>
-                    </div>
-                  </div>
+        <div class="navbar-right">
+          <!-- search form -->
+          <form id="navbar-search" class="navbar-form search-form">
+            <input value="" class="form-control" placeholder="Cari..." type="text">
+            <button type="button" class="btn btn-default"><i class="fa fa-search"></i></button>
+          </form>
+          <!-- end search form -->
+          <!-- navbar menu -->
+          <div id="navbar-menu">
+            <ul class="nav navbar-nav">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
+                  <i class="lnr lnr-alarm"></i>
+                  <span class="notification-dot"></span>
                 </a>
+
+                <!-- notif -->
+
+                <ul class="dropdown-menu notifications">
+                  <li class="header"><strong>x notifikasi baru</strong></li>
+                  <li>
+                    <a href="#">
+                      <div class="media">
+                        <div class="media-left">
+                          <i class="fa fa-fw fa-flag-checkered text-muted"></i>
+                        </div>
+                        <div class="media-body">
+                          <p class="text">Your campaign <strong>Holiday Sale</strong> is starting to engage potential customers.</p>
+                          <span class="timestamp">24 minutes ago</span>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="footer"><a href="#" class="more">See all notifications</a></li>
+                </ul>
               </li>
-              <li>
-                <a href="#">
-                  <div class="media">
-                    <div class="media-left">
-                      <i class="fa fa-fw fa-exclamation-triangle text-warning"></i>
-                    </div>
-                    <div class="media-body">
-                      <p class="text">Campaign <strong>Holiday Sale</strong> is nearly reach budget limit.</p>
-                      <span class="timestamp">2 hours ago</span>
-                    </div>
-                  </div>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
+                  <i class="lnr lnr-cog"></i>
                 </a>
+                <ul class="dropdown-menu user-menu menu-icon">
+                  <li class="menu-heading">Akun</li>
+                  <li><a href="<?php echo base_url('profiladmin')?>"><i class="fa fa-fw fa-edit"></i>Profil Saya</a></li>
+                  <li class="divider"></li>
+                  <li><a href="<?php echo base_url('admin/logout')?>"><i class="fa fa-fw fa-lock"></i> <span>Logout</span></a></li>
+                </ul>
               </li>
-              <li>
-                <a href="#">
-                  <div class="media">
-                    <div class="media-left">
-                      <i class="fa fa-fw fa-bar-chart text-muted"></i>
-                    </div>
-                    <div class="media-body">
-                      <p class="text">Website visits from Facebook is 27% higher than last week.</p>
-                      <span class="timestamp">Yesterday</span>
-                    </div>
-                  </div>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
+                  <i class="lnr lnr-question-circle"></i>
                 </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="media">
-                    <div class="media-left">
-                      <i class="fa fa-fw fa-check-circle text-success"></i>
-                    </div>
-                    <div class="media-body">
-                      <p class="text">Your campaign <strong>Holiday Sale</strong> is approved.</p>
-                      <span class="timestamp">2 days ago</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="media">
-                    <div class="media-left">
-                      <i class="fa fa-fw fa-exclamation-circle text-danger"></i>
-                    </div>
-                    <div class="media-body">
-                      <p class="text">Error on website analytics configurations</p>
-                      <span class="timestamp">3 days ago</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li class="footer"><a href="#" class="more">See all notifications</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-              <i class="lnr lnr-cog"></i>
-            </a>
-            <ul class="dropdown-menu user-menu menu-icon">
-              <li class="menu-heading">ACCOUNT SETTINGS</li>
-              <li><a href="#"><i class="fa fa-fw fa-edit"></i> <span>Basic</span></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-bell"></i> <span>Notifications</span></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-sliders"></i> <span>Preferences</span></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-lock"></i> <span>Privacy</span></a></li>
-              <li class="menu-heading">BILLING</li>
-              <li><a href="#"><i class="fa fa-fw fa-file-text-o"></i> <span>Invoices</span></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-credit-card"></i> <span>Payments</span></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-refresh"></i> <span>Renewals</span></a></li>
-              <li class="menu-button">
-                <a href="#" class="btn btn-primary"><i class="fa fa-rocket"></i> UPGRADE PLAN</a>
+                <ul class="dropdown-menu user-menu">
+                  <li>
+                    <form class="search-form help-search-form">
+                      <input value="" class="form-control" placeholder="How can we help?" type="text">
+                      <button type="button" class="btn btn-default"><i class="fa fa-search"></i></button>
+                    </form>
+                  </li>
+                  <li class="menu-heading">Bantuan</li>
+                  <li><a href="#">Setting up Campaign</a></li>
+                  <li><a href="#">Understanding Website Analytics</a></li>
+                  <li><a href="#">Boost Your Sales</a></li>
+                  <li><a href="#">Knowing Your Audience</a></li>
+                  <li class="menu-heading">ACCOUNT</li>
+                  <li><a href="#">Change Password</a></li>
+                  <li><a href="#">Privacy &amp; Security</a></li>
+                  <li><a href="#">Membership</a></li>
+                  <li class="menu-heading">BILLING</li>
+                  <li><a href="#">Setup Payment</a></li>
+                  <li><a href="#">Auto-Renewal Program</a></li>
+                  <li><a href="#">Cancellation</a></li>
+                  <li class="menu-button">
+                    <a href="#" class="btn btn-primary"><i class="fa fa-question-circle"></i> HELP CENTER</a>
+                  </li>
+                </ul>
               </li>
             </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-              <i class="lnr lnr-question-circle"></i>
-            </a>
-            <ul class="dropdown-menu user-menu">
-              <li>
-                <form class="search-form help-search-form">
-                  <input value="" class="form-control" placeholder="How can we help?" type="text">
-                  <button type="button" class="btn btn-default"><i class="fa fa-search"></i></button>
-                </form>
-              </li>
-              <li class="menu-heading">HOW-TO</li>
-              <li><a href="#">Setting up Campaign</a></li>
-              <li><a href="#">Understanding Website Analytics</a></li>
-              <li><a href="#">Boost Your Sales</a></li>
-              <li><a href="#">Knowing Your Audience</a></li>
-              <li class="menu-heading">ACCOUNT</li>
-              <li><a href="#">Change Password</a></li>
-              <li><a href="#">Privacy &amp; Security</a></li>
-              <li><a href="#">Membership</a></li>
-              <li class="menu-heading">BILLING</li>
-              <li><a href="#">Setup Payment</a></li>
-              <li><a href="#">Auto-Renewal Program</a></li>
-              <li><a href="#">Cancellation</a></li>
-              <li class="menu-button">
-                <a href="#" class="btn btn-primary"><i class="fa fa-question-circle"></i> HELP CENTER</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
+          </div>
+          <!-- end navbar menu -->
+        </div>
       </div>
-      <!-- end navbar menu -->
-    </div>
-  </div>
-</nav>
+    </nav>
 <!-- END NAVBAR -->
 
 
@@ -186,13 +133,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 //jika tidak maka muncul punya si admin
 
-  }else if (!isset($mode)||$mode=='view'){
+  // }else if (!isset($mode)||$mode=='view'){
+  // if ($this->session->userdata('username') and $this->session->userdata('userpass')){
+  }else if (!isset($mode)&&$this->session->userdata('username') and $this->session->userdata('userpass')){
 
 // tema memakai wrapper sbg container, jadi di wrap. gk usah pake tag penutup untuk div wrapper.
 
 ?>
-<!-- WRAPPER -->
-<div id="wrapper">
+
 <!-- NAVBAR -->
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
@@ -201,7 +149,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
     <!-- logo -->
     <div class="navbar-brand">
-      <a href="<?php echo base_url('')?>"><img src="<?php echo base_url('assets/img/logo.png')?>" alt="CMS Masjid" class="img-responsive logo"></a>
+      <a href="<?php echo base_url('')?>"><img src="<?php echo base_url('assets/img/logo.png');?>" alt="CMS Masjid" class="img-responsive logo"></a>
     </div>
     <div class="navbar-brand">
       <a href="<?php echo base_url('beranda')?>">Lihat situs</a>
@@ -346,6 +294,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div>
 </div>
 <!-- END LEFT SIDEBAR -->
+<?php
+}else if ($page=='Instalasi') {
+
+  //navigasi instalasi next>next>next mungkin?
+
+?>
+
 <?php
 }
 ?>

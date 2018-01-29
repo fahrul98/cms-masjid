@@ -51,28 +51,37 @@ $n = 1;
 	</table>
 	<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('rekamdonasi/tambahrdonasi');?>"> Tambah Entri</a></button>
 <?php }else if ($page=="Tambah rekamdonasi") {?>
+	<div class="container">
+		<div class="row">
+			<div class="panel col-md-4">
 	<?php echo form_open('rekamdonasi/dbtambahrdonasi','class=form');	?>
-	<div class="form-group">
-		<label for="rdwaktu">Waktu :  </label>
-		<input type="text" class="form-control" name="rdwaktu" value="">
+				<div class="form-group">
+					<label for="rdwaktu">Waktu :  </label>
+					<input type="text" class="form-control" name="rdwaktu" value="">
+				</div>
+				<div class="form-group">
+					<label for="rdjumlah">Jumlah : </label>
+					<input type="text" class="form-control" name="rdjumlah" value="">
+				</div>
+				<div class="form-group">
+					<label for="rddonatur">Donatur : </label>
+					<input type="textarea" class="form-control" name="rddonatur" value="">
+				</div>
+				<div class="form-group">
+					<label for="rdtotal">Total : </label>
+					<input type="text" class="form-control" name="rdtotal" value="">
+			</div>
+		</div>
 	</div>
-	<div class="form-group">
-		<label for="rdjumlah">Jumlah : </label>
-		<input type="text" class="form-control" name="rdjumlah" value="">
-	</div>
-	<div class="form-group">
-		<label for="rddonatur">Donatur : </label>
-		<input type="textarea" class="form-control" name="rddonatur" value="">
-	</div>
-	<div class="form-group">
-		<label for="rdtotal">Total : </label>
-		<input type="text" class="form-control" name="rdtotal" value="">
-	</div>
+	<button type="submit" class="btn btn-primary" name="submit" value="tambah">Tambah</button>
+	<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('rekamdonasi');?>">Kembali</a></button>
+</div>
 
-		<button type="submit" class="btn btn-primary" name="submit" value="tambah">Tambah</button>
-		<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('rekamdonasi');?>">Kembali</a></button>
 
 <?php }else if ($page=="Ubah rekamdonasi") {?>
+<div class="container">
+	<div class="row">
+		<div class="panel col-md-4">
 	<?php echo form_open('rekamdonasi/dbubah','class=form');	?>
 	<input type="hidden" name="rdid" value="<?php echo $cmrdonasi->rdid;?>">
 	<div class="form-group">
@@ -90,9 +99,12 @@ $n = 1;
 	<div class="form-group">
 		<label for="rdtotal">Total</label>
 		<input type="text" class="form-control" name="rdtotal" value="<?php echo $cmrdonasi->rdtotal;?>">
+			</div>
+		</div>
 	</div>
 	<button type="submit" class="btn btn-primary" name="submit" value="update">Update</button>
 	<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('rekamdonasi');?>">Kembali</a></button>
 	<button type="submit" class="btn btn-danger" name="submit" value="hapus"><a style="text-decoration: none" href="<?php echo base_url('rekamdonasi/dbhapus/'.$cmrdonasi->rdid);?>">Hapus Rekamdonasi</a></button>
+</div>
 <?php } ?>
 </div>

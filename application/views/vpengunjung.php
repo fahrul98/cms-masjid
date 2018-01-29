@@ -12,7 +12,6 @@ mediaid
 */
 // view admin
 ?>
-
 <div class="container">
 <?php
 if ($page=="Beranda") {
@@ -33,10 +32,11 @@ if ($page=="Beranda") {
 <?php
 
 $n = 1;
+// <td><a href=".base_url('beranda/post/'.$v->postid).">".$v->psjudul."</a></td>
 		foreach ($cmpost as $v) {
 			echo "<tr>
 			<td>".$n."</td>
-			<td><a href=".base_url('beranda/post/'.$v->postid).">".$v->psjudul."</a></td>
+			<td><a href=".base_url('beranda/post/'.urlencode($v->psjudul)).">".$v->psjudul."</a></td>
 			<td>".$v->psustadz."</td>
 			<td>".$v->psubah."</td>
 			<td>".$v->tagid."</td>
@@ -47,7 +47,10 @@ $n = 1;
 	</table>
 
 <?php }else if ($page=="Semua Post") {?>
-	<h2><?php echo $page;?><h3><?php echo $mode; ?></h3></h2>
+	<h2><?php echo $page;?><h3>
+		<?php if (isset($mode)) {
+		echo $mode;
+	} ?></h3></h2>
 	<table class="table  table-bordered table-striped table-hover">
 		<thead>
 			<th>No.</th>
@@ -78,20 +81,19 @@ $n = 1;
 
  }else if ($page=="tampilpost") {?>
 	<h2><?php echo $page;?></h2>
-	<!-- <h3><?php echo $mode; ?></h3> -->
 	<?php
 		$n = 1;
 		$v=$post;
 		echo "<tr>
 		<td>".$n."</td>
-		<td><a href=".base_url('beranda/post/'.$v->postid).">".$v->psjudul."</a></td>
+		<td><a href=".base_url('beranda/post/'.urlencode($v->psjudul)).">".$v->psjudul."</a></td>
 		<td>".$v->psustadz."</td>
 		<td>".$v->psubah."</td>
 		<td>".$v->tagid."</td>
 		</tr>";
 	?>
 
-<h1><a href="<?php echo base_url('beranda/post/'.$v->postid);?>"><?php echo $v->psjudul;?></a></h1>
+<h1><a href="<?php echo base_url('beranda/post/'.urlencode($v->psjudul));?>"><?php echo $v->psjudul;?></a></h1>
 <p><?php echo $v->psustadz;?></p>
 <p><?php echo $v->psubah;?></p>
 <p><?php echo $v->tagid;?></p>

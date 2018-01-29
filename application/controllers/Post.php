@@ -42,30 +42,50 @@ mediaid
 		}
 	}
 
-	//view post untuk pratinjau admin
-	public function view($postid=null){
+	// public function view($postid=null){ deprecated
+	// view post untuk pratinjau admin!
+
+	public function view($slug=null){
 		//jika postid null maka muncul daftar post
-		if (!isset($postid)) {
+		if (!isset($slug)) {
 			// $postid = 1;
 			// $data['mode'] = 'viewall';
 			$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 			$data['page'] = "Semua Post";
 			$data['cmpost'] = $this->mpost->tampilpost()->result();
-
-			$this->load->view('core/core',$data);
-			$this->load->view('vpost',$data);
-			$this->load->view('core/footer',$data);
 		}else {
 			$data['mode'] = 'view';
-			$data['postid'] = $postid;
+			$data['slug'] = $slug;
 			$data['post'] = $this->mpost->tampilpost($data)->row();
 			$data['page'] = $data['post']->psjudul;
 
-			$this->load->view('core/core',$data);
-			$this->load->view('vpost',$data);
-			$this->load->view('core/footer',$data);
+			$this->add_count($data['post']->postid);
 		}
+		$this->load->view('core/core',$data);
+		$this->load->view('vpost',$data);
+		$this->load->view('core/footer',$data);
+		unset($data, $slug);
 	}
+
+	//view counter
+	public function add_count($postid){
+		$this->load->helper('cookie');
+		$data['visitor']=$this->input->cookie($postid, FALSE);
+		$data['ip'] = $this->input->ip_address();
+		$data['expire']=60*60*24;
+		if ($data['visitor'] == false) {
+      $cookie = array(
+        "name"   => $postid,
+        "value"  => $data['ip'],
+        "expire" => $data['expire'],
+        "secure" => false
+      );
+      $this->input->set_cookie($cookie);
+      $this->mpost->update_counter($postid);
+  	}
+		unset($data, $postid, $cookie);
+	}
+
 
 /*
 
@@ -111,10 +131,12 @@ method-method untuk operasi admin
 		unset($data,$postid);
 	}
 
-	public function ubahpost($postid){
+	// public function ubahpost($postid){ old id
+	public function ubahpost($slug){
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Ubah Postingan";
-		$data['postid'] = $postid;
+		// $data['postid'] = $postid;
+		$data['slug'] = $slug;
 		$data['post'] = $this->mpost->tampilpost($data)->row();
 
 		$this->load->view('core/core',$data);
@@ -132,11 +154,5 @@ method-method untuk operasi admin
 		$this->load->view('vpost',$data);
 		redirect(base_url('post'));
 	}
-
-/*
-
-method-method untuk user view
-
-*/
 
 }

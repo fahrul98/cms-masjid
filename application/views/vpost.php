@@ -33,16 +33,17 @@ if ($page=="Post") {
 <?php
 
 $n = 1;
+// <td><a href=".base_url('post/ubahpost/'.$v->postid).">".$v->psjudul."</a></td>
 		foreach ($cmpost as $v) {
 			echo "<tr>
 			<td>".$n."</td>
-			<td><a href=".base_url('post/ubahpost/'.$v->postid).">".$v->psjudul."</a></td>
+			<td><a href=".base_url('post/ubahpost/'.urlencode($v->psjudul)).">".$v->psjudul."</a></td>
 			<td>".$v->psustadz."</td>
 			<td>".$v->psubah."</td>
 			<td>".$v->tagid."</td>
-			<td><a href=".base_url('post/ubahpost/'.$v->postid)."> ubah</a></td>
+			<td><a href=".base_url('post/ubahpost/'.urlencode($v->psjudul))."> ubah</a></td>
 			<td><a href=".base_url('post/dbhapus/'.$v->postid)."> hapus</a></td>
-			<td><a href=".base_url('post/view/'.$v->postid).">pratinjau</a></td>
+			<td><a href=".base_url('post/view/'.urlencode($v->psjudul)).">pratinjau</a></td>
 			</tr>";
 			$n++;
 		}
@@ -81,7 +82,8 @@ $n = 1;
 	<div class="row">
 		<div class="form-group col-md-6">
 			<button type="submit" class="btn btn-primary" name="submit" value="Tulis">Tulis</button>
-			<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('post');?>">Kembali</a></button>
+			<button type="submit" class="btn btn-danger" name="submit" value="kembali">
+				<a style="text-decoration: none" href="<?php echo base_url('post');?>">Kembali</a></button>
 		</div>
 	</div>
 	<div class="row">
@@ -115,8 +117,10 @@ $n = 1;
 		</div>
 	</div>
 	<div class="row">
-		<div class="form-group col-md-6">
+		<div class="form-group col-md-8">
 			<button type="submit" class="btn btn-primary" name="submit" value="ubah">Ubah</button>
+			<button type="submit" class="btn" name="submit" value="kembali">
+				<a href="<?php echo base_url('post/view/'.urlencode($post->psjudul));?>">pratinjau</a></button>
 			<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('post');?>">Kembali</a></button>
 			<button type="submit" class="btn btn-danger" name="submit" value="hapus"><a style="text-decoration: none" href="<?php echo base_url('post/dbhapus/'.$post->postid);?>">Hapus Post</a></button>
 		</div>
@@ -127,7 +131,7 @@ $n = 1;
 		</div>
 	</div>
 	</form>
-	
+
 <?php
 //view berdasarkan idpost
 }else if ($mode=="view") {?>
@@ -151,8 +155,6 @@ $n = 1;
 			<th>Tag</th>
 		</thead>
 <?php
-
-
 $n = 1;
 		foreach ($cmpost as $v) {
 			echo "<tr>

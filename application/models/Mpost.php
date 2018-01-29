@@ -31,7 +31,7 @@ unset(variabel) => hapus variabel dari memori
 		if ($data===null||$data==null) {
 			$q = $this->db->query("select * from cmpost");
 		}else{
-			$q = $this->db->query("select * from cmpost where postid=?",array($data['postid']));
+			$q = $this->db->query("select * from cmpost where psjudul=?",array(urldecode($data['slug'])));
 		}
 
 		return $q;
@@ -63,5 +63,9 @@ unset(variabel) => hapus variabel dari memori
 	public function hapuspost($data){
 		$q = $this->db->query("delete from cmpost where postid=?",array($data['postid']));
 		unset($data,$q);
+	}
+
+	public function update_counter($postid) {
+		$q = $this->db->query("update cmpost set vcount=vcount+1 where postid=?",array($postid));
 	}
 }

@@ -7,9 +7,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   */
   $title = $page;
-  // <link href="<?php echo site_url('assets/css/style.css'); " rel="stylesheet">?>
-<?php
-  // <link href="<?php echo base_url('assets/css/bootstrap-responsive.css'); " rel="stylesheet">?>
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -48,8 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap-markdown/bootstrap-markdown.min.css'); ?>">
 <?} ?>
 <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css');?>">
-<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
-<link rel="stylesheet" href="<?php echo base_url('assets/css/demo.css');?>">
 <!-- GOOGLE FONTS -->
 <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet"> -->
 <!-- ICONS -->

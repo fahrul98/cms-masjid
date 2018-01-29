@@ -46,9 +46,11 @@ sidebar?
 method-method halaman pengunjung
 
 */
-	public function post($postid = null){
+
+//postid diganti slug
+
+	public function post2($postid = null){
 		$this->load->model('mpost');
-		$data['page'] = "a";
 		$data['mode'] = "pengunjung";
 		if (!isset($postid)) {
 			// $postid = 1;
@@ -58,6 +60,7 @@ method-method halaman pengunjung
 		}else {
 			$data['postid'] = $postid;
 			$data['post'] = $this->mpost->tampilpost($data)->row();
+			//jika post tidak ada redirect ke 404
 			if($data['post']==null){
 				redirect(base_url(''));
 			}
@@ -68,6 +71,52 @@ method-method halaman pengunjung
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
 		$this->load->view('core/footer',$data);
+	}
+
+	//view post + counting
+	public function post($slug=null){
+		$this->load->model('mpost');
+		//jika postid null maka muncul daftar post
+		if (!isset($slug)) {
+			// $postid = 1;
+
+			$data['page'] = "Semua Post";
+			$data['cmpost'] = $this->mpost->tampilpost()->result();
+		}else {
+			$data['slug'] = $slug;
+			$data['post'] = $this->mpost->tampilpost($data)->row();
+			//jika post tidak ada redirect ke 404
+			if($data['post']==null){
+				redirect(base_url(''));
+			}
+			$data['page'] = "tampilpost";
+			$data['page2'] = $data['post']->psjudul;
+
+			$this->add_count($data['post']->postid);
+		}
+		$this->load->view('core/core',$data);
+		$this->load->view('vpengunjung',$data);
+		$this->load->view('core/footer',$data);
+		unset($data, $slug);
+	}
+
+	//view counter
+	public function add_count($postid){
+		$this->load->helper('cookie');
+		$data['visitor']=$this->input->cookie($postid, FALSE);
+		$data['ip'] = $this->input->ip_address();
+		$data['expire']=60*60*24;
+		if ($data['visitor'] == false) {
+      $cookie = array(
+        "name"   => $postid,
+        "value"  => $data['ip'],
+        "expire" => $data['expire'],
+        "secure" => false
+      );
+      $this->input->set_cookie($cookie);
+      $this->mpost->update_counter($postid);
+  	}
+		unset($data, $postid, $cookie);
 	}
 
 	public function profilm(){

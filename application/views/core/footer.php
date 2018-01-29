@@ -18,6 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!-- try footer from template  -->
 <!-- Javascript -->
+
 <script src="<?php echo base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/vendor/bootstrap/js/bootstrap.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/vendor/metisMenu/metisMenu.js'); ?>"></script>

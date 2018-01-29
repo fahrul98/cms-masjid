@@ -54,6 +54,10 @@ insert + delete
 		$data['rdwaktu']=$this->input->post('rdwaktu');
 		$data['rdjumlah']=$this->input->post('rdjumlah');
 		$data['rddonatur']=$this->input->post('rddonatur');
+		if($this->input->post('rddonatur')==''){
+			$data['rddonatur']=null;
+		}
+		
 		$data['rdtotal']=$this->input->post('rdtotal');
 
 		$this->mrdonasi->tambahrdonasi($data);

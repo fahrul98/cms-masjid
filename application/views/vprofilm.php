@@ -46,11 +46,5 @@ $adminlogin = $this->session->userdata('username')&&$this->session->userdata('us
 			</div>
 			<button type="submit" name="submit" class="btn btn-lg btn-primary">Terapkan</button>
 			<a href="<?php echo base_url('#');?>"><button type="submit" name="submit" class="btn btn-lg btn-primary">Lihat Profile</button></a>
-		</form> <br>
-<?php
-	echo "Nama Masjid : ".$profil->pnama; echo"<br>";
-	echo "Deskripsi : ".$profil->pdeskripsi; echo"<br>";
-	echo "Sejarah : ".$profil->psejarah; echo"<br>";
-	echo "Visi Misi : ".$profil->pvisimisi; echo"<br>";
- ?>
+		</form>
 </div>
