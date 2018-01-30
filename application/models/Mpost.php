@@ -41,21 +41,29 @@ unset(variabel) => hapus variabel dari memori
 		unset($data);
 	}
 
+	public function tampiltag(){
+		$q = $this->db->query("select * from cmtag");
+		return $q;
+		$q=null;
+	}
+
 	public function buatpost($data){
-		$q = $this->db->query("insert into cmpost (psjudul,psustadz,pstext) values (?,?,?)",
+		$q = $this->db->query("insert into cmpost (psjudul,psustadz,pstext,tagid) values (?,?,?,?)",
 		array($data['psjudul'],
 			$data['psustadz'],
-			$data['pstext']
+			$data['pstext'],
+			$data['tagid']
 		));
 
 		unset($data);
 	}
 
 	public function ubahpost($data){
-		$q = $this->db->query("update cmpost set psjudul=?,psustadz=?,pstext=? where postid=?",
+		$q = $this->db->query("update cmpost set psjudul=?,psustadz=?,pstext=?,tagid=? where postid=?",
 		array($data['psjudul'],
 			$data['psustadz'],
 			$data['pstext'],
+			$data['tagid'],
 			$data['postid']
 		));
 
