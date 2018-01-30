@@ -51,7 +51,7 @@ $n = 1;
 		<?php if (isset($mode)) {
 		echo $mode;
 	} ?></h3></h2>
-	<table class="table  table-bordered table-striped table-hover">
+	<table class="table table-bordered table-striped table-hover">
 		<thead>
 			<th>No.</th>
 			<th>Judul</th>
@@ -218,5 +218,11 @@ $n = 1;
 			}
 			 ?>
 		</table>
+<?php } else if ($page=="Bantuan") {?>
+	<h2><?php echo $page;?><h3><?php echo $mode; ?></h3></h2>
+
+<?php }else if ($page=="Tentang") {?>
+	<h2><?php echo $page;?><h3><?php echo $mode; ?></h3></h2>
+
 <?php }?>
 </div>

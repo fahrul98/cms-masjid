@@ -174,6 +174,28 @@ method-method halaman pengunjung
 		$this->load->view('core/footer',$data);
 	}
 
+	public function bantuan(){
+		$this->load->model('mjkegiatan');
+		$data['mode'] = "pengunjung";
+		$data['page'] = "Bantuan";
+		$data['jadwalk'] = $this->mjkegiatan->tampiljkegiatan()->result();
+
+		$this->load->view('core/core',$data);
+		$this->load->view('vpengunjung',$data);
+		$this->load->view('core/footer',$data);
+	}
+
+	public function tentang(){
+		$this->load->model('mjkegiatan');
+		$data['mode'] = "pengunjung";
+		$data['page'] = "Tentang";
+		$data['jadwalk'] = $this->mjkegiatan->tampiljkegiatan()->result();
+
+		$this->load->view('core/core',$data);
+		$this->load->view('vpengunjung',$data);
+		$this->load->view('core/footer',$data);
+	}
+
 	public function mmm(){
 		// $this->load->model('mustadz');
 		$data['mode'] = "pengunjung";

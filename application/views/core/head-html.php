@@ -46,6 +46,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/summernote/summernote.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap-markdown/bootstrap-markdown.min.css'); ?>">
 <?} ?>
+
+<?php if($page=="Tambah Kegiatan"||$page=="Ubah Kegiatan"){?>
+  <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css'); ?>">
+<?} ?>
 <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css');?>">
 <!-- GOOGLE FONTS -->
 <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet"> -->
