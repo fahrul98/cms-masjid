@@ -34,7 +34,7 @@ sidebar?
 		$data['page'] = "Beranda";
 		$data['mode'] = "pengunjung";
 		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
-		$data['cmpost'] = $this->mpost->tampilpost()->result();
+		$data['cmpost'] = $this->mpost->tampilpost($data)->result();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);

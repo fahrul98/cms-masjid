@@ -28,10 +28,12 @@ unset(variabel) => hapus variabel dari memori
 
 	public function tampilpost($data = null){
 		// jika null maka fullselect, else ambil idpost
-		if ($data===null||$data==null) {
-			$q = $this->db->query("select * from cmpost");
-		}else{
+		if (isset($data['mode'])) {
+			$q = $this->db->query("select * from cmpost where pspublic=1");
+		}else if(isset($data['slug'])){
 			$q = $this->db->query("select * from cmpost where psjudul=?",array(urldecode($data['slug'])));
+		}else{
+			$q = $this->db->query("select * from cmpost");
 		}
 
 		return $q;
@@ -65,7 +67,13 @@ unset(variabel) => hapus variabel dari memori
 		unset($data,$q);
 	}
 
+	public function publishpost($data) {
+		$q = $this->db->query("update cmpost set pspublic=1 where postid=?",array($data['postid']));
+		unset($data,$q);
+	}
+
 	public function update_counter($postid) {
 		$q = $this->db->query("update cmpost set vcount=vcount+1 where postid=?",array($postid));
+		unset($data,$q);
 	}
 }

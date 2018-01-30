@@ -45,16 +45,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/summernote/summernote.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap-markdown/bootstrap-markdown.min.css'); ?>">
-<?} ?>
+<?php } ?>
 <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css');?>">
 <!-- GOOGLE FONTS -->
 <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet"> -->
 <!-- ICONS -->
 <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url('assets/img/apple-icon.png');?>">
-<link rel="icon" type="image/png" sizes="96x96" href="<?php echo base_url('assets/img/favicon.png');?>"><?php
-
-//php code
-?>
+<link rel="icon" type="image/png" sizes="96x96" href="<?php echo base_url('assets/img/favicon.png');?>">
 
   </head>
   <!-- <body style="background-color: #79b79c; padding-top:100px;"> -->

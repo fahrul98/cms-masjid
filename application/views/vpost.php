@@ -28,6 +28,7 @@ if ($page=="Post") {
 			<th>Ustadz</th>
 			<th>Waktu</th>
 			<th>Tag</th>
+			<th>Publication</th>
 			<th colspan="3">Operasi</th>
 		</thead>
 <?php
@@ -40,8 +41,15 @@ $n = 1;
 			<td><a href=".base_url('post/ubahpost/'.urlencode($v->psjudul)).">".$v->psjudul."</a></td>
 			<td>".$v->psustadz."</td>
 			<td>".$v->psubah."</td>
-			<td>".$v->tagid."</td>
-			<td><a href=".base_url('post/ubahpost/'.urlencode($v->psjudul))."> ubah</a></td>
+			<td>".$v->tagid."</td>";
+			if ($v->pspublic==0) {
+				echo "<td>Draft<br/>
+					<a href=".base_url('post/dbpublish/'.$v->postid)."> Publish</a></td>";
+
+			}else{
+				echo "<td>Published</td>";
+			}
+			echo "<td><a href=".base_url('post/ubahpost/'.urlencode($v->psjudul))."> ubah</a></td>
 			<td><a href=".base_url('post/dbhapus/'.$v->postid)."> hapus</a></td>
 			<td><a href=".base_url('post/view/'.urlencode($v->psjudul)).">pratinjau</a></td>
 			</tr>";

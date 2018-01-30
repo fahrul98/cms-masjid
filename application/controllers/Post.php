@@ -131,6 +131,14 @@ method-method untuk operasi admin
 		unset($data,$postid);
 	}
 
+	public function dbpublish($postid){
+		$data['postid'] = $postid;
+		$this->mpost->publishpost($data);
+
+		redirect(base_url('post'));
+		unset($data,$postid);
+	}
+
 	// public function ubahpost($postid){ old id
 	public function ubahpost($slug){
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
