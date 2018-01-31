@@ -118,6 +118,13 @@ method-method untuk operasi admin
 		$data['psustadz'] = $this->input->post('ustadz');
 		$data['pstext'] = $this->input->post('text');
 
+		if ($this->input->post('pspublic')) {
+			# code...
+			$data['pspublic']=1;
+		}else{
+			$data['pspublic']=0;
+		}
+
 		$this->mpost->ubahpost($data);
 		redirect(base_url('post'));
 		unset($data);
@@ -126,6 +133,14 @@ method-method untuk operasi admin
 	public function dbhapus($postid){
 		$data['postid'] = $postid;
 		$this->mpost->hapuspost($data);
+
+		redirect(base_url('post'));
+		unset($data,$postid);
+	}
+
+	public function dbpublish($postid){
+		$data['postid'] = $postid;
+		$this->mpost->publishpost($data);
 
 		redirect(base_url('post'));
 		unset($data,$postid);

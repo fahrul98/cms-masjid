@@ -64,7 +64,7 @@ $n = 1;
 		foreach ($cmpost as $v) {
 			echo "<tr>
 			<td>".$n."</td>
-			<td><a href=".base_url('beranda/post/'.$v->postid).">".$v->psjudul."</a></td>
+			<td><a href=".base_url('beranda/post/'.urlencode($v->psjudul)).">".$v->psjudul."</a></td>
 			<td>".$v->psustadz."</td>
 			<td>".$v->psubah."</td>
 			<td>".$v->tagid."</td>
@@ -80,7 +80,7 @@ $n = 1;
 //tampilpost
 
  }else if ($page=="tampilpost") {?>
-	<h2><?php echo $page;?></h2>
+	<!-- <h2><?php echo $page;?></h2> -->
 	<?php
 		$n = 1;
 		$v=$post;

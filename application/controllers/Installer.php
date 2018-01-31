@@ -13,6 +13,10 @@ class Installer extends CI_Controller {
 		// define('CONF', '\config');
 			define('CONF', '/config');
 		}
+		// if (file_exists(FCPATH.APP.CONF.'/cms_settings.php')) {
+		if (file_exists(FCPATH.APP.CONF.'\cms_settings.php')) {
+			// redirect('login');
+		}
 	}
 
 	public function index(){
@@ -34,7 +38,8 @@ class Installer extends CI_Controller {
 	}
 
 	public function stgGenerator($data){
-		$filename = FCPATH.APP.CONF."\cms_settings.php";
+		// $filename = FCPATH.APP.CONF."\cms_settings.php";
+		$filename = FCPATH.APP.CONF."/cms_settings.php";
 		$ourFileName =$filename;
 		$ourFileHandle = fopen($ourFileName, 'w');
 		$written = "
@@ -53,7 +58,8 @@ class Installer extends CI_Controller {
 	public function dbImporter(){
 		$templine = '';
 		// Read in entire file
-		$lines = file(FCPATH.APP.'\cmsmasjid.sql');
+		// $lines = file(FCPATH.APP.'\cmsmasjid.sql');
+		$lines = file(FCPATH.APP.'/cmsmasjid.sql');
 		foreach ($lines as $line){
 			// Skip it if it's a comment
 			if (substr($line, 0, 2) == '--' || $line == '')continue;

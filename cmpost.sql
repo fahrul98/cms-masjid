@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 29 Jan 2018 pada 08.38
+-- Generation Time: 30 Jan 2018 pada 04.35
 -- Versi Server: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -35,17 +35,18 @@ CREATE TABLE `cmpost` (
   `psustadz` varchar(50) DEFAULT NULL,
   `pstext` text NOT NULL,
   `mediaid` int(11) DEFAULT '2',
-  `vcount` int(10) NOT NULL
+  `vcount` int(10) NOT NULL,
+  `pspublic` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `cmpost`
 --
 
-INSERT INTO `cmpost` (`postid`, `psbuat`, `psubah`, `psjudul`, `tagid`, `psustadz`, `pstext`, `mediaid`, `vcount`) VALUES
-(1, '2018-01-16 00:00:00', '2018-01-23 11:03:04', 'aa', 1, 'bb', 'cc', 4, 0),
-(2, '2018-01-16 00:00:00', '2018-01-29 07:34:05', 'judul post 2', 1, NULL, 'text post 2', 4, 7),
-(3, '2018-01-16 00:00:00', '2018-01-23 11:03:21', 'judul post 3', 1, 'ust 3', 'text post 3', 4, 0);
+INSERT INTO `cmpost` (`postid`, `psbuat`, `psubah`, `psjudul`, `tagid`, `psustadz`, `pstext`, `mediaid`, `vcount`, `pspublic`) VALUES
+(1, '2018-01-16 00:00:00', '2018-01-30 02:47:15', 'aa', 1, 'bb', 'cc', 4, 1, 0),
+(2, '2018-01-16 00:00:00', '2018-01-30 03:30:12', 'judul post 2', 1, NULL, 'text post 2', 4, 7, 1),
+(3, '2018-01-16 00:00:00', '2018-01-23 11:03:21', 'judul post 3', 1, 'ust 3', 'text post 3', 4, 0, 0);
 
 --
 -- Indexes for dumped tables
