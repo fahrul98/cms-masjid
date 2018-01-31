@@ -15,7 +15,7 @@ mediaid
 
 <div id="main-content">
 <?php
-if ($page=="Post") {
+if ($page=="post") {
 	if (isset($tanya)) {
 		echo $tanya;
 	}
@@ -33,8 +33,9 @@ if ($page=="Post") {
 		</thead>
 <?php
 
-$n = 1;
+// $n = 1;
 // <td><a href=".base_url('post/ubahpost/'.$v->postid).">".$v->psjudul."</a></td>
+		$n = $this->uri->segment('3') + 1;
 		foreach ($cmpost as $v) {
 			echo "<tr>
 			<td>".$n."</td>
@@ -56,6 +57,15 @@ $n = 1;
 		}
 		 ?>
 	</table>
+<ul class="pagination pagination">
+<?php
+if (isset($links)) {
+	foreach ($links as $link) {
+	echo "<li>". $link."</li>";
+} 
+}
+?>
+</ul>
 <button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('post/tulis');?>"> Tulis postingan</a></button>
 <button type="submit" class="btn " name="submit" value="kembali"><a style="text-decoration: none; text-decoration-color: white" href="<?php echo base_url('beranda/post');?>">Tampil Semua</a></button>
 

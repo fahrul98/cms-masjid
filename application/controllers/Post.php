@@ -26,13 +26,23 @@ mediaid
 
 	//view all post
 
-	public function index($postid = null){
+	public function index(){
 		//jika admin login
 		if (true) {
+			//$data['mode'] = 'post';
 			$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
-			// $data['mode'] = '';
-			$data['page'] = "Post";
-			$data['cmpost'] = $this->mpost->tampilpost()->result();
+			$data['page'] = "post";
+			$jumlah_data = $this->mpost->jumlah_data();
+			$this->load->library('pagination');
+			$config['base_url'] = base_url().'post/index/';
+			$config['total_rows'] = $jumlah_data;
+			$config['per_page'] = 1;
+			$from = $this->uri->segment(3);
+			$this->pagination->initialize($config);		
+			//$data['user'] = $this->m_data->data($config['per_page'],$from);
+			$data['cmpost'] = $this->mpost->tampilpaging($config['per_page'],$from);
+			$str_links=$this->pagination->create_links();
+			$data["links"] = explode('&nbsp;',$str_links );			
 
 			$this->load->view('core/core',$data);
 			$this->load->view('vpost',$data);
@@ -40,6 +50,15 @@ mediaid
 		}else {
 
 		}
+	}
+
+	function search(){
+		$data['cmpost'] = $this->mpost->get_search();
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
+		$data['page'] = "post";
+		$this->load->view('core/core',$data);
+		$this->load->view('vpost',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 	// public function view($postid=null){ deprecated
