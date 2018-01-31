@@ -74,7 +74,13 @@ $n = 1;
 		</div>
 		<div class="form-group col-md-3">
 			<label for="tagid">Tagid</label>
-			<input type="text" class="form-control" name="tagid" value="">
+			<select class="form-control" name="tagid" >
+				<?php 
+					foreach ($cmtag as $t) {
+						echo "<option value='".$t->tagid."'>".$t->tag."</option>";
+					} 
+				?>
+			</select>
 		</div>
 		<div class="form-group col-md-3">
 			<label for="mediaid">Mediaid</label>
@@ -122,7 +128,17 @@ $n = 1;
 		</div>
 		<div class="form-group col-md-3">
 			<label for="tagid">Tagid</label>
-			<input type="text" class="form-control" name="tagid" value="<?php echo $post->tagid;?>">
+			<select class="form-control" name="tagid" >
+				<?php 
+					foreach ($cmtag as $t) {
+						if ($post->tagid==$t->tagid) {
+							echo "<option value='".$t->tagid."' selected='selected'>".$t->tag."</option>";
+						}else{
+							echo "<option value='".$t->tagid."'>".$t->tag."</option>";
+						}
+					} 
+				?>
+			</select>
 		</div>
 
 		<div class="form-group col-md-3">
