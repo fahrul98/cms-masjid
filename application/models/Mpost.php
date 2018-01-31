@@ -59,10 +59,11 @@ unset(variabel) => hapus variabel dari memori
 	}
 
 	public function ubahpost($data){
-		$q = $this->db->query("update cmpost set psjudul=?,psustadz=?,pstext=?,tagid=? where postid=?",
+		$q = $this->db->query("update cmpost set psjudul=?,psustadz=?,pstext=?,pspublic=?,tagid=? where postid=?",
 		array($data['psjudul'],
 			$data['psustadz'],
 			$data['pstext'],
+			$data['pspublic'],
 			$data['tagid'],
 			$data['postid']
 		));
@@ -75,8 +76,8 @@ unset(variabel) => hapus variabel dari memori
 		unset($data,$q);
 	}
 
-	public function publishpost($data) {
-		$q = $this->db->query("update cmpost set pspublic=1 where postid=?",array($data['postid']));
+	public function publishpost($postid,$data = null) {
+		$q = $this->db->query("update cmpost set pspublic=1 where postid=?",array($postid));
 		unset($data,$q);
 	}
 

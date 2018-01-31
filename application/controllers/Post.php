@@ -120,6 +120,13 @@ method-method untuk operasi admin
 		$data['pstext'] = $this->input->post('text');
 		$data['tagid'] = $this->input->post('tagid');
 
+		if ($this->input->post('pspublic')) {
+			# code...
+			$data['pspublic']=1;
+		}else{
+			$data['pspublic']=0;
+		}
+
 		$this->mpost->ubahpost($data);
 		redirect(base_url('post'));
 		unset($data);

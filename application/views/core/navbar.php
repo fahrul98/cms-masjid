@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div id="wrapper">
 <?php
   //jika $mode di controller ada dan halaman bukan hal.instalasi , maka muncul navbar utk pengunjung
-  if ($page!='Instalasi'&&!$this->session->userdata('username')&&!$this->session->userdata('userpass')) {
+  if ($page!='Instalasi'&&isset($mode)) {
 ?>
 
 <!-- NAVBAR -->
@@ -30,11 +30,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
     <?php
       if ($this->session->userdata('username') and $this->session->userdata('userpass')){
-?>
-<div class="navbar-brand">
-  <a href="<?php echo base_url('admin');?>">Kembali ke admin</a>
-</div>
-<?php
+    ?>
+    <div class="navbar-brand">
+      <a href="<?php echo base_url('admin');?>">Kembali ke admin</a>
+    </div>
+    <?php
       }else{
     ?>
     <div class="navbar-brand">
@@ -59,9 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <i class="lnr lnr-alarm"></i>
                   <span class="notification-dot"></span>
                 </a>
-
                 <!-- notif -->
-
                 <ul class="dropdown-menu notifications">
                   <li class="header"><strong>x notifikasi baru</strong></li>
                   <li>
@@ -80,17 +78,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <li class="footer"><a href="#" class="more">See all notifications</a></li>
                 </ul>
               </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-                  <i class="lnr lnr-cog"></i>
-                </a>
-                <ul class="dropdown-menu user-menu menu-icon">
-                  <li class="menu-heading">Akun</li>
-                  <li><a href="<?php echo base_url('profiladmin')?>"><i class="fa fa-fw fa-edit"></i>Profil Saya</a></li>
-                  <li class="divider"></li>
-                  <li><a href="<?php echo base_url('admin/logout')?>"><i class="fa fa-fw fa-lock"></i> <span>Logout</span></a></li>
-                </ul>
-              </li>
+              <?php if ($this->session->userdata('username') and $this->session->userdata('userpass')){ ?>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
+                    <i class="lnr lnr-cog"></i>
+                  </a>
+                  <ul class="dropdown-menu user-menu menu-icon">
+                    <li class="menu-heading">Akun</li>
+                    <li><a href="<?php echo base_url('profiladmin')?>"><i class="fa fa-fw fa-edit"></i>Profil Saya</a></li>
+                    <li class="divider"></li>
+                    <li><a href="<?php echo base_url('admin/logout')?>"><i class="fa fa-fw fa-lock"></i> <span>Logout</span></a></li>
+                  </ul>
+                </li>
+              <?php } ?>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
                   <i class="lnr lnr-question-circle"></i>
@@ -103,20 +103,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </form>
                   </li>
                   <li class="menu-heading">Bantuan</li>
-                  <li><a href="#">Setting up Campaign</a></li>
-                  <li><a href="#">Understanding Website Analytics</a></li>
-                  <li><a href="#">Boost Your Sales</a></li>
-                  <li><a href="#">Knowing Your Audience</a></li>
-                  <li class="menu-heading">ACCOUNT</li>
-                  <li><a href="#">Change Password</a></li>
-                  <li><a href="#">Privacy &amp; Security</a></li>
-                  <li><a href="#">Membership</a></li>
-                  <li class="menu-heading">BILLING</li>
-                  <li><a href="#">Setup Payment</a></li>
-                  <li><a href="#">Auto-Renewal Program</a></li>
-                  <li><a href="#">Cancellation</a></li>
+                    <li><a href="<?php echo base_url('beranda/bantuan');?>">Setting up Campaign</a></li>
+                    <li class="menu-heading">Kami</li>
                   <li class="menu-button">
-                    <a href="#" class="btn btn-primary"><i class="fa fa-question-circle"></i> HELP CENTER</a>
+                    <a href="<?php echo base_url('beranda/tentang');?>" class="btn btn-primary"><i class="fa fa-question-circle"></i>Tentang Developer</a>
                   </li>
                 </ul>
               </li>

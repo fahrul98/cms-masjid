@@ -56,9 +56,15 @@ if ($page=="Jadwal Kegiatan") {
 					<input type="text" class="form-control" name="jkpihak" value="">
 				</div>
 				<div class="form-group">
-					<label for="jkwaktu">Waktu</label>
-					<input type="textarea" class="form-control" name="jkwaktu" value="">
+				<label for="jkwaktu">Waktu</label>
+					<div class="input-group date" data-date-autoclose="true" >
+						<input type="text" class="form-control" name="jkwaktu" data-date-format="yyyy-mm-dd" data-provide="datepicker">
+						<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+					</div>
 				</div>
+				<!-- <div class="form-group">
+					<input type="textarea" class="form-control" name="jkwaktu" value="">
+				</div> -->
 			</div>
 		</div>
 
@@ -71,7 +77,7 @@ if ($page=="Jadwal Kegiatan") {
 		<input type="hidden" name="jkid" value="<?php echo $jadwalk->jkid;?>">
 	<div class="container">
 		<div class="row">
-			<div class="panel col-md-4">
+			<div class="panel panel-content col-md-4">
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary" name="submit" value="Ubah">Ubah</button>
 					<button type="submit" class="btn btn-danger" name="submit" value="hapus"><a style="text-decoration: none" href="<?php echo base_url('jadwalkegiatan/dbhapus/'.$jadwalk->jkid);?>">Hapus</a></button>
@@ -86,8 +92,11 @@ if ($page=="Jadwal Kegiatan") {
 					<input type="text" class="form-control" name="jkpihak" value="<?php echo $jadwalk->jkpihak;?>">
 				</div>
 				<div class="form-group">
-					<label for="jkwaktu">Text</label>
-					<input type="textarea" class="form-control" name="jkwaktu" value="<?php echo $jadwalk->jkwaktu;?>">
+					<label for="jkwaktu">Waktu</label>
+					<div class="input-group date" data-date-autoclose="true" data-provide="datepicker">
+						<input type="text" class="form-control" name="jkwaktu" data-date-format="yyyy-mm-dd" data-provide="datepicker" value="<?php echo $jadwalk->jkwaktu;?>">
+						<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+					</div>
 				</div>
 				<div class="form-group">
 					<label for="tagid">Tag</label>

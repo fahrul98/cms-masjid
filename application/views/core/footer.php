@@ -35,7 +35,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <?php
 //jika menulis post
-if($page=="Tulis Postingan"||$page=="Ubah Postingan"){?>
+if($page=="Tulis Postingan"||$page=="Ubah Postingan"){
+  ?>
 
 <script src="<?php echo base_url('assets/vendor/summernote/summernote.min.js');?>"></script>
 <script src="<?php echo base_url('assets/vendor/markdown/markdown.js');?>"></script>
@@ -65,4 +66,11 @@ $(function() {
   $('#markdown-editor').text(toMarkdown(initContent));
 });
 </script>
+<?php } ?>
+
+<?php
+//jika menulis post
+if($page=="Tambah Kegiatan"||$page=="Ubah Kegiatan"){?>
+
+<script src="<?php echo base_url('assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js');?>"></script>
 <?php } ?>

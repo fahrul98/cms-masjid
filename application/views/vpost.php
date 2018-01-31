@@ -45,7 +45,6 @@ $n = 1;
 			if ($v->pspublic==0) {
 				echo "<td>Draft<br/>
 					<a href=".base_url('post/dbpublish/'.$v->postid)."> Publish</a></td>";
-
 			}else{
 				echo "<td>Published</td>";
 			}
@@ -58,7 +57,7 @@ $n = 1;
 		 ?>
 	</table>
 <button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('post/tulis');?>"> Tulis postingan</a></button>
-<button type="submit" class="btn " name="submit" value="kembali"><a style="text-decoration: none; text-decoration-color: white" href="<?php echo base_url('pengunjung/post');?>">Tampil Semua</a></button>
+<button type="submit" class="btn " name="submit" value="kembali"><a style="text-decoration: none; text-decoration-color: white" href="<?php echo base_url('beranda/post');?>">Tampil Semua</a></button>
 
 <?php }else if ($page=="Tulis Postingan") {?>
 	<h2><?php echo $page; ?></h2>
@@ -111,6 +110,12 @@ $n = 1;
 
 	<h2><?php echo $page; ?></h2>
 	<?php echo form_open('post/dbubah','class=form');	?>
+	<label class="fancy-checkbox custom-bgcolor-green">
+		<input type="checkbox" name="pspublic"<?php
+		if ($post->pspublic==1) {
+			echo 'checked=""';
+		}
+		?>><span>Publik</span></label>
 	<input type="hidden" name="postid" value="<?php echo $post->postid;?>">
 	<div class="row">
 		<div class="form-group col-md-3">
@@ -135,6 +140,7 @@ $n = 1;
 				?>
 			</select>
 		</div>
+
 		<div class="form-group col-md-3">
 			<label for="mediaid">Mediaid</label>
 			<input type="file" class="form-control" name="mediaid" value="">
@@ -145,8 +151,9 @@ $n = 1;
 			<button type="submit" class="btn btn-primary" name="submit" value="ubah">Ubah</button>
 			<button type="submit" class="btn" name="submit" value="kembali">
 				<a href="<?php echo base_url('post/view/'.urlencode($post->psjudul));?>">pratinjau</a></button>
-			<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('post');?>">Kembali</a></button>
-			<button type="submit" class="btn btn-danger" name="submit" value="hapus"><a style="text-decoration: none" href="<?php echo base_url('post/dbhapus/'.$post->postid);?>">Hapus Post</a></button>
+			<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('post');?>"><span>Kembali</span></a></button>
+			<button type="submit" class="btn btn-danger" name="submit" value="hapus"><i class="fa fa-trash-o"></i><a style="text-decoration: none" href="<?php echo base_url('post/dbhapus/'.$post->postid);?>">Hapus Post</a></button>
+			<!-- <button type="button" class="btn btn-danger"> <span>Danger</span></button> -->
 		</div>
 	</div>
 	<div class="row">
