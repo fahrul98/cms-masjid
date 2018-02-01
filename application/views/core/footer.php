@@ -12,9 +12,102 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 <!-- END WRAPPER -->
 <!-- CREDIT -->
+<?php
+  //jika $mode di controller ada dan halaman bukan hal.instalasi , maka muncul navbar utk pengunjung
+  if ($page!='Instalasi'&&isset($mode)) {
+?>
+<!-- FOOTER -->
+  <footer>
+    <div class="inner-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 f-about">
+            <a href="<?php echo base_url('');?>"><h1><span><?php echo $cmprofil->pnama;?></span></h1></a>
+            <p>Sesungguhnya perjalanan terberat bukanlah perjalanan mendaki puncak gunung tertinggi, perjalanan terberat merupakan perjalanan ke masjid
+            </p>
+          </div>
+          <div class="col-md-4 l-posts">
+            <h3 class="widgetheading">Latest Posts</h3>
+              <div class="col-md l-posts">
+                <ul>
+                  <?php
+                  $n = 1;
+                  // <td><a href=".base_url('beranda/post/'.$v->postid).">".$v->psjudul."</a></td>
+                    foreach ($cmpost as $v) {
+                     echo "<li><a href=".base_url('beranda/post/'.$v->postid).">".$v->psjudul."</a></li>";
+                 
+                    $n++;
+                  }?>
+                </ul>
+              </div>
+          </div>
+          <div class="col-md-4 f-contact">
+            <h3 class="widgetheading">Hubungi Kami</h3>
+            <a href="#"><p><i class="fa fa-envelope"></i> masjidtaqwa@gmail.com</p></a>
+            <p><i class="fa fa-phone"></i>  +345 578 59 45 416</p>
+            <p><i class="fa fa-home"></i> Masjid taqwa  |  PO Box 23456 
+              Tulusrejo Lowokwaru, Malang <br>
+              Kedawung 8011 INDONESIA</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="last-div" style="width: 100%; clear: both; margin-left: 0px;">
+      <div class="container">
+        <div class="row">
+          <div class="copyright">
+            © 2018 eNno Multi-purpose theme | <a target="_blank" href="http://bootstraptaste.com">Bootstraptaste</a>
+          </div>  
+                    <!-- 
+                        All links in the footer should remain intact. 
+                        Licenseing information is available at: http://bootstraptaste.com/license/
+                        You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=eNno
+                    -->       
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <ul class="social-network">
+            <li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook fa-1x"></i></a></li>
+            <li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter fa-1x"></i></a></li>
+            <li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin fa-1x"></i></a></li>
+            <li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest fa-1x"></i></a></li>
+            <li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus fa-1x"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <a href="" class="scrollup" style="display: block;"><i class="fa fa-chevron-up"></i></a>        
+      <a href="" class="scrollup"><i class="fa fa-chevron-up"></i></a>    
+    </div>  
+  </footer>
+  <!-- END FOOTER -->
+  
+
+<?php
+
+//jika tidak maka muncul punya si admin
+
+  // }else if (!isset($mode)||$mode=='view'){
+  // if ($this->session->userdata('username') and $this->session->userdata('userpass')){
+  }else if (!isset($mode)&&$this->session->userdata('username') and $this->session->userdata('userpass')){
+
+// tema memakai wrapper sbg container, jadi di wrap. gk usah pake tag penutup untuk div wrapper.
+
+?>
+
 <footer>
   <p class="copyright">&copy; 2017 <a href="https://www.themeineed.com" target="_blank">Theme I Need</a>. All Rights Reserved.</p>
 </footer>
+
+<?php
+}
+?>
+
+
+
 
 <!-- try footer from template  -->
 <!-- Javascript -->

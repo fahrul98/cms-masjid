@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <link rel="stylesheet" href="<?php echo base_url('assets/css/set1.css');?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/overwrite.css');?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/jquery.bxslider.css');?>">
-<!-- <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>"> -->
+<link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>">
 <!-- MAIN CSS -->
 
 <!-- JS Netizen -->

@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="navbar-collapse collapse">              
         <div class="menu">
           <ul class="nav nav-tabs" role="tablist">            
-            <li role="presentation"><a href="<?php echo base_url('admin');?>">Kembali ke admin</a></li>
+            <li role="presentation"><a href="<?php echo base_url('admin');?>">Admin</a></li>
           <?php
               if ($page=="Beranda") {
               if (isset($tanya)) {
@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
             <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>       
             <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>  
-            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">Tentang</a></li>  
+            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>  
 
           <?php }else if ($page=="Semua Post") {?>
             <li role="presentation" class="active"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
@@ -55,7 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
             <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>  
             <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>  
-            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">Tentang</a></li>             
+            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>             
           <?php }else if ($page=="Profil Masjid") {?>    
             <li role="presentation"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
             <li role="presentation" class="active"><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
             <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>  
             <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>  
-            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">Tentang</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
 
           <?php }else if ($page=="Jadwal Kegiatan") {?>     
             <li role="presentation"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
@@ -72,7 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
             <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>  
             <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>  
-            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">Tentang</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
 
           <?php }else if ($page=="Keuangan Masjid") {?>
             <li role="presentation"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
@@ -81,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li role="presentation" class="active"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
             <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>  
             <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>  
-            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">Tentang</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
 
           <?php }else if ($page=="Donasi") {?>
             <li role="presentation"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
@@ -90,7 +90,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
             <li role="presentation" class="active"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>  
             <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>  
-            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">Tentang</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
 
             <?php }else if ($page=="Bantuan") {?>
             <li role="presentation"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
@@ -99,7 +99,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
             <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>  
             <li role="presentation" class="active"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>  
-            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">Tentang</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
 
             <?php }else if ($page=="Tentang") {?>
             <li role="presentation"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
@@ -108,19 +108,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
             <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>  
             <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>  
-            <li role="presentation" class="active"><a href="<?php echo base_url('beranda/tentang');?>">Tentang</a></li>
+            <li role="presentation" class="active"><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
           </ul>
         </div>
         <?php }?>
       </div>      
     </div>
   </nav>
-
+  <!-- END NAVBAR -->
 
   
-  
-<!-- END NAVBAR -->
-
 
 <?php
 

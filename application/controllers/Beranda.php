@@ -27,7 +27,7 @@ sidebar?
 
 	//home page
 	public function index(){
-		$this->load->model('mprofilm');
+		//$this->load->model('mprofilm');
 		$this->load->model('mpost');
 		$data['page'] = "Beranda";
 		$data['mode'] = "pengunjung";
@@ -203,7 +203,7 @@ method-method halaman pengunjung
 		$data['jadwalk'] = $this->mjkegiatan->tampiljkegiatan()->result();
 		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
 		$data['cmpost'] = $this->mpost->tampilpost()->result();
-		
+
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
 		$this->load->view('core/footer',$data);

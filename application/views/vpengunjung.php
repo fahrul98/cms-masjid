@@ -20,7 +20,8 @@ if ($page=="Beranda") {
 		echo $tanya;
 	}
 ?>
-<div class="container">
+<!-- SlideShow -->
+<!-- <div class="container">
 	<div class="row">
 			<div class="slider">
 				<div class="img-responsive">
@@ -46,9 +47,9 @@ if ($page=="Beranda") {
 				</div>	
 			</div>
 		</div>	
-</div>
+</div> -->
 
-<div class="container">
+<div class="container" style="margin-top: 100px;">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
 				<div class="text-center">
@@ -109,150 +110,6 @@ if ($page=="Beranda") {
 		</div>
 </div>
 
-<!-- <div class="container">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-				<div class="text-center">
-					<h2>Galleries</h2>
-					<p>Lorem ipsum dolor sit amet consectetur adipiscing elit Cras suscipit arcu<br>
-					vestibulum volutpat libero sollicitudin vitae Curabitur ac aliquam <br>
-					</p>
-				</div>
-				<hr>
-			</div>
-		</div>
-</div>
- -->	
-<!-- <h2><?php echo $page;?></h2> -->
-<!-- <h2><?php echo $cmprofil->pnama;?></h2> -->
-<div class=""></div>
-	<!-- <table class="table  table-bordered table-striped table-hover">
-		<thead>
-			<th>No.</th>
-			<th>Judul</th>
-			<th>Ustadz</th>
-			<th>Waktu</th>
-			<th>Tag</th>
-		</thead>
-		<div class="col-md-4 l-posts">
-						<h3 class="widgetheading">Latest Posts</h3>
-						<ul>
-							<li><a href="#">This is awesome post title</a></li>
-							<li><a href="#">Awesome features are awesome</a></li>
-							<li><a href="#">Create your own awesome website</a></li>
-							<li><a href="#">Wow, this is fourth post title</a></li>
-						</ul>
-					</div>
-
-					<div class="col-md-4 l-posts">
-						<ul>
-<?php
-$n = 1;
-// <td><a href=".base_url('beranda/post/'.$v->postid).">".$v->psjudul."</a></td>
-	foreach ($cmpost as $v) {?>
-		<li><a href="#">This is awesome post title</a></li>	
-
-	<?php
-		$n++;
-	}?>
-	</ul>
-</div>
-
-<?php
-$n = 1;
-// <td><a href=".base_url('beranda/post/'.$v->postid).">".$v->psjudul."</a></td>
-		foreach ($cmpost as $v) {
-			echo "<tr>
-			<td>".$n."</td>
-			<td><a href=".base_url('beranda/post/'.urlencode($v->psjudul)).">".$v->psjudul."</a></td>
-			<td>".$v->psustadz."</td>
-			<td>".$v->psubah."</td>
-			<td>".$v->tagid."</td>
-			</tr>";
-			$n++;
-		}
-		 ?>
-	</table> -->
-
-	<footer>
-		<div class="inner-footer">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4 f-about">
-						<a href="<?php echo base_url('');?>"><h1><span><?php echo $cmprofil->pnama;?></span></h1></a>
-						<p>Sesungguhnya perjalanan terberat bukanlah perjalanan mendaki puncak gunung tertinggi, perjalanan terberat merupakan perjalanan ke masjid
-						</p>
-					</div>
-					<div class="col-md-4 l-posts">
-						<h3 class="widgetheading">Latest Posts</h3>
-							<div class="col-md l-posts">
-								<ul>
-									<?php
-									$n = 1;
-									// <td><a href=".base_url('beranda/post/'.$v->postid).">".$v->psjudul."</a></td>
-										foreach ($cmpost as $v) {?>
-										<li><a href=".base_url('beranda/post/'.$v->postid).">".$v->psjudul."</a></li>	
-									<?php
-										$n++;
-									}?>
-								</ul>
-							</div>
-
-						<!-- <ul>
-							<li><a href="#">This is awesome post title</a></li>
-							<li><a href="#">Awesome features are awesome</a></li>
-							<li><a href="#">Create your own awesome website</a></li>
-							<li><a href="#">Wow, this is fourth post title</a></li>
-						</ul> -->
-					</div>
-					<div class="col-md-4 f-contact">
-						<h3 class="widgetheading">Hubungi Kami</h3>
-						<a href="#"><p><i class="fa fa-envelope"></i> masjidtaqwa@gmail.com</p></a>
-						<p><i class="fa fa-phone"></i>  +345 578 59 45 416</p>
-						<p><i class="fa fa-home"></i> Masjid taqwa  |  PO Box 23456 
-							Tulusrejo Lowokwaru, Malang <br>
-							Kedawung 8011 INDONESIA</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		
-		<div class="last-div">
-			<div class="container">
-				<div class="row">
-					<div class="copyright">
-						© 2014 eNno Multi-purpose theme | <a target="_blank" href="http://bootstraptaste.com">Bootstraptaste</a>
-					</div>	
-                    <!-- 
-                        All links in the footer should remain intact. 
-                        Licenseing information is available at: http://bootstraptaste.com/license/
-                        You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=eNno
-                    -->				
-				</div>
-			</div>
-			<div class="container">
-				<div class="row">
-					<ul class="social-network">
-						<li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook fa-1x"></i></a></li>
-						<li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter fa-1x"></i></a></li>
-						<li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin fa-1x"></i></a></li>
-						<li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest fa-1x"></i></a></li>
-						<li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus fa-1x"></i></a></li>
-					</ul>
-				</div>
-			</div>
-			
-			<a href="" class="scrollup" style="display: block;"><i class="fa fa-chevron-up"></i></a>	
-				
-			
-		</div>
-			
-			<a href="" class="scrollup"><i class="fa fa-chevron-up"></i></a>	
-				
-			
-		</div>	
-	</footer>
 
 <?php }else if ($page=="Semua Post") {?>
 	<h2><?php echo $page;?><h3>
@@ -485,160 +342,79 @@ $n = 1;
 
 
 <?php }else if ($page=="Profil Masjid") {?>
-<div>
-<div class="container">
-		<div class="row">
-			<div class="service">
-				<div class="col-md-6 col-md-offset-3">
-					<div class="text-center">
-						<h2><?php echo $page;?></h2>
-						<p>Lanjutkan membaca untuk mengenal masjid Taqwa lebih dekat<br>
-						</p>
-					</div>
-					<hr>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div class="services">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-3">
-					<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.4s">
-						<h4>Data Masjid</h4>					
-							<div class="icon">
-								<i class="fa fa-heart-o fa-3x"></i>
-							</div>						
-						<p><?php echo $profil->pnama;?></p>
-						<div class="ficon">
-							<a href="#" class="btn btn-default" role="button">Read more</a>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-md-3">
-					<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.0s">
-						<h4>Deskripsi</h4>
-						<div class="icon">
-							<i class="fa fa-desktop fa-3x"></i>
-						</div>
-						<p><?php echo $profil->pdeskripsi;?></p>
-						<div class="ficon">
-							<a href="#" class="btn btn-default" role="button">Read more</a>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-md-3">
-					<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.6s">
-						<h4>Sejarah</h4>
-						<div class="icon">
-							<i class="fa fa-location-arrow fa-3x"></i>
-						</div>
-						<p><?php echo $profil->psejarah;?></p>
-						<div class="ficon">
-							<a href="#" class="btn btn-default" role="button">Read more</a>
-						</div>
-					</div>					
-				</div>
-				
-				<div class="col-md-3">
-					<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="2.2s">
-						<h4>Visi-Misi</h4>
-						<div class="icon">
-							<i class="fa fa-laptop fa-3x"></i>
-						</div>
-						<p><?php echo $profil->pvisimisi;?></p>
-						<div class="ficon">
-							<a href="#" class="btn btn-default" role="button">Read more</a>
-						</div>
-					</div>					
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<footer>
-		<div class="inner-footer">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4 f-about">
-						<a href="<?php echo base_url('');?>"><h1><span><?php echo $cmprofil->pnama;?></span></h1></a>
-						<p>Sesungguhnya perjalanan terberat bukanlah perjalanan mendaki puncak gunung tertinggi, perjalanan terberat merupakan perjalanan ke masjid
-						</p>
-					</div>
-					<div class="col-md-4 l-posts">
-						<h3 class="widgetheading">Latest Posts</h3>
-							<div class="col-md l-posts">
-								<ul>
-									<?php
-									$n = 1;
-									// <td><a href=".base_url('beranda/post/'.$v->postid).">".$v->psjudul."</a></td>
-										foreach ($cmpost as $v) {?>
-										<li><a href=".base_url('beranda/post/'.$v->postid).">".$v->psjudul."</a></li>	
-									<?php
-										$n++;
-									}?>
-								</ul>
-							</div>
 
-						<!-- <ul>
-							<li><a href="#">This is awesome post title</a></li>
-							<li><a href="#">Awesome features are awesome</a></li>
-							<li><a href="#">Create your own awesome website</a></li>
-							<li><a href="#">Wow, this is fourth post title</a></li>
-						</ul> -->
-					</div>
-					<div class="col-md-4 f-contact">
-						<h3 class="widgetheading">Hubungi Kami</h3>
-						<a href="#"><p><i class="fa fa-envelope"></i> masjidtaqwa@gmail.com</p></a>
-						<p><i class="fa fa-phone"></i>  +345 578 59 45 416</p>
-						<p><i class="fa fa-home"></i> Masjid taqwa  |  PO Box 23456 
-							Tulusrejo Lowokwaru, Malang <br>
-							Kedawung 8011 INDONESIA</p>
-					</div>
+<div class="container">
+	<div class="row">
+		<div class="service">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="text-center">
+					<h2><?php echo $page;?></h2>
+					<p>Lanjutkan membaca untuk mengenal masjid Taqwa lebih dekat<br>
+					</p>
 				</div>
+				<hr>
 			</div>
 		</div>
-		
-		
-		<div class="last-div">
-			<div class="container">
-				<div class="row">
-					<div class="copyright">
-						© 2014 eNno Multi-purpose theme | <a target="_blank" href="http://bootstraptaste.com">Bootstraptaste</a>
-					</div>	
-                    <!-- 
-                        All links in the footer should remain intact. 
-                        Licenseing information is available at: http://bootstraptaste.com/license/
-                        You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=eNno
-                    -->				
+	</div>
+</div>
+	
+<div class="services">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.4s">
+					<h4>Data Masjid</h4>					
+						<div class="icon">
+							<i class="fa fa-heart-o fa-3x"></i>
+						</div>						
+					<p><?php echo $profil->pnama;?></p>
+					<div class="ficon">
+						<a href="#" class="btn btn-default" role="button">Read more</a>
+					</div>
 				</div>
 			</div>
-			<div class="container">
-				<div class="row">
-					<ul class="social-network">
-						<li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook fa-1x"></i></a></li>
-						<li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter fa-1x"></i></a></li>
-						<li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin fa-1x"></i></a></li>
-						<li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest fa-1x"></i></a></li>
-						<li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus fa-1x"></i></a></li>
-					</ul>
-				</div>
-			</div>
-			
-			<a href="" class="scrollup" style="display: block;"><i class="fa fa-chevron-up"></i></a>	
 				
+			<div class="col-md-3">
+				<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.0s">
+					<h4>Deskripsi</h4>
+					<div class="icon">
+						<i class="fa fa-desktop fa-3x"></i>
+					</div>
+					<p><?php echo $profil->pdeskripsi;?></p>
+					<div class="ficon">
+						<a href="#" class="btn btn-default" role="button">Read more</a>
+					</div>
+				</div>
+			</div>
 			
+			<div class="col-md-3">
+				<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.6s">
+					<h4>Sejarah</h4>
+					<div class="icon">
+						<i class="fa fa-location-arrow fa-3x"></i>
+					</div>
+					<p><?php echo $profil->psejarah;?></p>
+					<div class="ficon">
+						<a href="#" class="btn btn-default" role="button">Read more</a>
+					</div>
+				</div>					
+			</div>
+			
+			<div class="col-md-3">
+				<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="2.2s">
+					<h4>Visi-Misi</h4>
+					<div class="icon">
+						<i class="fa fa-laptop fa-3x"></i>
+					</div>
+					<p><?php echo $profil->pvisimisi;?></p>
+					<div class="ficon">
+						<a href="#" class="btn btn-default" role="button">Read more</a>
+					</div>
+				</div>					
+			</div>
 		</div>
-			
-			<a href="" class="scrollup"><i class="fa fa-chevron-up"></i></a>	
-				
-			
-		</div>	
-	</footer>
-</div>	
+	</div>
+</div>
 
 <?php }else if ($page=="Takmir Masjid") {?>
 	<h2><?php echo $page;?><h3><?php echo $mode; ?></h3></h2>
@@ -776,8 +552,6 @@ $n = 1;
 			}
 			 ?>
 		</table>
-
-<?php }?>
 </div>
 
 <?php } else if ($page=="Bantuan") {?>
