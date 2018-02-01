@@ -138,13 +138,8 @@ method-method untuk operasi admin
 		$data['psustadz'] = $this->input->post('ustadz');
 		$data['pstext'] = $this->input->post('text');
 		$data['tagid'] = $this->input->post('tagid');
-
-		if ($this->input->post('pspublic')) {
-			# code...
-			$data['pspublic']=1;
-		}else{
-			$data['pspublic']=0;
-		}
+		//jika diset maka 1, jika tidak sebaliknya
+		$data['pspublic']=$this->input->post('pspublic')?1:0;
 
 		$this->mpost->ubahpost($data);
 		redirect(base_url('post'));
