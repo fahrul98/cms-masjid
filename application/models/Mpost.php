@@ -41,22 +41,41 @@ unset(variabel) => hapus variabel dari memori
 		unset($data);
 	}
 
+	public function tampiltag($data =null){
+		if(isset($data['tagid'])){
+			$q = $this->db->query("select * from cmtag where tagid=?",array($data['tagid']));
+		}else{
+			$q = $this->db->query("select * from cmtag");
+		}
+		return $q;
+		$q=null;
+	}
+
 	public function buatpost($data){
-		$q = $this->db->query("insert into cmpost (psjudul,psustadz,pstext) values (?,?,?)",
+		$q = $this->db->query("insert into cmpost (psjudul,psustadz,pstext,tagid) values (?,?,?,?)",
 		array($data['psjudul'],
 			$data['psustadz'],
-			$data['pstext']
+			$data['pstext'],
+			$data['tagid']
+		));
+
+		unset($data);
+	}
+	public function tambahtag($data){
+		$q = $this->db->query("insert into cmtag (tag) values (?)",
+		array($data['tag']
 		));
 
 		unset($data);
 	}
 
 	public function ubahpost($data){
-		$q = $this->db->query("update cmpost set psjudul=?,psustadz=?,pstext=?,pspublic=? where postid=?",
+		$q = $this->db->query("update cmpost set psjudul=?,psustadz=?,pstext=?,pspublic=?,tagid=? where postid=?",
 		array($data['psjudul'],
 			$data['psustadz'],
 			$data['pstext'],
 			$data['pspublic'],
+			$data['tagid'],
 			$data['postid']
 		));
 
@@ -65,6 +84,11 @@ unset(variabel) => hapus variabel dari memori
 
 	public function hapuspost($data){
 		$q = $this->db->query("delete from cmpost where postid=?",array($data['postid']));
+		unset($data,$q);
+	}
+
+	public function hapustag($data){
+		$q = $this->db->query("delete from cmtag where tagid=?",array($data['tagid']));
 		unset($data,$q);
 	}
 

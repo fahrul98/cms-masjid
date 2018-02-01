@@ -94,6 +94,7 @@ method-method untuk operasi admin
 */
 	public function tulis(){
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
+		$data['cmtag'] = $this->mpost->tampiltag()->result();
 		$data['page'] = "Tulis Postingan";
 
 		$this->load->view('core/core',$data);
@@ -117,13 +118,9 @@ method-method untuk operasi admin
 		$data['psjudul'] = $this->input->post('judul');
 		$data['psustadz'] = $this->input->post('ustadz');
 		$data['pstext'] = $this->input->post('text');
-
-		if ($this->input->post('pspublic')) {
-			# code...
-			$data['pspublic']=1;
-		}else{
-			$data['pspublic']=0;
-		}
+		$data['tagid'] = $this->input->post('tagid');
+		//jika diset maka 1, jika tidak sebaliknya
+		$data['pspublic']=$this->input->post('pspublic')?1:0;
 
 		$this->mpost->ubahpost($data);
 		redirect(base_url('post'));
@@ -152,6 +149,7 @@ method-method untuk operasi admin
 		$data['page'] = "Ubah Postingan";
 		// $data['postid'] = $postid;
 		$data['slug'] = $slug;
+		$data['cmtag'] = $this->mpost->tampiltag()->result();
 		$data['post'] = $this->mpost->tampilpost($data)->row();
 
 		$this->load->view('core/core',$data);

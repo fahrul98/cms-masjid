@@ -21,9 +21,15 @@ usertelp
 	<h2><?php echo $page; ?></h2>
 
 
-<?php echo form_open('profiladmin/dbubahprofiladmin');?>
-	<div class="panel panel-default">
-		<form>
+	<div class="panel panel-default row">
+				<?php echo form_open('profiladmin/dbubahprofiladmin');?>
+			<div class="col-md-4">
+				<div class="panel-content form-group">
+					<label for="mediaid">Media :</label>
+					<input class="form-control" type="textarea" name="mediaid" value="<?php echo $padmin->mediaid;?>"><br>
+				</div>
+			</div>
+			<div class="panel-content col-md-4">
 			<div class="form-group">
 				<label for="username">Username : </label>
 				<input type="text" class="form-control" name="username" value="<?php echo $padmin->username;?>">
@@ -48,20 +54,18 @@ usertelp
 				<label for="useremail">Email : </label>
 				<input type="text" class="form-control" name="useremail" value="<?php echo $padmin->useremail;?>">
 			</div>
+			</div>
+			<div class="panel-content col-md-4">
 			<div class="form-group">
 				<label for="usertgldaftar">Tanggal daftar : </label>
-				<input type="text" class="form-control" name="usertgldaftar" value="<?php echo $padmin->usertgldaftar;?>">
+				<input type="text" class="form-control" name="usertgldaftar" value="<?php echo $padmin->usertgldaftar;?>" disabled="">
 			</div>
 			<div class="form-group">
 				<label for="displayname">Nama layar : </label>
 				<input type="text" class="form-control" name="displayname" value="<?php echo $padmin->displayname;?>">
 			</div>
-			<div class="form-group">
-				<label for="mediaid">Media :</label>
-				<input class="form-control" type="textarea" name="mediaid" value="<?php echo $padmin->mediaid;?>"><br>
-			</div>
 			<button type="submit" name="submit" class="btn btn-lg btn-primary">Terapkan</button>
-			<a href="<?php echo base_url('#');?>"><button type="submit" name="submit" class="btn btn-lg btn-primary">Lihat Profile</button></a>
 		</form>
+		</div>
 	</div>
 </div>
