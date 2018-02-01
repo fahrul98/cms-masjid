@@ -306,7 +306,7 @@ if ($page=="Beranda") {
 		foreach ($cmpost as $v) {
 			echo "<tr>
 			<td>".$n."</td>
-			<td><a href=".base_url('beranda/post/'.$v->postid).">".$v->psjudul."</a></td>
+			<td><a href=".base_url('beranda/post/'.urlencode($v->psjudul)).">".$v->psjudul."</a></td>
 			<td>".$v->psustadz."</td>
 			<td>".$v->psubah."</td>
 			<td>".$v->tagid."</td>
