@@ -47,6 +47,9 @@ unset(variabel) => hapus variabel dari memori
 		}else{
 			$q = $this->db->query("select * from cmtag where tagid>2");
 		}
+		return $q;
+		$q=null;
+		unset($data);
 	}
 
 	function get_search() {
