@@ -60,14 +60,24 @@ if ($page=="post") {
 		 ?>
 
 	</table>
-<ul class="pagination pagination">
-<?php
-if (isset($links)) {
-	foreach ($links as $link) {
-	echo "<li>". $link."</li>";
-} 
-}
-?>
+<ul class="pagination borderless">
+	<li><a href="#"><i class="fa fa-angle-left"></i></a></li>
+	<li><a href="#">1</a></li>
+	<li><a href="#">2</a></li>
+	<li class="active"><a href="#">3</a></li>
+	<li><a href="#">4</a></li>
+	<li><a href="#">5</a></li>
+	<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+<!-- </ul>
+<ul class="pagination pagination"> -->
+	<?php
+	if (isset($links)) {
+		// foreach ($links as $link) {
+		// 	echo "<li>". $link."</li>";
+		// }
+		echo $links;
+	}
+	?>
 </ul>
 <button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('post/tulis');?>"> Tulis postingan</a></button>
 <button type="submit" class="btn " name="submit" value="kembali"><a style="text-decoration: none; text-decoration-color: white" href="<?php echo base_url('beranda/post');?>">Tampil Semua</a></button>
