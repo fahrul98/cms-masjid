@@ -28,7 +28,7 @@ unset(variabel) => hapus variabel dari memori
 
 	public function tampilpost($data = null){
 		// jika null maka fullselect, else ambil idpost
-		if (isset($data['mode'])) {
+		if (isset($data['mode'])&&$data['mode']=='pengunjung') {
 			$q = $this->db->query("select * from cmpost where pspublic=1");
 		}else if(isset($data['slug'])){
 			$q = $this->db->query("select * from cmpost where psjudul=?",array(urldecode($data['slug'])));
@@ -47,6 +47,23 @@ unset(variabel) => hapus variabel dari memori
 		}else{
 			$q = $this->db->query("select * from cmtag where tagid>2");
 		}
+	}
+
+	function get_search() {
+	  $match = $this->input->post('search');
+	  $this->db->like('psjudul',$match);
+	  $this->db->or_like('pstext',$match);
+	   $query = $this->db->get('cmpost');
+	  return $query->result();
+	}
+
+	public function tampilpaging($jumlah, $batas){
+		return $query = $this->db->get('cmpost',$jumlah,$batas)->result();
+	}
+
+	public function jumlah_data(){
+		$p = $this->db->query("select * from cmpost");
+		$q = $p->num_rows();
 		return $q;
 		$q=null;
 	}
@@ -61,6 +78,7 @@ unset(variabel) => hapus variabel dari memori
 
 		unset($data);
 	}
+	
 	public function tambahtag($data){
 		$q = $this->db->query("insert into cmtag (tag) values (?)",
 		array($data['tag']
