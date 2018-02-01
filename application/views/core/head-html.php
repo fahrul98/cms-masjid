@@ -79,6 +79,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css'); ?>">
 <?php } ?>
 
+<?php //jika media
+if($page=="Media"){?>
+  <link rel="stylesheet" href="<?php echo base_url('assets/vendor/dropify/css/dropify.min.css');?>">
+<?php } ?>
+
 <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css');?>">
 <!-- GOOGLE FONTS -->
 <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet"> -->

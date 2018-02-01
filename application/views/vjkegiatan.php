@@ -48,10 +48,6 @@ if ($page=="Jadwal Kegiatan") {
 					<input type="text" class="form-control" name="jknama" value="">
 				</div>
 				<div class="form-group">
-					<label for="tagid">Tag</label>
-					<input type="textarea" class="form-control" name="tagid" value="">
-				</div>
-				<div class="form-group">
 					<label for="jkpihak">Pihak bersangkutan</label>
 					<input type="text" class="form-control" name="jkpihak" value="">
 				</div>
@@ -61,6 +57,16 @@ if ($page=="Jadwal Kegiatan") {
 						<input type="text" class="form-control" name="jkwaktu" data-date-format="yyyy-mm-dd" data-provide="datepicker">
 						<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
 					</div>
+				</div>
+				<div class="form-group">
+					<label for="tagid">Tagid</label>
+					<select class="form-control" name="tagid">
+						<?php
+							foreach ($cmtag as $t) {
+								echo "<option value='".$t->tagid."'>".$t->tag."</option>";
+							}
+						?>
+					</select>
 				</div>
 				<!-- <div class="form-group">
 					<input type="textarea" class="form-control" name="jkwaktu" value="">
@@ -99,8 +105,18 @@ if ($page=="Jadwal Kegiatan") {
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="tagid">Tag</label>
-					<input type="textarea" class="form-control" name="tagid" value="<?php echo $jadwalk->tagid;?>">
+					<label for="tagid">Tagid</label>
+					<select class="form-control" name="tagid" >
+						<?php
+							foreach ($cmtag as $t) {
+								if ($jadwalk->tagid==$t->tagid) {
+									echo "<option value='".$t->tagid."' selected='selected'>".$t->tag."</option>";
+								}else{
+									echo "<option value='".$t->tagid."'>".$t->tag."</option>";
+								}
+							}
+						?>
+					</select>
 				</div>
 			</div>
 		</div>

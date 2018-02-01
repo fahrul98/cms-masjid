@@ -14,30 +14,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<input type="submit" name="submit" value="Tulis"> -->
 <!-- <div class="container" style="margin-top: 160px; margin-left: 400px"> -->
 <div id="main-content">
-	
+
 	<?php if(isset($error))echo $error;
-if ($page=="Media") {
-	foreach ($imgs as $v) {
-		echo "<img src='./uploads/".$v->mdir."'/>
-		<a href='".base_url('media/dbmhapus')."?mediaid=".$v->mediaid."&mdir=".$v->mdir."'>hapus</a><br>";
-	}
-	?>
+if ($page=="Media") {?>
+<div class="container">
 
+	<?php if ($this->session->flashdata('data')) {
+		$d= $this->session->flashdata('data');
+		echo $d['konfirmasi'];
+		//barangkali tambahan tag html dibawah
+		?>
+		<!-- here -->
+	<?php	} ?>
+
+	<div class="row">
+		<?php	 echo form_open_multipart('media/do_upload');?>
+		<div class="col-md-6">
+			<div class="panel-content">
+				<h2 class="heading"><i class="fa fa-square"></i>Media</h2>
+				<input type="file" id="dropify-event" name="filename" data-default-file="<?php echo base_url('uploads/default.png');?>">
+				<input type="submit" class="btn btn-primary" value="upload" />
+			</div>
+		</div>
+	</div>
+</form>
+<div class="row">
 	<?php
-	 echo form_open_multipart('media/do_upload');?>
-	<input type="file" name="filename" size="30" />
-	<br/><br/>
-	<input type="submit" value="upload" />
-	</form>
-<?php }else if ($page=="Stats") {?>
-	<h3>Berhasil upload!</h3>
+	//iterate pic
+	foreach ($imgs as $v) {?>
+		<div class="col-md-3">
+			<div class="thumbnail">
+				<img src="<?php echo base_url('uploads/'.$v->mdir);?>"/>
+				<a class="btn btn-danger" href="<?php echo base_url('media/dbmhapus?mediaid='.$v->mediaid.'&mdir='.$v->mdir); ?>">hapus</a><br>
+			</div>
+		</div>
+<?php	}	?>
 
-	<ul>
-	<?php foreach ($upload_data as $item => $value):?>
-	<li><?php echo $item;?>: <?php echo $value;?></li>
-	<?php endforeach; ?>
-	</ul>
-
-	<p><?php echo anchor('media', 'Upload Another File!'); ?></p>
-<?php } ?>
+</div>
+</div>
+<?php }?>
 </div>

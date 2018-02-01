@@ -41,6 +41,14 @@ unset(variabel) => hapus variabel dari memori
 		unset($data);
 	}
 
+	public function tampiltag($data =null){
+		if(isset($data['tagid'])){
+			$q = $this->db->query("select * from cmtag where tagid=?",array($data['tagid']));
+		}else{
+			$q = $this->db->query("select * from cmtag where tagid>2");
+		}
+	}
+
 	function get_search() {
 	  $match = $this->input->post('search');
 	  $this->db->like('psjudul',$match);
@@ -53,20 +61,12 @@ unset(variabel) => hapus variabel dari memori
 		return $query = $this->db->get('cmpost',$jumlah,$batas)->result();
 	}
 
-	public function tampiltag(){
-		$q = $this->db->query("select * from cmtag");
+	public function jumlah_data(){
+		$p = $this->db->query("select * from cmpost");
+		$q = $p->num_rows();
 		return $q;
 		$q=null;
 	}
-
-	public function jumlah_data(){		
-		$p = $this->db->query("select * from cmpost");
-		$q = $p->num_rows();	
-		return $q;
-		$q=null;	
-	}
-
-
 
 	public function buatpost($data){
 		$q = $this->db->query("insert into cmpost (psjudul,psustadz,pstext,tagid) values (?,?,?,?)",
@@ -74,6 +74,14 @@ unset(variabel) => hapus variabel dari memori
 			$data['psustadz'],
 			$data['pstext'],
 			$data['tagid']
+		));
+
+		unset($data);
+	}
+	
+	public function tambahtag($data){
+		$q = $this->db->query("insert into cmtag (tag) values (?)",
+		array($data['tag']
 		));
 
 		unset($data);
@@ -94,6 +102,11 @@ unset(variabel) => hapus variabel dari memori
 
 	public function hapuspost($data){
 		$q = $this->db->query("delete from cmpost where postid=?",array($data['postid']));
+		unset($data,$q);
+	}
+
+	public function hapustag($data){
+		$q = $this->db->query("delete from cmtag where tagid=?",array($data['tagid']));
 		unset($data,$q);
 	}
 

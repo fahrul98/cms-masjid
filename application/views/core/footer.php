@@ -118,13 +118,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url('assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/vendor/jquery-sparkline/js/jquery.sparkline.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/vendor/bootstrap-progressbar/js/bootstrap-progressbar.min.js'); ?>"></script>
+<script src="<?php echo base_url('assets/vendor/toastr/toastr.js'); ?>"></script>
+<script src="<?php echo base_url('assets/scripts/common.js'); ?>"></script>
+
+<?php
+//jika butuh chart
+if(false){?>
 <script src="<?php echo base_url('assets/vendor/chartist/js/chartist.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/vendor/chartist-plugin-axistitle/chartist-plugin-axistitle.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/vendor/chartist-plugin-legend-latest/chartist-plugin-legend.js'); ?>"></script>
-<script src="<?php echo base_url('assets/vendor/toastr/toastr.js'); ?>"></script>
-<script src="<?php echo base_url('assets/scripts/common.js'); ?>"></script>
-
+<?php }?>
 
 <?php
 //jika menulis post
@@ -166,4 +170,33 @@ $(function() {
 if($page=="Tambah Kegiatan"||$page=="Ubah Kegiatan"){?>
 
 <script src="<?php echo base_url('assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js');?>"></script>
+<?php } ?>
+
+<?php //jika media
+if($page=="Media"){?>
+
+<script src="<?php echo base_url('assets/vendor/dropify/js/dropify.min.js');?>"></script>
+<script>
+$(function() {
+  $('.dropify').dropify();
+
+  var drEvent = $('#dropify-event').dropify();
+  drEvent.on('dropify.beforeClear', function(event, element) {
+    return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+  });
+
+  drEvent.on('dropify.afterClear', function(event, element) {
+    alert('File deleted');
+  });
+
+  $('.dropify-fr').dropify({
+    messages: {
+      default: 'Glissez-déposez un fichier ici ou cliquez',
+      replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+      remove: 'Supprimer',
+      error: 'Désolé, le fichier trop volumineux'
+    }
+  });
+});
+</script>
 <?php } ?>
