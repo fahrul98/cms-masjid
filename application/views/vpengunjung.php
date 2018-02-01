@@ -195,9 +195,11 @@ if ($page=="Beranda") {
 			
 			
 			<div class="col-md-4">
-				<form class="form-search">
-					<input class="form-control" type="text" placeholder="Search..">
-				</form>
+				<?php echo form_open('beranda/search','class=form');  ?>
+				<div id="navbar-search" class="navbar-form search-form">
+					<input name="search" value="" class="form-control" placeholder="Cari..." type="text">
+        			<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+        		</div>
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<strong>Popular Posts</strong>
@@ -313,8 +315,18 @@ if ($page=="Beranda") {
 			</tr>";
 			$n++;
 		}
+
 	?>
 	</table>
+<ul class="pagination pagination">
+<?php
+if (isset($links)) {
+	foreach ($links as $link) {
+	echo "<li>". $link."</li>";
+} 
+}
+?>
+</ul>
 
 
 <?php
