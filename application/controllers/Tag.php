@@ -61,7 +61,7 @@ jkwaktu
 	}
 
 	public function dbhapus($tagid){
-		$data['tag'] = $tagid;
+		$data['tagid'] = $tagid;
 		$this->mpost->hapustag($data);
 		redirect(base_url('tag'));
 	}

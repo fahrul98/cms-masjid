@@ -45,7 +45,7 @@ unset(variabel) => hapus variabel dari memori
 		if(isset($data['tagid'])){
 			$q = $this->db->query("select * from cmtag where tagid=?",array($data['tagid']));
 		}else{
-			$q = $this->db->query("select * from cmtag");
+			$q = $this->db->query("select * from cmtag where tagid>2");
 		}
 		return $q;
 		$q=null;

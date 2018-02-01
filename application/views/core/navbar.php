@@ -31,9 +31,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php
       if ($this->session->userdata('username') and $this->session->userdata('userpass')){
     ?>
-    <div class="navbar-brand">
+    <!-- <div class="navbar-brand">
       <?php echo base64_decode('TXVoYW1tYWQgQWRpYiB6YW16YW0K'); ?>
-    </div>
+    </div> -->
     <div class="navbar-brand">
       <a href="<?php echo base_url('admin');?>">Kembali ke admin</a>
     </div>
@@ -232,7 +232,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </ul>
         </li>
         <li class="">
-          <a href="<?php echo base_url('post')?>" class="" aria-expanded="false"><i class="lnr lnr-pencil"></i> <span>Post</span></a>
+          <a href="<?php echo base_url('post')?>" class="has-arrow" aria-expanded="false"><i class="lnr lnr-pencil"></i> <span>Post</span></a>
+          <ul>
+            <li class=""><a href="<?php echo base_url('tag')?>">Tag</a></li>
+          </ul>
         </li>
         <li class="">
           <a href="<?php echo base_url('jadwalkegiatan')?>" class="" aria-expanded="false"><i class="lnr lnr-file-empty"></i> <span>Jadwal Kegiatan</span></a>
