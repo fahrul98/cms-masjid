@@ -18,110 +18,106 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   if ($page!='Instalasi'&&isset($mode)) {
 ?>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-btn">
-      <button type="button" class="btn-toggle-offcanvas"><i class="lnr lnr-menu"></i></button>
-    </div>
-    <!-- logo -->
-    <div class="navbar-brand">
-      <a href="<?php echo base_url('');?>"><img src="<?php echo base_url('assets/img/logo.png');?>" alt="DiffDash Logo" class="img-responsive logo"></a>
-    </div>
-    <?php
-      if ($this->session->userdata('username') and $this->session->userdata('userpass')){
-    ?>
-    <!-- <div class="navbar-brand">
-      <?php echo base64_decode('TXVoYW1tYWQgQWRpYiB6YW16YW0K'); ?>
-    </div> -->
-    <div class="navbar-brand">
-      <a href="<?php echo base_url('admin');?>">Kembali ke admin</a>
-    </div>
-    <?php
-      }else{
-    ?>
-    <div class="navbar-brand">
-      <a href="<?php echo base_url('login');?>">Login</a>
-    </div>
-    <?php
-      }
-    ?>
-    <!-- end logo -->
-        <div class="navbar-right">
-          <!-- search form -->
-          
-          <form id="navbar-search" class="navbar-form search-form">
-            <input value="" class="form-control" placeholder="Cari..." type="text">
-            <button type="button" class="btn btn-default"><i class="fa fa-search"></i></button>
-          </form>
-          <!-- end search form -->
-          <!-- navbar menu -->
-          <div id="navbar-menu">
-            <ul class="nav navbar-nav">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-                  <i class="lnr lnr-alarm"></i>
-                  <span class="notification-dot"></span>
-                </a>
-                <!-- notif -->
-                <ul class="dropdown-menu notifications">
-                  <li class="header"><strong>x notifikasi baru</strong></li>
-                  <li>
-                    <a href="#">
-                      <div class="media">
-                        <div class="media-left">
-                          <i class="fa fa-fw fa-flag-checkered text-muted"></i>
-                        </div>
-                        <div class="media-body">
-                          <p class="text">Your campaign <strong>Holiday Sale</strong> is starting to engage potential customers.</p>
-                          <span class="timestamp">24 minutes ago</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="footer"><a href="#" class="more">See all notifications</a></li>
-                </ul>
-              </li>
-              <?php if ($this->session->userdata('username') and $this->session->userdata('userpass')){ ?>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-                    <i class="lnr lnr-cog"></i>
-                  </a>
-                  <ul class="dropdown-menu user-menu menu-icon">
-                    <li class="menu-heading">Akun</li>
-                    <li><a href="<?php echo base_url('profiladmin')?>"><i class="fa fa-fw fa-edit"></i>Profil Saya</a></li>
-                    <li class="divider"></li>
-                    <li><a href="<?php echo base_url('admin/logout')?>"><i class="fa fa-fw fa-lock"></i> <span>Logout</span></a></li>
-                  </ul>
-                </li>
-              <?php } ?>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-                  <i class="lnr lnr-question-circle"></i>
-                </a>
-                <ul class="dropdown-menu user-menu">
-                  <li>
-                    <form class="search-form help-search-form">
-                      <input value="" class="form-control" placeholder="How can we help?" type="text">
-                      <button type="button" class="btn btn-default"><i class="fa fa-search"></i></button>
-                    </form>
-                  </li>
-                  <li class="menu-heading">Bantuan</li>
-                    <li><a href="<?php echo base_url('beranda/bantuan');?>">Setting up Campaign</a></li>
-                    <li class="menu-heading">Kami</li>
-                  <li class="menu-button">
-                    <a href="<?php echo base_url('beranda/tentang');?>" class="btn btn-primary"><i class="fa fa-question-circle"></i>Tentang Developer</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <!-- end navbar menu -->
-        </div>
+<!-- NAVBAR Netizen -->
+<link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="<?php echo base_url('');?>"><span><?php echo $cmprofil->pnama;?></span></a>
       </div>
-    </nav>
-<!-- END NAVBAR -->
+      <div class="navbar-collapse collapse">              
+        <div class="menu">
+          <ul class="nav nav-tabs" role="tablist">            
+            <li role="presentation"><a href="<?php echo base_url('admin');?>">Admin</a></li>
+          <?php
+              if ($page=="Beranda") {
+              if (isset($tanya)) {
+              echo $tanya;
+             }
+          ?>   
+            <li role="presentation"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/jadwalkegiatan');?>">Jadwal</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
+            <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>       
+            <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>  
+            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>  
 
+          <?php }else if ($page=="Semua Post") {?>
+            <li role="presentation" class="active"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/jadwalkegiatan');?>">Jadwal</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
+            <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>  
+            <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>  
+            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>             
+          <?php }else if ($page=="Profil Masjid") {?>    
+            <li role="presentation"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
+            <li role="presentation" class="active"><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/jadwalkegiatan');?>">Jadwal</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
+            <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>  
+            <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>  
+            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
+
+          <?php }else if ($page=="Jadwal Kegiatan") {?>     
+            <li role="presentation"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
+            <li role="presentation" class="active"><a href="<?php echo base_url('beranda/jadwalkegiatan');?>">Jadwal</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
+            <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>  
+            <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>  
+            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
+
+          <?php }else if ($page=="Keuangan Masjid") {?>
+            <li role="presentation"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/jadwalkegiatan');?>">Jadwal</a></li>
+            <li role="presentation" class="active"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
+            <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>  
+            <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>  
+            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
+
+          <?php }else if ($page=="Donasi") {?>
+            <li role="presentation"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/jadwalkegiatan');?>">Jadwal</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
+            <li role="presentation" class="active"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>  
+            <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>  
+            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
+
+            <?php }else if ($page=="Bantuan") {?>
+            <li role="presentation"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/jadwalkegiatan');?>">Jadwal</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
+            <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>  
+            <li role="presentation" class="active"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>  
+            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
+
+            <?php }else if ($page=="Tentang") {?>
+            <li role="presentation"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/jadwalkegiatan');?>">Jadwal</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
+            <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>  
+            <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>  
+            <li role="presentation" class="active"><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
+          </ul>
+        </div>
+        <?php }?>
+      </div>      
+    </div>
+  </nav>
+  <!-- END NAVBAR -->
+
+  
 
 <?php
 
