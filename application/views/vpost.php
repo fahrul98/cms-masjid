@@ -28,8 +28,9 @@ if ($page=="post") {
 			<th>Ustadz</th>
 			<th>Waktu</th>
 			<th>Tag</th>
-			<th>Publication</th>
+			<th>Publikasi</th>
 			<th colspan="3">Operasi</th>
+			<th>Dilihat</th>
 		</thead>
 <?php
 
@@ -52,10 +53,12 @@ if ($page=="post") {
 			echo "<td><a href=".base_url('post/ubahpost/'.urlencode($v->psjudul))."> ubah</a></td>
 			<td><a href=".base_url('post/dbhapus/'.$v->postid)."> hapus</a></td>
 			<td><a href=".base_url('post/view/'.urlencode($v->psjudul)).">pratinjau</a></td>
+			<td align='center'><i class='fa fa-eye' aria-hidden='true'></i><span> ".$v->vcount."</span></td>
 			</tr>";
 			$n++;
 		}
 		 ?>
+
 	</table>
 <ul class="pagination pagination">
 <?php
@@ -85,10 +88,10 @@ if (isset($links)) {
 		<div class="form-group col-md-3">
 			<label for="tagid">Tagid</label>
 			<select class="form-control" name="tagid" >
-				<?php 
+				<?php
 					foreach ($cmtag as $t) {
 						echo "<option value='".$t->tagid."'>".$t->tag."</option>";
-					} 
+					}
 				?>
 			</select>
 		</div>
@@ -105,8 +108,7 @@ if (isset($links)) {
 	<div class="row">
 		<div class="form-group col-md-6">
 			<button type="submit" class="btn btn-primary" name="submit" value="Tulis">Tulis</button>
-			<button type="submit" class="btn btn-danger" name="submit" value="kembali">
-				<a style="text-decoration: none" href="<?php echo base_url('post');?>">Kembali</a></button>
+			<a class="btn btn-danger"style="text-decoration: none" href="<?php echo base_url('post');?>">Kembali</a>
 		</div>
 	</div>
 	<div class="row">
@@ -139,14 +141,14 @@ if (isset($links)) {
 		<div class="form-group col-md-3">
 			<label for="tagid">Tagid</label>
 			<select class="form-control" name="tagid" >
-				<?php 
+				<?php
 					foreach ($cmtag as $t) {
 						if ($post->tagid==$t->tagid) {
 							echo "<option value='".$t->tagid."' selected='selected'>".$t->tag."</option>";
 						}else{
 							echo "<option value='".$t->tagid."'>".$t->tag."</option>";
 						}
-					} 
+					}
 				?>
 			</select>
 		</div>
@@ -161,8 +163,8 @@ if (isset($links)) {
 			<button type="submit" class="btn btn-primary" name="submit" value="ubah">Ubah</button>
 			<button type="submit" class="btn" name="submit" value="kembali">
 				<a href="<?php echo base_url('post/view/'.urlencode($post->psjudul));?>">pratinjau</a></button>
-			<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('post');?>"><span>Kembali</span></a></button>
-			<button type="submit" class="btn btn-danger" name="submit" value="hapus"><i class="fa fa-trash-o"></i><a style="text-decoration: none" href="<?php echo base_url('post/dbhapus/'.$post->postid);?>">Hapus Post</a></button>
+			<a class="btn btn-danger" style="text-decoration: none" href="<?php echo base_url('post');?>">Kembali</a>
+			<a class="btn btn-danger" style="text-decoration: none" href="<?php echo base_url('post/dbhapus/'.$post->postid);?>"><i class="fa fa-trash-o"></i> 	Hapus Post</a></button>
 			<!-- <button type="button" class="btn btn-danger"> <span>Danger</span></button> -->
 		</div>
 	</div>

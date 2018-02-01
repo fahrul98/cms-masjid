@@ -30,27 +30,18 @@ class Media extends CI_Controller{
 
     $this->load->library('upload', $config);
 
-    if ( ! $this->upload->do_upload('filename')){
-      $data = array('error' => $this->upload->display_errors());
-      // echo "!suks";
-      $data['page'] = "Stats";
-  		$this->load->view('core/core',$data);
-  		$this->load->view('vmedia',$data);
-      $this->load->view('core/footer',$data);
-      // $this->load->view('upload_form', $error);
+    if (!$this->upload->do_upload('filename')){
+      $data = array('konfirmasi' => $this->upload->display_errors());
     }else{
-        // echo "suks";
-      // redirect(base_url('media/suk'));
       $data['filename'] = $this->upload->data('file_name');
       $this->dbmbuat($data);
 
       $data['upload_data']= $this->upload->data();
-      $data['page'] = "Stats";
-      $this->load->view('core/core',$data);
-  		$this->load->view('vmedia',$data);
-      $this->load->view('core/footer',$data);
+      $data['konfirmasi']= 'sukses';
       // $this->load->view('upload_success', $data);
     }
+    $this->session->set_flashdata('data',$data);
+    redirect(base_url('media'));
     unset($data);
   }
 
@@ -63,13 +54,17 @@ class Media extends CI_Controller{
   public function dbmhapus(){
     $data['mediaid']=$this->input->get('mediaid');
     $data['mdir']=$this->input->get('mdir');
+    // $data['path']=base_url("uploads/".$data['mdir']);
     $data['path']="./uploads/".$data['mdir'];
     if (unlink($data['path'])) {
+      $data['konfirmasi']= $data['mdir'].' terhapus';
       $this->mmedia->hapusmedia($data);
-      redirect(base_url('media'));
     }else{
-      print("gagal");
+      // print("gagal");
+      $data['konfirmasi']= $data['mdir'].' tidak terhapus';
     }
+    $this->session->set_flashdata('data',$data);
+    redirect(base_url('media'));
     unset($data);
   }
 }
