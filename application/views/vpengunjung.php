@@ -37,21 +37,23 @@ if ($page=="Beranda") {
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
 					<img src="assets/img/01.jpg" alt="www.malasngoding.com">
-					<div class="carousel-caption">
-						<!-- <h3>Galeri</h3>
-						<p>Foto foto kegiatan Masjid</p> -->
+					<div class="carousel-caption" style="padding-bottom: 120px">
+						<h3>Galeri</h3>
+						<p>Foto foto kegiatan Masjid</p>
 					</div>
 				</div>
 				<div class="item">
 					<img src="assets/img/01.jpg" alt="www.malasngoding.com">
-					<div class="carousel-caption">
-						
+					<div class="carousel-caption" style="padding-bottom: 120px">
+						<h3>Galeri</h3>
+						<p>Foto foto kegiatan Masjid</p>
 					</div>
 				</div>
 				<div class="item">
 					<img src="assets/img/01.jpg" alt="www.malasngoding.com">
-					<div class="carousel-caption">
-						
+					<div class="carousel-caption" style="padding-bottom: 120px">
+						<h3>Galeri</h3>
+						<p>Foto foto kegiatan Masjid</p>
 					</div>
 				</div>				
 			</div>
@@ -133,7 +135,9 @@ if ($page=="Beranda") {
 <div class="text-center">
 					<h2>Profil Masjid</h2><br>
 					<h4>Sejarah</h4>
-					<p style="text-align: justify;"><?php echo $profil->psejarah;?></p><br>
+					<?php 
+						echo "<p style='text-align: justify'>".$profil->psejarah."</p><br>";
+					?>
 					<h4>Visi Misi</h4>
 					<p style="text-align: justify;"><?php echo $profil->pvisimisi;?></p>
 					
