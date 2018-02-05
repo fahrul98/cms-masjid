@@ -47,8 +47,8 @@ unset(variabel) => hapus variabel dari memori
 		}else{
 			$q = $this->db->query("select * from cmtag where tagid");
 		}
-
 		return $q;
+		$q=null;
 		unset($data);
 	}
 

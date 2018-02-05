@@ -33,7 +33,8 @@ sidebar?
 		$data['mode'] = "pengunjung";
 		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
 		$data['cmpost'] = $this->mpost->tampilpost($data)->result();
-
+		$data['profil'] = $this->mprofilm->tampilprofilm()->row();
+		
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
 		$this->load->view('core/footer',$data);
@@ -90,7 +91,7 @@ method-method halaman pengunjung
 		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
 		$data['mode'] = "pengunjung";
 		//jika postid null maka muncul daftar post
-		if (!isset($slug)) {
+		if (is_numeric($slug) or !isset($slug)) {
 			// $postid = 1;
 
 			$data['page'] = "Semua Post";
@@ -108,6 +109,7 @@ method-method halaman pengunjung
 
 			$this->add_count($data['post']->postid);
 		}
+		
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
 		$this->load->view('core/footer',$data);

@@ -17,7 +17,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   if ($page!='Instalasi'&&isset($mode)) {
 ?>
 <!-- FOOTER -->
-  <footer>
+<div id="wrapper">
+  <!-- <footer> -->
     <div class="inner-footer">
       <div class="container">
         <div class="row">
@@ -82,7 +83,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <a href="" class="scrollup" style="display: block;"><i class="fa fa-chevron-up"></i></a>        
       <a href="" class="scrollup"><i class="fa fa-chevron-up"></i></a>    
     </div>  
-  </footer>
+  <!-- </footer> -->
+</div>
   <!-- END FOOTER -->
   
 
