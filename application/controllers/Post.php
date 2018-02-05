@@ -37,7 +37,7 @@ mediaid
 			$this->load->library('pagination');
 			$config['base_url'] = base_url().'post/index/';
 			$config['total_rows'] = $jumlah_data;
-			$config['per_page'] = 1;
+			$config['per_page'] = 2;
 			$from = $this->uri->segment(3);
 			$this->pagination->initialize($config);
 

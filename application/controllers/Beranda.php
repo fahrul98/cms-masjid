@@ -89,7 +89,7 @@ method-method halaman pengunjung
 			if($data['post']==null){
 				redirect(base_url(''));
 			}
-			
+
 			$data['page'] = "tampilpost";
 			$data['page2'] = $data['post']->psjudul;
 

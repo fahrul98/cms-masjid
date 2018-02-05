@@ -393,9 +393,11 @@ if ($page=="Beranda") {
 				</div>
 			</div>
 			<div class="col-md-4">
-				<form class="form-search">
-					<input class="form-control" type="text" placeholder="Search..">
-				</form>
+				<?php echo form_open('beranda/search','class=form');  ?>
+				<div id="navbar-search" class="navbar-form search-form">
+					<input name="search" value="" class="form-control" placeholder="Cari..." type="text">
+        			<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+        		</div>
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<strong>Popular Posts</strong>
@@ -491,6 +493,66 @@ if ($page=="Beranda") {
 				</div>
 			</div>
 		</div>
+<<<<<<< HEAD
+=======
+	<table class="table  table-bordered table-striped table-hover">
+		<thead>
+			<th>No.</th>
+			<th>Judul</th>
+			<th>Ustadz</th>
+			<th>Waktu</th>
+			<th>Tag</th>
+		</thead>
+	<?php
+		$n = 1;
+		foreach ($cmpost as $v) {
+			echo "<tr>
+			<td>".$n."</td>
+			<td><a href=".base_url('beranda/post/'.urlencode($v->psjudul)).">".$v->psjudul."</a></td>
+			<td>".$v->psustadz."</td>
+			<td>".$v->psubah."</td>
+			<td>".$v->tagid."</td>
+			</tr>";
+			$n++;
+		}
+
+	?>
+	</table>
+<ul class="pagination pagination">
+<?php
+if (isset($links)) {
+	foreach ($links as $link) {
+	echo "<li>". $link."</li>";
+} 
+}
+?>
+</ul>
+
+
+<?php
+
+//tampilpost
+ }else if ($page=="tampilpost") {?>
+	<!-- <h2><?php echo $page;?></h2> -->
+	<?php
+		$n = 1;
+		$v=$post;
+		echo "<tr>
+		<td>".$n."</td>
+		<td><a href=".base_url('beranda/post/'.urlencode($v->psjudul)).">".$v->psjudul."</a></td>
+		<td>".$v->psustadz."</td>
+		<td>".$v->psubah."</td>
+		<td>".$v->tagid."</td>
+		</tr>";
+	?>
+
+<h1><a href="<?php echo base_url('beranda/post/'.urlencode($v->psjudul));?>"><?php echo $v->psjudul;?></a></h1>
+<p><?php echo $v->psustadz;?></p>
+<p><?php echo $v->psubah;?></p>
+<p><?php echo $v->tagid;?></p>
+<p><?php echo $v->pstext;?></p>
+
+>>>>>>> a734b5a5d492d93293a2e14a770d8b4a06349caf
 
 <?php }else if ($page=="Profil Masjid") {?>
 
