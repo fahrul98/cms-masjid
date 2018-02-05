@@ -21,34 +21,56 @@ if ($page=="Beranda") {
 	}
 ?>
 <!-- SlideShow -->
-<!-- <div class="container">
-	<div class="row">
-			<div class="slider">
-				<div class="img-responsive">
-					<div class="bx-wrapper" style="max-width: 100%;">
-						<div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 468px;">
-							<ul class="bxslider" style="width: 515%; position: relative; transition-duration: 0s; transform: translate3d(-3670px, 0px, 0px);">
-								<li style="float: left; list-style: none; position: relative; width: 1170px;" class="bx-clone"><img src="assets/img/01.jpg" alt=""></li>				
-								<li style="float: left; list-style: none; position: relative; width: 1170px;"><img src="assets/img/01.jpg" alt=""></li>								
-								<li style="float: left; list-style: none; position: relative; width: 1170px;"><img src="assets/img/01.jpg" alt=""></li>	
-								<li style="float: left; list-style: none; position: relative; width: 1170px;"><img src="assets/img/01.jpg" alt=""></li>			
-								<li style="float: left; list-style: none; position: relative; width: 1170px;" class="bx-clone"><img src="assets/img/01.jpg" alt=""></li>
-							</ul>
-						</div>
-						<div class="bx-controls bx-has-pager bx-has-controls-direction">
-							<div class="bx-pager bx-default-pager">
-								<div class="bx-pager-item"><a href="" data-slide-index="0" class="bx-pager-link">1</a></div>
-								<div class="bx-pager-item"><a href="" data-slide-index="1" class="bx-pager-link">2</a></div>
-								<div class="bx-pager-item"><a href="" data-slide-index="2" class="bx-pager-link active">3</a></div>
-							</div>
-							<div class="bx-controls-direction"><a class="bx-prev" href="">Prev</a><a class="bx-next" href="">Next</a></div>
-						</div>
-					</div>
-				</div>	
-			</div>
-		</div>	
-</div> -->
 
+<div class="container" style="margin-top: 100px; margin-left: -200px">		
+	
+	<div class="col-md-8 col-md-offset-2" style="width: 100%; height: 100%">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>		
+			</ol>
+ 
+			<!-- deklarasi carousel -->
+			<div class="carousel-inner" role="listbox">
+				<div class="item active">
+					<img src="assets/img/01.jpg" alt="www.malasngoding.com">
+					<div class="carousel-caption" style="padding-bottom: 120px">
+						<h3>Galeri</h3>
+						<p>Foto foto kegiatan Masjid</p>
+					</div>
+				</div>
+				<div class="item">
+					<img src="assets/img/01.jpg" alt="www.malasngoding.com">
+					<div class="carousel-caption" style="padding-bottom: 120px">
+						<h3>Galeri</h3>
+						<p>Foto foto kegiatan Masjid</p>
+					</div>
+				</div>
+				<div class="item">
+					<img src="assets/img/01.jpg" alt="www.malasngoding.com">
+					<div class="carousel-caption" style="padding-bottom: 120px">
+						<h3>Galeri</h3>
+						<p>Foto foto kegiatan Masjid</p>
+					</div>
+				</div>				
+			</div>
+ 
+			<!-- membuat panah next dan previous -->
+			<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+	</div>
+   </div>
+<!-- END Show -->
 <div class="container" style="margin-top: 100px;">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
@@ -110,6 +132,80 @@ if ($page=="Beranda") {
 		</div>
 </div>
 
+<div class="text-center">
+					<h2>Profil Masjid</h2><br>
+					<h4>Sejarah</h4>
+					<?php 
+						echo "<p style='text-align: justify'>".$profil->psejarah."</p><br>";
+					?>
+					<h4>Visi Misi</h4>
+					<p style="text-align: justify;"><?php echo $profil->pvisimisi;?></p>
+					
+</div>
+
+<div class="text-center">
+					<h2>Galleries</h2>
+					<p>Foto Foto Kegiatan Masjid Taqwa<br>
+					</p>
+</div>
+
+<div class="content">
+		<div class="grid col-lg-3 col-md-4 col-xs-6" style="margin-left: 50px">
+			<figure class="effect-zoe col-lg-3 col-md-4 col-xs-6"">
+				<img src="assets/img/25.jpg" alt="img25">
+				<!-- <figcaption>
+					<h2>Title <span>Name</span></h2>
+					<p class="icon-links">
+						<a href="#"><span class="icon-heart"></span></a>
+						<a href="#"><span class="icon-eye"></span></a>
+						<a href="#"><span class="icon-paper-clip"></span></a>
+					</p>
+					<p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
+				</figcaption>	 -->		
+			</figure>
+			<figure class="effect-zoe" style="margin-left: 520px">
+				<img src="assets/img/26.jpg" alt="img26">
+				<!-- <figcaption>
+					<h2>Title <span>Name</span></h2>
+					<p class="icon-links">
+						<a href="#"><span class="icon-heart"></span></a>
+						<a href="#"><span class="icon-eye"></span></a>
+						<a href="#"><span class="icon-paper-clip"></span></a>
+					</p>
+					<p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
+				</figcaption> -->			
+			</figure>
+		</div>
+</div>
+
+<div class="content">
+		<div class="grid col-lg-3 col-md-4 col-xs-6" style="margin-left: -285px; margin-top: 400px">
+			<figure class="effect-zoe col-lg-3 col-md-4 col-xs-6"">
+				<img src="assets/img/27.jpg" alt="img2">
+				<!-- <figcaption>
+					<h2>Title <span>Name</span></h2>
+					<p class="icon-links">
+						<a href="#"><span class="icon-heart"></span></a>
+						<a href="#"><span class="icon-eye"></span></a>
+						<a href="#"><span class="icon-paper-clip"></span></a>
+					</p>
+					<p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
+				</figcaption>	 -->		
+			</figure>
+			<figure class="effect-zoe" style="margin-left: 520px">
+				<img src="assets/img/28.jpg" alt="img26">
+				<!-- <figcaption>
+					<h2>Title <span>Name</span></h2>
+					<p class="icon-links">
+						<a href="#"><span class="icon-heart"></span></a>
+						<a href="#"><span class="icon-eye"></span></a>
+						<a href="#"><span class="icon-paper-clip"></span></a>
+					</p>
+					<p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
+				</figcaption> -->			
+			</figure>
+		</div>
+</div>
 
 <?php }else if ($page=="Semua Post") {?>
 	<h2><?php echo $page;?><h3>
@@ -190,9 +286,6 @@ if ($page=="Beranda") {
 					</div>
 				</div>
 			</div>
-			
-			
-			
 			
 			<div class="col-md-4">
 				<?php echo form_open('beranda/search','class=form');  ?>
@@ -355,7 +448,7 @@ if (isset($links)) {
 
 <?php }else if ($page=="Profil Masjid") {?>
 
-<div class="container">
+<div class="container" style="margin-left: -20px">
 	<div class="row">
 		<div class="service">
 			<div class="col-md-6 col-md-offset-3">
@@ -371,7 +464,7 @@ if (isset($links)) {
 </div>
 	
 <div class="services">
-	<div class="container">
+	<div class="container" style="margin-left: -50px">
 		<div class="row">
 			<div class="col-md-3">
 				<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.4s">

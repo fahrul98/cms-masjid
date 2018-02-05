@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="navbar-collapse collapse">              
         <div class="menu">
           <ul class="nav nav-tabs" role="tablist">            
-            <li role="presentation"><a href="<?php echo base_url('admin');?>">Admin</a></li>
+            <li role="presentation"><a href="<?php echo base_url('beranda');?>">Beranda</a></li>
           <?php
               if ($page=="Beranda") {
               if (isset($tanya)) {
@@ -43,72 +43,174 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li role="presentation"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
             <li role="presentation"><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
             <li role="presentation"><a href="<?php echo base_url('beranda/jadwalkegiatan');?>">Jadwal</a></li>
-            <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
-            <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>       
-            <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>  
-            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>  
-
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Keuangan
+              <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
+                    <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">More
+              <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>
+                    <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">Tentang</a></li>
+                </ul>
+            </li>
+      
           <?php }else if ($page=="Semua Post") {?>
-            <li role="presentation" class="active"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
+             <li role="presentation" class="active"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
             <li role="presentation"><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
             <li role="presentation"><a href="<?php echo base_url('beranda/jadwalkegiatan');?>">Jadwal</a></li>
-            <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
-            <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>  
-            <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>  
-            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>             
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Keuangan
+              <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
+                    <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">More
+              <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>
+                    <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">Tentang</a></li>
+                </ul>
+            </li>
+      
           <?php }else if ($page=="Profil Masjid") {?>    
-            <li role="presentation"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
+            < <li role="presentation"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
             <li role="presentation" class="active"><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
             <li role="presentation"><a href="<?php echo base_url('beranda/jadwalkegiatan');?>">Jadwal</a></li>
-            <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
-            <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>  
-            <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>  
-            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Keuangan
+              <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
+                    <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">More
+              <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>
+                    <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">Tentang</a></li>
+                </ul>
+            </li>
+      
 
           <?php }else if ($page=="Jadwal Kegiatan") {?>     
             <li role="presentation"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
             <li role="presentation"><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
             <li role="presentation" class="active"><a href="<?php echo base_url('beranda/jadwalkegiatan');?>">Jadwal</a></li>
-            <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
-            <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>  
-            <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>  
-            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Keuangan
+              <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
+                    <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">More
+              <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>
+                    <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">Tentang</a></li>
+                </ul>
+            </li>
+      
 
           <?php }else if ($page=="Keuangan Masjid") {?>
             <li role="presentation"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
             <li role="presentation"><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
             <li role="presentation"><a href="<?php echo base_url('beranda/jadwalkegiatan');?>">Jadwal</a></li>
-            <li role="presentation" class="active"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
-            <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>  
-            <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>  
-            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
+            <li class="dropdown" class="active"v>
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Keuangan
+              <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li role="presentation" class="active"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
+                    <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">More
+              <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>
+                    <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">Tentang</a></li>
+                </ul>
+            </li>
+      
 
           <?php }else if ($page=="Donasi") {?>
-            <li role="presentation"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
+             <li role="presentation"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
             <li role="presentation"><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
             <li role="presentation"><a href="<?php echo base_url('beranda/jadwalkegiatan');?>">Jadwal</a></li>
-            <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
-            <li role="presentation" class="active"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>  
-            <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>  
-            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
+            <li class="dropdown" class="active">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Keuangan
+              <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
+                    <li role="presentation" class="active"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">More
+              <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>
+                    <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">Tentang</a></li>
+                </ul>
+            </li>
+      
 
-            <?php }else if ($page=="Bantuan") {?>
-            <li role="presentation"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
+          <?php }else if ($page=="Bantuan") {?>
+             <li role="presentation"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
             <li role="presentation"><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
             <li role="presentation"><a href="<?php echo base_url('beranda/jadwalkegiatan');?>">Jadwal</a></li>
-            <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
-            <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>  
-            <li role="presentation" class="active"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>  
-            <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Keuangan
+              <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
+                    <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>
+                </ul>
+            </li>
+            <li class="dropdown" class="active" class="active">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">More
+              <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>
+                    <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">Tentang</a></li>
+                </ul>
+            </li>
+      
 
-            <?php }else if ($page=="Tentang") {?>
+          <?php }else if ($page=="Tentang") {?>
             <li role="presentation"><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
             <li role="presentation"><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
             <li role="presentation"><a href="<?php echo base_url('beranda/jadwalkegiatan');?>">Jadwal</a></li>
-            <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
-            <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>  
-            <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>  
-            <li role="presentation" class="active"><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Keuangan
+              <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li role="presentation"><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
+                    <li role="presentation"><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>
+                </ul>
+            </li>
+            <li class="dropdown" class="active">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">More
+              <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li role="presentation"><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>
+                    <li role="presentation"><a href="<?php echo base_url('beranda/tentang');?>">Tentang</a></li>
+                </ul>
+            </li>
           </ul>
         </div>
         <?php }?>
