@@ -39,9 +39,8 @@ $n = 1;
 			$n++;
 		}
 		 ?>
-
 	</table>
-<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('tag/tambahtag');?>"> Tambah tag</a></button>
+<a class="btn btn-primary"href="<?php echo base_url('tag/tambahtag');?>"><i class="fa fa-pencil-square-o"> </i><span> Tambah tag</span></a>
 
 <?php }else if ($page=="Tambah Tag") {?>
 

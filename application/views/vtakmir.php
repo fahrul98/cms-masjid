@@ -57,7 +57,7 @@ if ($page=="Takmir") {
 		}
 		  ?>
 			</table>
-			<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('takmir/tambahtk');?>"> Tambah Takmir </a></button>
+			<a class="btn btn-primary"href="<?php echo base_url('takmir/tambahtk');?>"><i class="fa fa-pencil-square-o"> </i><span>Tambah Takmir</span></a>
 			<?php }else if ($page=="Tambah Takmir") {?>
 			<?php echo form_open('takmir/dbtambahtk','class=form');	?>
 			<div class="container">

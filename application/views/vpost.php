@@ -235,13 +235,14 @@ if ($page=="post") {
 
 	</table>
 <ul class="pagination pagination">
-<?php
-if (isset($links)) {
-	foreach ($links as $link) {
-	echo "<li>". $link."</li>";
-} 
-}
-?>
+	<?php
+	if (isset($links)) {
+		foreach ($links as $link) {
+			echo "<li>". $link."</li>";
+		}
+		// echo $links;
+	}
+	?>
 </ul>
 <button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('post/tulis');?>"> Tulis postingan</a></button>
 <button type="submit" class="btn " name="submit" value="kembali"><a style="text-decoration: none; text-decoration-color: white" href="<?php echo base_url('beranda/post');?>">Tampil Semua</a></button>
