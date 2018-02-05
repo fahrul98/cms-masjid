@@ -72,6 +72,19 @@ method-method halaman pengunjung
 	}
 
 	//view post + counting
+	public function search(){
+		$this->load->model('mpost');
+		$data['cmpost'] = $this->mpost->get_search();
+		$data['page'] = "Semua Post";
+
+		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
+		$data['mode'] = "pengunjung";// biar navbar muncul
+
+		$this->load->view('core/core',$data);
+		$this->load->view('vpengunjung',$data);
+		$this->load->view('core/footer',$data);
+	}
+
 	public function post($slug=null){
 		$this->load->model('mpost');
 		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();

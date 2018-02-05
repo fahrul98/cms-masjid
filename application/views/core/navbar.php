@@ -104,7 +104,7 @@ switch ($page) {
             <!-- end logo -->
             <div class="navbar-right">
               <!-- search form -->
-              <?php echo form_open($page.'/search','class=form');  ?>
+              <?php echo form_open('post/search','class=form');  ?>
               <div id="navbar-search" class="navbar-form search-form">
                 <input name="search" value="" class="form-control" placeholder="Cari admin..." type="text">
                 <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
