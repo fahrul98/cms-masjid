@@ -76,7 +76,7 @@ method-method halaman pengunjung
 		$this->load->model('mpost');
 		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
 		//jika postid null maka muncul daftar post
-		if (!isset($slug)) {
+		if (is_numeric($slug) or !isset($slug)) {
 			// $postid = 1;
 
 			$data['page'] = "Semua Post";
