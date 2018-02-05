@@ -59,20 +59,13 @@ if ($page=="Takmir") {
 			</table>
 			<a class="btn btn-primary"href="<?php echo base_url('takmir/tambahtk');?>"><i class="fa fa-pencil-square-o"> </i><span>Tambah Takmir</span></a>
 			<?php }else if ($page=="Tambah Takmir") {?>
-			<?php echo form_open('takmir/dbtambahtk','class=form');	?>
+			<?php echo form_open_multipart('takmir/dbtambahtk','class=form');	?>
 			<div class="container">
-				<div class="row">
-					<div class="panel col-md-4">
-						<div class="form-group">
-							<label for="mediaid">Media</label>
-							<input type="text" class="form-control" name="mediaid" value="">
-						</div>
-					</div>
+				<div class="row">					
 					<div class="col-md-4">
 						<div class="panel-content">
 							<h2 class="heading"><i class="fa fa-square"></i>Media</h2>
 							<input type="file" id="dropify-event" name="filename" data-default-file="<?php echo base_url('uploads/default.png');?>">
-							<input type="submit" class="btn btn-primary" value="upload" />
 						</div>
 					</div>
 					<div class="panel col-md-4">

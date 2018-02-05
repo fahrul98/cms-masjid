@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- VENDOR CSS -->
 
 <?php
-if(!$this->session->userdata('username') and $this->session->userdata('userpass')){
+if($this->session->userdata('username') and $this->session->userdata('userpass')){
 ?>
 <!-- CSS Template NetizenUI -->
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css');?>">
@@ -59,7 +59,7 @@ if(!$this->session->userdata('username') and $this->session->userdata('userpass'
 <script src="<?php echo base_url('assets/js/functions.js');?>"></script>
 <script type="text/javascript">$('.portfolio').flipLightBox()</script>
 <!-- Main JS ? -->
-}else{
+<?php }else{
  ?>
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.min.css'); ?>">
