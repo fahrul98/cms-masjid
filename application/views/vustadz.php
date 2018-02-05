@@ -49,7 +49,7 @@ $n = 1;
 		}
 		 ?>
 			</table>
-			<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('ustadz/tambahust');?>"> Tambah Ustad </a></button>
+			<a class="btn btn-primary" href="<?php echo base_url('ustadz/tambahust');?>"><i class="fa fa-pencil-square-o"> </i> <span>Tambah Ustad</span></a>
 <?php }else if ($page=="Tambah Ustadz") {?>
 			<div class="container">
 				<div class="row">
@@ -75,7 +75,7 @@ $n = 1;
 						</div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary" name="submit" value="tambah">Tambah</button>
-							<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('ustadz');?>">Kembali</a></button>
+							<a class="btn btn-danger" href="<?php echo base_url('ustadz');?>">Kembali</a>
 						</div>
 					</div>
 				</div>
@@ -107,8 +107,8 @@ $n = 1;
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary" name="submit" value="update">Update</button>
-					<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('ustadz');?>">Kembali</a></button>
-					<button type="submit" class="btn btn-danger" name="submit" value="hapus"><a style="text-decoration: none" href="<?php echo base_url('ustadz/dbhapus/'.$ustadz->usid);?>">Hapus Ustadz</a></button>
+					<a class="btn btn-danger" href="<?php echo base_url('ustadz');?>">Kembali</a></button>
+					<a class="btn btn-danger" href="<?php echo base_url('ustadz/dbhapus/'.$ustadz->usid);?>">Hapus Ustadz</a></button>
 				</div>
 				</div>
 				</div>

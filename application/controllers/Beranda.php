@@ -21,11 +21,13 @@ sidebar?
 	public function __construct(){
 		parent::__construct();
 		//load model
+		$this->load->model('mprofilm');
+		$this->load->model('mpost');
 	}
 
 	//home page
 	public function index(){
-		$this->load->model('mprofilm');
+		//$this->load->model('mprofilm');
 		$this->load->model('mpost');
 		$data['page'] = "Beranda";
 		$data['mode'] = "pengunjung";
@@ -72,6 +74,8 @@ method-method halaman pengunjung
 	//view post + counting
 	public function post($slug=null){
 		$this->load->model('mpost');
+		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
+		$data['mode'] = "pengunjung";
 		//jika postid null maka muncul daftar post
 		if (!isset($slug)) {
 			// $postid = 1;
@@ -85,6 +89,7 @@ method-method halaman pengunjung
 			if($data['post']==null){
 				redirect(base_url(''));
 			}
+			
 			$data['page'] = "tampilpost";
 			$data['page2'] = $data['post']->psjudul;
 
@@ -120,6 +125,8 @@ method-method halaman pengunjung
 		$data['mode'] = "pengunjung";
 		$data['page'] = "Profil Masjid";
 		$data['profil'] = $this->mprofilm->tampilprofilm()->row();
+		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
+		$data['cmpost'] = $this->mpost->tampilpost()->result();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
@@ -131,6 +138,8 @@ method-method halaman pengunjung
 		$data['mode'] = "pengunjung";
 		$data['page'] = "Takmir Masjid";
 		$data['cmtakmir'] = $this->mtakmir->tampiltakmir()->result();
+		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
+		$data['cmpost'] = $this->mpost->tampilpost()->result();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
@@ -142,6 +151,8 @@ method-method halaman pengunjung
 		$data['mode'] = "pengunjung";
 		$data['page'] = "Ustadz";
 		$data['cmustadz'] = $this->mustadz->tampilustadz()->result();
+		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
+		$data['cmpost'] = $this->mpost->tampilpost()->result();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
@@ -153,6 +164,8 @@ method-method halaman pengunjung
 		$data['mode'] = "pengunjung";
 		$data['page'] = "Keuangan Masjid";
 		$data['kmasjid'] = $this->mkmasjid->tampilkmasjid()->result();
+		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
+		$data['cmpost'] = $this->mpost->tampilpost()->result();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
@@ -164,6 +177,8 @@ method-method halaman pengunjung
 		$data['mode'] = "pengunjung";
 		$data['page'] = "Jadwal Kegiatan";
 		$data['jadwalk'] = $this->mjkegiatan->tampiljkegiatan()->result();
+		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
+		$data['cmpost'] = $this->mpost->tampilpost()->result();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
@@ -175,6 +190,8 @@ method-method halaman pengunjung
 		$data['mode'] = "pengunjung";
 		$data['page'] = "Bantuan";
 		$data['jadwalk'] = $this->mjkegiatan->tampiljkegiatan()->result();
+		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
+		$data['cmpost'] = $this->mpost->tampilpost()->result();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
@@ -186,6 +203,8 @@ method-method halaman pengunjung
 		$data['mode'] = "pengunjung";
 		$data['page'] = "Tentang";
 		$data['jadwalk'] = $this->mjkegiatan->tampiljkegiatan()->result();
+		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
+		$data['cmpost'] = $this->mpost->tampilpost()->result();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);

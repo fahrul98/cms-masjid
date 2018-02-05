@@ -45,7 +45,8 @@ mediaid
 			$data['cmpost'] = $this->mpost->tampilpaging($config['per_page'],$from);
 			$str_links=$this->pagination->create_links();
 			// $data["links"] = explode('&nbsp;',$str_links);
-			$data["links"] = $str_links;
+			// $data["links"] = $str_links;
+			$data["links"] = explode('.',$str_links );
 
 			$this->load->view('core/core',$data);
 			$this->load->view('vpost',$data);
