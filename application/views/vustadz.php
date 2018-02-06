@@ -15,6 +15,7 @@ mediaid
 	<div id="main-content">
 		<!-- <div class="container" style="margin-left: 400px; margin-top: 50px;"> -->
 		<h2><?php echo $page; ?></h2>
+		<?php echo $error; ?>
 <?php
 if ($page=="Ustadz") {
 	if (isset($tanya)) {
@@ -57,21 +58,21 @@ $n = 1;
 					<div class="panel col-md-4">
 						<div class="form-group">
 							<label for="mediaid">Media id</label>
-							<input type="file" class="form-control" name="mediaid" value="">
+							<input type="file" class="form-control" name="mediaid" value="<?php echo $input['mediaid']; ?>">
 						</div>
 					</div>
 					<div class="panel col-md-4">
 						<div class="form-group">
 							<label for="usnama">Nama Ustadz</label>
-							<input type="text" class="form-control" name="usnama" value="">
+							<input type="text" class="form-control" name="usnama" value="<?php echo $input['usnama']; ?>">
 						</div>
 						<div class="form-group">
 							<label for="usnotelp">No. telp</label>
-							<input type="text" class="form-control" name="usnotelp" value="">
+							<input type="text" class="form-control" name="usnotelp" value="<?php echo $input['usnotelp']; ?>">
 						</div>
 						<div class="form-group">
 							<label for="usalamat">Alamat</label>
-							<input type="textarea" class="form-control" name="usalamat" value="">
+							<input type="textarea" class="form-control" name="usalamat" value="<?php echo $input['usalamat']; ?>">
 						</div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary" name="submit" value="tambah">Tambah</button>

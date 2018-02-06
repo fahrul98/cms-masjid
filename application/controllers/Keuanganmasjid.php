@@ -42,17 +42,56 @@ insert + delete
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Tambah Entri";
 
+		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
+		$data['input']=$this->session->userdata('input')?$this->session->userdata('input'):
+			array(
+				'kmwaktu' => '',
+				'kmketerangan' => '',
+				'kmpengeluaran' => '',
+				'kmsaldo' => ''
+			);
+
 		$this->load->view('core/core',$data);
 		$this->load->view('vkmasjid',$data);
 		$this->load->view('core/footer',$data);
+		$this->session->set_userdata('err',null);
+		$this->session->set_userdata('input',null);
 	}
 
 	public function dbentri(){
 		// $data['kmid']=$this->input->post('kmid');
+		$this->form_validation->set_rules('kmketerangan','Keterangan','required|min_length[5]|max_length[30]',
+			array(
+				'required' => '%s harus diisi',
+				'min_length' => '%s harus >=3 karakter',
+				'max_length' => '%s harus <=30 karakter',
+			)
+		);
+		$this->form_validation->set_rules('kmpengeluaran','Jumlah nominal','required|min_length[4]|max_length[30]',
+			array(
+				'required' => '%s harus diisi',
+				'min_length' => '%s harus >=4 karakter',
+				'max_length' => '%s harus <=30 karakter',
+			)
+		);
+		$this->form_validation->set_rules('kmsaldo','Saldo','required|min_length[4]|max_length[30]',
+			array(
+				'required' => '%s harus diisi',
+				'min_length' => '%s harus >=4 karakter',
+				'max_length' => '%s harus <=30 karakter',
+			)
+		);
+
 		$data['kmwaktu']=$this->input->post('kmwaktu');
 		$data['kmketerangan']=$this->input->post('kmketerangan');
 		$data['kmpengeluaran']=$this->input->post('kmpengeluaran');
 		$data['kmsaldo']=$this->input->post('kmsaldo');
+
+		if (!$this->form_validation->run()) {
+			$this->session->set_userdata('err',validation_errors());
+			$this->session->set_userdata('input',$data);
+			redirect('keuanganmasjid/tambahentri');
+		}
 
 		$this->mkmasjid->buatkmasjid($data);
 		redirect(base_url('keuanganmasjid'));
@@ -60,11 +99,39 @@ insert + delete
 	}
 
 	public function dbubah(){
+		$this->form_validation->set_rules('kmketerangan','Keterangan','required|min_length[5]|max_length[30]',
+			array(
+				'required' => '%s harus diisi',
+				'min_length' => '%s harus >=3 karakter',
+				'max_length' => '%s harus <=30 karakter',
+			)
+		);
+		$this->form_validation->set_rules('kmpengeluaran','Jumlah nominal','required|min_length[4]|max_length[30]',
+			array(
+				'required' => '%s harus diisi',
+				'min_length' => '%s harus >=4 karakter',
+				'max_length' => '%s harus <=30 karakter',
+			)
+		);
+		$this->form_validation->set_rules('kmsaldo','Saldo','required|min_length[4]|max_length[30]',
+			array(
+				'required' => '%s harus diisi',
+				'min_length' => '%s harus >=4 karakter',
+				'max_length' => '%s harus <=30 karakter',
+			)
+		);
+
 		$data['kmid']=$this->input->post('kmid');
 		$data['kmwaktu']=$this->input->post('kmwaktu');
 		$data['kmketerangan']=$this->input->post('kmketerangan');
 		$data['kmpengeluaran']=$this->input->post('kmpengeluaran');
 		$data['kmsaldo']=$this->input->post('kmsaldo');
+
+		if (!$this->form_validation->run()) {
+			$this->session->set_userdata('err',validation_errors());
+			$this->session->set_userdata('input',$data);
+			redirect('keuanganmasjid/ubahkmasjid/'.$data['kmid']);
+		}
 
 		$this->mkmasjid->ubahkmasjid($data);
 		redirect(base_url('keuanganmasjid'));
@@ -80,14 +147,25 @@ insert + delete
 	}
 
 	public function ubahkmasjid($kmid){
+		if($kmid==null||$kmid==0){ redirect('keuanganmasjid');}
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Ubah Entri";
 		$data['kmid'] = $kmid;
 		$data['kmasjid'] = $this->mkmasjid->tampilkmasjid($data)->row();
+		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
+		$data['input']=$this->session->userdata('input')?$this->session->userdata('input'):
+			array(
+				'kmwaktu' => '',
+				'kmketerangan' => '',
+				'kmpengeluaran' => '',
+				'kmsaldo' => ''
+			);
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vkmasjid',$data);
 		$this->load->view('core/footer',$data);
+		$this->session->set_userdata('err',null);
+		$this->session->set_userdata('input',null);
 	}
 
 	public function hapuspost(){

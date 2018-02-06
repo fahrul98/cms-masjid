@@ -15,12 +15,21 @@ mediaid
 
 <div id="main-content">
 <?php
-if ($page=="post") {
+if ($page=="Post") {
 	if (isset($tanya)) {
 		echo $tanya;
 	}
 ?>
+
 <h2><?php echo $page; ?></h2>
+<div class="panel">
+<div class="panel-content">
+<div class="col-sm-6">
+	<a class="btn btn-default" href="<?php echo base_url('post/tulis');?>"><i class="fa fa-pencil-square-o"> </i> Tulis postingan</a>
+	<a class="btn btn-default" href="<?php echo base_url('beranda/post');?>">Tampil Semua</a></button>
+</div>
+</div>
+<div class="panel-content">
 	<table class="table table-bordered table-striped table-hover">
 		<thead>
 			<th>No.</th>
@@ -48,7 +57,7 @@ if ($page=="post") {
 				echo "<td>Draft<br/>
 					<a href=".base_url('post/dbpublish/'.$v->postid)."> Publish</a></td>";
 			}else{
-				echo "<td>Published</td>";
+				echo "<td>Ya</td>";
 			}
 			echo "<td><a href=".base_url('post/ubahpost/'.urlencode($v->psjudul))."> ubah</a></td>
 			<td><a href=".base_url('post/dbhapus/'.$v->postid)."> hapus</a></td>
@@ -70,21 +79,27 @@ if ($page=="post") {
 	}
 	?>
 </ul>
-<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('post/tulis');?>"> Tulis postingan</a></button>
-<button type="submit" class="btn " name="submit" value="kembali"><a style="text-decoration: none; text-decoration-color: white" href="<?php echo base_url('beranda/post');?>">Tampil Semua</a></button>
+</div>
+</div>
 
 <?php }else if ($page=="Tulis Postingan") {?>
 	<h2><?php echo $page; ?></h2>
-
+	<?php echo $error; ?>
 	<?php echo form_open('post/dbtulis','class=form');	?>
+	<label class="fancy-checkbox custom-bgcolor-green">
+		<input type="checkbox" name="pspublic"<?php
+		if ($input['pspublic']==1) {
+			echo 'checked=""';
+		}
+		?>><span>Publik</span></label>
 	<div class="row">
 		<div class="form-group col-md-3">
 			<label for="judul">Judul</label>
-			<input type="text" class="form-control" name="judul" value="">
+			<input type="text" class="form-control" name="judul" value="<?php echo $input['psjudul']; ?>">
 		</div>
 		<div class="form-group col-md-3">
 			<label for="ustadz">Ustadz</label>
-			<input type="text" class="form-control" name="ustadz" value="">
+			<input type="text" class="form-control" name="ustadz" value="<?php echo $input['psustadz']; ?>">
 		</div>
 		<div class="form-group col-md-3">
 			<label for="tagid">Tagid</label>
@@ -114,7 +129,7 @@ if ($page=="post") {
 	</div>
 	<div class="row">
 		<div class="form-group col-md-12">
-			<textarea class="summernote" id="textpost" name="text"></textarea>
+			<textarea class="summernote" id="textpost" name="text"><?php echo $input['pstext']; ?></textarea>
 		</div>
 	</div>
 </form>
@@ -122,6 +137,7 @@ if ($page=="post") {
 <?php }else if ($page=="Ubah Postingan") {?>
 
 	<h2><?php echo $page; ?></h2>
+	<?php echo $error; ?>
 	<?php echo form_open('post/dbubah','class=form');	?>
 	<label class="fancy-checkbox custom-bgcolor-green">
 		<input type="checkbox" name="pspublic"<?php

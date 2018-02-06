@@ -46,36 +46,38 @@ $n = 1;
 		}
 		 ?>
 	</table>
-	<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('keuanganmasjid/tambahentri');?>"> Tambah Entri</a></button>
+	<a class="btn btn-default" href="<?php echo base_url('keuanganmasjid/tambahentri');?>"><i class="fa fa-pencil-square-o"> </i> Tambah Entri</a>
 <?php }else if ($page=="Tambah Entri") {?>
+	<?php echo $error; ?>
 	<?php echo form_open('keuanganmasjid/dbentri','class=form');	?>
 	<div class="container">
 		<div class="row">
 			<div class="panel col-md-4">
 		<div class="form-group">
 			<label for="kmwaktu">Waktu</label>
-			<input type="text" class="form-control" name="kmwaktu" value="">
+			<input type="text" class="form-control" name="kmwaktu" value="<?php echo $input['kmwaktu']; ?>">
 		</div>
 		<div class="form-group">
 			<label for="kmketerangan">Keterangan</label>
-			<input type="text" class="form-control" name="kmketerangan" value="">
+			<input type="text" class="form-control" name="kmketerangan" value="<?php echo $input['kmketerangan']; ?>">
 		</div>
 		<div class="form-group">
 			<label for="kmpengeluaran">Jumlah</label>
-			<input type="textarea" class="form-control" name="kmpengeluaran" value="">
+			<input type="textarea" class="form-control" name="kmpengeluaran" value="<?php echo $input['kmpengeluaran']; ?>">
 		</div>
 		<div class="form-group">
 			<label for="kmsaldo">Saldo</label>
-			<input type="textarea" class="form-control" name="kmsaldo" value="">
+			<input type="textarea" class="form-control" name="kmsaldo" value="<?php echo $input['kmsaldo']; ?>">
 		</div>
 	<button type="submit" class="btn btn-primary" name="submit" value="entri">Tambah</button>
-		<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('keuanganmasjid');?>">Kembali</a></button>
+		<a class="btn btn-danger" style="text-decoration: none" href="<?php echo base_url('keuanganmasjid');?>">Kembali</a>
 		</div>
 	</div>
 </div>
 
 <?php }else if ($page=="Ubah Entri") {?>
 
+	<?php echo $error; ?>
 	<div class="container">
 		<div class="row">
 			<div class="panel col-md-4">
@@ -99,8 +101,8 @@ $n = 1;
 		</div>
 
 	<button type="submit" class="btn btn-primary" name="submit" value="entri">Update</button>
-		<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('keuanganmasjid');?>">Kembali</a></button>
-		<button type="submit" class="btn btn-danger" name="submit" value="hapus"><a style="text-decoration: none" href="<?php echo base_url('keuanganmasjid/dbhapus/'.$kmasjid->kmid);?>">Hapus Entri</a></button>
+		<a class="btn btn-danger" href="<?php echo base_url('keuanganmasjid');?>">Kembali</a>
+		<a class="btn btn-danger" href="<?php echo base_url('keuanganmasjid/dbhapus/'.$kmasjid->kmid);?>">Hapus Entri</a>
 		</div>
 	</div>
 </div>
