@@ -15,6 +15,7 @@ rdtotal
 <div id="main-content">
 <!-- <div class="container" style="margin-top: 50px; margin-left: 400px"> -->
 	<h2><?php echo $page; ?></h2>
+	<?php echo $error; ?>
 <?php
 if ($page=="Rekam Donasi") {
 	if (isset($tanya)) {
@@ -49,36 +50,38 @@ $n = 1;
 		}
 		 ?>
 	</table>
-	<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('rekamdonasi/tambahrdonasi');?>"> Tambah Entri</a></button>
+	<a class="btn btn-default" href="<?php echo base_url('rekamdonasi/tambahrdonasi');?>"><i class="fa fa-pencil-square-o"> </i><span>Tambah Entri</span></a>
 <?php }else if ($page=="Tambah rekamdonasi") {?>
+	<?php echo $error; ?>
 	<div class="container">
 		<div class="row">
 			<div class="panel col-md-4">
 	<?php echo form_open('rekamdonasi/dbtambahrdonasi','class=form');	?>
 				<div class="form-group">
 					<label for="rdwaktu">Waktu :  </label>
-					<input type="text" class="form-control" name="rdwaktu" value="">
+					<input type="text" class="form-control" name="rdwaktu" value="<?php echo $input['rdwaktu']; ?>">
 				</div>
 				<div class="form-group">
 					<label for="rdjumlah">Jumlah : </label>
-					<input type="text" class="form-control" name="rdjumlah" value="">
+					<input type="text" class="form-control" name="rdjumlah" value="<?php echo $input['rdjumlah']; ?>">
 				</div>
 				<div class="form-group">
 					<label for="rddonatur">Donatur : </label>
-					<input type="textarea" class="form-control" name="rddonatur" value="">
+					<input type="textarea" class="form-control" name="rddonatur" value="<?php echo $input['rddonatur']; ?>">
 				</div>
 				<div class="form-group">
 					<label for="rdtotal">Total : </label>
-					<input type="text" class="form-control" name="rdtotal" value="">
+					<input type="text" class="form-control" name="rdtotal" value="<?php echo $input['rdtotal']; ?>">
 			</div>
 		</div>
 	</div>
 	<button type="submit" class="btn btn-primary" name="submit" value="tambah">Tambah</button>
-	<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('rekamdonasi');?>">Kembali</a></button>
+	<a class="btn btn-danger" style="text-decoration: none" href="<?php echo base_url('rekamdonasi');?>">Kembali</a></button>
 </div>
 
 
 <?php }else if ($page=="Ubah rekamdonasi") {?>
+	<?php echo $error; ?>
 <div class="container">
 	<div class="row">
 		<div class="panel col-md-4">

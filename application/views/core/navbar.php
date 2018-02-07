@@ -160,7 +160,11 @@ switch ($page) {
             <div class="user-account">
               <img src="<?php echo base_url('assets/img/user.png')?>" class="img-responsive img-circle user-photo" alt="Admin Masjid">
               <div class="dropdown">
-                <a href="#" class="dropdown-toggle user-name" data-toggle="dropdown">Assalamualaikum, <strong><?php if(isset($padmin))echo $padmin->username;?></strong> <i class="fa fa-caret-down"></i></a>
+                <a href="#" class="dropdown-toggle user-name" data-toggle="dropdown">Assalamualaikum, <strong><?php if(isset($padmin->username)){
+                  echo $padmin->username;
+                }else{
+                  echo $padmin['username'];
+                }?></strong> <i class="fa fa-caret-down"></i></a>
                 <ul class="dropdown-menu dropdown-menu-right account">
                   <li><a href="<?php echo base_url('profiladmin')?>">Profil Saya</a></li>
                   <li><a href="<?php echo base_url('pengaturan')?>">Pengaturan</a></li>

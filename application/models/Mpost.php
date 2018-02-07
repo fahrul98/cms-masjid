@@ -28,12 +28,15 @@ unset(variabel) => hapus variabel dari memori
 
 	public function tampilpost($data = null){
 		// jika null maka fullselect, else ambil idpost
-		if (isset($data['mode'])&&$data['mode']=='pengunjung') {
-			$q = $this->db->query("select * from cmpost where pspublic=1");
-		}else if(isset($data['slug'])){
+		//if ini gk guna kan?
+		// if (isset($data['mode'])&&$data['mode']=='pengunjung') {
+		// 	$q = $this->db->query("select * from cmpost where psjudul=1 order by psid desc");
+		// }else
+		
+		if(isset($data['slug'])){
 			$q = $this->db->query("select * from cmpost where psjudul=?",array(urldecode($data['slug'])));
 		}else{
-			$q = $this->db->query("select * from cmpost");
+			$q = $this->db->query("select * from cmpost order by postid desc");
 		}
 
 		return $q;

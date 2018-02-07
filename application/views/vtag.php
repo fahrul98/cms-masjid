@@ -14,6 +14,7 @@ mediaid
 ?>
 
 <div id="main-content">
+	<?php echo $error; ?>
 <?php
 if ($page=="Tag") {
 	if (isset($tanya)) {
@@ -49,7 +50,7 @@ $n = 1;
 		<div class="panel col-md-4">
 			<div class="form-group ">
 				<label for="tag">Tag</label>
-				<input type="text" class="form-control" name="tag" value="">
+				<input type="text" class="form-control" name="tag" value="<?php echo $input['tag']; ?>">
 			</div>
 				<div class="form-group ">
 				<input type="submit" class="btn btn-primary" name="submit" value="Tambah">
