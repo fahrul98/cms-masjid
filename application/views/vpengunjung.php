@@ -1,3 +1,4 @@
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 /*
@@ -208,13 +209,17 @@ if ($page=="Beranda") {
 </div>
 
 <?php }else if ($page=="Semua Post") {?>
+	<h2><?php echo $page;?><h3>
+		<?php if (isset($mode)) {
+		echo $mode;
+	} ?></h3></h2>
 
 <div class="container">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
 				<div class="blogs">
 					<div class="text-center">
-						<h2><?php echo $page;?></h2>
+						<h2>Blog</h2>
 						<p>Lorem ipsum dolor sit amet consectetur adipiscing elit Cras suscipit arcu<br>
 						vestibulum volutpat libero sollicitudin vitae Curabitur ac aliquam <br>
 						</p>
@@ -231,30 +236,7 @@ if ($page=="Beranda") {
 				<div class="page-header">
 					<div class="blog">
 						<h5>February,22 2015</h5>
-						<?php
-							$n = 1;
-							foreach ($cmpost as $v) {
-								?>
-								<div class="panel-content panel-default">
-									<div class="row">
-										<h3><a href="<?php echo base_url('beranda/post/'.urlencode($v->psjudul));?>"><?php echo $v->psjudul;?></a></h3>
-									</div>
-								</div>
-								<?php
-								$n++;
-							}
-
-						?>
-
-						<ul class="pagination pagination">
-						<?php
-						if (isset($links)) {
-						foreach ($links as $link) {
-						echo "<li>". $link."</li>";
-						}
-						}
-						?>
-						</ul>
+						<img src="assets/img/01.jpg" class="img-responsive" alt="" />
 
 						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
 						sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
@@ -407,7 +389,38 @@ if ($page=="Beranda") {
 				</div>
 			</div>
 		</div>
+	<table class="table  table-bordered table-striped table-hover">
+		<thead>
+			<th>No.</th>
+			<th>Judul</th>
+			<th>Ustadz</th>
+			<th>Waktu</th>
+			<th>Tag</th>
+		</thead>
+	<?php
+		$n = 1;
+		foreach ($cmpost as $v) {
+			echo "<tr>
+			<td>".$n."</td>
+			<td><a href=".base_url('beranda/post/'.urlencode($v->psjudul)).">".$v->psjudul."</a></td>
+			<td>".$v->psustadz."</td>
+			<td>".$v->psubah."</td>
+			<td>".$v->tagid."</td>
+			</tr>";
+			$n++;
+		}
 
+	?>
+	</table>
+<ul class="pagination pagination">
+<?php
+if (isset($links)) {
+	foreach ($links as $link) {
+	echo "<li>". $link."</li>";
+}
+}
+?>
+</ul>
 
 
 <?php
@@ -681,3 +694,4 @@ $n = 1;
 
 <?php }?>
 </div>
+>>>>>>> 2aa778362946321d98b3ce20bc9a9c6827ce24e8
