@@ -42,18 +42,18 @@ if ($page=="Takmir") {
 			?>
 					<td>
 					<div class="thumbnail">
-						<!-- <img src="<?php echo base_url('uploads/'.$v->mdir);?>" /> -->
+						<img src="<?php echo base_url('uploads/takmir/'.$v->mediadir);?>" width=60 height=80 />
 					</div>
 					</td>
 					<?php
-			echo "<td>".$v->tknama."</td>
-			<td>".$v->tkjabatan."</td>
-			<td>".$v->tkmasajabatan."</td>
-			<td>".$v->tknotelp."</td>
-			<td><a href=".base_url('takmir/ubahtk/'.$v->tkid)."> ubah</a></td>
-			<td><a href=".base_url('takmir/dbhapus/'.$v->tkid)."> hapus</a></td>
+			echo '<td>'.$v->tknama.'</td>
+			<td>'.$v->tkjabatan.'</td>
+			<td>'.$v->tkmasajabatan.'</td>
+			<td>'.$v->tknotelp.'</td>
+			<td><a href='.base_url('takmir/ubahtk/'.$v->tkid).'> ubah</a></td>
+			<td><a href="'.base_url('takmir/dbhapus/'.$v->tkid).'/'.$v->mediadir.'" onclick="return confirm(\'Apakah anda yakin ingin menghapus takmir '.$v->tknama.'?\')"> hapus</a></td>
 
-			</tr>";
+			</tr>';
 			$n++;
 		}
 		  ?>
@@ -72,7 +72,7 @@ if ($page=="Takmir") {
 					<div class="panel col-md-4">
 						<div class="form-group">
 							<label for="tknama">Nama takmir</label>
-							<input type="text" class="form-control" name="tknama" value="<?php echo $input['ttknama']; ?>">
+							<input type="text" class="form-control" name="tknama" value="<?php echo $input['tknama']; ?>">
 						</div>
 						<div class="form-group">
 							<label for="tkjabatan">Jabatan</label>
@@ -96,12 +96,13 @@ if ($page=="Takmir") {
 			<?php }else if ($page=="Ubah Takmir") {?>
 			<div class="container">
 				<div class="row">
-					<?php echo form_open('takmir/dbubah','class=form');	?>
+					<?php echo form_open_multipart('takmir/dbubah','class=form');	?>
 					<input type="hidden" class="form-control" name="tkid" value="<?php echo $takmir->tkid;?>">
 					<div class="panel col-md-4">
 						<div class="form-group">
 							<label for="mediaid">Media</label>
-							<input type="text" class="form-control" name="mediaid" value="<?php echo $takmir->mediaid;?>">
+							<input type="file" id="dropify-event" name="filename" data-default-file="<?php echo base_url('uploads/takmir/'.$takmir->mediadir);?>">
+							<input type="hidden" name="oldmedia" value="<?php echo $takmir->mediadir;?>">
 						</div>
 					</div>
 					<div class="panel col-md-4">

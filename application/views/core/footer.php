@@ -178,7 +178,7 @@ if($page=="Tambah Kegiatan"||$page=="Ubah Kegiatan"){?>
             <?php } ?>
 
 <?php //jika media
-if($page=="Media" or $page=="Takmir" or $page=="Ustadz"){?>
+if($page=="Media" or isset($search)){?>
 
             <script src="<?php echo base_url('assets/vendor/dropify/js/dropify.min.js');?>"></script>
             <script>
@@ -188,6 +188,7 @@ if($page=="Media" or $page=="Takmir" or $page=="Ustadz"){?>
                 var drEvent = $('#dropify-event').dropify();
                 drEvent.on('dropify.beforeClear', function(event, element) {
                   return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+                  
                 });
 
                 drEvent.on('dropify.afterClear', function(event, element) {

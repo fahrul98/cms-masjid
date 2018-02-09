@@ -83,7 +83,7 @@ if($this->session->userdata('username') and $this->session->userdata('userpass')
 <?php } ?>
 
 <?php //jika media
-if($page=="Media"){?>
+if($page=="Media" or isset($search)){?>
   <link rel="stylesheet" href="<?php echo base_url('assets/vendor/dropify/css/dropify.min.css');?>">
 <?php } ?>
 
