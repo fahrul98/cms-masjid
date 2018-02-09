@@ -41,10 +41,8 @@ mediaid
 		$this->pagination->initialize($config);
 
 		//$data['user'] = $this->m_data->data($config['per_page'],$from);
-		$data['cmpost'] = $this->mpost->tampilpaging($config['per_page'],$from);
+		$data['cmpost'] = $this->mpost->tampilpaging($config['per_page'],$from)->result();
 		$str_links=$this->pagination->create_links();
-		// $data["links"] = explode('&nbsp;',$str_links);
-		// $data["links"] = $str_links;
 		$data["links"] = explode('.',$str_links );
 
 		$this->load->view('core/core',$data);
@@ -56,6 +54,8 @@ mediaid
 		$data['cmpost'] = $this->mpost->get_search();
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "post";
+		$data['mode'] = 'viewall';
+		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
 		$this->load->view('core/core',$data);
 		$this->load->view('vpost',$data);
 		$this->load->view('core/footer',$data);

@@ -38,7 +38,6 @@ if($this->session->userdata('username') and $this->session->userdata('userpass')
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css');?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/animate.css');?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css');?>">
-<link rel="stylesheet" href="<?php echo base_url('assets/css/jquery.boxslider.css');?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/normalize.css');?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/demo.css');?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/set1.css');?>">
@@ -47,16 +46,6 @@ if($this->session->userdata('username') and $this->session->userdata('userpass')
 <!-- <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>"> -->
 <!-- MAIN CSS -->
 
-<!-- JS Netizen -->
-<script src="<?php echo base_url('assets/js/jquery-2.1.1.min.js');?>"></script>
-<script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
-<script src="<?php echo base_url('assets/js/wow.min.js');?>"></script>
-<script src="<?php echo base_url('assets/js/jquery.easing.1.3.js');?>"></script>
-<script src="<?php echo base_url('assets/js/jquery.isotope.min.js');?>"></script>
-<script src="<?php echo base_url('assets/js/jquery.bxslider.min.js');?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/js/fliplightbox.min.js');?>"></script>
-<script src="<?php echo base_url('assets/js/functions.js');?>"></script>
-<script type="text/javascript">$('.portfolio').flipLightBox()</script>
 <!-- Main JS ? -->
 <?php }else{
  ?>
@@ -79,7 +68,8 @@ if($this->session->userdata('username') and $this->session->userdata('userpass')
 <?php } ?>
 
 <?php if($page=="Tambah Kegiatan"||$page=="Ubah Kegiatan"){?>
-  <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css'); ?>">
+  <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap-datepicker/css/prettify-1.0.css'); ?>">
+  <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap-datepicker/css/bootstrap-datetimepicker.css'); ?>">
 <?php } ?>
 
 <?php //jika media

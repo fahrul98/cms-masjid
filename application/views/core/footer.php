@@ -34,6 +34,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <?php
                   $n = 1;
                   // <td><a href=".base_url('beranda/post/'.$v->postid).">".$v->psjudul."</a></td>
+                  if (isset($cmpostfoot)) {
+                    $cmpost=$cmpostfoot;
+                  }
                     foreach ($cmpost as $v) {
                      echo "<li><a href=".base_url('beranda/post/'.urlencode($v->psjudul)).">".$v->psjudul."</a></li>";
                      //tampil 5 post terbaru
@@ -94,9 +97,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php
 
 //jika tidak maka muncul punya si admin
-
-  // }else if (!isset($mode)||$mode=='view'){
-  // if ($this->session->userdata('username') and $this->session->userdata('userpass')){
   }else if (!isset($mode)&&$this->session->userdata('username') and $this->session->userdata('userpass')){
 
 // tema memakai wrapper sbg container, jadi di wrap. gk usah pake tag penutup untuk div wrapper.
@@ -110,22 +110,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <?php
 }
 ?>
-
-
-
-
       <!-- try footer from template  -->
       <!-- Javascript -->
-
-      <script src="<?php echo base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
-      <script src="<?php echo base_url('assets/vendor/bootstrap/js/bootstrap.min.js'); ?>"></script>
-      <script src="<?php echo base_url('assets/vendor/metisMenu/metisMenu.js'); ?>"></script>
-      <script src="<?php echo base_url('assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js'); ?>"></script>
-      <script src="<?php echo base_url('assets/vendor/jquery-sparkline/js/jquery.sparkline.min.js'); ?>"></script>
-      <script src="<?php echo base_url('assets/vendor/bootstrap-progressbar/js/bootstrap-progressbar.min.js'); ?>"></script>
-      <script src="<?php echo base_url('assets/vendor/toastr/toastr.js'); ?>"></script>
-      <script src="<?php echo base_url('assets/scripts/common.js'); ?>"></script>
-
       <?php
 //jika butuh chart
 if(false){?>
@@ -133,9 +119,36 @@ if(false){?>
         <script src="<?php echo base_url('assets/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets/vendor/chartist-plugin-axistitle/chartist-plugin-axistitle.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets/vendor/chartist-plugin-legend-latest/chartist-plugin-legend.js'); ?>"></script>
-        <?php }?>
+        <?php }
 
+        //jika pengunjung true
+        if (isset($mode)) {
+          ?>
+
+        <!-- JS Netizen -->
+        <script src="<?php echo base_url('assets/js/jquery-2.1.1.min.js');?>"></script>
+        <script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
+        <script src="<?php echo base_url('assets/js/wow.min.js');?>"></script>
+        <script src="<?php echo base_url('assets/js/jquery.easing.1.3.js');?>"></script>
+        <script src="<?php echo base_url('assets/js/jquery.isotope.min.js');?>"></script>
+        <script src="<?php echo base_url('assets/js/jquery.bxslider.min.js');?>"></script>
+        <script type="text/javascript" src="<?php echo base_url('assets/js/fliplightbox.min.js');?>"></script>
+        <script src="<?php echo base_url('assets/js/functions.js');?>"></script>
+        <script type="text/javascript">$('.portfolio').flipLightBox()</script>
         <?php
+        //jika admin
+      }else{
+        ?>
+        <script src="<?php echo base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/vendor/bootstrap/js/bootstrap.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/vendor/metisMenu/metisMenu.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/vendor/jquery-sparkline/js/jquery.sparkline.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/vendor/bootstrap-progressbar/js/bootstrap-progressbar.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/vendor/toastr/toastr.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/scripts/common.js'); ?>"></script>
+        <?php
+      }
 //jika menulis post
 if($page=="Tulis Postingan"||$page=="Ubah Postingan"){
   ?>
@@ -174,7 +187,10 @@ if($page=="Tulis Postingan"||$page=="Ubah Postingan"){
 //jika menulis post
 if($page=="Tambah Kegiatan"||$page=="Ubah Kegiatan"){?>
 
-            <script src="<?php echo base_url('assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js');?>"></script>
+            <script src="<?php echo base_url('assets/vendor/bootstrap-datepicker/js/moment-with-locales.js');?>"></script>
+            <script src="<?php echo base_url('assets/vendor/bootstrap-datepicker/js/bootstrap-datetimepicker.js');?>"></script>
+            <script src="<?php echo base_url('assets/vendor/bootstrap-datepicker/js/mixpanel-2-latest.min.js');?>"></script>
+
             <?php } ?>
 
 <?php //jika media

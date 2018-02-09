@@ -32,13 +32,16 @@ unset(variabel) => hapus variabel dari memori
 		// if (isset($data['mode'])&&$data['mode']=='pengunjung') {
 		// 	$q = $this->db->query("select * from cmpost where psjudul=1 order by psid desc");
 		// }else
-		
+
 		if(isset($data['slug'])){
 			$q = $this->db->query("select * from cmpost where psjudul=?",array(urldecode($data['slug'])));
-		}else{
-			$q = $this->db->query("select * from cmpost order by postid desc");
-		}
 
+		}else{
+			// echo "<script>alert(1);</script>";
+			// $q = $this->db->query("SELECT * FROM cmpost cmp left join cmtag ct on cmp.tagid=ct.tagid order by postid desc");
+			// $q = $this->db->query("SELECT * FROM cmpost order by psbuat desc");
+			$q = $this->db->query("SELECT * FROM cmpost");
+		}
 		return $q;
 		$q=null;
 		unset($data);
@@ -59,12 +62,23 @@ unset(variabel) => hapus variabel dari memori
 	  $match = $this->input->post('search');
 	  $this->db->like('psjudul',$match);
 	  $this->db->or_like('pstext',$match);
-	   $query = $this->db->get('cmpost');
+		$this->db->join('cmtag ct', 'cmp.tagid=ct.tagid','left');
+	   $query = $this->db->get('cmpost cmp');
 	  return $query->result();
 	}
 
 	public function tampilpaging($jumlah, $batas){
-		return $query = $this->db->get('cmpost',$jumlah,$batas)->result();
+		$q = $this->db->get('cmpost',$jumlah,$batas)->result();
+		if (!isset($batas)) {
+			$batas=0;
+		}
+		// $this->db->select('*');
+		// $this->db->from('cmpost cmp');
+		// $this->db->join('cmtag ct', 'cmp.tagid=ct.tagid','left');
+		// $this->db->limit($jumlah,$batas);
+		// $q = $this->db->get();
+		$q = $this->db->query("SELECT * FROM cmpost cmp left join cmtag ct on cmp.tagid=ct.tagid order by psbuat desc limit $batas,$jumlah");
+		return $q;
 	}
 
 	public function jumlah_data(){

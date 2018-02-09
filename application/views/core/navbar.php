@@ -71,9 +71,6 @@ switch ($page) {
         </div>
       </nav>
       <!-- END NAVBAR -->
-
-
-
       <?php
 
 //jika tidak maka muncul punya si admin
@@ -158,7 +155,7 @@ switch ($page) {
   </button>
           <div class="sidebar-scroll">
             <div class="user-account">
-              <img src="<?php echo base_url('assets/img/user.png')?>" class="img-responsive img-circle user-photo" alt="Admin Masjid">
+              <img src="<?php echo base_url('assets/img/user.png');?>" class="img-responsive img-circle user-photo" alt="Admin Masjid">
               <div class="dropdown">
                 <a href="#" class="dropdown-toggle user-name" data-toggle="dropdown">Assalamualaikum, <strong><?php if(isset($padmin->username)){
                   echo $padmin->username;
