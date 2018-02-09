@@ -79,11 +79,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </ul>
         </div>
       </div>
+      <a href="#" class="scrollup" style="display: block;"><i class="fa fa-chevron-up"></i></a>       
+      <a href="#" class="scrollup"><i class="fa fa-chevron-up"></i></a>    
       
-      <a href="" class="scrollup" style="display: block;"><i class="fa fa-chevron-up"></i></a>        
-      <a href="" class="scrollup"><i class="fa fa-chevron-up"></i></a>    
     </div>  
-  <!-- </footer> -->
+    <!-- </footer> -->
 </div>
   <!-- END FOOTER -->
   
@@ -169,7 +169,7 @@ $(function() {
 
 <?php
 //jika menulis post
-if($page=="Tambah Kegiatan"||$page=="Ubah Kegiatan"){?>
+if($page=="Tambah Kegiatan"||$page=="Ubah Kegiatan"|| $page=="Tambah Entri" || $page=="Ubah Entri"){?>
 
 <script src="<?php echo base_url('assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js');?>"></script>
 <?php } ?>

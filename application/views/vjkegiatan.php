@@ -45,7 +45,7 @@ if ($page=="Jadwal Kegiatan") {
 			<div class="panel col-md-4">
 				<div class="form-group ">
 					<label for="jknama">Nama Kegiatan</label>
-					<input type="text" class="form-control" name="jknama" value="">
+					<input type="text" required="required" class="form-control" name="jknama" value="">
 				</div>
 				<div class="form-group">
 					<label for="jkpihak">Pihak bersangkutan</label>
@@ -91,7 +91,7 @@ if ($page=="Jadwal Kegiatan") {
 				</div>
 				<div class="form-group">
 					<label for="jknama">Nama Kegiatan</label>
-					<input type="text" class="form-control" name="jknama" value="<?php echo $jadwalk->jknama;?>">
+					<input type="text" required="required" class="form-control" name="jknama" value="<?php echo $jadwalk->jknama;?>">
 				</div>
 				<div class="form-group">
 					<label for="jkpihak">Pihak bersangkutan</label>
