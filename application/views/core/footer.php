@@ -86,11 +86,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <a href="" class="scrollup" style="display: block;"><i class="fa fa-chevron-up"></i></a>
         <a href="" class="scrollup"><i class="fa fa-chevron-up"></i></a>
       </div>
-      <!-- </footer> -->
-    </div>
-    <!-- END FOOTER -->
-
-
     <?php
 
 //jika tidak maka muncul punya si admin
@@ -172,7 +167,7 @@ if($page=="Tulis Postingan"||$page=="Ubah Postingan"){
 
           <?php
 //jika menulis post
-if($page=="Tambah Kegiatan"||$page=="Ubah Kegiatan"){?>
+if($page=="Tambah Kegiatan"||$page=="Ubah Kegiatan"|| $page=="Tambah Entri" || $page=="Ubah Entri"){?>
 
             <script src="<?php echo base_url('assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js');?>"></script>
             <?php } ?>

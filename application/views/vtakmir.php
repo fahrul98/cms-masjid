@@ -108,7 +108,7 @@ if ($page=="Takmir") {
 					<div class="panel col-md-4">
 						<div class="form-group">
 							<label for="tknama">Nama takmir</label>
-							<input type="text" class="form-control" name="tknama" value="<?php echo $takmir->tknama;?>">
+							<input type="text" required="required" class="form-control" name="tknama" value="<?php echo $takmir->tknama;?>">
 						</div>
 						<div class="form-group">
 							<label for="tkjabatan">Jabatan</label>
@@ -119,7 +119,7 @@ if ($page=="Takmir") {
 						</div>
 						<div class="form-group">
 							<label for="tknotelp">No. telp</label>
-							<input type="text" class="form-control" name="tknotelp" value="<?php echo $takmir->tknotelp;?>">
+							<input type="text" required="required" class="form-control" name="tknotelp" value="<?php echo $takmir->tknotelp;?>">
 						</div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary" name="submit" value="update">Ubah</button>

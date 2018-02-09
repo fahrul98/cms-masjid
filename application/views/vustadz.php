@@ -79,7 +79,7 @@ $n = 1;
 						</div>
 						<div class="form-group">
 							<label for="usalamat">Alamat</label>
-							<input type="textarea" class="form-control" name="usalamat" value="<?php echo $input['usalamat']; ?>">
+							<textarea name="usalamat" class="form-control" rows="5" value=""></textarea>
 						</div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary" name="submit" value="tambah">Tambah</button>
@@ -104,15 +104,15 @@ $n = 1;
 				<div class="panel col-md-4">
 					<div class="form-group">
 						<label for="usnama">Nama Ustadz</label>
-						<input type="text" class="form-control" name="usnama" value="<?php echo $ustadz->usnama;?>">
+						<input type="text" required="required" class="form-control" name="usnama" value="<?php echo $ustadz->usnama;?>">
 					</div>
 				<div class="form-group">
 					<label for="usnotelp">No. telp</label>
-					<input type="text" class="form-control" name="usnotelp" value="<?php echo $ustadz->usnotelp;?>">
+					<input type="text" required="required" class="form-control" name="usnotelp" value="<?php echo $ustadz->usnotelp;?>">
 				</div>
 				<div class="form-group">
 					<label for="usalamat">Alamat</label>
-					<input type="textarea" class="form-control" name="usalamat" value="<?php echo $ustadz->usalamat;?>">
+					<textarea name="usalamat" required="required" class="form-control" rows="5" value="<?php echo $ustadz->usalamat;?>"></textarea>
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary" name="submit" value="update">Update</button>
