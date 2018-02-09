@@ -89,11 +89,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <a href="" class="scrollup" style="display: block;"><i class="fa fa-chevron-up"></i></a>
         <a href="" class="scrollup"><i class="fa fa-chevron-up"></i></a>
       </div>
-      <!-- </footer> -->
-    </div>
-    <!-- END FOOTER -->
-
-
     <?php
 
 //jika tidak maka muncul punya si admin
@@ -185,7 +180,7 @@ if($page=="Tulis Postingan"||$page=="Ubah Postingan"){
 
           <?php
 //jika menulis post
-if($page=="Tambah Kegiatan"||$page=="Ubah Kegiatan"){?>
+if($page=="Tambah Kegiatan"||$page=="Ubah Kegiatan"|| $page=="Tambah Entri" || $page=="Ubah Entri"){?>
 
             <script src="<?php echo base_url('assets/vendor/bootstrap-datepicker/js/moment-with-locales.js');?>"></script>
             <script src="<?php echo base_url('assets/vendor/bootstrap-datepicker/js/bootstrap-datetimepicker.js');?>"></script>
@@ -194,7 +189,7 @@ if($page=="Tambah Kegiatan"||$page=="Ubah Kegiatan"){?>
             <?php } ?>
 
 <?php //jika media
-if($page=="Media" or $page=="Takmir" or $page=="Ustadz"){?>
+if($page=="Media" or isset($search)){?>
 
             <script src="<?php echo base_url('assets/vendor/dropify/js/dropify.min.js');?>"></script>
             <script>
@@ -204,6 +199,7 @@ if($page=="Media" or $page=="Takmir" or $page=="Ustadz"){?>
                 var drEvent = $('#dropify-event').dropify();
                 drEvent.on('dropify.beforeClear', function(event, element) {
                   return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+                  
                 });
 
                 drEvent.on('dropify.afterClear', function(event, element) {

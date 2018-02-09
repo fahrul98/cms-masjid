@@ -55,15 +55,18 @@ $n = 1;
 			<div class="panel col-md-4">
 		<div class="form-group">
 			<label for="kmwaktu">Waktu</label>
-			<input type="text" class="form-control" name="kmwaktu" value="<?php echo $input['kmwaktu']; ?>">
+				<div class="input-group date" data-date-autoclose="true" >
+					<input type="text" class="form-control" name="kmwaktu" data-date-format="yyyy-mm-dd" data-provide="datepicker">
+					<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+				</div>
 		</div>
 		<div class="form-group">
 			<label for="kmketerangan">Keterangan</label>
-			<input type="text" class="form-control" name="kmketerangan" value="<?php echo $input['kmketerangan']; ?>">
+			<textarea name="kmketerangan" class="form-control" rows="5" value=""></textarea>
 		</div>
 		<div class="form-group">
 			<label for="kmpengeluaran">Jumlah</label>
-			<input type="textarea" class="form-control" name="kmpengeluaran" value="<?php echo $input['kmpengeluaran']; ?>">
+			<input type="textarea" required="required" class="form-control" name="kmpengeluaran" value="">
 		</div>
 		<div class="form-group">
 			<label for="kmsaldo">Saldo</label>
@@ -83,17 +86,21 @@ $n = 1;
 			<div class="panel col-md-4">
 	<?php echo form_open('keuanganmasjid/dbubah','class=form');	?>
 	<input type="hidden" name="kmid" value="<?php echo $kmasjid->kmid;?>">
-	<div class="form-group">
+		
+		<div class="form-group">
 			<label for="kmwaktu">Waktu</label>
-			<input type="text" class="form-control" name="kmwaktu" value="<?php echo $kmasjid->kmwaktu;?>">
+			<div class="input-group date" data-date-autoclose="true" >
+					<input type="text" class="form-control" name="kmwaktu" data-date-format="yyyy-mm-dd" data-provide="datepicker" value="<?php echo $kmasjid->kmwaktu;?>">
+					<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+			</div>
 		</div>
 		<div class="form-group">
 			<label for="kmketerangan">Keterangan</label>
-			<input type="text" class="form-control" name="kmketerangan" value="<?php echo $kmasjid->kmketerangan;?>">
+			<textarea name="kmketerangan" class="form-control" rows="5" value="<?php echo $kmasjid->kmketerangan;?>"></textarea>
 		</div>
 		<div class="form-group">
 			<label for="kmpengeluaran">Jumlah</label>
-			<input type="textarea" class="form-control" name="kmpengeluaran" value="<?php echo $kmasjid->kmpengeluaran;?>">
+			<input type="textarea" required="required" class="form-control" name="kmpengeluaran" value="<?php echo $kmasjid->kmpengeluaran;?>">
 		</div>
 		<div class="form-group">
 				<label for="kmsaldo">Saldo</label>

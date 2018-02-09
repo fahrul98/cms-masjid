@@ -38,18 +38,15 @@ unset(variabel) => hapus variabel dari memori
 	}
 
 	public function tambahtakmir($data){
-		if ($data['mediaid']=='') {
-			$data['mediaid']=1;
-		}
 		// $q = $this->db->query("insert into cmustadz (usnama,usnotelp,usalamat) values (?,?,?,?)",
-		$q = $this->db->query("insert into cmtakmirm (tknama,tknotelp,tkjabatan,tkmasajabatan,mediaid) values (?,?,?,?,?)",
+		$q = $this->db->query("insert into cmtakmirm (tknama,tknotelp,tkjabatan,tkmasajabatan,mediadir) values (?,?,?,?,?)",
 		array(
 			// $data['usid'],
 			$data['tknama'],
 			$data['tknotelp'],
 			$data['tkjabatan'],
 			$data['tkmasajabatan'],
-			$data['mediaid']
+			$data['filename']
 		));
 
 		unset($data);
@@ -59,14 +56,14 @@ unset(variabel) => hapus variabel dari memori
 		if ($data['mediaid']=='') {
 			$data['mediaid']=1;
 		}
-		$q = $this->db->query("update cmtakmirm set tknama=?,tknotelp=?,tkjabatan=?,tkmasajabatan=?,mediaid=? where tkid=?",
+		$q = $this->db->query("update cmtakmirm set tknama=?,tknotelp=?,tkjabatan=?,tkmasajabatan=?,mediadir=? where tkid=?",
 		array(
 			// $data['usid'],
 			$data['tknama'],
 			$data['tknotelp'],
 			$data['tkjabatan'],
 			$data['tkmasajabatan'],
-			$data['mediaid'],
+			$data['filename'],
 			$data['tkid']
 		));
 

@@ -25,6 +25,7 @@ mediaid
 
 	//view all takmir
 	public function index(){
+		$data['search'] = "takmir";
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Takmir";
 		$data['cmtakmir'] = $this->mtakmir->tampiltakmir()->result();
@@ -41,7 +42,46 @@ method untuk ke hal tulis post
 insert + delete
 
 */
+	
+	//upload gambar
+	public function do_upload($data){
+	    $config['upload_path']= './uploads/takmir';
+	    $config['allowed_types']= 'gif|jpg|png';
+	    $config['max_size']= 5000;
+	    // $config['max_width']= 1024;
+	    // $config['max_height']= 768;
+
+	    $this->load->library('upload', $config);
+
+	    if (!$this->upload->do_upload('filename')){
+	      $data = array('konfirmasi' => $this->upload->display_errors());
+	      //print($data['filename']);
+	    }else{
+	      $data['filename'] = $this->upload->data('file_name');
+	      $data['upload_data']= $this->upload->data();
+	      $data['konfirmasi']= 'sukses';
+	      // $this->load->view('upload_success', $data);
+	    }
+	    //$this->session->set_flashdata('data',$data);
+	    return $data['filename'];
+	    unset($data);
+	}
+
+	//hapus gambar
+	public function hapusmedia($mediadir){
+		$data['mediadir']=$mediadir;
+		$data['path']="./uploads/takmir/".$data['mediadir'];
+	    if (unlink($data['path'])) {
+	      $data['konfirmasi']= $data['mediadir'].' terhapus';
+	    }else{
+	      // print("gagal");
+	      $data['konfirmasi']= $data['mediadir'].' tidak terhapus';
+	    }
+	    $this->session->set_flashdata('data',$data);
+	}
+
 	public function tambahtk(){
+		$data['search'] = "takmir";
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Tambah Takmir";
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
@@ -92,7 +132,7 @@ insert + delete
 		$data['tknotelp']= $this->input->post('tknotelp');
 		$data['tkjabatan']= $this->input->post('tkjabatan');
 		$data['tkmasajabatan']= $this->input->post('tkmasajabatan');
-		$data['mediaid']= $this->input->post('mediaid');
+		$data['filename']= $this->do_upload($this->input->post('filename'));
 
 		if (!$this->form_validation->run()) {
 			$this->session->set_userdata('err',validation_errors());
@@ -104,6 +144,7 @@ insert + delete
 		redirect(base_url('takmir'));
 		unset($data);
 	}
+
 
 	public function dbubah(){
 		$this->form_validation->set_rules('tknama','Nama Takmir','required|min_length[1]|max_length[50]',
@@ -134,7 +175,8 @@ insert + delete
 		$data['tknotelp']= $this->input->post('tknotelp');
 		$data['tkjabatan']= $this->input->post('tkjabatan');
 		$data['tkmasajabatan']= $this->input->post('tkmasajabatan');
-		$data['mediaid']= $this->input->post('mediaid');
+		$data['oldmedia']= $this->input->post('oldmedia');
+		$data['newmedia']=$this->input->post('filename');
 
 		if (!$this->form_validation->run()) {
 			$this->session->set_userdata('err',validation_errors());
@@ -142,20 +184,30 @@ insert + delete
 			redirect('takmir/ubahtk/'.$data['tkid']);
 		}
 
+		if($_FILES['filename']['name']!="") {
+			$data['filename']= $this->do_upload($data['newmedia']);
+			$this->hapusmedia($data['oldmedia']);
+		}else{
+			$data['filename']=$data['oldmedia'];
+		}
+
+		//var_dump($_FILES);
 		$this->mtakmir->ubahtakmir($data);
 		redirect(base_url('takmir'));
 		unset($data);
 	}
 
-	public function dbhapus($tkid){
+	public function dbhapus($tkid, $mediadir){
 		$data['tkid'] = $tkid;
-		$this->mtakmir->haptkakmir($data);
+		$this->hapusmedia($mediadir);
+		$this->mtakmir->hapustakmir($data);
 
 		redirect(base_url('takmir'));
 		unset($data,$tkid);
 	}
 
 	public function ubahtk($tkid){
+		$data['search'] = "takmir";
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Ubah Takmir";
 		$data['tkid'] = $tkid;

@@ -37,13 +37,20 @@ if ($page=="Ustadz") {
 $n = 1;
 		foreach ($cmustadz as $v) {
 			echo "<tr>
-			<td>".$n."</td>
-			<td>".$v->mediaid."</td>
-			<td>".$v->usnama."</td>
+			<td>".$n."</td>";
+			?>
+			<td>
+					<div class="thumbnail">
+						<img src="<?php echo base_url('uploads/ustadz/'.$v->mediadir);?>" width=60 height=80 />
+					</div>
+			</td>
+<?php
+			echo 
+			"<td>".$v->usnama."</td>
 			<td>".$v->usnotelp."</td>
 			<td>".$v->usalamat."</td>
 			<td><a href=".base_url('ustadz/ubahust/'.$v->usid)."> ubah</a></td>
-			<td><a href=".base_url('ustadz/dbhapus/'.$v->usid)."> hapus</a></td>
+			<td><a href=".base_url('ustadz/dbhapus/'.$v->usid)."/".$v->mediadir." onclick=\"return confirm('Apakah anda yakin ingin menghapus Ustadz ".$v->usnama."?')\"> hapus</a></td>
 
 			</tr>";
 			$n++;
@@ -54,11 +61,11 @@ $n = 1;
 <?php }else if ($page=="Tambah Ustadz") {?>
 			<div class="container">
 				<div class="row">
-					<?php echo form_open('ustadz/dbtambahust','class=form');	?>
+					<?php echo form_open_multipart('ustadz/dbtambahust','class=form');	?>
 					<div class="panel col-md-4">
 						<div class="form-group">
 							<label for="mediaid">Media id</label>
-							<input type="file" class="form-control" name="mediaid" value="<?php echo $input['mediaid']; ?>">
+							<input type="file" id="dropify-event" name="filename" data-default-file="<?php echo base_url('uploads/default.png');?>">
 						</div>
 					</div>
 					<div class="panel col-md-4">
@@ -72,7 +79,7 @@ $n = 1;
 						</div>
 						<div class="form-group">
 							<label for="usalamat">Alamat</label>
-							<input type="textarea" class="form-control" name="usalamat" value="<?php echo $input['usalamat']; ?>">
+							<textarea name="usalamat" class="form-control" rows="5" value=""></textarea>
 						</div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary" name="submit" value="tambah">Tambah</button>
@@ -85,26 +92,27 @@ $n = 1;
 <?php }else if ($page=="Ubah Ustadz") {?>
 	<div class="container">
 		<div class="row">
-				<?php echo form_open('ustadz/dbubah','class=form');	?>
+				<?php echo form_open_multipart('ustadz/dbubah','class=form');	?>
 				<input type="hidden" name="usid" value="<?php echo $ustadz->usid;?>">
 				<div class="panel col-md-4">
 					<div class="form-group">
 						<label for="mediaid">Media id</label>
-						<input type="file" class="form-control" name="mediaid" value="<?php echo $ustadz->mediaid;?>">
+						<input type="file" id="dropify-event" name="filename" data-default-file="<?php echo base_url('uploads/ustadz/'.$ustadz->mediadir);?>">
+							<input type="hidden" name="oldmedia" value="<?php echo $ustadz->mediadir;?>">
 					</div>
 				</div>
 				<div class="panel col-md-4">
 					<div class="form-group">
 						<label for="usnama">Nama Ustadz</label>
-						<input type="text" class="form-control" name="usnama" value="<?php echo $ustadz->usnama;?>">
+						<input type="text" required="required" class="form-control" name="usnama" value="<?php echo $ustadz->usnama;?>">
 					</div>
 				<div class="form-group">
 					<label for="usnotelp">No. telp</label>
-					<input type="text" class="form-control" name="usnotelp" value="<?php echo $ustadz->usnotelp;?>">
+					<input type="text" required="required" class="form-control" name="usnotelp" value="<?php echo $ustadz->usnotelp;?>">
 				</div>
 				<div class="form-group">
 					<label for="usalamat">Alamat</label>
-					<input type="textarea" class="form-control" name="usalamat" value="<?php echo $ustadz->usalamat;?>">
+					<textarea name="usalamat" required="required" class="form-control" rows="5" value="<?php echo $ustadz->usalamat;?>"></textarea>
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary" name="submit" value="update">Update</button>

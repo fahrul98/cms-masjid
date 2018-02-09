@@ -39,9 +39,48 @@ method untuk ke hal tulis post
 insert + delete
 
 */
+
+//upload gambar
+	public function do_upload($data){
+	    $config['upload_path']= './uploads/ustadz';
+	    $config['allowed_types']= 'gif|jpg|png';
+	    $config['max_size']= 5000;
+	    // $config['max_width']= 1024;
+	    // $config['max_height']= 768;
+
+	    $this->load->library('upload', $config);
+
+	    if (!$this->upload->do_upload('filename')){
+	      $data = array('konfirmasi' => $this->upload->display_errors());
+	      //print($data['filename']);
+	    }else{
+	      $data['filename'] = $this->upload->data('file_name');
+	      $data['upload_data']= $this->upload->data();
+	      $data['konfirmasi']= 'sukses';
+	      // $this->load->view('upload_success', $data);
+	    }
+	    //$this->session->set_flashdata('data',$data);
+	    return $data['filename'];
+	    unset($data);
+	}
+
+	//hapus gambar
+	public function hapusmedia($mediadir){
+		$data['mediadir']=$mediadir;
+		$data['path']="./uploads/ustadz/".$data['mediadir'];
+	    if (unlink($data['path'])) {
+	      $data['konfirmasi']= $data['mediadir'].' terhapus';
+	    }else{
+	      // print("gagal");
+	      $data['konfirmasi']= $data['mediadir'].' tidak terhapus';
+	    }
+	    $this->session->set_flashdata('data',$data);
+	}
+
 	public function tambahust(){
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Tambah Ustadz";
+		$data['search'] = "ustadz";
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
 		$data['input']=$this->session->userdata('input')?$this->session->userdata('input'):
 			array(
@@ -88,7 +127,7 @@ insert + delete
 		$data['usnama'] = $this->input->post('usnama');
 		$data['usnotelp'] = $this->input->post('usnotelp');
 		$data['usalamat'] = $this->input->post('usalamat');
-		$data['mediaid'] = $this->input->post('mediaid');
+		$data['filename']= $this->do_upload($this->input->post('filename'));
 
 		if (!$this->form_validation->run()) {
 			$this->session->set_userdata('err',validation_errors());
@@ -129,7 +168,8 @@ insert + delete
 		$data['usnama'] = $this->input->post('usnama');
 		$data['usnotelp'] = $this->input->post('usnotelp');
 		$data['usalamat'] = $this->input->post('usalamat');
-		$data['mediaid'] = $this->input->post('mediaid');
+		$data['oldmedia']= $this->input->post('oldmedia');
+		$data['newmedia']=$this->input->post('filename');
 
 		if (!$this->form_validation->run()) {
 			$this->session->set_userdata('err',validation_errors());
@@ -137,13 +177,21 @@ insert + delete
 			redirect('ustadz/ubahust'.$data['usid']);
 		}
 
+		if($_FILES['filename']['name']!="") {
+			$data['filename']= $this->do_upload($data['newmedia']);
+			$this->hapusmedia($data['oldmedia']);
+		}else{
+			$data['filename']=$data['oldmedia'];
+		}
+
 		$this->mustadz->ubahust($data);
 		redirect(base_url('ustadz'));
 		unset($data);
 	}
 
-	public function dbhapus($usid){
+	public function dbhapus($usid,$mediadir){
 		$data['usid'] = $usid;
+		$this->hapusmedia($mediadir);
 		$this->mustadz->hapusust($data);
 
 		redirect(base_url('ustadz'));
@@ -153,6 +201,7 @@ insert + delete
 	public function ubahust($usid){
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Ubah Ustadz";
+		$data['search'] = "ustadz";
 		$data['usid'] = $usid;
 		$data['ustadz'] = $this->mustadz->tampilustadz($data)->row();
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
