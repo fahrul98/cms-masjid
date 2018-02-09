@@ -24,27 +24,28 @@ $adminlogin = $this->session->userdata('username')&&$this->session->userdata('us
 <div id="main-content">
 <!-- <div class="container" style="margin-left: 300px; margin-top: 40px"> -->
 <h2><?php echo $page; ?></h2>
+<?php echo $error; ?>
 		<?php echo form_open('profilm/dbubahprofilm','class=form');	?>
 		<div class="row">
-			<input type="hidden" name="pnama" value="<?php echo $profil->pnama;?>">
+			<input type="hidden" name="pnama" value="<?php echo $profil['pnama'];?>">
 			<div class="form-group col-md-4">
 				<label for="pnama">Nama Masjid</label>
-				<input type="text" class="form-control" name="pnama2" value="<?php echo $profil->pnama;?>">
+				<input type="text" class="form-control" name="pnama2" value="<?php echo $profil['pnama'];?>">
 			</div>
 		</div>
 			<div class="form-group">
 				<label for="pdeskripsi">Deskripsi</label>
-				<textarea type="textarea" class="form-control" name="pdeskripsi" value=""><?php echo $profil->pdeskripsi;?></textarea>
+				<textarea type="textarea" class="form-control" name="pdeskripsi" value=""><?php echo $profil['pdeskripsi'];?></textarea>
 			</div>
 			<div class="form-group">
 				<label for="psejarah">Sejarah</label>
-				<textarea type="textarea" class="form-control" name="psejarah" value=""><?php echo $profil->psejarah;?></textarea>
+				<textarea type="textarea" class="form-control" name="psejarah" value=""><?php echo $profil['psejarah'];?></textarea>
 			</div>
 			<div class="form-group">
 				<label for="pvisimisi">Visi Misi</label>
-				<textarea type="textarea" class="form-control" name="pvisimisi" value=""><?php echo $profil->pvisimisi;?></textarea>
+				<textarea type="textarea" class="form-control" name="pvisimisi" value=""><?php echo $profil['pvisimisi'];?></textarea>
 			</div>
 			<button type="submit" name="submit" class="btn btn-lg btn-primary">Terapkan</button>
-			<a href="<?php echo base_url('#');?>"><button type="submit" name="submit" class="btn btn-lg btn-primary">Lihat Profile</button></a>
+			<a class="btn btn-lg btn-primary" href="<?php echo base_url('#');?>">Lihat Profile</a>
 		</form>
 </div>

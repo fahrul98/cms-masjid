@@ -1,3 +1,4 @@
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 /*
@@ -22,17 +23,17 @@ if ($page=="Beranda") {
 ?>
 <!-- SlideShow -->
 
-<div class="container" style="margin-top: 100px; margin-left: -200px">		
-	
+<div class="container" style="margin-top: 100px; margin-left: -200px">
+
 	<div class="col-md-8 col-md-offset-2" style="width: 100%; height: 100%">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
 				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 				<li data-target="#myCarousel" data-slide-to="1"></li>
-				<li data-target="#myCarousel" data-slide-to="2"></li>		
+				<li data-target="#myCarousel" data-slide-to="2"></li>
 			</ol>
- 
+
 			<!-- deklarasi carousel -->
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
@@ -55,9 +56,9 @@ if ($page=="Beranda") {
 						<h3>Galeri</h3>
 						<p>Foto foto kegiatan Masjid</p>
 					</div>
-				</div>				
+				</div>
 			</div>
- 
+
 			<!-- membuat panah next dan previous -->
 			<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
 				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -84,23 +85,23 @@ if ($page=="Beranda") {
 			</div>
 		</div>
 </div>
-	
+
 <div class="container">
 		<div class="row">
 			<div class="box">
 				<div class="col-md-4">
 					<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.4s">
-						<h4>Portal Donasi</h4>					
+						<h4>Portal Donasi</h4>
 							<div class="icon">
 								<i class="fa fa-heart-o fa-3x"></i>
-							</div>						
+							</div>
 						<p>Pastikan kita menggunakan harta kita di jalan Allah</p>
 						<div class="ficon">
 							<a href="<?php echo base_url('');?>" class="btn btn-default" role="button">Read more</a>
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="col-md-4">
 					<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.0s">
 						<h4>Jadwal Kegiatan</h4>
@@ -113,7 +114,7 @@ if ($page=="Beranda") {
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="col-md-4">
 					<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.6s">
 						<h4>Materi Kajian</h4>
@@ -125,9 +126,9 @@ if ($page=="Beranda") {
 							<a href="#" class="btn btn-default" role="button">Read more</a>
 						</div>
 					</div>
-					
+
 				</div>
-				
+
 			</div>
 		</div>
 </div>
@@ -135,12 +136,12 @@ if ($page=="Beranda") {
 <div class="text-center">
 					<h2>Profil Masjid</h2><br>
 					<h4>Sejarah</h4>
-					<?php 
+					<?php
 						echo "<p style='text-align: justify'>".$profil->psejarah."</p><br>";
 					?>
 					<h4>Visi Misi</h4>
 					<p style="text-align: justify;"><?php echo $profil->pvisimisi;?></p>
-					
+
 </div>
 
 <div class="text-center">
@@ -151,7 +152,7 @@ if ($page=="Beranda") {
 
 <div class="content">
 		<div class="grid col-lg-3 col-md-4 col-xs-6" style="margin-left: 50px">
-			<figure class="effect-zoe col-lg-3 col-md-4 col-xs-6"">
+			<figure class="effect-zoe col-lg-3 col-md-4 col-xs-6">
 				<img src="assets/img/25.jpg" alt="img25">
 				<!-- <figcaption>
 					<h2>Title <span>Name</span></h2>
@@ -161,7 +162,7 @@ if ($page=="Beranda") {
 						<a href="#"><span class="icon-paper-clip"></span></a>
 					</p>
 					<p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
-				</figcaption>	 -->		
+				</figcaption>	 -->
 			</figure>
 			<figure class="effect-zoe" style="margin-left: 520px">
 				<img src="assets/img/26.jpg" alt="img26">
@@ -173,14 +174,14 @@ if ($page=="Beranda") {
 						<a href="#"><span class="icon-paper-clip"></span></a>
 					</p>
 					<p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
-				</figcaption> -->			
+				</figcaption> -->
 			</figure>
 		</div>
 </div>
 
 <div class="content">
 		<div class="grid col-lg-3 col-md-4 col-xs-6" style="margin-left: -285px; margin-top: 400px">
-			<figure class="effect-zoe col-lg-3 col-md-4 col-xs-6"">
+			<figure class="effect-zoe col-lg-3 col-md-4 col-xs-6">
 				<img src="assets/img/27.jpg" alt="img2">
 				<!-- <figcaption>
 					<h2>Title <span>Name</span></h2>
@@ -190,7 +191,7 @@ if ($page=="Beranda") {
 						<a href="#"><span class="icon-paper-clip"></span></a>
 					</p>
 					<p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
-				</figcaption>	 -->		
+				</figcaption>	 -->
 			</figure>
 			<figure class="effect-zoe" style="margin-left: 520px">
 				<img src="assets/img/28.jpg" alt="img26">
@@ -202,7 +203,7 @@ if ($page=="Beranda") {
 						<a href="#"><span class="icon-paper-clip"></span></a>
 					</p>
 					<p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
-				</figcaption> -->			
+				</figcaption> -->
 			</figure>
 		</div>
 </div>
@@ -212,7 +213,7 @@ if ($page=="Beranda") {
 		<?php if (isset($mode)) {
 		echo $mode;
 	} ?></h3></h2>
-	
+
 <div class="container">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
@@ -228,20 +229,20 @@ if ($page=="Beranda") {
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8">
 				<div class="page-header">
 					<div class="blog">
 						<h5>February,22 2015</h5>
-						<img src="assets/img/01.jpg" class="img-responsive" alt="" />			
-					
+						<img src="assets/img/01.jpg" class="img-responsive" alt="" />
+
 						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
 						sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
 						Ut wisi enim ad minim veniam,quis nostrud exerci tation ullamcorper
 						suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-						
+
 						<h3>Lorem ipsum dolor sit amet</h3>
 
 						<p>Duis autem vel eum iriure dolor in hendrerit
@@ -249,27 +250,27 @@ if ($page=="Beranda") {
 						vel illum dolore eu feugiat nulla facilisis at
 						vero eros et accumsan et iusto odio dignissim qui
 						blandit praesent luptatum zzril delenit augue duis
-						dolore te feugait nulla facilisi. Nam liber tempor 
+						dolore te feugait nulla facilisi. Nam liber tempor
 						cum soluta nobis eleifend option congue nihil imperdiet
 						doming id quod mazim placerat facer possim assum.
 						Typi non habent claritatem insitam;
 						est usus legentis in iis qui facit eorum claritatem.</p>
 
-						<p>Nam liber tempor cum soluta nobis eleifend option 
+						<p>Nam liber tempor cum soluta nobis eleifend option
 						congue nihil imperdiet doming id quod mazim placerat
 						facer possim assum. Typi non habent claritatem insitam;
 						est usus legentis in iis qui facit eorum.</p>
 
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
-						sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+						sed diam nonummy nibh euismod tincidunt ut laoreet dolore
 						magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
-						quis nostrud exerci tation ullamcorper suscipit 
+						quis nostrud exerci tation ullamcorper suscipit
 						lobortis nisl ut aliquip ex ea commodo consequat.</p>
 						<div class="ficon">
-							<a href="#" alt="">Learn more</a> 
+							<a href="#" alt="">Learn more</a>
 						</div>
 					</div>
-				</div>	
+				</div>
 				<div class="container">
 					<div class="row">
 						<nav>
@@ -286,11 +287,13 @@ if ($page=="Beranda") {
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="col-md-4">
-				<form class="form-search">
-					<input class="form-control" type="text" placeholder="Search..">
-				</form>
+				<?php echo form_open('beranda/search','class=form');  ?>
+				<div id="navbar-search" class="navbar-form search-form">
+					<input name="search" value="" class="form-control" placeholder="Cari..." type="text">
+        			<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+        		</div>
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<strong>Popular Posts</strong>
@@ -302,11 +305,11 @@ if ($page=="Beranda") {
 							</a>
 							<div class="media-body">
 								<h4 class="media-heading">Kelly Hidayah</h4>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
-								sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+								sed diam nonummy nibh euismod tincidunt ut laoreet dolore
 								</p>
 								<div class="ficon">
-									<a href="#" alt="">Read more</a> 
+									<a href="#" alt="">Read more</a>
 								</div>
 							</div>
 						</div>
@@ -318,8 +321,8 @@ if ($page=="Beranda") {
 							</a>
 							<div class="media-body">
 								<h4 class="media-heading">Kelly Hidayah</h4>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
-								sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+								sed diam nonummy nibh euismod tincidunt ut laoreet dolore
 								</p>
 								<div class="ficon">
 									<a href="#" alt="">Read more</a>
@@ -334,8 +337,8 @@ if ($page=="Beranda") {
 							</a>
 							<div class="media-body">
 								<h4 class="media-heading">Kelly Hidayah</h4>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
-								sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+								sed diam nonummy nibh euismod tincidunt ut laoreet dolore
 								</p>
 								<div class="ficon">
 									<a href="#" alt="">Read more</a>
@@ -350,28 +353,28 @@ if ($page=="Beranda") {
 							</a>
 							<div class="media-body">
 								<h4 class="media-heading">Kelly Hidayah</h4>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
-								sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+								sed diam nonummy nibh euismod tincidunt ut laoreet dolore
 								</p>
 								<div class="ficon">
-									<a href="#" alt="">Read more</a> 
+									<a href="#" alt="">Read more</a>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>			
-			</div>				
+				</div>
+			</div>
 		</div>
 	</div>
-	
+
 		<div class="container">
-			<div class="row">				
+			<div class="row">
 				<div class="col-md-8">
 					<div class="embed-responsive embed-responsive-4by3">
 						<iframe width="560" height="315" src="https://www.youtube.com/embed/HrdAkX0ue3k?list=PLB523918A978EF359" frameborder="1" allowfullscreen></iframe>
-					</div>	
+					</div>
 				</div>
-				<div class="col-md-4">	
+				<div class="col-md-4">
 					<div class="popular-tags">
 						<h5>Popular tags</h5>
 						<ul class="tags">
@@ -382,9 +385,9 @@ if ($page=="Beranda") {
 							<li><a href="#">Berkah</a></li>
 							<li><a href="#">Donasi</a></li>
 						</ul>
-					</div>				
-				</div>	
-			</div>			
+					</div>
+				</div>
+			</div>
 		</div>
 	<table class="table  table-bordered table-striped table-hover">
 		<thead>
@@ -399,15 +402,25 @@ if ($page=="Beranda") {
 		foreach ($cmpost as $v) {
 			echo "<tr>
 			<td>".$n."</td>
-			<td><a href=".base_url('beranda/post/'.$v->postid).">".$v->psjudul."</a></td>
+			<td><a href=".base_url('beranda/post/'.urlencode($v->psjudul)).">".$v->psjudul."</a></td>
 			<td>".$v->psustadz."</td>
 			<td>".$v->psubah."</td>
 			<td>".$v->tagid."</td>
 			</tr>";
 			$n++;
 		}
+
 	?>
 	</table>
+<ul class="pagination pagination">
+<?php
+if (isset($links)) {
+	foreach ($links as $link) {
+	echo "<li>". $link."</li>";
+}
+}
+?>
+</ul>
 
 
 <?php
@@ -450,23 +463,23 @@ if ($page=="Beranda") {
 		</div>
 	</div>
 </div>
-	
+
 <div class="services">
 	<div class="container" style="margin-left: -50px">
 		<div class="row">
 			<div class="col-md-3">
 				<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.4s">
-					<h4>Data Masjid</h4>					
+					<h4>Data Masjid</h4>
 						<div class="icon">
 							<i class="fa fa-heart-o fa-3x"></i>
-						</div>						
+						</div>
 					<p><?php echo $profil->pnama;?></p>
 					<div class="ficon">
 						<a href="#" class="btn btn-default" role="button">Read more</a>
 					</div>
 				</div>
 			</div>
-				
+
 			<div class="col-md-3">
 				<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.0s">
 					<h4>Deskripsi</h4>
@@ -479,7 +492,7 @@ if ($page=="Beranda") {
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="col-md-3">
 				<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.6s">
 					<h4>Sejarah</h4>
@@ -490,9 +503,9 @@ if ($page=="Beranda") {
 					<div class="ficon">
 						<a href="#" class="btn btn-default" role="button">Read more</a>
 					</div>
-				</div>					
+				</div>
 			</div>
-			
+
 			<div class="col-md-3">
 				<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="2.2s">
 					<h4>Visi-Misi</h4>
@@ -503,7 +516,7 @@ if ($page=="Beranda") {
 					<div class="ficon">
 						<a href="#" class="btn btn-default" role="button">Read more</a>
 					</div>
-				</div>					
+				</div>
 			</div>
 		</div>
 	</div>
@@ -681,3 +694,4 @@ $n = 1;
 
 <?php }?>
 </div>
+>>>>>>> 2aa778362946321d98b3ce20bc9a9c6827ce24e8

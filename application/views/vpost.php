@@ -15,186 +15,21 @@ mediaid
 
 <div id="main-content">
 <?php
-if ($page=="post") {
+if ($page=="Post") {
 	if (isset($tanya)) {
 		echo $tanya;
 	}
 ?>
-<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-				<div class="blogs">
-					<div class="text-center">
-						<h2>Blog</h2>
-						<p>Lorem ipsum dolor sit amet consectetur adipiscing elit Cras suscipit arcu<br>
-						vestibulum volutpat libero sollicitudin vitae Curabitur ac aliquam <br>
-						</p>
-					</div>
-					<hr>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div class="container">
-		<div class="row">
-			<div class="col-md-8">
-				<div class="page-header">
-					<div class="blog">
-						<h5>February,22 2015</h5>
-						<img src="assets/img/01.jpg" class="img-responsive" alt="" />			
-					
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-						sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-						Ut wisi enim ad minim veniam,quis nostrud exerci tation ullamcorper
-						suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-						
-						<h3>Lorem ipsum dolor sit amet</h3>
-
-						<p>Duis autem vel eum iriure dolor in hendrerit
-						in vulputate velit esse molestie consequat,
-						vel illum dolore eu feugiat nulla facilisis at
-						vero eros et accumsan et iusto odio dignissim qui
-						blandit praesent luptatum zzril delenit augue duis
-						dolore te feugait nulla facilisi. Nam liber tempor 
-						cum soluta nobis eleifend option congue nihil imperdiet
-						doming id quod mazim placerat facer possim assum.
-						Typi non habent claritatem insitam;
-						est usus legentis in iis qui facit eorum claritatem.</p>
-
-						<p>Nam liber tempor cum soluta nobis eleifend option 
-						congue nihil imperdiet doming id quod mazim placerat
-						facer possim assum. Typi non habent claritatem insitam;
-						est usus legentis in iis qui facit eorum.</p>
-
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
-						sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
-						magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
-						quis nostrud exerci tation ullamcorper suscipit 
-						lobortis nisl ut aliquip ex ea commodo consequat.</p>
-						<div class="ficon">
-							<a href="#" alt="">Learn more</a> 
-						</div>
-					</div>
-				</div>	
-				<div class="container">
-					<div class="row">
-						<nav>
-						  <ul class="pagination">
-							<li><a href="#"><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a></li>
-							<li><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#">5</a></li>
-							<li><a href="#"><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a></li>
-						  </ul>
-						</nav>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-md-4">
-				<form class="form-search">
-					<input class="form-control" type="text" placeholder="Search..">
-				</form>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<strong>Popular Posts</strong>
-					</div>
-					<div class="panel-body">
-						<div class="media">
-							<a class="media-left" href="#">
-								<img src="assets/img/b.jpg" alt="">
-							</a>
-							<div class="media-body">
-								<h4 class="media-heading">Kelly Hidayah</h4>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
-								sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
-								</p>
-								<div class="ficon">
-									<a href="#" alt="">Read more</a> 
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="panel-body">
-						<div class="media">
-							<a class="media-left" href="#">
-								<img src="assets/img/a.jpg" alt="">
-							</a>
-							<div class="media-body">
-								<h4 class="media-heading">Kelly Hidayah</h4>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
-								sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
-								</p>
-								<div class="ficon">
-									<a href="#" alt="">Read more</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="panel-body">
-						<div class="media">
-							<a class="media-left" href="#">
-								<img src="assets/img/c.jpg" alt="">
-							</a>
-							<div class="media-body">
-								<h4 class="media-heading">Kelly Hidayah</h4>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
-								sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
-								</p>
-								<div class="ficon">
-									<a href="#" alt="">Read more</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="panel-body">
-						<div class="media">
-							<a class="media-left" href="#">
-								<img src="assets/img/d.jpg" alt="">
-							</a>
-							<div class="media-body">
-								<h4 class="media-heading">Kelly Hidayah</h4>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
-								sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
-								</p>
-								<div class="ficon">
-									<a href="#" alt="">Read more</a> 
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>			
-			</div>				
-		</div>
-	</div>
-	
-		<div class="container">
-			<div class="row">				
-				<div class="col-md-8">
-					<div class="embed-responsive embed-responsive-4by3">
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/HrdAkX0ue3k?list=PLB523918A978EF359" frameborder="1" allowfullscreen></iframe>
-					</div>	
-				</div>
-				<div class="col-md-4">	
-					<div class="popular-tags">
-						<h5>Popular tags</h5>
-						<ul class="tags">
-							<li><a href="#">Quran</a></li>
-							<li><a href="#">Sunnah</a></li>
-							<li><a href="#">Mesjid</a></li>
-							<li><a href="#">Kajian</a></li>
-							<li><a href="#">Berkah</a></li>
-							<li><a href="#">Donasi</a></li>
-						</ul>
-					</div>				
-				</div>	
-			</div>			
-		</div>
 
 <h2><?php echo $page; ?></h2>
+<div class="panel">
+<div class="panel-content">
+<div class="col-sm-6">
+	<a class="btn btn-default" href="<?php echo base_url('post/tulis');?>"><i class="fa fa-pencil-square-o"> </i> Tulis postingan</a>
+	<a class="btn btn-default" href="<?php echo base_url('beranda/post');?>">Tampil Semua</a></button>
+</div>
+</div>
+<div class="panel-content">
 	<table class="table table-bordered table-striped table-hover">
 		<thead>
 			<th>No.</th>
@@ -222,7 +57,7 @@ if ($page=="post") {
 				echo "<td>Draft<br/>
 					<a href=".base_url('post/dbpublish/'.$v->postid)."> Publish</a></td>";
 			}else{
-				echo "<td>Published</td>";
+				echo "<td>Ya</td>";
 			}
 			echo "<td><a href=".base_url('post/ubahpost/'.urlencode($v->psjudul))."> ubah</a></td>
 			<td><a href=".base_url('post/dbhapus/'.$v->postid)."> hapus</a></td>
@@ -235,29 +70,36 @@ if ($page=="post") {
 
 	</table>
 <ul class="pagination pagination">
-<?php
-if (isset($links)) {
-	foreach ($links as $link) {
-	echo "<li>". $link."</li>";
-} 
-}
-?>
+	<?php
+	if (isset($links)) {
+		foreach ($links as $link) {
+			echo "<li>". $link."</li>";
+		}
+		// echo $links;
+	}
+	?>
 </ul>
-<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('post/tulis');?>"> Tulis postingan</a></button>
-<button type="submit" class="btn " name="submit" value="kembali"><a style="text-decoration: none; text-decoration-color: white" href="<?php echo base_url('beranda/post');?>">Tampil Semua</a></button>
+</div>
+</div>
 
 <?php }else if ($page=="Tulis Postingan") {?>
 	<h2><?php echo $page; ?></h2>
-
+	<?php echo $error; ?>
 	<?php echo form_open('post/dbtulis','class=form');	?>
+	<label class="fancy-checkbox custom-bgcolor-green">
+		<input type="checkbox" name="pspublic"<?php
+		if ($input['pspublic']==1) {
+			echo 'checked=""';
+		}
+		?>><span>Publik</span></label>
 	<div class="row">
 		<div class="form-group col-md-3">
 			<label for="judul">Judul</label>
-			<input type="text" class="form-control" name="judul" value="">
+			<input type="text" class="form-control" name="judul" value="<?php echo $input['psjudul']; ?>">
 		</div>
 		<div class="form-group col-md-3">
 			<label for="ustadz">Ustadz</label>
-			<input type="text" class="form-control" name="ustadz" value="">
+			<input type="text" class="form-control" name="ustadz" value="<?php echo $input['psustadz']; ?>">
 		</div>
 		<div class="form-group col-md-3">
 			<label for="tagid">Tagid</label>
@@ -287,7 +129,7 @@ if (isset($links)) {
 	</div>
 	<div class="row">
 		<div class="form-group col-md-12">
-			<textarea class="summernote" id="textpost" name="text"></textarea>
+			<textarea class="summernote" id="textpost" name="text"><?php echo $input['pstext']; ?></textarea>
 		</div>
 	</div>
 </form>
@@ -295,6 +137,7 @@ if (isset($links)) {
 <?php }else if ($page=="Ubah Postingan") {?>
 
 	<h2><?php echo $page; ?></h2>
+	<?php echo $error; ?>
 	<?php echo form_open('post/dbubah','class=form');	?>
 	<label class="fancy-checkbox custom-bgcolor-green">
 		<input type="checkbox" name="pspublic"<?php

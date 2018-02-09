@@ -31,8 +31,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <!-- VENDOR CSS -->
- 
-<?php if(!$this->session->userdata('username') and $this->session->userdata('userpass')){
+<?php
+if($this->session->userdata('username') and $this->session->userdata('userpass')){
 ?>
 <!-- CSS Template NetizenUI -->
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css');?>">
@@ -55,7 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url('assets/js/jquery.isotope.min.js');?>"></script>
 <script src="<?php echo base_url('assets/js/jquery.bxslider.min.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/fliplightbox.min.js');?>"></script>
-<script src="<?php echo base_url('assets/js/functions.js');?>"></script> 
+<script src="<?php echo base_url('assets/js/functions.js');?>"></script>
 <script type="text/javascript">$('.portfolio').flipLightBox()</script>
 <!-- Main JS ? -->
 <?php }else{
@@ -69,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/toastr/toastr.min.css');?>">
 
-<?php 
+<?php
 } ?>
 <?php if($page=="Tulis Postingan"||$page=="Ubah Postingan"){
 ?>
@@ -83,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php } ?>
 
 <?php //jika media
-if($page=="Media"){?>
+if($page=="Media" or isset($search)){?>
   <link rel="stylesheet" href="<?php echo base_url('assets/vendor/dropify/css/dropify.min.css');?>">
 <?php } ?>
 

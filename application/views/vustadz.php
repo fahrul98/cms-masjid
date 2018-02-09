@@ -15,6 +15,7 @@ mediaid
 	<div id="main-content">
 		<!-- <div class="container" style="margin-left: 400px; margin-top: 50px;"> -->
 		<h2><?php echo $page; ?></h2>
+		<?php echo $error; ?>
 <?php
 if ($page=="Ustadz") {
 	if (isset($tanya)) {
@@ -36,38 +37,45 @@ if ($page=="Ustadz") {
 $n = 1;
 		foreach ($cmustadz as $v) {
 			echo "<tr>
-			<td>".$n."</td>
-			<td>".$v->mediaid."</td>
-			<td>".$v->usnama."</td>
+			<td>".$n."</td>";
+			?>
+			<td>
+					<div class="thumbnail">
+						<img src="<?php echo base_url('uploads/ustadz/'.$v->mediadir);?>" width=60 height=80 />
+					</div>
+			</td>
+<?php
+			echo 
+			"<td>".$v->usnama."</td>
 			<td>".$v->usnotelp."</td>
 			<td>".$v->usalamat."</td>
 			<td><a href=".base_url('ustadz/ubahust/'.$v->usid)."> ubah</a></td>
-			<td><a href=".base_url('ustadz/dbhapus/'.$v->usid)."> hapus</a></td>
+			<td><a href=".base_url('ustadz/dbhapus/'.$v->usid)."/".$v->mediadir." onclick=\"return confirm('Apakah anda yakin ingin menghapus Ustadz ".$v->usnama."?')\"> hapus</a></td>
 
 			</tr>";
 			$n++;
 		}
 		 ?>
 			</table>
-			<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('ustadz/tambahust');?>"> Tambah Ustad </a></button>
+			<a class="btn btn-primary" href="<?php echo base_url('ustadz/tambahust');?>"><i class="fa fa-pencil-square-o"> </i> <span>Tambah Ustad</span></a>
 <?php }else if ($page=="Tambah Ustadz") {?>
 			<div class="container">
 				<div class="row">
-					<?php echo form_open('ustadz/dbtambahust','class=form');	?>
+					<?php echo form_open_multipart('ustadz/dbtambahust','class=form');	?>
 					<div class="panel col-md-4">
 						<div class="form-group">
 							<label for="mediaid">Media id</label>
-							<input type="file" class="form-control" name="mediaid" value="">
+							<input type="file" id="dropify-event" name="filename" data-default-file="<?php echo base_url('uploads/default.png');?>">
 						</div>
 					</div>
 					<div class="panel col-md-4">
 						<div class="form-group">
 							<label for="usnama">Nama Ustadz</label>
-							<input type="text" class="form-control" name="usnama" value="">
+							<input type="text" class="form-control" name="usnama" value="<?php echo $input['usnama']; ?>">
 						</div>
 						<div class="form-group">
 							<label for="usnotelp">No. telp</label>
-							<input type="text" class="form-control" name="usnotelp" value="">
+							<input type="text" class="form-control" name="usnotelp" value="<?php echo $input['usnotelp']; ?>">
 						</div>
 						<div class="form-group">
 							<label for="usalamat">Alamat</label>
@@ -75,7 +83,7 @@ $n = 1;
 						</div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary" name="submit" value="tambah">Tambah</button>
-							<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('ustadz');?>">Kembali</a></button>
+							<a class="btn btn-danger" href="<?php echo base_url('ustadz');?>">Kembali</a>
 						</div>
 					</div>
 				</div>
@@ -84,12 +92,13 @@ $n = 1;
 <?php }else if ($page=="Ubah Ustadz") {?>
 	<div class="container">
 		<div class="row">
-				<?php echo form_open('ustadz/dbubah','class=form');	?>
+				<?php echo form_open_multipart('ustadz/dbubah','class=form');	?>
 				<input type="hidden" name="usid" value="<?php echo $ustadz->usid;?>">
 				<div class="panel col-md-4">
 					<div class="form-group">
 						<label for="mediaid">Media id</label>
-						<input type="file" class="form-control" name="mediaid" value="<?php echo $ustadz->mediaid;?>">
+						<input type="file" id="dropify-event" name="filename" data-default-file="<?php echo base_url('uploads/ustadz/'.$ustadz->mediadir);?>">
+							<input type="hidden" name="oldmedia" value="<?php echo $ustadz->mediadir;?>">
 					</div>
 				</div>
 				<div class="panel col-md-4">
@@ -107,8 +116,8 @@ $n = 1;
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary" name="submit" value="update">Update</button>
-					<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('ustadz');?>">Kembali</a></button>
-					<button type="submit" class="btn btn-danger" name="submit" value="hapus"><a style="text-decoration: none" href="<?php echo base_url('ustadz/dbhapus/'.$ustadz->usid);?>">Hapus Ustadz</a></button>
+					<a class="btn btn-danger" href="<?php echo base_url('ustadz');?>">Kembali</a></button>
+					<a class="btn btn-danger" href="<?php echo base_url('ustadz/dbhapus/'.$ustadz->usid);?>">Hapus Ustadz</a></button>
 				</div>
 				</div>
 				</div>

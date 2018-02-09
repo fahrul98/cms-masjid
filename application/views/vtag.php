@@ -14,6 +14,7 @@ mediaid
 ?>
 
 <div id="main-content">
+	<?php echo $error; ?>
 <?php
 if ($page=="Tag") {
 	if (isset($tanya)) {
@@ -39,9 +40,8 @@ $n = 1;
 			$n++;
 		}
 		 ?>
-
 	</table>
-<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('tag/tambahtag');?>"> Tambah tag</a></button>
+<a class="btn btn-primary"href="<?php echo base_url('tag/tambahtag');?>"><i class="fa fa-pencil-square-o"> </i><span> Tambah tag</span></a>
 
 <?php }else if ($page=="Tambah Tag") {?>
 
@@ -50,7 +50,7 @@ $n = 1;
 		<div class="panel col-md-4">
 			<div class="form-group ">
 				<label for="tag">Tag</label>
-				<input type="text" class="form-control" name="tag" value="">
+				<input type="text" class="form-control" name="tag" value="<?php echo $input['tag']; ?>">
 			</div>
 				<div class="form-group ">
 				<input type="submit" class="btn btn-primary" name="submit" value="Tambah">

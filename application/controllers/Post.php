@@ -21,35 +21,35 @@ mediaid
 		parent::__construct();
 		//load model
 		$this->load->model('mpost');
+		$this->load->model('mprofilm');
 		$this->load->model('mprofiladmin');
 	}
 
 	//view all post
 
 	public function index(){
-		//jika admin login
-		if (true) {
-			//$data['mode'] = 'post';
-			$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
-			$data['page'] = "post";
-			$jumlah_data = $this->mpost->jumlah_data();
-			$this->load->library('pagination');
-			$config['base_url'] = base_url().'post/index/';
-			$config['total_rows'] = $jumlah_data;
-			$config['per_page'] = 1;
-			$from = $this->uri->segment(3);
-			$this->pagination->initialize($config);		
-			//$data['user'] = $this->m_data->data($config['per_page'],$from);
-			$data['cmpost'] = $this->mpost->tampilpaging($config['per_page'],$from);
-			$str_links=$this->pagination->create_links();
-			$data["links"] = explode('.',$str_links );			
+		//$data['mode'] = 'post';
+		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
+		$data['page'] = "Post";
+		$jumlah_data = $this->mpost->jumlah_data();
 
-			$this->load->view('core/core',$data);
-			$this->load->view('vpost',$data);
-			$this->load->view('core/footer',$data);
-		}else {
+		$this->load->library('pagination');
+		$config['base_url'] = base_url().'post/index/';
+		$config['total_rows'] = $jumlah_data;
+		$config['per_page'] = 5;
+		$from = $this->uri->segment(3);
+		$this->pagination->initialize($config);
 
-		}
+		//$data['user'] = $this->m_data->data($config['per_page'],$from);
+		$data['cmpost'] = $this->mpost->tampilpaging($config['per_page'],$from);
+		$str_links=$this->pagination->create_links();
+		// $data["links"] = explode('&nbsp;',$str_links);
+		// $data["links"] = $str_links;
+		$data["links"] = explode('.',$str_links );
+
+		$this->load->view('core/core',$data);
+		$this->load->view('vpost',$data);
+		$this->load->view('core/footer',$data);
 	}
 
 	function search(){
@@ -65,13 +65,15 @@ mediaid
 	// view post untuk pratinjau admin!
 
 	public function view($slug=null){
+		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
+		// $data['mode'] = "pengunjung";
 		//jika postid null maka muncul daftar post
+		$data['cmpost'] = $this->mpost->tampilpost()->result();
 		if (!isset($slug)) {
 			// $postid = 1;
 			// $data['mode'] = 'viewall';
 			$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 			$data['page'] = "Semua Post";
-			$data['cmpost'] = $this->mpost->tampilpost()->result();
 		}else {
 			$data['mode'] = 'view';
 			$data['slug'] = $slug;
@@ -115,17 +117,52 @@ method-method untuk operasi admin
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['cmtag'] = $this->mpost->tampiltag()->result();
 		$data['page'] = "Tulis Postingan";
+		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
+		$data['input']=$this->session->userdata('input')?$this->session->userdata('input'):
+			array(
+				'psjudul' => '',
+				'psustadz' => '',
+				'pstext' => '',
+				'pspublic' => '',
+				'tagid' => ''
+			);
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpost',$data);
 		$this->load->view('core/footer',$data);
+
+		//bersih session
+		$this->session->set_userdata('err',null);
+		$this->session->set_userdata('input',null);
 	}
 
 	public function dbtulis(){
+		$this->form_validation->set_rules('judul','Judul','required|min_length[8]|max_length[50]',
+			array(
+				'required' => '%s harus diisi',
+				'min_length' => '%s harus >=8 karakter',
+				'max_length' => '%s harus <=50 karakter'
+			)
+		);
+		$this->form_validation->set_rules('text','Teks','required|min_length[8]|max_length[50000]',
+			array(
+				'required' => '%s harus diisi',
+				'min_length' => '%s harus >=8 karakter',
+				'max_length' => '%s harus <=50000 karakter'
+			)
+		);
+
 		$data['psjudul'] = $this->input->post('judul');
 		$data['psustadz'] = $this->input->post('ustadz');
 		$data['pstext'] = $this->input->post('text');
 		$data['tagid'] = $this->input->post('tagid');
+		$data['pspublic']=$this->input->post('pspublic')?1:0;
+
+		if (!$this->form_validation->run()) {
+			$this->session->set_userdata('err',validation_errors());
+			$this->session->set_userdata('input',$data);
+			redirect('post/tulis');
+		}
 
 		$this->mpost->buatpost($data);
 		redirect(base_url('post'));
@@ -170,10 +207,20 @@ method-method untuk operasi admin
 		$data['slug'] = $slug;
 		$data['cmtag'] = $this->mpost->tampiltag()->result();
 		$data['post'] = $this->mpost->tampilpost($data)->row();
+		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
+		$data['input']=$this->session->userdata('input')?$this->session->userdata('input'):
+			array(
+				'psjudul' => '',
+				'psustadz' => '',
+				'pstext' => '',
+				'tagid' => ''
+			);
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpost',$data);
 		$this->load->view('core/footer',$data);
+		$this->session->set_userdata('err',null);
+		$this->session->set_userdata('input',null);
 	}
 
 	public function hapuspost(){

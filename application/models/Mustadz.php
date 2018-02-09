@@ -37,32 +37,26 @@ unset(variabel) => hapus variabel dari memori
 	}
 
 	public function tambahust($data){
-		if ($data['mediaid']=='') {
-			$data['mediaid']=1;
-		}
-		$q = $this->db->query("insert into cmustadz (usnama,usnotelp,usalamat,mediaid) values (?,?,?,?)",
+		$q = $this->db->query("insert into cmustadz (usnama,usnotelp,usalamat,mediadir) values (?,?,?,?)",
 		// $q = $this->db->query("insert into cmustadz (usnama,usnotelp,usalamat) values (?,?,?,?)",
 		array(
 			// $data['usid'],
 			$data['usnama'],
 			$data['usnotelp'],
 			$data['usalamat'],
-			$data['mediaid']
+			$data['filename']
 		));
 
 		unset($data);
 	}
 
 	public function ubahust($data){
-		if ($data['mediaid']=='') {
-			$data['mediaid']=1;
-		}
-		$q = $this->db->query("update cmustadz set usnama=?,usnotelp=?,usalamat=?,mediaid=? where usid=?",
+		$q = $this->db->query("update cmustadz set usnama=?,usnotelp=?,usalamat=?,mediadir=? where usid=?",
 		array(
 			$data['usnama'],
 			$data['usnotelp'],
 			$data['usalamat'],
-			$data['mediaid'],
+			$data['filename'],
 			$data['usid']
 		));
 

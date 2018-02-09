@@ -37,9 +37,10 @@ if ($page=="Jadwal Kegiatan") {
 		}
 		 ?>
 	</table>
-	<button class="btn"><i class="fa fa-pencil-square-o"> </i><a href="<?php echo base_url('jadwalkegiatan/tambahkegiatan');?>"> Tambah Kegiatan</a></button>
+	<a class="btn btn-default" href="<?php echo base_url('jadwalkegiatan/tambahkegiatan');?>"><i class="fa fa-pencil-square-o"> </i><span>Tambah Kegiatan</span></a>
 	<?php }else if ($page=="Tambah Kegiatan") {?>
 		<h3>Tambah kegiatan</h3>
+		<?php echo $error; ?>
 		<?php echo form_open('jadwalkegiatan/dbtambahjk','class=form');	?>
 		<div class="row">
 			<div class="panel col-md-4">
@@ -75,10 +76,11 @@ if ($page=="Jadwal Kegiatan") {
 		</div>
 
 		<button type="submit" class="btn btn-primary" name="submit" value="Tambah">Tambah</button>
-		<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('jadwalkegiatan');?>">Kembali</a></button>
+		<a class="btn btn-danger" style="text-decoration: none" href="<?php echo base_url('jadwalkegiatan');?>">Kembali</a></button>
 	</div>
 	<?php }else if ($page=="Ubah Kegiatan") {?>
 		<h3>Ubah kegiatan</h3>
+		<?php echo $error; ?>
 		<?php echo form_open('jadwalkegiatan/dbubahjk','class=form');	?>
 		<input type="hidden" name="jkid" value="<?php echo $jadwalk->jkid;?>">
 	<div class="container">
@@ -86,8 +88,8 @@ if ($page=="Jadwal Kegiatan") {
 			<div class="panel panel-content col-md-4">
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary" name="submit" value="Ubah">Ubah</button>
-					<button type="submit" class="btn btn-danger" name="submit" value="hapus"><a style="text-decoration: none" href="<?php echo base_url('jadwalkegiatan/dbhapus/'.$jadwalk->jkid);?>">Hapus</a></button>
-					<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('jadwalkegiatan');?>">Kembali</a></button>
+					<a class="btn btn-danger" href="<?php echo base_url('jadwalkegiatan/dbhapus/'.$jadwalk->jkid);?>">Hapus</a>
+					<a class="btn btn-danger" href="<?php echo base_url('jadwalkegiatan');?>">Kembali</a>
 				</div>
 				<div class="form-group">
 					<label for="jknama">Nama Kegiatan</label>

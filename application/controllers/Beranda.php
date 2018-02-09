@@ -34,7 +34,7 @@ sidebar?
 		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
 		$data['cmpost'] = $this->mpost->tampilpost($data)->result();
 		$data['profil'] = $this->mprofilm->tampilprofilm()->row();
-		
+
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
 		$this->load->view('core/footer',$data);
@@ -73,15 +73,41 @@ method-method halaman pengunjung
 	}
 
 	//view post + counting
+	public function search(){
+		$this->load->model('mpost');
+		$data['cmpost'] = $this->mpost->get_search();
+		$data['page'] = "Semua Post";
+
+		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
+		$data['mode'] = "pengunjung";// biar navbar muncul
+
+		$this->load->view('core/core',$data);
+		$this->load->view('vpengunjung',$data);
+		$this->load->view('core/footer',$data);
+	}
+
 	public function post($slug=null){
 		$this->load->model('mpost');
 		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
+		$data['mode'] = "pengunjung";
 		//jika postid null maka muncul daftar post
-		if (!isset($slug)) {
+		$data['cmpost'] = $this->mpost->tampilpost()->result();
+		if (is_numeric($slug) or !isset($slug)) {
 			// $postid = 1;
 
 			$data['page'] = "Semua Post";
 			$data['cmpost'] = $this->mpost->tampilpost()->result();
+  			$jumlah_data = $this->mpost->jumlah_data();
+  			$this->load->library('pagination');
+  			$config['base_url'] = base_url().'beranda/post/';
+  			$config['total_rows'] = $jumlah_data;
+  			$config['per_page'] = 2;
+  			$from = $this->uri->segment(3);
+  			$this->pagination->initialize($config);
+  			//$data['user'] = $this->m_data->data($config['per_page'],$from);
+  			$data['cmpost'] = $this->mpost->tampilpaging($config['per_page'],$from);
+  			$str_links=$this->pagination->create_links();
+  			$data["links"] = explode('.',$str_links );
 		}else {
 			$data['slug'] = $slug;
 			$data['post'] = $this->mpost->tampilpost($data)->row();
@@ -89,12 +115,13 @@ method-method halaman pengunjung
 			if($data['post']==null){
 				redirect(base_url(''));
 			}
+
 			$data['page'] = "tampilpost";
 			$data['page2'] = $data['post']->psjudul;
 
 			$this->add_count($data['post']->postid);
 		}
-		
+
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
 		$this->load->view('core/footer',$data);

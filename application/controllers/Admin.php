@@ -64,6 +64,6 @@ class Admin extends CI_Controller {
 		$this->session->sess_destroy();
 
 		// kembali lagi ke login
-		redirect(base_url('login'));
+		redirect(base_url(''));
 	}
 }

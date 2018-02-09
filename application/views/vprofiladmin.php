@@ -26,7 +26,7 @@ usertelp
 			<div class="col-md-4">
 				<div class="panel-content form-group">
 					<label for="mediaid">Media :</label>
-					<input class="form-control" type="textarea" name="mediaid" value="<?php echo $padmin->mediaid;?>"><br>
+					<input class="form-control" type="textarea" name="mediaid" value="<?php echo $padmin['mediaid'];?>"><br>
 				</div>
 			</div>
 			<div class="panel-content col-md-4">
@@ -58,13 +58,18 @@ usertelp
 			<div class="panel-content col-md-4">
 			<div class="form-group">
 				<label for="usertgldaftar">Tanggal daftar : </label>
-				<input type="text" class="form-control" name="usertgldaftar" value="<?php echo $padmin->usertgldaftar;?>" disabled="">
+				<input type="text" class="form-control" name="usertgldaftar" value="<?php echo $padmin['usertgldaftar'];?>" disabled="">
 			</div>
 			<div class="form-group">
 				<label for="displayname">Nama layar : </label>
-				<input type="text" class="form-control" name="displayname" value="<?php echo $padmin->displayname;?>">
+				<input type="text" class="form-control" name="displayname" value="<?php echo $padmin['displayname'];?>">
 			</div>
+			<div class="form-group">
 			<button type="submit" name="submit" class="btn btn-lg btn-primary">Terapkan</button>
+			</div>
+			<div class="form-group">
+				<?php echo $error; ?>
+			</div>
 		</form>
 		</div>
 	</div>
