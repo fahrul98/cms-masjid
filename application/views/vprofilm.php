@@ -35,15 +35,15 @@ $adminlogin = $this->session->userdata('username')&&$this->session->userdata('us
 		</div>
 			<div class="form-group">
 				<label for="pdeskripsi">Deskripsi</label>
-				<textarea type="textarea" class="form-control" name="pdeskripsi" value=""><?php echo $profil['pdeskripsi'];?></textarea>
+				<textarea style="resize: none; height: 300px" type="textarea" class="form-control" name="pdeskripsi" value=""><?php echo $profil['pdeskripsi'];?></textarea>
 			</div>
 			<div class="form-group">
 				<label for="psejarah">Sejarah</label>
-				<textarea type="textarea" class="form-control" name="psejarah" value=""><?php echo $profil['psejarah'];?></textarea>
+				<textarea style="resize: none; height: 300px" type="textarea" class="form-control" name="psejarah" value=""><?php echo $profil['psejarah'];?></textarea>
 			</div>
 			<div class="form-group">
 				<label for="pvisimisi">Visi Misi</label>
-				<textarea type="textarea" class="form-control" name="pvisimisi" value=""><?php echo $profil['pvisimisi'];?></textarea>
+				<textarea style="resize: none; height: 300px" type="textarea" class="form-control" name="pvisimisi" value=""><?php echo $profil['pvisimisi'];?></textarea>
 			</div>
 			<button type="submit" name="submit" class="btn btn-lg btn-primary">Terapkan</button>
 			<a class="btn btn-lg btn-primary" href="<?php echo base_url('#');?>">Lihat Profile</a>
