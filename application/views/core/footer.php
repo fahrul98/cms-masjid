@@ -6,18 +6,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   di load terakhir, tampil di client bagian paling bawah.
 
 */
+if ($this->session->userdata('username') and $this->session->userdata('userpass')){
  ?>
   </div>
   <!-- END CONTAINER -->
   </div>
   <!-- END WRAPPER -->
   <!-- CREDIT -->
+  <?php } ?>
+  <footer>
   <?php
   //jika $mode di controller ada dan halaman bukan hal.instalasi , maka muncul navbar utk pengunjung
   if ($page!='Instalasi'&&isset($mode)) {
 ?>
     <!-- FOOTER -->
-    <div id="wrapper">
+
       <!-- <footer> -->
       <div class="inner-footer">
         <div class="container">
@@ -34,6 +37,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <?php
                   $n = 1;
                   // <td><a href=".base_url('beranda/post/'.$v->postid).">".$v->psjudul."</a></td>
+                  if (isset($cmpostfoot)) {
+                    $cmpost=$cmpostfoot;
+                  }
                     foreach ($cmpost as $v) {
                      echo "<li><a href=".base_url('beranda/post/'.urlencode($v->psjudul)).">".$v->psjudul."</a></li>";
                      //tampil 5 post terbaru
@@ -57,18 +63,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
       </div>
 
-
-      <div class="last-div" style="width: 100%; clear: both; margin-left: 0px;">
+      <div class="last-div">
         <div class="container">
           <div class="row">
             <div class="copyright">
-              © 2018 eNno Multi-purpose theme | <a target="_blank" href="http://bootstraptaste.com">Bootstraptaste</a>
+              &copy; eNno Theme. All Rights Reserved
+              <div class="credits">
+                <!--
+                  All the links in the footer should remain intact.
+                  You can delete the links only if you purchased the pro version.
+                  Licensing information: https://bootstrapmade.com/license/
+                  Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=eNno
+                -->
+                <a href="https://bootstrapmade.com/">Bootstrap Themes</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+              </div>
             </div>
-            <!--
-                        All links in the footer should remain intact.
-                        Licenseing information is available at: http://bootstraptaste.com/license/
-                        You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=eNno
-                    -->
           </div>
         </div>
         <div class="container">
@@ -83,44 +92,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
         </div>
 
-        <a href="" class="scrollup" style="display: block;"><i class="fa fa-chevron-up"></i></a>
         <a href="" class="scrollup"><i class="fa fa-chevron-up"></i></a>
+
+
       </div>
     <?php
 
 //jika tidak maka muncul punya si admin
-
-  // }else if (!isset($mode)||$mode=='view'){
-  // if ($this->session->userdata('username') and $this->session->userdata('userpass')){
-  }else if (!isset($mode)&&$this->session->userdata('username') and $this->session->userdata('userpass')){
+  }else if ($this->session->userdata('username') and $this->session->userdata('userpass')){
 
 // tema memakai wrapper sbg container, jadi di wrap. gk usah pake tag penutup untuk div wrapper.
 
 ?>
-
-      <footer>
         <p class="copyright">&copy; 2017 <a href="https://www.themeineed.com" target="_blank">Theme I Need</a>. All Rights Reserved.</p>
-      </footer>
 
       <?php
 }
 ?>
-
-
-
-
+</footer>
       <!-- try footer from template  -->
       <!-- Javascript -->
-
-      <script src="<?php echo base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
-      <script src="<?php echo base_url('assets/vendor/bootstrap/js/bootstrap.min.js'); ?>"></script>
-      <script src="<?php echo base_url('assets/vendor/metisMenu/metisMenu.js'); ?>"></script>
-      <script src="<?php echo base_url('assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js'); ?>"></script>
-      <script src="<?php echo base_url('assets/vendor/jquery-sparkline/js/jquery.sparkline.min.js'); ?>"></script>
-      <script src="<?php echo base_url('assets/vendor/bootstrap-progressbar/js/bootstrap-progressbar.min.js'); ?>"></script>
-      <script src="<?php echo base_url('assets/vendor/toastr/toastr.js'); ?>"></script>
-      <script src="<?php echo base_url('assets/scripts/common.js'); ?>"></script>
-
       <?php
 //jika butuh chart
 if(false){?>
@@ -128,9 +119,36 @@ if(false){?>
         <script src="<?php echo base_url('assets/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets/vendor/chartist-plugin-axistitle/chartist-plugin-axistitle.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets/vendor/chartist-plugin-legend-latest/chartist-plugin-legend.js'); ?>"></script>
-        <?php }?>
+        <?php }
 
+        //jika pengunjung true
+        if (isset($mode)) {
+          ?>
+
+        <!-- JS Netizen -->
+        <script src="<?php echo base_url('assets/js/jquery-2.1.1.min.js');?>"></script>
+        <script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
+        <script src="<?php echo base_url('assets/js/wow.min.js');?>"></script>
+        <script src="<?php echo base_url('assets/js/jquery.easing.1.3.js');?>"></script>
+        <script src="<?php echo base_url('assets/js/jquery.isotope.min.js');?>"></script>
+        <script src="<?php echo base_url('assets/js/jquery.bxslider.min.js');?>"></script>
+        <script type="text/javascript" src="<?php echo base_url('assets/js/fliplightbox.min.js');?>"></script>
+        <script src="<?php echo base_url('assets/js/functions.js');?>"></script>
+        <script type="text/javascript">$('.portfolio').flipLightBox()</script>
         <?php
+        //jika admin
+      }else{
+        ?>
+        <script src="<?php echo base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/vendor/bootstrap/js/bootstrap.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/vendor/metisMenu/metisMenu.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/vendor/jquery-sparkline/js/jquery.sparkline.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/vendor/bootstrap-progressbar/js/bootstrap-progressbar.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/vendor/toastr/toastr.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/scripts/common.js'); ?>"></script>
+        <?php
+      }
 //jika menulis post
 if($page=="Tulis Postingan"||$page=="Ubah Postingan"){
   ?>
@@ -169,7 +187,10 @@ if($page=="Tulis Postingan"||$page=="Ubah Postingan"){
 //jika menulis post
 if($page=="Tambah Kegiatan"||$page=="Ubah Kegiatan"|| $page=="Tambah Entri" || $page=="Ubah Entri"){?>
 
-            <script src="<?php echo base_url('assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js');?>"></script>
+            <script src="<?php echo base_url('assets/vendor/bootstrap-datepicker/js/moment-with-locales.js');?>"></script>
+            <script src="<?php echo base_url('assets/vendor/bootstrap-datepicker/js/bootstrap-datetimepicker.js');?>"></script>
+            <script src="<?php echo base_url('assets/vendor/bootstrap-datepicker/js/mixpanel-2-latest.min.js');?>"></script>
+
             <?php } ?>
 
 <?php //jika media
@@ -183,7 +204,7 @@ if($page=="Media" or isset($search)){?>
                 var drEvent = $('#dropify-event').dropify();
                 drEvent.on('dropify.beforeClear', function(event, element) {
                   return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
-                  
+
                 });
 
                 drEvent.on('dropify.afterClear', function(event, element) {

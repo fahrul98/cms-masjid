@@ -54,9 +54,11 @@ if ($page=="Jadwal Kegiatan") {
 				</div>
 				<div class="form-group">
 				<label for="jkwaktu">Waktu</label>
-					<div class="input-group date" data-date-autoclose="true" >
-						<input type="text" class="form-control" name="jkwaktu" data-date-format="yyyy-mm-dd" data-provide="datepicker">
-						<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+					<div class='input-group date' id='datetimepicker1'>
+						<input type='text' class="form-control" />
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-calendar"></span>
+						</span>
 					</div>
 				</div>
 				<div class="form-group">

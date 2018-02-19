@@ -11,8 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   */
 ?>
-  <!-- WRAPPER -->
-  <div id="wrapper">
+
+
     <?php
   //jika $mode di controller ada dan halaman bukan hal.instalasi , maka muncul navbar utk pengunjung
   if ($page!='Instalasi'&&isset($mode)) {
@@ -87,9 +87,6 @@ switch ($page) {
         </div>
       </nav>
       <!-- END NAVBAR -->
-
-
-
       <?php
 
 //jika tidak maka muncul punya si admin
@@ -100,7 +97,8 @@ switch ($page) {
 // tema memakai wrapper sbg container, jadi di wrap. gk usah pake tag penutup untuk div wrapper.
 
 ?>
-
+<!-- WRAPPER -->
+<div id="wrapper">
         <!-- NAVBAR -->
         <nav class="navbar navbar-default navbar-fixed-top">
           <div class="container-fluid">
@@ -174,7 +172,7 @@ switch ($page) {
   </button>
           <div class="sidebar-scroll">
             <div class="user-account">
-              <img src="<?php echo base_url('assets/img/user.png')?>" class="img-responsive img-circle user-photo" alt="Admin Masjid">
+              <img src="<?php echo base_url('assets/img/user.png');?>" class="img-responsive img-circle user-photo" alt="Admin Masjid">
               <div class="dropdown">
                 <a href="#" class="dropdown-toggle user-name" data-toggle="dropdown">Assalamualaikum, <strong><?php if(isset($padmin->username)){
                   echo $padmin->username;

@@ -15,14 +15,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="auth-box">
 				<div class="content">
 					<div class="header">
-						<div class="logo text-center"><img src="assets/img/logo.png" alt="DiffDash"></div>
+						<div class="logo text-center"><a href="<?php echo base_url('beranda'); ?>"><img src="assets/img/logo.png" alt="DiffDash" ></a></div>
 						<p class="lead">
 						<?php
 							$msg = array('Selamat datang!',
 								'Logged out :(',
 								'Silahkan login'
 							);
-							echo $msg[rand(0,2)];
+							// echo md5('12312312');
+							?>
+							<br>
+							<?php
+							if ($this->session->flashdata('msg')) {
+								echo $this->session->flashdata('msg');
+							}else{
+								echo $msg[rand(0,2)];
+							}
 						?>
 						</p>
 					</div>
@@ -36,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="form-group">
 							<label for="signin-password" class="control-label sr-only">Password</label>
 							<!-- <input type="password" class="form-control" id="signin-password" value="thisisthepassword" placeholder="Password"> -->
-							<input type="password" class="form-control" id="signin-password" name="userpass" value ="pass" placeholder="Password">
+							<input type="password" class="form-control" id="signin-password" name="userpass" value ="12312312" placeholder="Password">
 						</div>
 						<div class="form-group clearfix">
 							<label class="fancy-checkbox element-left">

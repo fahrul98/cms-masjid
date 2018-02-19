@@ -37,13 +37,18 @@ class Login extends CI_Controller {
 		$q = $this->mprofiladmin->adminlogin($data)->row();
 		if (count($q)>0) {
 			$arrsess = array('username' => $q->username,
-				'userpass' => $q->userpass,
+				'userpass' => $data['userpass'],
 				'userfullname' => $q->userfullname
 			);
 
 			$this->session->set_userdata($arrsess);
 			redirect(base_url('admin'));
 		}else{
+			$msg = array('Username / Password salah',
+				'Coba lagi!',
+				'Astaghfirullah..'
+			);
+			$this->session->set_flashdata('msg',$msg[rand(0,2)]);
 			redirect(base_url('login'));
 		}
 	}

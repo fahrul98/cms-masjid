@@ -31,7 +31,7 @@ input->proses->hapus dari memori
 		$username = 0;
 		$q = $this->db->query("select * from cmusers where username=? and userpass=?",array(
 			$data['username'],
-			$data['userpass']
+			md5($data['userpass'])
 		));
 
 		return $q;
@@ -56,7 +56,7 @@ input->proses->hapus dari memori
 		usertelp=? where userid=1",
 		array(
 			$data['username'],
-			$data['userpass'],
+			md5($data['userpass']),
 			$data['userfullname'],
 			$data['useremail'],
 			$data['displayname'],
@@ -65,7 +65,7 @@ input->proses->hapus dari memori
 			$data['usertelp']
 		));
 
-		redirect(base_url('profiladmin'));
+		// redirect(base_url('profiladmin'));
 		unset($data);
 	}
 

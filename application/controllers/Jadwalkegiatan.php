@@ -91,7 +91,7 @@ jkwaktu
 
 		$data['jknama']=$this->input->post('jknama');
 		$data['jkpihak']=$this->input->post('jkpihak');
-		$data['jkwaktu']=$this->input->post('jkwaktu');
+		$data['jkwaktu']=date('Y-m-d',strtotime($this->input->post('jkwaktu')));
 		$data['tagid']=$this->input->post('tagid');
 
 		if (!$this->form_validation->run()) {
