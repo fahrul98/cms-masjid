@@ -37,24 +37,21 @@ if ($page=="Beranda") {
 			<!-- deklarasi carousel -->
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-					<img src="assets/img/01.jpg" alt="www.malasngoding.com">
-					<div class="carousel-caption" style="padding-bottom: 120px">
-						<h3>Galeri</h3>
-						<p>Foto foto kegiatan Masjid</p>
+					<img src="assets/img/01.jpg" alt="Post Title">
+					<div class="carousel-caption" style="text-align: left; margin-left:20px">
+						<h3 style="text-align: left; margin-left:20px">Judul Post Disini</h3>
 					</div>
 				</div>
 				<div class="item">
 					<img src="assets/img/01.jpg" alt="www.malasngoding.com">
-					<div class="carousel-caption" style="padding-bottom: 120px">
-						<h3>Galeri</h3>
-						<p>Foto foto kegiatan Masjid</p>
+					<div class="carousel-caption" style="text-align: left; margin-left:20px">
+						<h3 style="text-align: left; margin-left:20px">Judul Post Disini</h3>
 					</div>
 				</div>
 				<div class="item">
 					<img src="assets/img/01.jpg" alt="www.malasngoding.com">
-					<div class="carousel-caption" style="padding-bottom: 120px">
-						<h3>Galeri</h3>
-						<p>Foto foto kegiatan Masjid</p>
+					<div class="carousel-caption" style="text-align: left; margin-left:20px">
+						<h3 style="text-align: left; margin-left:20px">Judul Post Disini</h3>
 					</div>
 				</div>
 			</div>
@@ -70,14 +67,14 @@ if ($page=="Beranda") {
 			</a>
 		</div>
 	</div>
-   </div>
+ </div>
 <!-- END Show -->
 <div class="container" style="margin-top: 100px;">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
 				<div class="text-center">
 					<h2>Selamat Datang di Masjid Taqwa</h2>
-					<p>Mari kita memuliakan rumah Allah<br>
+					<p  style="color:#000000">Mari kita memuliakan rumah Allah<br>
 					<br>
 					</p>
 				</div>
@@ -137,16 +134,17 @@ if ($page=="Beranda") {
 					<h2>Profil Masjid</h2><br>
 					<h4>Sejarah</h4>
 					<?php
-						echo "<p style='text-align: justify'>".$profil->psejarah."</p><br>";
+						echo "<p style='text-align: justify; color:#000000; font-size:20px; font-family:Calibri'>".$profil->psejarah."</p><br>";
 					?>
 					<h4>Visi Misi</h4>
-					<p style="text-align: justify;"><?php echo $profil->pvisimisi;?></p>
-
+					<?php
+						echo "<p style='text-align: justify; color:#000000; font-size:20px; font-family:Calibri'>".$profil->pvisimisi."</p><br>";
+					?>
 </div>
 
 <div class="text-center">
 					<h2>Galleries</h2>
-					<p>Foto Foto Kegiatan Masjid Taqwa<br>
+					<p style="color: #000000">Foto Foto Kegiatan Masjid Taqwa<br>
 					</p>
 </div>
 
@@ -455,7 +453,7 @@ if (isset($links)) {
 			<div class="col-md-6 col-md-offset-3">
 				<div class="text-center">
 					<h2><?php echo $page;?></h2>
-					<p>Lanjutkan membaca untuk mengenal masjid Taqwa lebih dekat<br>
+					<p style="color: #000000">Lanjutkan membaca untuk mengenal masjid Taqwa lebih dekat<br>
 					</p>
 				</div>
 				<hr>
@@ -584,7 +582,7 @@ $n = 1;
 				<div class="portfolios">
 					<div class="text-center">
 						<h2><?php echo $page;?></h2>
-						<p>Berikut ini adalah kondisi keuangan dari Masjid Taqwa<br>
+						<p style="color: #000000">Berikut ini adalah kondisi keuangan dari Masjid Taqwa<br>
 						Untuk donasi silahkan menuju Tab Donasi<br>
 						</p>
 					</div>
@@ -626,7 +624,7 @@ $n = 1;
 				<div class="portfolios">
 					<div class="text-center">
 						<h2><?php echo $page;?></h2>
-						<p>Berikut ini adalah jadwal kegiatan yang akan berlangsung di Masjid Taqwa<br>
+						<p style="color: #000000">Berikut ini adalah jadwal kegiatan yang akan berlangsung di Masjid Taqwa<br>
 						Catat tanggalnya jangan sampai ketinggalan<br>
 						</p>
 					</div>
@@ -667,7 +665,7 @@ $n = 1;
 				<div class="portfolios">
 					<div class="text-center">
 						<h2><?php echo $page;?></h2>
-						<p>Bantuan<br>
+						<p style="color: #000000">Bantuan<br>
 						</p>
 					</div>
 					<hr>
@@ -683,7 +681,7 @@ $n = 1;
 				<div class="portfolios">
 					<div class="text-center">
 						<h2><?php echo $page;?></h2>
-						<p>Tentang<br>
+						<p style="color: #000000">Tentang<br>
 						</p>
 					</div>
 					<hr>
@@ -694,4 +692,3 @@ $n = 1;
 
 <?php }?>
 </div>
->>>>>>> 2aa778362946321d98b3ce20bc9a9c6827ce24e8

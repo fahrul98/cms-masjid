@@ -33,15 +33,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="navbar-collapse collapse">
             <div class="menu">
               <ul class="nav nav-tabs" role="tablist">
-                <?php if ($this->session->userdata('username')&&$this->session->userdata('userpass')) {
-              ?>
-                <li role="presentation"><a href="<?php echo base_url('admin');?>">Admin</a></li>
-                <?php
-            } else{
-              ?>
-                  <li role="presentation"><a href="<?php echo base_url('login');?>">Login</a></li>
-                  <?php
-            }
+              
+<?php
 //tombol navbar aktif
 $akt=array('','','','','',
 '','','','','',
@@ -57,15 +50,38 @@ switch ($page) {
   case "Beranda":$akt[7]='class="active"';break;
   default:break;
 }?>
-
+                    <li role="presentation"><a href="<?php echo base_url('beranda');?>">Beranda</a></li>
                     <li role="presentation" <?php echo $akt[0]; ?>><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
                     <li role="presentation" <?php echo $akt[1]; ?>><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
                     <li role="presentation" <?php echo $akt[2]; ?>><a href="<?php echo base_url('beranda/jadwalkegiatan');?>">Jadwal</a></li>
-                    <li role="presentation" <?php echo $akt[3]; ?>><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
-                    <li role="presentation" <?php echo $akt[4]; ?>><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>
-                    <li role="presentation" <?php echo $akt[5]; ?>><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>
-                    <li role="presentation" <?php echo $akt[6]; ?>><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
-              </ul>
+
+                    <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Keuangan
+                      <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li role="presentation" <?php echo $akt[3]; ?>><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
+                         <li role="presentation" <?php echo $akt[4]; ?>><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">More
+                      <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                         <li role="presentation" <?php echo $akt[5]; ?>><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>
+                        <li role="presentation" <?php echo $akt[6]; ?>><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
+                      </ul>
+                    </li>
+                    <?php if ($this->session->userdata('username')&&$this->session->userdata('userpass')) {
+                    ?>
+                    <li role="presentation"><a href="<?php echo   base_url('admin');?>">Admin</a></li>
+                    <?php
+                    } else{
+                    ?>
+                    <li role="presentation"><a href="<?php echo base_url('login');?>">Login</a></li>
+                    <?php
+                  }
+                  ?>
+                </ul>
             </div>
           </div>
         </div>
