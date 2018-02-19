@@ -32,23 +32,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <!-- VENDOR CSS -->
 <?php
-if($this->session->userdata('username') and $this->session->userdata('userpass')){
-?>
-<!-- CSS Template NetizenUI -->
-<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css');?>">
-<link rel="stylesheet" href="<?php echo base_url('assets/css/animate.css');?>">
-<link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css');?>">
-<link rel="stylesheet" href="<?php echo base_url('assets/css/normalize.css');?>">
-<link rel="stylesheet" href="<?php echo base_url('assets/css/demo.css');?>">
-<link rel="stylesheet" href="<?php echo base_url('assets/css/set1.css');?>">
-<link rel="stylesheet" href="<?php echo base_url('assets/css/overwrite.css');?>">
-<link rel="stylesheet" href="<?php echo base_url('assets/css/jquery.bxslider.css');?>">
-<!-- <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>"> -->
-<!-- MAIN CSS -->
 
-<!-- Main JS ? -->
-<?php }else{
- ?>
+if(!isset($mode)){
+
+?>
+<!-- MAIN CSS -->
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.min.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/linearicons/style.css'); ?>">
@@ -57,6 +45,20 @@ if($this->session->userdata('username') and $this->session->userdata('userpass')
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/chartist/css/chartist.min.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/toastr/toastr.min.css');?>">
+<link rel="stylesheet" href="<?php echo base_url('assets/css/main.css');?>">
+<!-- Main JS ? -->
+<?php }else{
+ ?>
+ <!-- CSS Template NetizenUI -->
+ <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css');?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/css/animate.css');?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css');?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/css/normalize.css');?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/css/demo.css');?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/css/set1.css');?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/css/overwrite.css');?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/css/jquery.bxslider.css');?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>">
 
 <?php
 } ?>
@@ -77,7 +79,7 @@ if($page=="Media" or isset($search)){?>
   <link rel="stylesheet" href="<?php echo base_url('assets/vendor/dropify/css/dropify.min.css');?>">
 <?php } ?>
 
-<link rel="stylesheet" href="<?php echo base_url('assets/css/main.css');?>">
+
 <!-- GOOGLE FONTS -->
 <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet"> -->
 <!-- ICONS -->

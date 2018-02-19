@@ -11,8 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   */
 ?>
-  <!-- WRAPPER -->
-  <div id="wrapper">
+
+
     <?php
   //jika $mode di controller ada dan halaman bukan hal.instalasi , maka muncul navbar utk pengunjung
   if ($page!='Instalasi'&&isset($mode)) {
@@ -81,7 +81,8 @@ switch ($page) {
 // tema memakai wrapper sbg container, jadi di wrap. gk usah pake tag penutup untuk div wrapper.
 
 ?>
-
+<!-- WRAPPER -->
+<div id="wrapper">
         <!-- NAVBAR -->
         <nav class="navbar navbar-default navbar-fixed-top">
           <div class="container-fluid">
