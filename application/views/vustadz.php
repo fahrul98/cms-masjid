@@ -45,14 +45,13 @@ $n = 1;
 					</div>
 			</td>
 <?php
-			echo 
-			"<td>".$v->usnama."</td>
-			<td>".$v->usnotelp."</td>
-			<td>".$v->usalamat."</td>
-			<td><a href=".base_url('ustadz/ubahust/'.$v->usid)."> ubah</a></td>
-			<td><a href=".base_url('ustadz/dbhapus/'.$v->usid)."/".$v->mediadir." onclick=\"return confirm('Apakah anda yakin ingin menghapus Ustadz ".$v->usnama."?')\"> hapus</a></td>
+			echo '<td>'.$v->usnama.'</td>
+			<td>'.$v->usnotelp.'</td>
+			<td>'.$v->usalamat.'</td>
+			<td><a href='.base_url('ustadz/ubahust/'.$v->usid).'><i class="fa fa-pencil"></i></a></td>
+			<td><a href='.base_url('ustadz/dbhapus/'.$v->usid).'/'.$v->mediadir.' onclick=\return confirm(\'Apakah anda yakin ingin menghapus Ustadz '.$v->usnama.'?)\'><i class="fa fa-trash-o"></a></td>
 
-			</tr>";
+			</tr>';
 			$n++;
 		}
 		 ?>

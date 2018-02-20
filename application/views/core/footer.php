@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="row">
             <div class="col-md-4 f-about">
               <a href="<?php echo base_url('');?>"><h1><span><?php echo $cmprofil->pnama;?></span></h1></a>
-              <p>Sesungguhnya perjalanan terberat bukanlah perjalanan mendaki puncak gunung tertinggi, perjalanan terberat merupakan perjalanan ke masjid
+              <p style="color: #000000">Sesungguhnya perjalanan terberat bukanlah perjalanan mendaki puncak gunung tertinggi, perjalanan terberat merupakan perjalanan ke masjid
               </p>
             </div>
             <div class="col-md-4 l-posts">
@@ -48,10 +48,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col-md-4 f-contact">
               <h3 class="widgetheading">Hubungi Kami</h3>
               <a href="#">
-                <p><i class="fa fa-envelope"></i> masjidtaqwa@gmail.com</p>
+                <p style="color: #000000"><i class="fa fa-envelope"></i> masjidtaqwa@gmail.com</p>
               </a>
-              <p><i class="fa fa-phone"></i> +345 578 59 45 416</p>
-              <p><i class="fa fa-home"></i> Masjid taqwa | PO Box 23456 Tulusrejo Lowokwaru, Malang <br> Kedawung 8011 INDONESIA</p>
+              <p style="color: #000000"><i class="fa fa-phone"></i> +345 578 59 45 416</p>
+              <p style="color: #000000"><i class="fa fa-home"></i> Masjid taqwa | PO Box 23456 Tulusrejo Lowokwaru, Malang <br> Kedawung 8011 INDONESIA</p>
             </div>
           </div>
         </div>

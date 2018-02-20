@@ -42,8 +42,8 @@ $n = 1;
 			<td>".$v->rdjumlah."</td>
 			<td>".$v->rddonatur."</td>
 			<td>".$v->rdtotal."</td>
-			<td><a href=".base_url('rekamdonasi/ubahrdonasi/'.$v->rdid)."> ubah</a></td>
-			<td><a href=".base_url('rekamdonasi/dbhapus/'.$v->rdid)."> hapus</a></td>
+			<td><a href=".base_url('rekamdonasi/ubahrdonasi/'.$v->rdid)."><i class='fa fa-pencil'></i></a></td>
+			<td><a href=".base_url('rekamdonasi/dbhapus/'.$v->rdid)."><i class='fa fa-trash-o'></i></a></td>
 
 			</tr>";
 			$n++;

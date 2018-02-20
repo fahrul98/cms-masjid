@@ -36,7 +36,7 @@ $n = 1;
 			echo "<tr>
 			<td>".$n."</td>
 			<td>".$v->tag."</td>
-			<td><a href='".base_url('tag/dbhapus/'.$v->tagid)."'> hapus</a></td>";
+			<td><a href='".base_url('tag/dbhapus/'.$v->tagid)."'><i class='fa fa-trash-o'></i></a></td>";
 			$n++;
 		}
 		 ?>
