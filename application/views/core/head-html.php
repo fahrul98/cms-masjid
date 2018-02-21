@@ -32,34 +32,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <!-- VENDOR CSS -->
 <?php
-if($this->session->userdata('username') and $this->session->userdata('userpass')){
-?>
-<!-- CSS Template NetizenUI -->
-<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css');?>">
-<link rel="stylesheet" href="<?php echo base_url('assets/css/animate.css');?>">
-<link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css');?>">
-<link rel="stylesheet" href="<?php echo base_url('assets/css/jquery.boxslider.css');?>">
-<link rel="stylesheet" href="<?php echo base_url('assets/css/normalize.css');?>">
-<link rel="stylesheet" href="<?php echo base_url('assets/css/demo.css');?>">
-<link rel="stylesheet" href="<?php echo base_url('assets/css/set1.css');?>">
-<link rel="stylesheet" href="<?php echo base_url('assets/css/overwrite.css');?>">
-<link rel="stylesheet" href="<?php echo base_url('assets/css/jquery.bxslider.css');?>">
-<!-- <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>"> -->
-<!-- MAIN CSS -->
 
-<!-- JS Netizen -->
-<script src="<?php echo base_url('assets/js/jquery-2.1.1.min.js');?>"></script>
-<script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
-<script src="<?php echo base_url('assets/js/wow.min.js');?>"></script>
-<script src="<?php echo base_url('assets/js/jquery.easing.1.3.js');?>"></script>
-<script src="<?php echo base_url('assets/js/jquery.isotope.min.js');?>"></script>
-<script src="<?php echo base_url('assets/js/jquery.bxslider.min.js');?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/js/fliplightbox.min.js');?>"></script>
-<script src="<?php echo base_url('assets/js/functions.js');?>"></script>
-<script type="text/javascript">$('.portfolio').flipLightBox()</script>
-<!-- Main JS ? -->
-<?php }else{
- ?>
+if(!isset($mode)){
+
+?>
+<!-- MAIN CSS -->
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.min.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/linearicons/style.css'); ?>">
@@ -68,6 +45,20 @@ if($this->session->userdata('username') and $this->session->userdata('userpass')
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/chartist/css/chartist.min.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/toastr/toastr.min.css');?>">
+<link rel="stylesheet" href="<?php echo base_url('assets/css/main.css');?>">
+<!-- Main JS ? -->
+<?php }else{
+ ?>
+ <!-- CSS Template NetizenUI -->
+ <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css');?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/css/animate.css');?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css');?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/css/normalize.css');?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/css/demo.css');?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/css/set1.css');?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/css/overwrite.css');?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/css/jquery.bxslider.css');?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>">
 
 <?php
 } ?>
@@ -79,7 +70,8 @@ if($this->session->userdata('username') and $this->session->userdata('userpass')
 <?php } ?>
 
 <?php if($page=="Tambah Kegiatan"||$page=="Ubah Kegiatan"){?>
-  <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css'); ?>">
+  <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap-datepicker/css/prettify-1.0.css'); ?>">
+  <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap-datepicker/css/bootstrap-datetimepicker.css'); ?>">
 <?php } ?>
 
 <?php //jika media
@@ -87,14 +79,25 @@ if($page=="Media" or isset($search)){?>
   <link rel="stylesheet" href="<?php echo base_url('assets/vendor/dropify/css/dropify.min.css');?>">
 <?php } ?>
 
-<link rel="stylesheet" href="<?php echo base_url('assets/css/main.css');?>">
+
 <!-- GOOGLE FONTS -->
 <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet"> -->
 <!-- ICONS -->
 <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url('assets/img/apple-icon.png');?>">
 <link rel="icon" type="image/png" sizes="96x96" href="<?php echo base_url('assets/img/favicon.png');?>">
-
+<style>
+  .phitam {
+    color:#000000;
+    font-size: 17px;
+  }
+  .container .phitam {
+    color:#000000;
+    font-size: 15px;
+  }
+</style>
+<link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>">
   </head>
   <!-- <body style="background-color: #79b79c; padding-top:100px;"> -->
-  <body style="color:#000000;">
+  <!-- <body style="color:#000000;"> -->
+  <body>
   <!-- padding-top: 70px; -->

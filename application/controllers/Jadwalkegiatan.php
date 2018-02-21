@@ -16,6 +16,11 @@ jkwaktu
 
 	public function __construct(){
 		parent::__construct();
+		//cek login
+		if ($this->session->userdata('username') and $this->session->userdata('userpass')){
+		}else{
+			redirect(base_url(''));
+		}
 		//load model
 		$this->load->model('mjkegiatan');
 		$this->load->model('mprofiladmin');//
@@ -91,7 +96,7 @@ jkwaktu
 
 		$data['jknama']=$this->input->post('jknama');
 		$data['jkpihak']=$this->input->post('jkpihak');
-		$data['jkwaktu']=$this->input->post('jkwaktu');
+		$data['jkwaktu']=date('Y-m-d',strtotime($this->input->post('jkwaktu')));
 		$data['tagid']=$this->input->post('tagid');
 
 		if (!$this->form_validation->run()) {

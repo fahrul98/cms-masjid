@@ -45,14 +45,13 @@ $n = 1;
 					</div>
 			</td>
 <?php
-			echo 
-			"<td>".$v->usnama."</td>
-			<td>".$v->usnotelp."</td>
-			<td>".$v->usalamat."</td>
-			<td><a href=".base_url('ustadz/ubahust/'.$v->usid)."> ubah</a></td>
-			<td><a href=".base_url('ustadz/dbhapus/'.$v->usid)."/".$v->mediadir." onclick=\"return confirm('Apakah anda yakin ingin menghapus Ustadz ".$v->usnama."?')\"> hapus</a></td>
+			echo '<td>'.$v->usnama.'</td>
+			<td>'.$v->usnotelp.'</td>
+			<td>'.$v->usalamat.'</td>
+			<td><a href='.base_url('ustadz/ubahust/'.$v->usid).'><i class="fa fa-pencil"></i></a></td>
+			<td><a href='.base_url('ustadz/dbhapus/'.$v->usid).'/'.$v->mediadir.' onclick=\return confirm(\'Apakah anda yakin ingin menghapus Ustadz '.$v->usnama.'?)\'><i class="fa fa-trash-o"></a></td>
 
-			</tr>";
+			</tr>';
 			$n++;
 		}
 		 ?>
@@ -79,7 +78,7 @@ $n = 1;
 						</div>
 						<div class="form-group">
 							<label for="usalamat">Alamat</label>
-							<input type="textarea" class="form-control" name="usalamat" value="<?php echo $input['usalamat']; ?>">
+							<textarea name="usalamat" class="form-control" rows="5" value=""></textarea>
 						</div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary" name="submit" value="tambah">Tambah</button>
@@ -104,15 +103,15 @@ $n = 1;
 				<div class="panel col-md-4">
 					<div class="form-group">
 						<label for="usnama">Nama Ustadz</label>
-						<input type="text" class="form-control" name="usnama" value="<?php echo $ustadz->usnama;?>">
+						<input type="text" required="required" class="form-control" name="usnama" value="<?php echo $ustadz->usnama;?>">
 					</div>
 				<div class="form-group">
 					<label for="usnotelp">No. telp</label>
-					<input type="text" class="form-control" name="usnotelp" value="<?php echo $ustadz->usnotelp;?>">
+					<input type="text" required="required" class="form-control" name="usnotelp" value="<?php echo $ustadz->usnotelp;?>">
 				</div>
 				<div class="form-group">
 					<label for="usalamat">Alamat</label>
-					<input type="textarea" class="form-control" name="usalamat" value="<?php echo $ustadz->usalamat;?>">
+					<textarea name="usalamat" required="required" class="form-control" rows="5" value="<?php echo $ustadz->usalamat;?>"></textarea>
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary" name="submit" value="update">Update</button>

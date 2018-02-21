@@ -51,7 +51,7 @@ if ($page=="Post") {
 			<td>".$n."</td>
 			<td><a href=".base_url('post/ubahpost/'.urlencode($v->psjudul)).">".$v->psjudul."</a></td>
 			<td>".$v->psustadz."</td>
-			<td>".$v->psubah."</td>
+			<td>".$v->psbuat."</td>
 			<td>".$v->tagid."</td>";
 			if ($v->pspublic==0) {
 				echo "<td>Draft<br/>
@@ -59,8 +59,8 @@ if ($page=="Post") {
 			}else{
 				echo "<td>Ya</td>";
 			}
-			echo "<td><a href=".base_url('post/ubahpost/'.urlencode($v->psjudul))."> ubah</a></td>
-			<td><a href=".base_url('post/dbhapus/'.$v->postid)."> hapus</a></td>
+			echo "<td><a href=".base_url('post/ubahpost/'.urlencode($v->psjudul))."><i class='fa fa-pencil'></i></a></td>
+			<td><a href=".base_url('post/dbhapus/'.$v->postid)."><i class='fa fa-trash-o'></i></a></td>
 			<td><a href=".base_url('post/view/'.urlencode($v->psjudul)).">pratinjau</a></td>
 			<td align='center'><i class='fa fa-eye' aria-hidden='true'></i><span> ".$v->vcount."</span></td>
 			</tr>";
@@ -178,8 +178,7 @@ if ($page=="Post") {
 	<div class="row">
 		<div class="form-group col-md-8">
 			<button type="submit" class="btn btn-primary" name="submit" value="ubah">Ubah</button>
-			<button type="submit" class="btn" name="submit" value="kembali">
-				<a href="<?php echo base_url('post/view/'.urlencode($post->psjudul));?>">pratinjau</a></button>
+			<a class="btn btn-primary" href="<?php echo base_url('post/view/'.urlencode($post->psjudul));?>">pratinjau</a>
 			<a class="btn btn-danger" style="text-decoration: none" href="<?php echo base_url('post');?>">Kembali</a>
 			<a class="btn btn-danger" style="text-decoration: none" href="<?php echo base_url('post/dbhapus/'.$post->postid);?>"><i class="fa fa-trash-o"></i> 	Hapus Post</a></button>
 			<!-- <button type="button" class="btn btn-danger"> <span>Danger</span></button> -->
@@ -195,12 +194,16 @@ if ($page=="Post") {
 <?php
 //view berdasarkan idpost
 }else if ($mode=="view") {?>
+	<div class="container">
+		<hr>
+	<div class="row">
 	<h2><?php echo $post->psjudul; ?></h2>
 	<!-- <label for="judul">Judul</label><input type="text" name="judul" value="<?php //echo $post->psjudul;?>"> -->
 
 	<h4><?php echo $post->psustadz; echo " - ".$post->tagid;?></h4>
 	<p>	<?php echo $post->pstext;?>	</p>
-
+</div>
+</div>
 <?php
 
 //view semua post

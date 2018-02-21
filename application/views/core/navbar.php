@@ -11,8 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   */
 ?>
-  <!-- WRAPPER -->
-  <div id="wrapper">
+
+
     <?php
   //jika $mode di controller ada dan halaman bukan hal.instalasi , maka muncul navbar utk pengunjung
   if ($page!='Instalasi'&&isset($mode)) {
@@ -33,15 +33,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="navbar-collapse collapse">
             <div class="menu">
               <ul class="nav nav-tabs" role="tablist">
-                <?php if ($this->session->userdata('username')&&$this->session->userdata('userpass')) {
-              ?>
-                <li role="presentation"><a href="<?php echo base_url('admin');?>">Admin</a></li>
-                <?php
-            } else{
-              ?>
-                  <li role="presentation"><a href="<?php echo base_url('login');?>">Login</a></li>
-                  <?php
-            }
+
+<?php
 //tombol navbar aktif
 $akt=array('','','','','',
 '','','','','',
@@ -57,23 +50,44 @@ switch ($page) {
   case "Beranda":$akt[7]='class="active"';break;
   default:break;
 }?>
-
+                    <li role="presentation"><a href="<?php echo base_url('beranda');?>">Beranda</a></li>
                     <li role="presentation" <?php echo $akt[0]; ?>><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
                     <li role="presentation" <?php echo $akt[1]; ?>><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
                     <li role="presentation" <?php echo $akt[2]; ?>><a href="<?php echo base_url('beranda/jadwalkegiatan');?>">Jadwal</a></li>
+
                     <li role="presentation" <?php echo $akt[3]; ?>><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
-                    <li role="presentation" <?php echo $akt[4]; ?>><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>
-                    <li role="presentation" <?php echo $akt[5]; ?>><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>
-                    <li role="presentation" <?php echo $akt[6]; ?>><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
-              </ul>
+                    <!-- <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Keuangan
+                      <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+<!--                         <li role="presentation" <?php echo $akt[3]; ?>><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a ></li> -->
+                         <li role="presentation" <?php echo $akt[4]; ?>><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>
+                      </ul>
+                    </li> -->
+                    <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">More
+                      <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                         <li role="presentation" <?php echo $akt[5]; ?>><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>
+                        <li role="presentation" <?php echo $akt[6]; ?>><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
+                      </ul>
+                    </li>
+                    <?php if ($this->session->userdata('username')&&$this->session->userdata('userpass')) {
+                    ?>
+                    <li role="presentation"><a href="<?php echo   base_url('admin');?>">Admin</a></li>
+                    <?php
+                    } else{
+                    ?>
+                    <li role="presentation"><a href="<?php echo base_url('login');?>">Login</a></li>
+                    <?php
+                  }
+                  ?>
+                </ul>
             </div>
           </div>
         </div>
       </nav>
       <!-- END NAVBAR -->
-
-
-
       <?php
 
 //jika tidak maka muncul punya si admin
@@ -81,10 +95,11 @@ switch ($page) {
   // if ($this->session->userdata('username') and $this->session->userdata('userpass')){
   }else if (!isset($mode)&&$this->session->userdata('username') and $this->session->userdata('userpass')){
 
-// tema memakai wrapper sbg container, jadi di wrap. gk usah pake tag penutup untuk div wrapper.
+// tema admin memakai wrapper sbg container, jadi di wrap. gk usah pake tag penutup untuk div wrapper.
 
 ?>
-
+<!-- WRAPPER -->
+<div id="wrapper">
         <!-- NAVBAR -->
         <nav class="navbar navbar-default navbar-fixed-top">
           <div class="container-fluid">
@@ -104,11 +119,12 @@ switch ($page) {
             <!-- end logo -->
             <div class="navbar-right">
               <!-- search form -->
-              <?php echo form_open('post/search','class=form');  ?>
-              <div id="navbar-search" class="navbar-form search-form">
+              <!-- <div id="navbar-search" class="navbar-form search-form"> -->
+              <?php echo form_open('post/search','id="navbar-search" class="navbar-form search-form"');?>
                 <input name="search" value="" class="form-control" placeholder="Cari admin..." type="text">
                 <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-              </div>
+              <!-- </div> -->
+              </form>
               <!-- end search form -->
               <!-- navbar menu -->
               <div id="navbar-menu">
@@ -158,7 +174,7 @@ switch ($page) {
   </button>
           <div class="sidebar-scroll">
             <div class="user-account">
-              <img src="<?php echo base_url('assets/img/user.png')?>" class="img-responsive img-circle user-photo" alt="Admin Masjid">
+              <img src="<?php echo base_url('assets/img/user.png');?>" class="img-responsive img-circle user-photo" alt="Admin Masjid">
               <div class="dropdown">
                 <a href="#" class="dropdown-toggle user-name" data-toggle="dropdown">Assalamualaikum, <strong><?php if(isset($padmin->username)){
                   echo $padmin->username;

@@ -48,35 +48,12 @@ method-method halaman pengunjung
 
 //postid diganti slug
 
-	public function post2($postid = null){
-		$this->load->model('mpost');
-		$data['mode'] = "pengunjung";
-		if (!isset($postid)) {
-			// $postid = 1;
-			// $data['mode'] = 'viewall';
-			$data['page'] = "Semua Post";
-			$data['cmpost'] = $this->mpost->tampilpost()->result();
-		}else {
-			$data['postid'] = $postid;
-			$data['post'] = $this->mpost->tampilpost($data)->row();
-			//jika post tidak ada redirect ke 404
-			if($data['post']==null){
-				redirect(base_url(''));
-			}
-			$data['page'] = "tampilpost";
-			$data['page2'] = $data['post']->psjudul;
-		}
-
-		$this->load->view('core/core',$data);
-		$this->load->view('vpengunjung',$data);
-		$this->load->view('core/footer',$data);
-	}
-
 	//view post + counting
 	public function search(){
 		$this->load->model('mpost');
 		$data['cmpost'] = $this->mpost->get_search();
 		$data['page'] = "Semua Post";
+		$data['page2'] = "balik";// untuk tombol kembali
 
 		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
 		$data['mode'] = "pengunjung";// biar navbar muncul
@@ -91,23 +68,22 @@ method-method halaman pengunjung
 		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
 		$data['mode'] = "pengunjung";
 		//jika postid null maka muncul daftar post
-		$data['cmpost'] = $this->mpost->tampilpost()->result();
+
 		if (is_numeric($slug) or !isset($slug)) {
+			$jumlah_data = $this->mpost->jumlah_data();
+			$this->load->library('pagination');
+			$config['base_url'] = base_url().'beranda/post/';
+			$config['total_rows'] = $jumlah_data;
+			$config['per_page'] = 5;
+			$this->pagination->initialize($config);
+			$from = $this->uri->segment(3);
+			//$data['user'] = $this->m_data->data($config['per_page'],$from);
+			$data['cmpost'] = $this->mpost->tampilpaging($config['per_page'],$from,"publik on")->result();
+			$str_links=$this->pagination->create_links();
+			$data["links"] = explode('.',$str_links );
 			// $postid = 1;
 
 			$data['page'] = "Semua Post";
-			$data['cmpost'] = $this->mpost->tampilpost()->result();
-  			$jumlah_data = $this->mpost->jumlah_data();
-  			$this->load->library('pagination');
-  			$config['base_url'] = base_url().'beranda/post/';
-  			$config['total_rows'] = $jumlah_data;
-  			$config['per_page'] = 2;
-  			$from = $this->uri->segment(3);
-  			$this->pagination->initialize($config);
-  			//$data['user'] = $this->m_data->data($config['per_page'],$from);
-  			$data['cmpost'] = $this->mpost->tampilpaging($config['per_page'],$from);
-  			$str_links=$this->pagination->create_links();
-  			$data["links"] = explode('.',$str_links );
 		}else {
 			$data['slug'] = $slug;
 			$data['post'] = $this->mpost->tampilpost($data)->row();
@@ -122,6 +98,8 @@ method-method halaman pengunjung
 			$this->add_count($data['post']->postid);
 		}
 
+		$data['cmpostfoot'] = $this->mpost->tampilpost()->result();
+
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
 		$this->load->view('core/footer',$data);
@@ -133,7 +111,10 @@ method-method halaman pengunjung
 		$this->load->helper('cookie');
 		$data['visitor']=$this->input->cookie($postid, FALSE);
 		$data['ip'] = $this->input->ip_address();
-		$data['expire']=60*60*24;
+
+		// $data['expire']=60*60*24;
+		//eksperimen view time=1s biar lebih cepat
+		$data['expire']=1;
 		if ($data['visitor'] == false) {
       $cookie = array(
         "name"   => $postid,
@@ -188,9 +169,11 @@ method-method halaman pengunjung
 
 	public function keuanganmasjid(){
 		$this->load->model('mkmasjid');
+		$this->load->model('mrdonasi');
 		$data['mode'] = "pengunjung";
 		$data['page'] = "Keuangan Masjid";
 		$data['kmasjid'] = $this->mkmasjid->tampilkmasjid()->result();
+		$data['cmrdonasi'] = $this->mrdonasi->tampilrdonasi()->result();
 		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
 		$data['cmpost'] = $this->mpost->tampilpost()->result();
 

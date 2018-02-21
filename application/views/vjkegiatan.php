@@ -29,8 +29,8 @@ if ($page=="Jadwal Kegiatan") {
 			<td>".$v->jkpihak."</td>
 			<td>".$v->jkwaktu."</td>
 			<td>".$v->tagid."</td>
-			<td><a href=".base_url('jadwalkegiatan/ubahjkegiatan/'.$v->jkid)."> ubah</a></td>
-			<td><a href=".base_url('jadwalkegiatan/dbhapus/'.$v->jkid)."> hapus</a></td>
+			<td><a href=".base_url('jadwalkegiatan/ubahjkegiatan/'.$v->jkid)."><i class='fa fa-pencil'></i></a></td>
+			<td><a href=".base_url('jadwalkegiatan/dbhapus/'.$v->jkid)."><i class='fa fa-trash-o'></i></a></td>
 
 			</tr>";
 			$n++;
@@ -46,7 +46,7 @@ if ($page=="Jadwal Kegiatan") {
 			<div class="panel col-md-4">
 				<div class="form-group ">
 					<label for="jknama">Nama Kegiatan</label>
-					<input type="text" class="form-control" name="jknama" value="<?php echo $input['jknama']; ?>">
+					<input type="text" required="required" class="form-control" name="jknama" value="">
 				</div>
 				<div class="form-group">
 					<label for="jkpihak">Pihak bersangkutan</label>
@@ -54,9 +54,11 @@ if ($page=="Jadwal Kegiatan") {
 				</div>
 				<div class="form-group">
 				<label for="jkwaktu">Waktu</label>
-					<div class="input-group date" data-date-autoclose="true" >
-						<input type="text" class="form-control" name="jkwaktu" data-date-format="yyyy-mm-dd" data-provide="datepicker">
-						<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+					<div class='input-group date' id='datetimepicker1'>
+						<input type='text' class="form-control" />
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-calendar"></span>
+						</span>
 					</div>
 				</div>
 				<div class="form-group">
@@ -93,7 +95,7 @@ if ($page=="Jadwal Kegiatan") {
 				</div>
 				<div class="form-group">
 					<label for="jknama">Nama Kegiatan</label>
-					<input type="text" class="form-control" name="jknama" value="<?php echo $jadwalk->jknama;?>">
+					<input type="text" required="required" class="form-control" name="jknama" value="<?php echo $jadwalk->jknama;?>">
 				</div>
 				<div class="form-group">
 					<label for="jkpihak">Pihak bersangkutan</label>

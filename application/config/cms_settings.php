@@ -1,8 +1,8 @@
 
-		    <?php
-		    $host='localhost';
-		    $username='root';
-		    $password='';
-		    $dbname='dump';
-		    ?>
-		
+<?php
+	$host='localhost';
+	$username='root';
+	$password='';
+	// $dbname='dump';
+	$dbname='cmsmasjid';
+?>

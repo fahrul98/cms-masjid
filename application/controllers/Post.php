@@ -19,6 +19,10 @@ mediaid
 
 	public function __construct($postid = null){
 		parent::__construct();
+		if ($this->session->userdata('username') and $this->session->userdata('userpass')){
+		}else{
+			redirect(base_url(''));
+		}
 		//load model
 		$this->load->model('mpost');
 		$this->load->model('mprofilm');
@@ -41,10 +45,8 @@ mediaid
 		$this->pagination->initialize($config);
 
 		//$data['user'] = $this->m_data->data($config['per_page'],$from);
-		$data['cmpost'] = $this->mpost->tampilpaging($config['per_page'],$from);
+		$data['cmpost'] = $this->mpost->tampilpaging($config['per_page'],$from)->result();
 		$str_links=$this->pagination->create_links();
-		// $data["links"] = explode('&nbsp;',$str_links);
-		// $data["links"] = $str_links;
 		$data["links"] = explode('.',$str_links );
 
 		$this->load->view('core/core',$data);
@@ -52,10 +54,13 @@ mediaid
 		$this->load->view('core/footer',$data);
 	}
 
+	//search
 	function search(){
 		$data['cmpost'] = $this->mpost->get_search();
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "post";
+		$data['mode'] = 'viewall';
+		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
 		$this->load->view('core/core',$data);
 		$this->load->view('vpost',$data);
 		$this->load->view('core/footer',$data);

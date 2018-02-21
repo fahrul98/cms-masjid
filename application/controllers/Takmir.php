@@ -18,6 +18,10 @@ mediaid
 
 	public function __construct(){
 		parent::__construct();
+		if ($this->session->userdata('username') and $this->session->userdata('userpass')){
+		}else{
+			redirect(base_url(''));
+		}
 		//load model
 		$this->load->model('mtakmir');
 		$this->load->model('mprofiladmin');
@@ -29,12 +33,15 @@ mediaid
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Takmir";
 		$data['cmtakmir'] = $this->mtakmir->tampiltakmir()->result();
-		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
-
+		$data['error'] = $this->session->userdata('err')?$this->session->userdata('err'):'';
+		$data['input'] = $this->session->userdata('input')?$this->session->userdata('input'):'';
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vtakmir',$data);
 		$this->load->view('core/footer',$data);
+		//bersih session
+		$this->session->set_userdata('err',null);
+		$this->session->set_userdata('input',null);
 	}
 
 /*
@@ -42,7 +49,7 @@ method untuk ke hal tulis post
 insert + delete
 
 */
-	
+
 	//upload gambar
 	public function do_upload($data){
 	    $config['upload_path']= './uploads/takmir';
@@ -55,7 +62,8 @@ insert + delete
 
 	    if (!$this->upload->do_upload('filename')){
 	      $data = array('konfirmasi' => $this->upload->display_errors());
-	      //print($data['filename']);
+	      // print($data['filename']);
+				// redirect(base_url('media'));
 	    }else{
 	      $data['filename'] = $this->upload->data('file_name');
 	      $data['upload_data']= $this->upload->data();

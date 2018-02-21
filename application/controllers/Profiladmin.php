@@ -23,6 +23,10 @@ usertelp
 
 	public function __construct(){
 		parent::__construct();
+		if ($this->session->userdata('username') and $this->session->userdata('userpass')){
+		}else{
+			redirect(base_url(''));
+		}
 		//load model
 		$this->load->model('mprofiladmin');
 	}
@@ -35,7 +39,7 @@ usertelp
 			$data['padmin']=$this->session->userdata('input')?$this->session->userdata('input'):
 				array(
 					'username' => $data['padmin']->username,
-					'userpass' => $data['padmin']->userpass,
+					'userpass' => $this->session->userdata('userpass'),
 					'userfullname' => $data['padmin']->userfullname,
 					'useremail' => $data['padmin']->useremail,
 					'usertgldaftar' => $data['padmin']->usertgldaftar,
@@ -113,7 +117,20 @@ usertelp
 			$this->session->set_userdata('input',$data);
 			redirect('profiladmin');
 		}else{
+			$arrsess = array('username' => $q->username,
+				'userpass' => $data['userpass'],
+				'userfullname' => $q->userfullname
+			);
 			$this->session->set_userdata('err','Berhasil diubah');
+
+			//re login pas ganti password
+			$q = $this->mprofiladmin->adminlogin($data)->row();
+			$arrsess = array('username' => $q->username,
+				'userpass' => $data['userpass'],
+				'userfullname' => $q->userfullname
+			);
+
+			$this->session->set_userdata($arrsess);
 		}
 
 		$this->mprofiladmin->ubahpadmin($data);
