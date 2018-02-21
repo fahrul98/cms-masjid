@@ -60,6 +60,7 @@ switch ($page) {
                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">Keuangan
                       <span class="caret"></span></a>
                       <ul class="dropdown-menu">
+<!--                         <li role="presentation" <?php echo $akt[3]; ?>><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a ></li> -->
                          <li role="presentation" <?php echo $akt[4]; ?>><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>
                       </ul>
                     </li> -->
