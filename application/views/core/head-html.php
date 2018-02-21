@@ -85,8 +85,19 @@ if($page=="Media" or isset($search)){?>
 <!-- ICONS -->
 <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url('assets/img/apple-icon.png');?>">
 <link rel="icon" type="image/png" sizes="96x96" href="<?php echo base_url('assets/img/favicon.png');?>">
-
+<style>
+  .phitam {
+    color:#000000;
+    font-size: 17px;
+  }
+  .container .phitam {
+    color:#000000;
+    font-size: 15px;
+  }
+</style>
+<link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>">
   </head>
   <!-- <body style="background-color: #79b79c; padding-top:100px;"> -->
-  <body style="color:#000000;">
+  <!-- <body style="color:#000000;"> -->
+  <body>
   <!-- padding-top: 70px; -->

@@ -27,7 +27,10 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
           <div class="row">
             <div class="col-md-4 f-about">
               <a href="<?php echo base_url('');?>"><h1><span><?php echo $cmprofil->pnama;?></span></h1></a>
+
+<!--               <p class="phitam">Sesungguhnya perjalanan terberat bukanlah perjalanan mendaki puncak gunung tertinggi, perjalanan terberat merupakan perjalanan ke masjid -->
               <p style="color: #000000">Sesungguhnya perjalanan terberat bukanlah perjalanan mendaki puncak gunung tertinggi, perjalanan terberat merupakan perjalanan ke masjid
+
               </p>
             </div>
             <div class="col-md-4 l-posts">
@@ -41,7 +44,7 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
                     $cmpost=$cmpostfoot;
                   }
                     foreach ($cmpost as $v) {
-                     echo "<li><a href=".base_url('beranda/post/'.urlencode($v->psjudul)).">".$v->psjudul."</a></li>";
+                     echo "<li><a class='phitam' href=".base_url('beranda/post/'.urlencode($v->psjudul)).">".$v->psjudul."</a></li>";
                      //tampil 5 post terbaru
                      if ($n==5) {
                        break;

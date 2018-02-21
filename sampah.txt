@@ -1,0 +1,73 @@
+///post2
+public function post2($postid = null){
+  $this->load->model('mpost');
+  $data['mode'] = "pengunjung";
+  if (!isset($postid)) {
+    // $postid = 1;
+    // $data['mode'] = 'viewall';
+    $data['page'] = "Semua Post";
+    $data['cmpost'] = $this->mpost->tampilpost()->result();
+  }else {
+    $data['postid'] = $postid;
+    $data['post'] = $this->mpost->tampilpost($data)->row();
+    //jika post tidak ada redirect ke 404
+    if($data['post']==null){
+      redirect(base_url(''));
+    }
+    $data['page'] = "tampilpost";
+    $data['page2'] = $data['post']->psjudul;
+  }
+
+  $this->load->view('core/core',$data);
+  $this->load->view('vpengunjung',$data);
+  $this->load->view('core/footer',$data);
+}
+
+////sidebar
+
+<div class="col-md-4 page-header">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <strong>Post populer</strong>
+    </div>
+    <div class="panel-body">
+      <div class="search-form media">
+        <?php echo form_open('beranda/search','class="form" ');  ?>
+        <input name="search" value="" class="form-control" placeholder="Cari..." type="text">
+        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </div>
+    <?php
+          foreach ($cmpost as $v) {
+          ?>
+      <div class="panel-body">
+        <div class="media">
+          <div class="media-body">
+            <!-- <div class="plan"> -->
+            <a class="thumbnail col-xs-3" class="media-left" href="#">
+                  <img  src="http://localhost/cms_masjid/uploads/default.png" alt="">
+                </a>
+            <div class="col-xs-9">
+              <h3 class=""><?php echo $v->psjudul; ?></h3	>
+                  <p class="text-muted row">
+                    <?php echo $v->psbuat."	".$v->psustadz." | ".$v->tag;?>
+                  </p>
+                  <p class="row">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+                  </p>
+                  <div class="ficon">
+                    <a href="<?php echo base_url('beranda/post/'.urlencode($v->psjudul));?>">Lebih banyak</a>
+                  </div>
+                </div>
+                <!-- </div> -->
+              </div>
+            </div>
+          </div>
+          <?php
+          }
+           ?>
+
+      </div>
+    </div>
+  </div>
+</div>

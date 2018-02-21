@@ -19,6 +19,10 @@ mediaid
 
 	public function __construct($postid = null){
 		parent::__construct();
+		if ($this->session->userdata('username') and $this->session->userdata('userpass')){
+		}else{
+			redirect(base_url(''));
+		}
 		//load model
 		$this->load->model('mpost');
 		$this->load->model('mprofilm');
@@ -50,6 +54,7 @@ mediaid
 		$this->load->view('core/footer',$data);
 	}
 
+	//search
 	function search(){
 		$data['cmpost'] = $this->mpost->get_search();
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();

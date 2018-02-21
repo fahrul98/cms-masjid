@@ -39,8 +39,8 @@ unset(variabel) => hapus variabel dari memori
 		}else{
 			// echo "<script>alert(1);</script>";
 			// $q = $this->db->query("SELECT * FROM cmpost cmp left join cmtag ct on cmp.tagid=ct.tagid order by postid desc");
-			// $q = $this->db->query("SELECT * FROM cmpost order by psbuat desc");
-			$q = $this->db->query("SELECT * FROM cmpost");
+			$q = $this->db->query("SELECT * FROM cmpost order by psbuat desc");
+			// $q = $this->db->query("SELECT * FROM cmpost where pspublic=1");
 		}
 		return $q;
 		$q=null;
@@ -67,7 +67,7 @@ unset(variabel) => hapus variabel dari memori
 	  return $query->result();
 	}
 
-	public function tampilpaging($jumlah, $batas){
+	public function tampilpaging($jumlah, $batas,$st=null){
 		$q = $this->db->get('cmpost',$jumlah,$batas)->result();
 		if (!isset($batas)) {
 			$batas=0;
@@ -77,7 +77,11 @@ unset(variabel) => hapus variabel dari memori
 		// $this->db->join('cmtag ct', 'cmp.tagid=ct.tagid','left');
 		// $this->db->limit($jumlah,$batas);
 		// $q = $this->db->get();
-		$q = $this->db->query("SELECT * FROM cmpost cmp left join cmtag ct on cmp.tagid=ct.tagid order by psbuat desc limit $batas,$jumlah");
+
+		//jika st di set maka hanya menampilkan post public saja
+		$qa = $st!=null?" where cmp.pspublic=1 ":"";
+		$qr = "SELECT * FROM cmpost cmp left join cmtag ct on cmp.tagid=ct.tagid ".$qa." order by psbuat desc limit $batas,$jumlah";
+		$q = $this->db->query($qr);
 		return $q;
 	}
 
