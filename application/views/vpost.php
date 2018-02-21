@@ -59,8 +59,8 @@ if ($page=="Post") {
 			}else{
 				echo "<td>Ya</td>";
 			}
-			echo "<td><a href=".base_url('post/ubahpost/'.urlencode($v->psjudul))."> ubah</a></td>
-			<td><a href=".base_url('post/dbhapus/'.$v->postid)."> hapus</a></td>
+			echo "<td><a href=".base_url('post/ubahpost/'.urlencode($v->psjudul))."><i class='fa fa-pencil'></i></a></td>
+			<td><a href=".base_url('post/dbhapus/'.$v->postid)."><i class='fa fa-trash-o'></i></a></td>
 			<td><a href=".base_url('post/view/'.urlencode($v->psjudul)).">pratinjau</a></td>
 			<td align='center'><i class='fa fa-eye' aria-hidden='true'></i><span> ".$v->vcount."</span></td>
 			</tr>";
