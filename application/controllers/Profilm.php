@@ -14,6 +14,10 @@ pvisimisi
 */
 	public function __construct(){
 		parent::__construct();
+		if ($this->session->userdata('username') and $this->session->userdata('userpass')){
+		}else{
+			redirect(base_url(''));
+		}
 		//load model
 		$this->load->model('mprofilm');
 		$this->load->model('mprofiladmin');

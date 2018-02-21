@@ -90,6 +90,10 @@ if($page=="Media" or isset($search)){?>
     color:#000000;
     font-size: 17px;
   }
+  .container .phitam {
+    color:#000000;
+    font-size: 15px;
+  }
 </style>
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>">
   </head>

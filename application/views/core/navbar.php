@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="navbar-collapse collapse">
             <div class="menu">
               <ul class="nav nav-tabs" role="tablist">
-              
+
 <?php
 //tombol navbar aktif
 $akt=array('','','','','',
@@ -55,14 +55,14 @@ switch ($page) {
                     <li role="presentation" <?php echo $akt[1]; ?>><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
                     <li role="presentation" <?php echo $akt[2]; ?>><a href="<?php echo base_url('beranda/jadwalkegiatan');?>">Jadwal</a></li>
 
-                    <li class="dropdown">
+                    <li role="presentation" <?php echo $akt[3]; ?>><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
+                    <!-- <li class="dropdown">
                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">Keuangan
                       <span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                        <li role="presentation" <?php echo $akt[3]; ?>><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
                          <li role="presentation" <?php echo $akt[4]; ?>><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>
                       </ul>
-                    </li>
+                    </li> -->
                     <li class="dropdown">
                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">More
                       <span class="caret"></span></a>
@@ -94,7 +94,7 @@ switch ($page) {
   // if ($this->session->userdata('username') and $this->session->userdata('userpass')){
   }else if (!isset($mode)&&$this->session->userdata('username') and $this->session->userdata('userpass')){
 
-// tema memakai wrapper sbg container, jadi di wrap. gk usah pake tag penutup untuk div wrapper.
+// tema admin memakai wrapper sbg container, jadi di wrap. gk usah pake tag penutup untuk div wrapper.
 
 ?>
 <!-- WRAPPER -->
@@ -118,11 +118,12 @@ switch ($page) {
             <!-- end logo -->
             <div class="navbar-right">
               <!-- search form -->
-              <?php echo form_open('post/search','class=form');  ?>
-              <div id="navbar-search" class="navbar-form search-form">
+              <!-- <div id="navbar-search" class="navbar-form search-form"> -->
+              <?php echo form_open('post/search','id="navbar-search" class="navbar-form search-form"');?>
                 <input name="search" value="" class="form-control" placeholder="Cari admin..." type="text">
                 <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-              </div>
+              <!-- </div> -->
+              </form>
               <!-- end search form -->
               <!-- navbar menu -->
               <div id="navbar-menu">

@@ -1,3 +1,30 @@
+///post2
+public function post2($postid = null){
+  $this->load->model('mpost');
+  $data['mode'] = "pengunjung";
+  if (!isset($postid)) {
+    // $postid = 1;
+    // $data['mode'] = 'viewall';
+    $data['page'] = "Semua Post";
+    $data['cmpost'] = $this->mpost->tampilpost()->result();
+  }else {
+    $data['postid'] = $postid;
+    $data['post'] = $this->mpost->tampilpost($data)->row();
+    //jika post tidak ada redirect ke 404
+    if($data['post']==null){
+      redirect(base_url(''));
+    }
+    $data['page'] = "tampilpost";
+    $data['page2'] = $data['post']->psjudul;
+  }
+
+  $this->load->view('core/core',$data);
+  $this->load->view('vpengunjung',$data);
+  $this->load->view('core/footer',$data);
+}
+
+////sidebar
+
 <div class="col-md-4 page-header">
   <div class="panel panel-default">
     <div class="panel-heading">

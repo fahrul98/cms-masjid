@@ -3,6 +3,10 @@
 class Media extends CI_Controller{
   public function __construct(){
     parent::__construct();
+    if ($this->session->userdata('username') and $this->session->userdata('userpass')){
+		}else{
+			redirect(base_url(''));
+		}
     // if (!defined('UPLD')){
     //   define('UPLD', '/uploads');
     // }
