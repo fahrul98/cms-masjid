@@ -46,7 +46,8 @@ usertelp
 					'displayname' =>$data['padmin']->displayname,
 					'mediaid' => $data['padmin']->mediaid,
 					'useralamat' => $data['padmin']->useralamat,
-					'usertelp' => $data['padmin']->usertelp
+					'usertelp' => $data['padmin']->usertelp,
+					'mediadir' => $data['padmin']->mediadir==""||$data['padmin']->mediadir=="default.png"?"default.png":$data['padmin']->mediadir
 				);
 
 			$this->load->view('core/core',$data);
@@ -111,16 +112,25 @@ usertelp
 		$data['mediaid'] = $this->input->post('mediaid');
 		$data['useralamat'] = $this->input->post('useralamat');
 		$data['usertelp'] = $this->input->post('usertelp');
+		$data['oldmedia']= $this->input->post('oldmedia');
+		$data['newmedia']=$this->input->post('filename');
 
 		if (!$this->form_validation->run()) {
 			$this->session->set_userdata('err',validation_errors());
 			$this->session->set_userdata('input',$data);
 			redirect('profiladmin');
 		}else{
-			$arrsess = array('username' => $q->username,
-				'userpass' => $data['userpass'],
-				'userfullname' => $q->userfullname
-			);
+			// $arrsess = array('username' => $q->username,
+			// 	'userpass' => $data['userpass'],
+			// 	'userfullname' => $q->userfullname
+			// );
+			if($_FILES['filename']['name']!="") {
+				$data['filename']= $this->do_upload($data['newmedia']);
+				$this->hapusmedia($data['oldmedia']);
+			}else{
+				$data['filename']=$data['oldmedia'];
+			}
+
 			$this->session->set_userdata('err','Berhasil diubah');
 
 			//re login pas ganti password
@@ -136,5 +146,43 @@ usertelp
 		$this->mprofiladmin->ubahpadmin($data);
 		redirect(base_url('profiladmin'));
 		unset($data);
+	}
+
+	//upload gambar
+	public function do_upload($data){
+	    $config['upload_path']= './uploads/takmir';
+	    $config['allowed_types']= 'gif|jpg|png';
+	    $config['max_size']= 5000;
+	    // $config['max_width']= 1024;
+	    // $config['max_height']= 768;
+
+	    $this->load->library('upload', $config);
+
+	    if (!$this->upload->do_upload('filename')){
+	      $data = array('konfirmasi' => $this->upload->display_errors());
+	      // print($data['filename']);
+				// redirect(base_url('media'));
+	    }else{
+	      $data['filename'] = $this->upload->data('file_name');
+	      $data['upload_data']= $this->upload->data();
+	      $data['konfirmasi']= 'sukses';
+	      // $this->load->view('upload_success', $data);
+	    }
+	    //$this->session->set_flashdata('data',$data);
+	    return $data['filename'];
+	    unset($data);
+	}
+
+	//hapus gambar
+	public function hapusmedia($mediadir){
+		$data['mediadir']=$mediadir;
+		$data['path']="./uploads/takmir/".$data['mediadir'];
+	    if (unlink($data['path'])) {
+	      $data['konfirmasi']= $data['mediadir'].' terhapus';
+	    }else{
+	      // print("gagal");
+	      $data['konfirmasi']= $data['mediadir'].' tidak terhapus';
+	    }
+	    $this->session->set_flashdata('data',$data);
 	}
 }

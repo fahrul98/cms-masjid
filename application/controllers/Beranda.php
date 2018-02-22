@@ -29,11 +29,14 @@ sidebar?
 	public function index(){
 		//$this->load->model('mprofilm');
 		$this->load->model('mpost');
+		$this->load->model('mmedia');
 		$data['page'] = "Beranda";
 		$data['mode'] = "pengunjung";
 		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
 		$data['cmpost'] = $this->mpost->tampilpost($data)->result();
 		$data['profil'] = $this->mprofilm->tampilprofilm()->row();
+		$batas['batas'] = 4;
+		$data['imgs'] = $this->mmedia->tampilmedia($batas)->result();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
@@ -221,14 +224,20 @@ method-method halaman pengunjung
 		$this->load->view('core/footer',$data);
 	}
 
-	public function mmm(){
+	public function galeri(){
 		// $this->load->model('mustadz');
+		$this->load->model('mpost');
+		$this->load->model('mmedia');
+		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
+		$data['cmpost'] = $this->mpost->tampilpost($data)->result();
+		// $data['profil'] = $this->mprofilm->tampilprofilm()->row();
+		$data['imgs'] = $this->mmedia->tampilmedia()->result();
 		$data['mode'] = "pengunjung";
-		$data['page'] = "Ustadz";
+		$data['page'] = "Galeri";
 		// $data['cmustadz'] = $this->mustadz->tampilustadz()->result();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
-
+		$this->load->view('core/footer',$data);
 	}
 }

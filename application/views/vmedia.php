@@ -39,18 +39,35 @@ if ($page=="Media") {?>
 	</div>
 </form>
 <div class="row">
+	<div class="container content">
+		<div class="grid" style="">
+
 	<?php
 	//iterate pic
 	foreach ($imgs as $v) {?>
-		<div class="col-md-3">
+		<!-- <div class="col-md-3">
 			<div class="thumbnail">
 				<img src="<?php echo base_url('uploads/'.$v->mdir);?>"/>
 				<a class="btn btn-danger" href="<?php echo base_url('media/dbmhapus?mediaid='.$v->mediaid.'&mdir='.$v->mdir); ?>">hapus</a><br>
 			</div>
-		</div>
+		</div> -->
+		<figure class="effect-zoe">
+			<!-- <img src="assets/img/25.jpg" alt="img25"> -->
+			<img src="<?php echo base_url('uploads/'.$v->mdir);?>"/>
+			<figcaption>
+				<h2>Opsi <span>>></span></h2>
+				<p class="icon-links">
+					<a class="btn" href="<?php echo base_url('media/dbmhapus?mediaid='.$v->mediaid.'&mdir='.$v->mdir); ?>">
+						<span class="fa fa-trash"></span>
+					</a>
+				</p>
+			</figcaption>
+		</figure>
 <?php	}	?>
-
+		</div>
+	</div>
 </div>
+
 </div>
 <?php }?>
 </div>

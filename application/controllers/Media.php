@@ -18,7 +18,9 @@ class Media extends CI_Controller{
     $this->load->model('mprofiladmin');
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
     $data['page'] = "Media";
+    // $data['mode'] = "med";
     $data['imgs'] = $this->mmedia->tampilmedia()->result();
+
 		$this->load->view('core/core',$data);
 		$this->load->view('vmedia',$data);
     $this->load->view('core/footer',$data);

@@ -135,6 +135,7 @@ if(false){?>
         <script type="text/javascript" src="<?php echo base_url('assets/js/fliplightbox.min.js');?>"></script>
         <script src="<?php echo base_url('assets/js/functions.js');?>"></script>
         <script type="text/javascript">$('.portfolio').flipLightBox()</script>
+
         <?php
         //jika admin
       }else{
@@ -194,7 +195,7 @@ if($page=="Tambah Kegiatan"||$page=="Ubah Kegiatan"|| $page=="Tambah Entri" || $
             <?php } ?>
 
 <?php //jika media
-if($page=="Media" or isset($search)){?>
+if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
 
             <script src="<?php echo base_url('assets/vendor/dropify/js/dropify.min.js');?>"></script>
             <script>

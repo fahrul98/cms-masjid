@@ -148,62 +148,32 @@ mediaid
 		</div>
 
 		<div class="container content">
-			<div class="grid" style="">
-				<figure class="effect-zoe">
-					<img src="assets/img/25.jpg" alt="img25">
-					<figcaption>
-						<h2>Title <span>Name</span></h2>
-						<p class="icon-links">
-							<a href="#"><span class="icon-heart"></span></a>
-							<a href="#"><span class="icon-eye"></span></a>
-							<a href="#"><span class="icon-paper-clip"></span></a>
-						</p>
-						<p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
-					</figcaption>
-				</figure>
-				<figure class="effect-zoe" style="">
-					<img src="assets/img/26.jpg" alt="img26">
-					<figcaption>
-						<h2>Title <span>Name</span></h2>
-						<p class="icon-links">
-							<a href="#"><span class="icon-heart"></span></a>
-							<a href="#"><span class="icon-eye"></span></a>
-							<a href="#"><span class="icon-paper-clip"></span></a>
-						</p>
-						<p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
-					</figcaption>
-				</figure>
-			</div>
-		</div>
+				<div class="grid" style="">
 
-		<div class="container content">
-			<div class="grid" style="">
+			<?php
+			//iterate pic
+			foreach ($imgs as $v) {?>
+				<!-- <div class="col-md-3">
+					<div class="thumbnail">
+						<img src="<?php echo base_url('uploads/'.$v->mdir);?>"/>
+						<a class="btn btn-danger" href="<?php echo base_url('media/dbmhapus?mediaid='.$v->mediaid.'&mdir='.$v->mdir); ?>">hapus</a><br>
+					</div>
+				</div> -->
 				<figure class="effect-zoe">
-					<img src="assets/img/27.jpg" alt="img2">
+					<!-- <img src="assets/img/25.jpg" alt="img25"> -->
+					<img src="<?php echo base_url('uploads/'.$v->mdir);?>"/>
 					<figcaption>
-						<h2>Title <span>Name</span></h2>
+						<h2>Opsi <span>></span></h2>
 						<p class="icon-links">
-							<a href="#"><span class="icon-heart"></span></a>
-							<a href="#"><span class="icon-eye"></span></a>
-							<a href="#"><span class="icon-paper-clip"></span></a>
+							<a class="" href="<?php echo base_url('beranda/galeri');?>">
+								<span class="fa fa-eye"></span>
+							</a>
 						</p>
-						<p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
 					</figcaption>
 				</figure>
-				<figure class="effect-zoe" style="">
-					<img src="assets/img/28.jpg" alt="img26">
-					<figcaption>
-						<h2>Title <span>Name</span></h2>
-						<p class="icon-links">
-							<a href="#"><span class="icon-heart"></span></a>
-							<a href="#"><span class="icon-eye"></span></a>
-							<a href="#"><span class="icon-paper-clip"></span></a>
-						</p>
-						<p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
-					</figcaption>
-				</figure>
+		<?php	}	?>
+				</div>
 			</div>
-		</div>
 
 		<?php }else if ($page=="Semua Post") {?>
 
@@ -374,8 +344,21 @@ mediaid
 				</div>
 				<hr>
 				<?php }else if ($page=="Takmir Masjid") {?>
-				<h2><?php echo $page;?><h3><?php echo $mode; ?></h3></h2>
-				<table class="table table-bordered table-striped table-hover">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6 col-md-offset-3">
+								<div class="portfolios">
+									<div class="text-center">
+										<h2><?php echo $page;?></h2>
+										<p>Daftar Takmir <?php echo $cmprofil->pnama; ?><br>
+										</p>
+									</div>
+									<hr>
+								</div>
+							</div>
+						</div>
+					</div>
+				<table class="table table-bordered table-striped table-hover" >
 					<thead>
 						<th>No.</th>
 						<th>Foto</th>
@@ -388,9 +371,15 @@ mediaid
 
 	$n = 1;
 		foreach ($cmtakmir as $v) {
-			echo "<tr>
-			<td>".$n."</td>
-			<td>".$v->mediaid."</td>
+			// <td>"$v->mediaid."</td>"
+			echo "<tr align=center>
+			<td>".$n."</td>";
+			?>
+					<td align=center>
+						<img class="thumbnail" src="<?php echo base_url('uploads/takmir/'.$v->mediadir);?>" width=80 height=80 />
+					</td>
+					<?php
+			echo "</td>
 			<td>".$v->tknama."</td>
 			<td>".$v->tkjabatan."</td>
 			<td>".$v->tkmasajabatan."</td>
@@ -403,7 +392,20 @@ mediaid
 				</table>
 
 				<?php }else if ($page=="Ustadz") {?>
-				<h2><?php echo $page;?><h3><?php echo $mode; ?></h3></h2>
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6 col-md-offset-3">
+								<div class="portfolios">
+									<div class="text-center">
+										<h2><?php echo $page;?></h2>
+										<p>Daftar Ustadz <?php echo $cmprofil->pnama; ?><br>
+										</p>
+									</div>
+									<hr>
+								</div>
+							</div>
+						</div>
+					</div>
 				<table class="table table-bordered table-striped table-hover">
 					<thead>
 						<th>No.</th>
@@ -417,9 +419,16 @@ mediaid
 $n = 1;
 		foreach ($cmustadz as $v) {
 			echo "<tr>
-			<td>".$n."</td>
-			<td>".$v->mediaid."</td>
-			<td>".$v->usnama."</td>
+			<td>".$n."</td>";
+			?>
+			<td>
+					<div class="thumbnail">
+						<img src="<?php echo base_url('uploads/ustadz/'.$v->mediadir);?>" width=60 height=80 />
+					</div>
+			</td>
+<?php
+			echo
+			"<td>".$v->usnama."</td>
 			<td>".$v->usnotelp."</td>
 			<td>".$v->usalamat."</td>
 
@@ -453,7 +462,6 @@ $n = 1;
 						<div class="tab-content tab-content-colored">
 							<div class="tab-pane fade active in" id="papandana">
 								<h5>Papan Dana Masjid</h5>
-								<p>Phosfluorescently revolutionize viral leadership via turnkey technology. Synergistically monetize intermandated strategic theme areas through multimedia based.</p>
 								<table class="table table-bordered table-striped table-hover">
 									<thead>
 										<th>No.</th>
@@ -505,7 +513,6 @@ $n = 1;
 									}
 									 ?>
 								</table>
-								<p>Continually mesh resource sucking synergy before sustainable e-commerce. Efficiently incentivize leading-edge alignments with go forward expertise. Conveniently myocardinate leveraged process improvements through progressive models. Collaboratively.</p>
 							</div>
 						</div>
 						<!-- END BASIC TABS -->
@@ -554,7 +561,56 @@ $n = 1;
 					</table>
 				</div>
 
-				<?php } else if ($page=="Bantuan") {?>
+				<?php } else if ($page=="Galeri") {?>
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6 col-md-offset-3">
+								<div class="portfolios">
+									<div class="text-center">
+										<h2><?php echo $page;?></h2>
+										<p>Galeri <?php echo $cmprofil->pnama;?><br>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<hr>
+				<div class="container">
+					<div class="row">
+								<div class="container content">
+										<div class="grid" style="">
+
+									<?php
+									//iterate pic
+									foreach ($imgs as $v) {?>
+										<!-- <div class="col-md-3">
+											<div class="thumbnail">
+												<img src="<?php echo base_url('uploads/'.$v->mdir);?>"/>
+												<a class="btn btn-danger" href="<?php echo base_url('media/dbmhapus?mediaid='.$v->mediaid.'&mdir='.$v->mdir); ?>">hapus</a><br>
+											</div>
+										</div> -->
+										<figure class="effect-zoe">
+											<!-- <img src="assets/img/25.jpg" alt="img25"> -->
+											<img src="<?php echo base_url('uploads/'.$v->mdir);?>"/>
+											<figcaption>
+												<h2>Opsi <span>></span></h2>
+												<p class="icon-links">
+													<!-- <a class="" href="<?php echo base_url('#');?>"> -->
+													<a class="" href="#">
+														<span class="fa fa-eye"></span>
+													</a>
+												</p>
+											</figcaption>
+										</figure>
+								<?php	}	?>
+										</div>
+									</div>
+
+					</div>
+				</div>
+
+				<?php }else if ($page=="Bantuan") {?>
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3">

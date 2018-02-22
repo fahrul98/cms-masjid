@@ -53,7 +53,8 @@ input->proses->hapus dari memori
 		displayname=?,
 		mediaid=?,
 		useralamat=?,
-		usertelp=? where userid=1",
+		usertelp=?,
+		mediadir=? where userid=1",
 		array(
 			$data['username'],
 			md5($data['userpass']),
@@ -62,7 +63,8 @@ input->proses->hapus dari memori
 			$data['displayname'],
 			$data['mediaid'],
 			$data['useralamat'],
-			$data['usertelp']
+			$data['usertelp'],
+			$data['filename']
 		));
 
 		// redirect(base_url('profiladmin'));

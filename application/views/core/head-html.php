@@ -46,10 +46,13 @@ if(!isset($mode)){
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/toastr/toastr.min.css');?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css');?>">
+
+<link rel="stylesheet" href="<?php echo base_url('assets/css/set1.css');?>">
 <!-- Main JS ? -->
 <?php }else{
  ?>
  <!-- CSS Template NetizenUI -->
+ <link rel="stylesheet" href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.min.css'); ?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css');?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/animate.css');?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css');?>">
@@ -75,7 +78,7 @@ if(!isset($mode)){
 <?php } ?>
 
 <?php //jika media
-if($page=="Media" or isset($search)){?>
+if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
   <link rel="stylesheet" href="<?php echo base_url('assets/vendor/dropify/css/dropify.min.css');?>">
 <?php } ?>
 
