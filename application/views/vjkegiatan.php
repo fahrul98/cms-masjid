@@ -29,8 +29,8 @@ if ($page=="Jadwal Kegiatan") {
 			<td>".$v->jkpihak."</td>
 			<td>".$v->jkwaktu."</td>
 			<td>".$v->tagid."</td>
-			<td><a href=".base_url('jadwalkegiatan/ubahjkegiatan/'.$v->jkid)."> ubah</a></td>
-			<td><a href=".base_url('jadwalkegiatan/dbhapus/'.$v->jkid)."> hapus</a></td>
+			<td><a href=".base_url('jadwalkegiatan/ubahjkegiatan/'.$v->jkid)."><i class='fa fa-pencil'></i></a></td>
+			<td><a href=".base_url('jadwalkegiatan/dbhapus/'.$v->jkid)."><i class='fa fa-trash-o'></i></a></td>
 
 			</tr>";
 			$n++;

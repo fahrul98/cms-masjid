@@ -50,8 +50,8 @@ if ($page=="Takmir") {
 			<td>'.$v->tkjabatan.'</td>
 			<td>'.$v->tkmasajabatan.'</td>
 			<td>'.$v->tknotelp.'</td>
-			<td><a href='.base_url('takmir/ubahtk/'.$v->tkid).'> ubah</a></td>
-			<td><a href="'.base_url('takmir/dbhapus/'.$v->tkid).'/'.$v->mediadir.'" onclick="return confirm(\'Apakah anda yakin ingin menghapus takmir '.$v->tknama.'?\')"> hapus</a></td>
+			<td><a href='.base_url('takmir/ubahtk/'.$v->tkid).'><i class="fa fa-pencil"></i></a></td>
+			<td><a href='.base_url('takmir/dbhapus/'.$v->tkid).'/'.$v->mediadir.' onclick=return confirm(\'Apakah anda yakin ingin menghapus takmir '.$v->tknama.'?\')><i class="fa fa-trash-o"></i></a></td>
 
 			</tr>';
 			$n++;
@@ -87,7 +87,7 @@ if ($page=="Takmir") {
 							<input type="text" class="form-control" name="tknotelp" value="<?php echo $input['tknotelp']; ?>">
 						</div>
 						<div class="form-group">
-							<button type="submit" class="btn btn-primary" name="submit" value="tambah">Tambah</button>
+							<a type="submit" class="btn btn-primary" name="submit" value="tambah">Tambah</a>
 							<a class="btn btn-danger" style="text-decoration: none" href="<?php echo base_url('takmir');?>">Kembali</a>
 						</div>
 					</div>

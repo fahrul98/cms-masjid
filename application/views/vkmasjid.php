@@ -38,8 +38,8 @@ $n = 1;
 			<td>".$v->kmketerangan."</td>
 			<td>".$v->kmpengeluaran."</td>
 			<td>".$v->kmsaldo."</td>
-			<td><a href=".base_url('keuanganmasjid/ubahkmasjid/'.$v->kmid)."> ubah</a></td>
-			<td><a href=".base_url('keuanganmasjid/dbhapus/'.$v->kmid)."> hapus</a></td>
+			<td><a href=".base_url('keuanganmasjid/ubahkmasjid/'.$v->kmid)."><i class='fa fa-pencil'></i></a></td>
+			<td><a href=".base_url('keuanganmasjid/dbhapus/'.$v->kmid)."><i class='fa fa-trash-o'></i></a></td>
 
 			</tr>";
 			$n++;
