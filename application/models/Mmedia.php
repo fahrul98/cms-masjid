@@ -25,9 +25,11 @@ unset(variabel) => hapus variabel dari memori
 
 	public function tampilmedia($data = null){
 		// jika null maka fullselect, else ambil idpost
-		if ($data===null||$data==null) {
+		if ($data===null||$data==null||isset($data['batas'])) {
+			//untuk mengambil beberapa gambar saja
+			$qt = isset($data['batas'])?" limit ".$data['batas']:" ";
 			//mediaid>2 , mediaid 1 & 2 dipakai sebagai default media. tidak untuk dihapus
-			$q = $this->db->query("select * from cmmedia where mediaid>2");
+			$q = $this->db->query("select * from cmmedia where mediaid>2".$qt);
 		}else{
 			$q = $this->db->query("select * from cmmedia where mediaid=?",array($data['mediaidid']));
 		}

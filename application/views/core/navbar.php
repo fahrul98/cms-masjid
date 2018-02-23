@@ -13,28 +13,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
 
-    <?php
+  <?php
   //jika $mode di controller ada dan halaman bukan hal.instalasi , maka muncul navbar utk pengunjung
   if ($page!='Instalasi'&&isset($mode)) {
 ?>
 
-      <!-- NAVBAR Netizen -->
-      <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>">
-      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
+    <!-- NAVBAR Netizen -->
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
         </button>
-            <a class="navbar-brand" href="<?php echo base_url('');?>"><span><?php echo $cmprofil->pnama;?></span></a>
-          </div>
-          <div class="navbar-collapse collapse">
-            <div class="menu">
-              <ul class="nav nav-tabs" role="tablist">
+          <a class="navbar-brand" href="<?php echo base_url('');?>"><span><?php echo $cmprofil->pnama;?></span></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <div class="menu">
+            <ul class="nav nav-tabs" role="tablist">
 
-<?php
+              <?php
 //tombol navbar aktif
 $akt=array('','','','','',
 '','','','','',
@@ -50,13 +50,22 @@ switch ($page) {
   case "Beranda":$akt[7]='class="active"';break;
   default:break;
 }?>
-                    <li role="presentation"><a href="<?php echo base_url('beranda');?>">Beranda</a></li>
-                    <li role="presentation" <?php echo $akt[0]; ?>><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
-                    <li role="presentation" <?php echo $akt[1]; ?>><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
-                    <li role="presentation" <?php echo $akt[2]; ?>><a href="<?php echo base_url('beranda/jadwalkegiatan');?>">Jadwal</a></li>
+                <li role="presentation"><a href="<?php echo base_url('beranda');?>">Beranda</a></li>
+                <li role="presentation" <?php echo $akt[0]; ?>><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
+                <li class="dropdown presentation" <?php echo $akt[1]; ?>>
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="<?php echo base_url('beranda');?>">Profil
+                      <span class="caret"></span>
+                    </a>
+                  <ul class="dropdown-menu">
+                    <li role="presentation"><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
+                    <li role="presentation"><a href="<?php echo base_url('beranda/takmirm');?>">Takmir</a></li>
+                    <li role="presentation"><a href="<?php echo base_url('beranda/ustadz');?>">Ustadz</a></li>
+                  </ul>
+                </li>
+                <li role="presentation" <?php echo $akt[2]; ?>><a href="<?php echo base_url('beranda/jadwalkegiatan');?>">Jadwal</a></li>
 
-                    <li role="presentation" <?php echo $akt[3]; ?>><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
-                    <!-- <li class="dropdown">
+                <li role="presentation" <?php echo $akt[3]; ?>><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
+                <!-- <li class="dropdown">
                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">Keuangan
                       <span class="caret"></span></a>
                       <ul class="dropdown-menu">
@@ -64,31 +73,33 @@ switch ($page) {
                          <li role="presentation" <?php echo $akt[4]; ?>><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>
                       </ul>
                     </li> -->
-                    <li class="dropdown">
-                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">More
-                      <span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                         <li role="presentation" <?php echo $akt[5]; ?>><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>
-                        <li role="presentation" <?php echo $akt[6]; ?>><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
-                      </ul>
-                    </li>
-                    <?php if ($this->session->userdata('username')&&$this->session->userdata('userpass')) {
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="<?php echo base_url('beranda');?>">Lebih
+                      <span class="caret"></span>
+                    </a>
+                  <ul class="dropdown-menu">
+                    <li role="presentation" <?php echo $akt[7]; ?>><a href="<?php echo base_url('beranda/galeri');?>">Galeri</a></li>
+                    <li role="presentation" <?php echo $akt[5]; ?>><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>
+                    <li role="presentation" <?php echo $akt[6]; ?>><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
+                  </ul>
+                </li>
+                <?php if ($this->session->userdata('username')&&$this->session->userdata('userpass')) {
                     ?>
-                    <li role="presentation"><a href="<?php echo   base_url('admin');?>">Admin</a></li>
-                    <?php
+                <li role="presentation"><a href="<?php echo   base_url('admin');?>">Admin</a></li>
+                <?php
                     } else{
                     ?>
-                    <li role="presentation"><a href="<?php echo base_url('login');?>">Login</a></li>
-                    <?php
+                  <li role="presentation"><a href="<?php echo base_url('login');?>">Login</a></li>
+                  <?php
                   }
                   ?>
-                </ul>
-            </div>
+            </ul>
           </div>
         </div>
-      </nav>
-      <!-- END NAVBAR -->
-      <?php
+      </div>
+    </nav>
+    <!-- END NAVBAR -->
+    <?php
 
 //jika tidak maka muncul punya si admin
 
@@ -98,8 +109,8 @@ switch ($page) {
 // tema admin memakai wrapper sbg container, jadi di wrap. gk usah pake tag penutup untuk div wrapper.
 
 ?>
-<!-- WRAPPER -->
-<div id="wrapper">
+      <!-- WRAPPER -->
+      <div id="wrapper">
         <!-- NAVBAR -->
         <nav class="navbar navbar-default navbar-fixed-top">
           <div class="container-fluid">
@@ -121,8 +132,8 @@ switch ($page) {
               <!-- search form -->
               <!-- <div id="navbar-search" class="navbar-form search-form"> -->
               <?php echo form_open('post/search','id="navbar-search" class="navbar-form search-form"');?>
-                <input name="search" value="" class="form-control" placeholder="Cari admin..." type="text">
-                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+              <input name="search" value="" class="form-control" placeholder="Cari admin..." type="text">
+              <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
               <!-- </div> -->
               </form>
               <!-- end search form -->
@@ -174,7 +185,12 @@ switch ($page) {
   </button>
           <div class="sidebar-scroll">
             <div class="user-account">
-              <img src="<?php echo base_url('assets/img/user.png');?>" class="img-responsive img-circle user-photo" alt="Admin Masjid">
+              <a href="<?php echo base_url('profiladmin'); ?>">
+              <img src="<?php
+                //2
+                $mediadir = isset($padmin->mediadir)?$padmin->mediadir:$padmin['mediadir'];
+                echo base_url('uploads/takmir/'.$mediadir);
+              ?>" class="img-responsive img-circle user-photo" alt="Admin Masjid" style="width:150px;height:150px"></a>
               <div class="dropdown">
                 <a href="#" class="dropdown-toggle user-name" data-toggle="dropdown">Assalamualaikum, <strong><?php if(isset($padmin->username)){
                   echo $padmin->username;

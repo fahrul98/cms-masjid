@@ -22,11 +22,13 @@ usertelp
 
 
 	<div class="panel panel-default row">
-				<?php echo form_open('profiladmin/dbubahprofiladmin');?>
+				<!-- <?php echo form_open('profiladmin/dbubahprofiladmin');?> -->
+				<?php echo form_open_multipart('profiladmin/dbubahprofiladmin','class=form');	?>
 			<div class="col-md-4">
 				<div class="panel-content form-group">
-					<label for="mediaid">Media :</label>
-					<input class="form-control" type="textarea" name="mediaid" value="<?php echo $padmin['mediaid'];?>">
+					<label for="mediaid">Media</label>
+					<input type="file" id="dropify-event" name="filename" data-default-file="<?php echo base_url('uploads/takmir/'.$padmin['mediadir']);?>">
+					<input type="hidden" name="oldmedia" value="<?php echo $padmin['mediadir'];?>">
 				</div>
 			</div>
 			<div class="panel-content col-md-4">
