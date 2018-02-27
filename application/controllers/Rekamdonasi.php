@@ -30,6 +30,7 @@ rdtotal
 	public function index(){
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Rekam Donasi";
+		$data['ctrl'] = "kmasjid";
 		$data['cmrdonasi'] = $this->mrdonasi->tampilrdonasi()->result();
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
 
@@ -46,6 +47,7 @@ insert + delete
 	public function tambahrdonasi(){
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Tambah rekamdonasi";
+		$data['ctrl'] = "kmasjid";
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
 		$data['input']=$this->session->userdata('input')?$this->session->userdata('input'):
 			array(
@@ -131,6 +133,7 @@ insert + delete
 	public function ubahrdonasi($rdid){
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Ubah rekamdonasi";
+		$data['ctrl'] = "kmasjid";
 		$data['rdid'] = $rdid;
 		$data['cmrdonasi'] = $this->mrdonasi->tampilrdonasi($data)->row();
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';

@@ -140,8 +140,8 @@ mediaid
 				<div class="col-md-6 col-md-offset-3">
 					<div class="text-center">
 						<h2>Galeri</h2>
-						<p class="phitam">Tentang Masjid <?php echo $cmprofil->pnama; ?></p>
-						</p>
+						<h5 class="phitam">Tentang Masjid <?php echo $cmprofil->pnama; ?></p>
+						</h5>
 					</div>
 				</div>
 			</div>
@@ -296,7 +296,7 @@ mediaid
 						<div class="col-lg-12">
 							<img src="assets/img/01.jpg" class="img-responsive" alt="" />
 							<h1><a href="<?php echo base_url('beranda/post/'.urlencode($v->psjudul));?>"><?php echo $v->psjudul;?></a></h1>
-							<h5><?php echo $v->psbuat." | ".$v->psustadz." | ".$v->tagid." | ";?><i class='fa fa-eye' aria-hidden='true'></i> <span> <?php echo $v->vcount; ?></span></h5>
+							<h5><?php echo $v->psbuat." | ".$v->psustadz." | ".$v->tag." | ";?><i class='fa fa-eye' aria-hidden='true'></i> <span> <?php echo $v->vcount; ?></span></h5>
 							<p class="phitam">
 								<?php echo $v->pstext;?>
 							</p>
@@ -350,8 +350,8 @@ mediaid
 								<div class="portfolios">
 									<div class="text-center">
 										<h2><?php echo $page;?></h2>
-										<p>Daftar Takmir <?php echo $cmprofil->pnama; ?><br>
-										</p>
+										<h5 class="phitam">Daftar Takmir <?php echo $cmprofil->pnama; ?><br>
+										</h5>
 									</div>
 									<hr>
 								</div>
@@ -398,8 +398,8 @@ mediaid
 								<div class="portfolios">
 									<div class="text-center">
 										<h2><?php echo $page;?></h2>
-										<p>Daftar Ustadz <?php echo $cmprofil->pnama; ?><br>
-										</p>
+										<h5 class="phitam">Daftar Ustadz <?php echo $cmprofil->pnama; ?><br>
+										</h5>
 									</div>
 									<hr>
 								</div>
@@ -418,13 +418,11 @@ mediaid
 
 $n = 1;
 		foreach ($cmustadz as $v) {
-			echo "<tr>
+			echo "<tr align='center'>
 			<td>".$n."</td>";
 			?>
-			<td>
-					<div class="thumbnail">
-						<img src="<?php echo base_url('uploads/ustadz/'.$v->mediadir);?>" width=60 height=80 />
-					</div>
+			<td align="center">
+				<img class="thumbnail" src="<?php echo base_url('uploads/ustadz/'.$v->mediadir);?>" width=80 height=80 />
 			</td>
 <?php
 			echo
@@ -444,8 +442,8 @@ $n = 1;
 							<div class="portfolios">
 								<div class="text-center">
 									<h2><?php echo $page;?></h2>
-									<p>Berikut ini adalah kondisi keuangan dari Masjid Taqwa<br> Untuk donasi silahkan menuju Tab Donasi<br>
-									</p>
+									<h5 class="phitam">Keuangan <?php echo $cmprofil->pnama;?><br> Untuk donasi silahkan menuju Tab Donasi<br>
+									</h5>
 								</div>
 								<hr>
 							</div>
@@ -527,8 +525,8 @@ $n = 1;
 							<div class="portfolios">
 								<div class="text-center">
 									<h2><?php echo $page;?></h2>
-									<p>Berikut ini adalah jadwal kegiatan yang akan berlangsung di Masjid Taqwa<br> Catat tanggalnya jangan sampai ketinggalan<br>
-									</p>
+									<h5>Jadwal kegiatan-kegiatan <?php echo $cmprofil->pnama;?><br>
+									</h5>
 								</div>
 								<hr>
 							</div>
@@ -568,8 +566,8 @@ $n = 1;
 								<div class="portfolios">
 									<div class="text-center">
 										<h2><?php echo $page;?></h2>
-										<p>Galeri <?php echo $cmprofil->pnama;?><br>
-										</p>
+										<h5 class="phitam">Galeri <?php echo $cmprofil->pnama;?><br>
+										</h5>
 									</div>
 								</div>
 							</div>
@@ -617,8 +615,8 @@ $n = 1;
 							<div class="portfolios">
 								<div class="text-center">
 									<h2><?php echo $page;?></h2>
-									<p>Bantuan<br>
-									</p>
+									<h5 class="phitam">Bantuan<br>
+									</h5>
 								</div>
 								<hr>
 							</div>
@@ -633,11 +631,26 @@ $n = 1;
 							<div class="portfolios">
 								<div class="text-center">
 									<h2><?php echo $page;?></h2>
-									<p>Tentang<br>
-									</p>
+									<h5 class="phitam">Tentang CMS & Developer<br>
+									</h5>
 								</div>
-								<hr>
 							</div>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<div class="container">
+					<div class="row text-center">
+						<h2 class="">Pengembang (Developer)</h2>
+					</div>
+					<br>
+					<div class="row text-center">
+						<div class="col-md-4 col-md-offset-4">
+							<img class="img-circle" src="<?php echo base_url('uploads/default.png');?>" alt="gb1" width="300" height="300"/>
+							<p class="phitam">
+								CMS Masjid Al-Afa <br>
+								AFAdev <br> @2018
+							</p>
 						</div>
 					</div>
 				</div>

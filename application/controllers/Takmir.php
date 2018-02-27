@@ -32,6 +32,7 @@ mediaid
 		$data['search'] = "takmir";
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Takmir";
+		$data['ctrl'] = "masjid";
 		$data['cmtakmir'] = $this->mtakmir->tampiltakmir()->result();
 		$data['error'] = $this->session->userdata('err')?$this->session->userdata('err'):'';
 		$data['input'] = $this->session->userdata('input')?$this->session->userdata('input'):'';
@@ -92,6 +93,7 @@ insert + delete
 		$data['search'] = "takmir";
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Tambah Takmir";
+		$data['ctrl'] = "masjid";
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
 		$data['input']=$this->session->userdata('input')?$this->session->userdata('input'):
 			array(
@@ -218,6 +220,7 @@ insert + delete
 		$data['search'] = "takmir";
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Ubah Takmir";
+		$data['ctrl'] = "masjid";
 		$data['tkid'] = $tkid;
 		$data['takmir'] = $this->mtakmir->tampiltakmir($data)->row();
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';

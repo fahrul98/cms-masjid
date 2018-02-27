@@ -35,6 +35,7 @@ mediaid
 		//$data['mode'] = 'post';
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Post";
+		$data['ctrl'] = "post";
 		$jumlah_data = $this->mpost->jumlah_data();
 
 		$this->load->library('pagination');
@@ -87,6 +88,7 @@ mediaid
 
 			$this->add_count($data['post']->postid);
 		}
+		$data['ctrl'] = "post";
 		$this->load->view('core/core',$data);
 		$this->load->view('vpost',$data);
 		$this->load->view('core/footer',$data);
@@ -131,6 +133,7 @@ method-method untuk operasi admin
 				'pspublic' => '',
 				'tagid' => ''
 			);
+$data['ctrl'] = "post";
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpost',$data);
@@ -208,6 +211,7 @@ method-method untuk operasi admin
 	public function ubahpost($slug){
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Ubah Postingan";
+		$data['ctrl'] = "post";
 		// $data['postid'] = $postid;
 		$data['slug'] = $slug;
 		$data['cmtag'] = $this->mpost->tampiltag()->result();
