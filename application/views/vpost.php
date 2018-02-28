@@ -52,7 +52,7 @@ if ($page=="Post") {
 			<td><a href=".base_url('post/ubahpost/'.urlencode($v->psjudul)).">".$v->psjudul."</a></td>
 			<td>".$v->psustadz."</td>
 			<td>".$v->psbuat."</td>
-			<td>".$v->tagid."</td>";
+			<td>".$v->tag."</td>";
 			if ($v->pspublic==0) {
 				echo "<td>Draft<br/>
 					<a href=".base_url('post/dbpublish/'.$v->postid)."> Publish</a></td>";
