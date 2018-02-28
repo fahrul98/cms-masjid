@@ -32,6 +32,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							}else{
 								echo $msg[rand(0,2)];
 							}
+							if (isset($alert)) {
+								echo $alert;
+							}
+							
 						?>
 						</p>
 					</div>
@@ -63,7 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</form>
 					<?php 
 					}else if ($page=="Forget Password") {
-					echo form_open('login/dbsendemail');?>
+					echo form_open('login/dbtoken');?>
 						<div class="form-group">
 								<label for="send-email" class="control-label sr-only">Email</label>
 								<input type="text" class="form-control" id="send-email" name="email" placeholder="Masukkan Email Anda">

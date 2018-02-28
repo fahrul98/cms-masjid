@@ -21,7 +21,7 @@ mediaid
 ?>
 
 		<!-- SlideShow -->
-		<div class="container">
+		<!-- <div class="container">
 			<div class="row">
 				<div class="slider">
 					<div class="img-responsive">
@@ -51,17 +51,18 @@ mediaid
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<!-- END Show -->
 
-		<div class="container" style="">
+		<div class="container backgroundpictop" style="margin-left: 0px;margin-right: 0px; margin-bottom: 50px ;width: 100%">
 			<div class="row">
-				<div class="col-md-6 col-md-offset-3">
+				<div class="slider">
+				<div class="col-md-6 col-md-offset-3" style="margin-top: 130px">
 					<div class="text-center">
 						<h1>Selamat Datang di Website <br><?php echo $cmprofil->pnama; ?></h1>
 						<p class="phitam">Mari kita memuliakan rumah Allah</p>
 					</div>
-					<hr>
+				</div>
 				</div>
 			</div>
 		</div>

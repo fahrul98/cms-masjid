@@ -101,6 +101,35 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
   th {
     text-align: center;
   }
+  .nomargin {
+    margin:0px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .nopadding {
+    padding: 0px;
+    width: 430px;
+  }
+
+  .textfooter {
+    padding-top: 0px;
+    text-align: justify;
+  }
+
+  .backgroundpict {
+    background:url("<?php echo base_url('assets/img/img-4.jpg');?>");
+    background-attachment: fixed;
+    width: 100%;
+    height: 350px;
+  }
+
+  .backgroundpictop {
+    background:url("<?php echo base_url('assets/img/img-4.jpg');?>");
+    background-attachment: fixed;
+    width: 100%;
+    height: 650px;
+  }
 </style>
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>">
   </head>

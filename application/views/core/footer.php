@@ -22,16 +22,13 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
     <!-- FOOTER -->
 
       <!-- <footer> -->
-      <div class="inner-footer">
+      <div class="inner-footer backgroundpict">
         <div class="container">
           <div class="row">
             <div class="col-md-4 f-about">
               <a href="<?php echo base_url('');?>"><h1><span><?php echo $cmprofil->pnama;?></span></h1></a>
 
-<!--               <p class="phitam">Sesungguhnya perjalanan terberat bukanlah perjalanan mendaki puncak gunung tertinggi, perjalanan terberat merupakan perjalanan ke masjid -->
-              <p style="color: #000000">Sesungguhnya perjalanan terberat bukanlah perjalanan mendaki puncak gunung tertinggi, perjalanan terberat merupakan perjalanan ke masjid
-
-              </p>
+              <p class="phitam textfooter">Sesungguhnya perjalanan terberat bukanlah perjalanan mendaki puncak gunung tertinggi, perjalanan terberat merupakan perjalanan ke masjid</p>
             </div>
             <div class="col-md-4 l-posts">
               <h3 class="widgetheading">Post terbaru</h3>
@@ -44,7 +41,7 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
                     $cmpost=$cmpostfoot;
                   }
                     foreach ($cmpost as $v) {
-                     echo "<li><a class='phitam' href=".base_url('beranda/post/'.urlencode($v->psjudul)).">".$v->psjudul."</a></li>";
+                     echo "<li style='text-decoration: none;'><a class='phitam' href=".base_url('beranda/post/'.urlencode($v->psjudul)).">".$v->psjudul."</a></li>";
                      //tampil 5 post terbaru
                      if ($n==5) {
                        break;
@@ -57,16 +54,16 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
             <div class="col-md-4 f-contact">
               <h3 class="widgetheading">Hubungi Kami</h3>
               <a href="#">
-                <p style="color: #000000"><i class="fa fa-envelope"></i> masjidtaqwa@gmail.com</p>
+                <p class="phitam nomargin nopadding"><i class="fa fa-envelope"></i>masjidtaqwa@gmail.com</p>
               </a>
-              <p style="color: #000000"><i class="fa fa-phone"></i> +345 578 59 45 416</p>
-              <p style="color: #000000"><i class="fa fa-home"></i> Masjid taqwa | PO Box 23456 Tulusrejo Lowokwaru, Malang <br> Kedawung 8011 INDONESIA</p>
+              <p class="phitam nomargin nopadding"><i class="fa fa-phone"></i> +345 578 59 45 416</p>
+              <p class="phitam nomargin nopadding"><i class="fa fa-home"></i> Masjid taqwa | Tulusrejo Lowokwaru, Malang</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="last-div">
+      <div class="last-div" style="margin:0px">
         <div class="container">
           <div class="row">
             <div class="copyright">
