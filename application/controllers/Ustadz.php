@@ -31,6 +31,7 @@ mediaid
 	public function index(){
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Ustadz";
+		$data['ctrl'] = "masjid";
 		$data['cmustadz'] = $this->mustadz->tampilustadz()->result();
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
 
@@ -85,6 +86,7 @@ insert + delete
 	public function tambahust(){
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Tambah Ustadz";
+		$data['ctrl'] = "masjid";
 		$data['search'] = "ustadz";
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
 		$data['input']=$this->session->userdata('input')?$this->session->userdata('input'):
@@ -206,6 +208,7 @@ insert + delete
 	public function ubahust($usid){
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Ubah Ustadz";
+		$data['ctrl'] = "masjid";
 		$data['search'] = "ustadz";
 		$data['usid'] = $usid;
 		$data['ustadz'] = $this->mustadz->tampilustadz($data)->row();

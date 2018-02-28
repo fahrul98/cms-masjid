@@ -30,6 +30,7 @@ kmsaldo
 	public function index(){
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Keuangan Masjid";
+		$data['ctrl'] = "kmasjid";
 		$data['kmasjid'] = $this->mkmasjid->tampilkmasjid()->result();
 
 		$this->load->view('core/core',$data);
@@ -45,6 +46,7 @@ insert + delete
 	public function tambahentri(){
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Tambah Entri";
+		$data['ctrl'] = "kmasjid";
 
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
 		$data['input']=$this->session->userdata('input')?$this->session->userdata('input'):
@@ -154,6 +156,7 @@ insert + delete
 		if($kmid==null||$kmid==0){ redirect('keuanganmasjid');}
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Ubah Entri";
+		$data['ctrl'] = "kmasjid";
 		$data['kmid'] = $kmid;
 		$data['kmasjid'] = $this->mkmasjid->tampilkmasjid($data)->row();
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';

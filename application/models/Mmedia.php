@@ -71,7 +71,9 @@ unset(variabel) => hapus variabel dari memori
 	}
 
 	public function hapusmedia($data){
-		$q = $this->db->query("delete from cmmedia where mediaid=".$data['mediaid']);
+		if (!$data['mediaid']<2) {
+			$q = $this->db->query("delete from cmmedia where mediaid=".$data['mediaid']);
+		}
 		unset($data,$q);
 	}
 }

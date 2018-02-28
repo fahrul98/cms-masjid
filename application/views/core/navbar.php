@@ -79,8 +79,8 @@ switch ($page) {
                     </a>
                   <ul class="dropdown-menu">
                     <li role="presentation" <?php echo $akt[7]; ?>><a href="<?php echo base_url('beranda/galeri');?>">Galeri</a></li>
-                    <li role="presentation" <?php echo $akt[5]; ?>><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>
-                    <li role="presentation" <?php echo $akt[6]; ?>><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
+                    <!-- <li role="presentation" <?php echo $akt[5]; ?>><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li> -->
+                    <li role="presentation" <?php echo $akt[6]; ?>><a href="<?php echo base_url('beranda/tentang');?>">Pengembang</a></li>
                   </ul>
                 </li>
                 <?php if ($this->session->userdata('username')&&$this->session->userdata('userpass')) {
@@ -226,6 +226,19 @@ switch ($page) {
                 </ul>
               </div>
             </div>
+    <?php
+    //tombol navbar aktif
+    $aria=array('false','false','false');
+    $colps=array('','','');
+    if(isset($ctrl)){
+
+    switch ($ctrl) {
+      case "masjid":$aria[0]='true';$colps[0]="class='collapse in'";break;
+      case "post":$aria[1]='true';$colps[1]="class='collapse in'";break;
+      case "kmasjid":$aria[2]='true';$colps[2]="class='collapse in'";break;
+      default:break;
+    }
+    }?>
             <nav id="left-sidebar-nav" class="sidebar-nav">
               <ul id="main-menu" class="metismenu">
                 <li class=""  <?php echo $akt[0]; ?>><a href="<?php echo base_url('admin')?>"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
@@ -235,6 +248,7 @@ switch ($page) {
                     <li class="" <?php echo $akt[1]; ?>><a href="<?php echo base_url('profilm')?>">Profil Masjid</a></li>
                     <li class="" <?php echo $akt[2]; ?>><a href="<?php echo base_url('takmir')?>">Takmir</a></li>
                     <li class="" <?php echo $akt[3]; ?>><a href="<?php echo base_url('ustadz')?>">Ustadz</a></li>
+
                     <!-- <li class=""><a href="ui-buttons.html">Buttons</a></li>
             <li class=""><a href="ui-bootstrap.html">Bootstrap UI</a></li>
             <li class=""><a href="ui-icons.html"><span>Icons</span></a></li> -->

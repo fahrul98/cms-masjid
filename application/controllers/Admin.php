@@ -57,6 +57,7 @@ class Admin extends CI_Controller {
 		// $this->m_aplikasi->putus_koneksi();
 
 		// semua variabel session akan dihapus dari memory
+		delete_cookie('remember');
 		$array_session = $this->session->all_userdata();
 		$this->session->unset_userdata($array_session);
 		unset($array_session);

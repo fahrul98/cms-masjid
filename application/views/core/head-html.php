@@ -46,8 +46,9 @@ if(!isset($mode)){
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/toastr/toastr.min.css');?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css');?>">
-
+<link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css');?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/set1.css');?>">
+
 <!-- Main JS ? -->
 <?php }else{
  ?>
@@ -98,7 +99,9 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
     color:#000000;
     font-size: 15px;
   }
-
+  th {
+    text-align: center;
+  }
   .nomargin {
     margin:0px;
     margin-left: 0px;

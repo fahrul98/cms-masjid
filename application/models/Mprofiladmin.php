@@ -71,6 +71,20 @@ input->proses->hapus dari memori
 		unset($data);
 	}
 
+  //method untuk remember
+  public function updateCookie($cookie){
+    $q = $this->db->query("update cmusers set remember=? where userid=1", array($cookie));
+  }
+
+  public function getByCookie($cookie){  
+     $q = $this->db->get_where('cmusers', array('cookie' => $cookie), 1);   
+     if($this->db->affected_rows() > 0){  
+       $row = $q->row();  
+       return $row;  
+     } 
+      unset($data,$q,$row);
+  }  
+
 	//Start: method tambahan untuk reset code  
    public function getUserInfo($id)  
    {  
