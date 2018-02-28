@@ -55,7 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 						<div class="form-group clearfix">
 							<label class="fancy-checkbox element-left">
-								<input type="checkbox">
+								<?php echo form_checkbox('remember', TRUE) ?> 
 								<span>Remember me</span>
 							</label>
 							<!-- <span class="helper-text element-right">Don't have an account? <a href="page-register.html">Register</a></span> -->

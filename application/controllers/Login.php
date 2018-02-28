@@ -17,9 +17,23 @@ class Login extends CI_Controller {
 
 	public function index(){
     $data['page'] = "Login";
+    $cookie = get_cookie('remember');
 		if ($this->session->userdata('username') and $this->session->userdata('userpass')){
 		// if(false){
 				 redirect(base_url('admin'));
+		}else if($cookie != ''){
+			$q = $this->mprofiladmin->getByCookie($cookie)->row();
+            if ($q) {
+                $arrsess = array('username' => $q->username,
+				'userpass' => $data['userpass'],
+				'userfullname' => $q->userfullname
+				);
+				$this->session->set_userdata($arrsess);
+            	redirect(base_url('admin'));
+            } else {
+            	$this->load->view('core/core',$data);
+				$this->load->view('vlogin');
+            }
 		}else{
 			// $this->load->view('v_login');
 			//$this->load->view('core/core',$data);
@@ -33,6 +47,7 @@ class Login extends CI_Controller {
 	public function dblogin(){
 		$data['username'] = $this->input->post('username');
 		$data['userpass'] = $this->input->post('userpass');
+		$data['remember'] = $this->input->post('remember');
 
 		$q = $this->mprofiladmin->adminlogin($data)->row();
 		if (count($q)>0) {
@@ -40,8 +55,15 @@ class Login extends CI_Controller {
 				'userpass' => $data['userpass'],
 				'userfullname' => $q->userfullname
 			);
-
 			$this->session->set_userdata($arrsess);
+
+			if ($data['remember']) {
+                $key = substr(sha1(rand()), 0, 30); 
+                set_cookie('remember', $key, 60*60*7); // set expired 1 minggu kedepan
+
+                $this->mprofiladmin->updateCookie($key);
+            }
+
 			redirect(base_url('admin'));
 		}else{
 			$msg = array('Username / Password salah',
@@ -70,28 +92,24 @@ class Login extends CI_Controller {
         $userInfo = $this->mprofiladmin->getUserInfoByEmail($clean);
 
         $this->load->helper('cookie');
-		$data['cookie']=$this->input->cookie("email", FALSE);
+		$data['cookie']=get_cookie('email');
+		$data['expire']=60*60*24;
 
         if(!$userInfo){ 
         	$message="Email Tidak ditemukan!";
         	$this->forget($message);
-        }else if ($data['cookie'] == false) {
-			$data['expire']=60*60*24;
-			$cookie = array(
-			"name"   => "email",
-			"value"  => $clean,
-			"expire" => $data['expire'],
-			"secure" => false
-			);
-			$this->input->set_cookie($cookie);
+        }else if ($data['cookie'] != $clean) {
+			$this->input->set_cookie('email', $clean, $data['expire']);			
 
 	      	$token = $this->mprofiladmin->insertToken($userInfo->userid); 
 	        $url = base_url().'login/reset_password/'.$token;  
-	        $link = '<a href="' . $url . '">' . $url . '</a>';   
+	        $link = '<a href="' . $url . '">' . $url . '</a>'; 
+
 	               
 	        $message = '';             
 	        $message .= '<strong>Hai, anda menerima email ini karena ada permintaan untuk memperbaharui password anda.</strong><br>';  
 	        $message .= '<strong>Silakan klik link ini:</strong> ' . $link;
+
 
 	        $this->send_email2($message, $clean);
 
@@ -103,7 +121,6 @@ class Login extends CI_Controller {
 	  		$message="Email sudah terkirim, silahkan cek inbox anda!";
 	  		$this->forget($message);
 	  	}
-
         
 	}
 
