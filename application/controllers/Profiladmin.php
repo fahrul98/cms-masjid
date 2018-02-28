@@ -44,7 +44,7 @@ usertelp
 					'useremail' => $data['padmin']->useremail,
 					'usertgldaftar' => $data['padmin']->usertgldaftar,
 					'displayname' =>$data['padmin']->displayname,
-					'mediaid' => $data['padmin']->mediaid,
+					'mediadir' => $data['padmin']->mediadir,
 					'useralamat' => $data['padmin']->useralamat,
 					'usertelp' => $data['padmin']->usertelp,
 					'mediadir' => $data['padmin']->mediadir==""||$data['padmin']->mediadir=="default.png"?"default.png":$data['padmin']->mediadir
@@ -109,7 +109,7 @@ usertelp
 		// $data['userurl'] = $this->input->post('userurl');
 		$data['usertgldaftar'] = $this->input->post('usertgldaftar');
 		$data['displayname'] = $this->input->post('displayname');
-		$data['mediaid'] = $this->input->post('mediaid');
+		$data['mediadir'] = $this->input->post('mediadir');
 		$data['useralamat'] = $this->input->post('useralamat');
 		$data['usertelp'] = $this->input->post('usertelp');
 		$data['oldmedia']= $this->input->post('oldmedia');

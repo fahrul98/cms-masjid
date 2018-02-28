@@ -27,8 +27,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
-        </button>
-          <a class="navbar-brand" href="<?php echo base_url('');?>"><span><?php echo $cmprofil->pnama;?></span></a>
+          </button>
+          <a class="navbar-brand paddinglr" href="<?php echo base_url('');?>"><span class="size"><?php echo $cmprofil->pnama;?></span></a>
         </div>
         <div class="navbar-collapse collapse">
           <div class="menu">
@@ -55,7 +55,7 @@ switch ($page) {
                 <li class="dropdown presentation" <?php echo $akt[1]; ?>>
                   <a class="dropdown-toggle" data-toggle="dropdown" href="<?php echo base_url('beranda');?>">Profil
                       <span class="caret"></span>
-                    </a>
+                  </a>
                   <ul class="dropdown-menu">
                     <li role="presentation"><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
                     <li role="presentation"><a href="<?php echo base_url('beranda/takmirm');?>">Takmir</a></li>
@@ -112,7 +112,7 @@ switch ($page) {
       <!-- WRAPPER -->
       <div id="wrapper">
         <!-- NAVBAR -->
-        <nav class="navbar navbar-default navbar-fixed-top">
+        <nav class="navbar navbar-default navbar-fixed-top border">
           <div class="container-fluid">
             <div class="navbar-btn">
               <button type="button" class="btn-toggle-offcanvas"><i class="lnr lnr-menu"></i></button>
@@ -131,7 +131,7 @@ switch ($page) {
             <div class="navbar-right">
               <!-- search form -->
               <!-- <div id="navbar-search" class="navbar-form search-form"> -->
-              <?php echo form_open('post/search','id="navbar-search" class="navbar-form search-form"');?>
+              <?php echo form_open('post/search','id="navbar-search" class="navbar-form search-form" style="padding-left:0px; padding-right:0px"');?>
               <input name="search" value="" class="form-control" placeholder="Cari admin..." type="text">
               <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
               <!-- </div> -->
@@ -178,6 +178,27 @@ switch ($page) {
         </nav>
         <!-- END NAVBAR -->
         <!-- LEFT SIDEBAR -->
+
+<?php
+//tombol navbar aktif
+$akt=array('','','','','',
+'','','','','',
+'','','','','',);
+switch ($page) {
+  case "Beranda Admin":$akt[0]='class="active"';break;
+  case "Profil Masjid":$akt[1]='class="active"';break;
+  case "Takmir":$akt[2]='class="active"';break;
+  case "Ustadz":$akt[3]='class="active"';break;
+  case "Post":$akt[4]='class="active"';break;
+  case "Tag":$akt[5]='class="active"';break;
+  case "Jadwal kegiatan":$akt[6]='class="active"';break;
+  case "Media":$akt[7]='class="active"';break;
+  case "Keuangan Masjid":$akt[8]='class="active"';break;
+  case "Rekam Donasi":$akt[9]='class="active"';break;
+  case "Pengaturan":$akt[10]='class="active"';break;
+  default:break;
+}?>
+
         <div id="left-sidebar" class="sidebar">
           <button type="button" class="btn btn-xs btn-link btn-toggle-fullwidth">
     <span class="sr-only">Toggle Fullwidth</span>
@@ -192,7 +213,7 @@ switch ($page) {
                 echo base_url('uploads/takmir/'.$mediadir);
               ?>" class="img-responsive img-circle user-photo" alt="Admin Masjid" style="width:150px;height:150px"></a>
               <div class="dropdown">
-                <a href="#" class="dropdown-toggle user-name" data-toggle="dropdown">Assalamualaikum, <strong><?php if(isset($padmin->username)){
+                <a href="#" class="aputih dropdown-toggle user-name" data-toggle="dropdown">Assalamualaikum, <strong><?php if(isset($padmin->username)){
                   echo $padmin->username;
                 }else{
                   echo $padmin['username'];
@@ -207,13 +228,13 @@ switch ($page) {
             </div>
             <nav id="left-sidebar-nav" class="sidebar-nav">
               <ul id="main-menu" class="metismenu">
-                <li class="active"><a href="<?php echo base_url('admin')?>"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+                <li class=""  <?php echo $akt[0]; ?>><a href="<?php echo base_url('admin')?>"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
                 <li class="">
                   <a href="#uiElements" class="has-arrow" aria-expanded="false"><i class="lnr lnr-magic-wand"></i> <span>Masjid</span></a>
                   <ul>
-                    <li class=""><a href="<?php echo base_url('profilm')?>">Profil Masjid</a></li>
-                    <li class=""><a href="<?php echo base_url('takmir')?>">Takmir</a></li>
-                    <li class=""><a href="<?php echo base_url('ustadz')?>">Ustadz</a></li>
+                    <li class="" <?php echo $akt[1]; ?>><a href="<?php echo base_url('profilm')?>">Profil Masjid</a></li>
+                    <li class="" <?php echo $akt[2]; ?>><a href="<?php echo base_url('takmir')?>">Takmir</a></li>
+                    <li class="" <?php echo $akt[3]; ?>><a href="<?php echo base_url('ustadz')?>">Ustadz</a></li>
                     <!-- <li class=""><a href="ui-buttons.html">Buttons</a></li>
             <li class=""><a href="ui-bootstrap.html">Bootstrap UI</a></li>
             <li class=""><a href="ui-icons.html"><span>Icons</span></a></li> -->
@@ -222,24 +243,24 @@ switch ($page) {
                 <li class="">
                   <a href="<?php echo base_url('post')?>" class="has-arrow" aria-expanded="false"><i class="lnr lnr-pencil"></i> <span>Post</span></a>
                   <ul>
-                    <li class=""><a href="<?php echo base_url('post')?>">Post</a></li>
-                    <li class=""><a href="<?php echo base_url('tag')?>">Tag</a></li>
+                    <li class="" <?php echo $akt[4]; ?>><a href="<?php echo base_url('post')?>">Post</a></li>
+                    <li class=""  <?php echo $akt[5]; ?>><a href="<?php echo base_url('tag')?>">Tag</a></li>
                   </ul>
                 </li>
-                <li class="">
+                <li class="" <?php echo $akt[6]; ?>>
                   <a href="<?php echo base_url('jadwalkegiatan')?>" class="" aria-expanded="false"><i class="lnr lnr-file-empty"></i> <span>Jadwal Kegiatan</span></a>
                 </li>
-                <li class="">
+                <li class="" <?php echo $akt[7]; ?>>
                   <a href="<?php echo base_url('media')?>" class="" aria-expanded="false"><i class="lnr lnr-file-empty"></i> <span>Media</span></a>
                 </li>
                 <li class="">
                   <a href="#charts" class="has-arrow" aria-expanded="false"><i class="lnr lnr-chart-bars"></i> <span>Keuangan Masjid</span></a>
                   <ul aria-expanded="true">
-                    <li class=""><a href="<?php echo base_url('keuanganmasjid')?>">Keuangan</a></li>
-                    <li class=""><a href="<?php echo base_url('rekamdonasi')?>">Rekam Donasi</a></li>
+                    <li class="" <?php echo $akt[8]; ?>><a href="<?php echo base_url('keuanganmasjid')?>">Keuangan</a></li>
+                    <li class="" <?php echo $akt[9]; ?>><a href="<?php echo base_url('rekamdonasi')?>">Rekam Donasi</a></li>
                   </ul>
                 </li>
-                <li class="">
+                <li class="" <?php echo $akt[10]; ?>>
                   <a href="<?php echo base_url('pengaturan')?>" class="" aria-expanded="false"><i class="lnr lnr-cog"></i><span>Pengaturan</span></a>
                 </li>
                 <!-- <li class=""><a href="notifications.html"><i class="lnr lnr-alarm"></i> <span>Notifications</span> <span class="badge bg-danger">15</span></a></li>
