@@ -53,8 +53,9 @@ class Login extends CI_Controller {
 		}
 	}
 
-	public function forget(){
+	public function forget($message=null){
 		$data['page'] = "Forget Password";
+		$data['alert']= $message;
 		if ($this->session->userdata('username') and $this->session->userdata('userpass')){
 			redirect(base_url('admin'));
 		}else{
@@ -63,48 +64,101 @@ class Login extends CI_Controller {
 		}
 	}
 
-	public function dbsendemail(){
+	public function dbtoken(){
 		$data['email'] = $this->input->post('email');   
         $clean= $this->security->xss_clean($data['email']);  
         $userInfo = $this->mprofiladmin->getUserInfoByEmail($clean);
+
+        $this->load->helper('cookie');
+		$data['cookie']=$this->input->cookie("email", FALSE);
+
         if(!$userInfo){ 
-        	//echo "error";
-        	redirect(base_url('login/forget/'));
-        }
+        	$message="Email Tidak ditemukan!";
+        	$this->forget($message);
+        }else if ($data['cookie'] == false) {
+			$data['expire']=60*60*24;
+			$cookie = array(
+			"name"   => "email",
+			"value"  => $clean,
+			"expire" => $data['expire'],
+			"secure" => false
+			);
+			$this->input->set_cookie($cookie);
 
-        $token = $this->mprofiladmin->insertToken($userInfo->userid);    
-        $url = base_url().'login/reset_password/'.$token;  
-        $link = '<a href="' . $url . '">' . $url . '</a>';   
-               
-        $message = '';             
-        $message .= '<strong>Hai, anda menerima email ini karena ada permintaan untuk memperbaharui password anda.</strong><br>';  
-        $message .= '<strong>Silakan klik link ini:</strong> ' . $link;  
-        echo $message;       
+	      	$token = $this->mprofiladmin->insertToken($userInfo->userid); 
+	        $url = base_url().'login/reset_password/'.$token;  
+	        $link = '<a href="' . $url . '">' . $url . '</a>';   
+	               
+	        $message = '';             
+	        $message .= '<strong>Hai, anda menerima email ini karena ada permintaan untuk memperbaharui password anda.</strong><br>';  
+	        $message .= '<strong>Silakan klik link ini:</strong> ' . $link;
 
-//error kirim email
-		// $config = array(
-  //       'protocol' => 'smtp',
-  //       'smtp_host' => 'ssl://smtp.gmail.com',
-  //       'smtp_port' =>  465, 
-  //       'smtp_user' => '2luck4nut@gmail.com',
-  //       'smtp_pass' => 'nutcracker',
-  //       // 'smtp_crypto' => 'tls',
-  //       'smtp_timeout' => '30',
-  //       'mailtype'  => 'html', 
-  //       'charset'   => 'utf-8',
-  //       'newline'	=>	"\r\n"
-  //   	);
-		// $this->load->library('email', $config);
-		// $this->email->to($clean);
-		// $this->email->from('2luck4nut@gmail.com','luck nut');
-		// $this->email->subject('link ubah password (HTML)');
-		// $this->email->message($message);
-		// $result=$this->email->send();
-		// var_dump($result);
+	        $this->send_email2($message, $clean);
 
-		// $data['page'] = "Email Terkirim";
-		// $this->load->view('core/core',$data);
-		// $this->load->view('vlogin');
+			$data['page'] = "Email Terkirim";
+			$this->load->view('core/core',$data);
+			$this->load->view('vlogin');
+
+	  	}else{
+	  		$message="Email sudah terkirim, silahkan cek inbox anda!";
+	  		$this->forget($message);
+	  	}
+
+        
+	}
+
+	public function send_email($message, $email){
+		$config = array(
+        'protocol' => 'smtp',
+        'smtp_host' => 'mail.smtp2go.com',
+        'smtp_port' =>  2525, 
+        'smtp_user' => 'fahrul.gh@gmail.com',
+        'smtp_pass' => 'qlSyNllvbmT6',
+        // 'smtp_crypto' => 'tls',
+        // "verify_peer"=>false,
+        // "verify_peer_name"=>false,
+        'smtp_timeout' => '30',
+        'mailtype'  => 'html', 
+        'charset'   => 'utf-8',
+        'newline'	=>	"\r\n"
+    	);
+		$this->load->library('email', $config);
+		$this->email->to($email);
+		$this->email->from('fahrul.gh@gmail.com','fahrul gh');
+		$this->email->subject('link ubah password (HTML)');
+		$this->email->message($message);
+		$result=$this->email->send();
+		//var_dump($this->email);
+	}
+
+	public function send_email2($pesan, $email){
+		$url = 'https://api.elasticemail.com/v2/email/send';
+		try{
+		        $post = array('from' => 'cms@masjd.com',
+				'fromName' => 'CMS Masjid',
+				'apikey' => '756233e6-5065-40aa-bd1d-051b4a658f81',
+				'subject' => 'Forget Password huh?',
+				'to' => $email,
+				'bodyHtml' => $pesan,
+				'isTransactional' => true);
+				
+				$ch = curl_init();
+				curl_setopt_array($ch, array(
+		            CURLOPT_URL => $url,
+					CURLOPT_POST => true,
+					CURLOPT_POSTFIELDS => $post,
+		            CURLOPT_RETURNTRANSFER => true,
+		            CURLOPT_HEADER => false,
+					CURLOPT_SSL_VERIFYPEER => false
+		        ));
+				
+		        $result=curl_exec ($ch);
+		        curl_close ($ch);
+		        //echo $result;	
+		}
+		catch(Exception $ex){
+			echo $ex->getMessage();
+		}
 	}
 
 	public function reset_password(){

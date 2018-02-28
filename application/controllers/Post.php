@@ -100,15 +100,15 @@ mediaid
 		$data['ip'] = $this->input->ip_address();
 		$data['expire']=60*60*24;
 		if ($data['visitor'] == false) {
-      $cookie = array(
-        "name"   => $postid,
-        "value"  => $data['ip'],
-        "expire" => $data['expire'],
-        "secure" => false
-      );
-      $this->input->set_cookie($cookie);
-      $this->mpost->update_counter($postid);
-  	}
+	      $cookie = array(
+	        "name"   => $postid,
+	        "value"  => $data['ip'],
+	        "expire" => $data['expire'],
+	        "secure" => false
+	      );
+	      $this->input->set_cookie($cookie);
+	      $this->mpost->update_counter($postid);
+	  	}
 		unset($data, $postid, $cookie);
 	}
 
