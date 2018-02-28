@@ -34,8 +34,7 @@ unset(variabel) => hapus variabel dari memori
 		// }else
 
 		if(isset($data['slug'])){
-			$q = $this->db->query("select * from cmpost where psjudul=?",array(urldecode($data['slug'])));
-
+			$q = $this->db->query("select * FROM cmpost cmp left join cmtag ct on cmp.tagid=ct.tagid where psjudul=?",array(urldecode($data['slug'])));
 		}else{
 			// echo "<script>alert(1);</script>";
 			// $q = $this->db->query("SELECT * FROM cmpost cmp left join cmtag ct on cmp.tagid=ct.tagid order by postid desc");
@@ -51,7 +50,7 @@ unset(variabel) => hapus variabel dari memori
 		if(isset($data['tagid'])){
 			$q = $this->db->query("select * from cmtag where tagid=?",array($data['tagid']));
 		}else{
-			$q = $this->db->query("select * from cmtag where tagid");
+			$q = $this->db->query("select * from cmtag where tagid>2");
 		}
 		return $q;
 		$q=null;
@@ -130,7 +129,9 @@ unset(variabel) => hapus variabel dari memori
 	}
 
 	public function hapustag($data){
-		$q = $this->db->query("delete from cmtag where tagid=?",array($data['tagid']));
+		if (!$data['tagid']<2) {
+			$q = $this->db->query("delete from cmtag where tagid=?",array($data['tagid']));
+		}
 		unset($data,$q);
 	}
 

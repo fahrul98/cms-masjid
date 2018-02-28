@@ -27,6 +27,7 @@ jkwaktu
 
 	public function index(){
 	  $data['page'] = "Tag";
+		$data['ctrl'] = "post";
 		$data['cmtag'] = $this->mpost->tampiltag()->result();
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
@@ -39,6 +40,7 @@ jkwaktu
 
 	public function tambahtag(){
 		$data['page'] = "Tambah Tag";
+		$data['ctrl'] = "post";
 		$this->load->model('mprofiladmin');
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 

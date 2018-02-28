@@ -79,8 +79,8 @@ switch ($page) {
                     </a>
                   <ul class="dropdown-menu">
                     <li role="presentation" <?php echo $akt[7]; ?>><a href="<?php echo base_url('beranda/galeri');?>">Galeri</a></li>
-                    <li role="presentation" <?php echo $akt[5]; ?>><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li>
-                    <li role="presentation" <?php echo $akt[6]; ?>><a href="<?php echo base_url('beranda/tentang');?>">?</a></li>
+                    <!-- <li role="presentation" <?php echo $akt[5]; ?>><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li> -->
+                    <li role="presentation" <?php echo $akt[6]; ?>><a href="<?php echo base_url('beranda/tentang');?>">Pengembang</a></li>
                   </ul>
                 </li>
                 <?php if ($this->session->userdata('username')&&$this->session->userdata('userpass')) {
@@ -205,12 +205,25 @@ switch ($page) {
                 </ul>
               </div>
             </div>
+    <?php
+    //tombol navbar aktif
+    $aria=array('false','false','false');
+    $colps=array('','','');
+    if(isset($ctrl)){
+
+    switch ($ctrl) {
+      case "masjid":$aria[0]='true';$colps[0]="class='collapse in'";break;
+      case "post":$aria[1]='true';$colps[1]="class='collapse in'";break;
+      case "kmasjid":$aria[2]='true';$colps[2]="class='collapse in'";break;
+      default:break;
+    }
+    }?>
             <nav id="left-sidebar-nav" class="sidebar-nav">
               <ul id="main-menu" class="metismenu">
                 <li class="active"><a href="<?php echo base_url('admin')?>"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
                 <li class="">
-                  <a href="#uiElements" class="has-arrow" aria-expanded="false"><i class="lnr lnr-magic-wand"></i> <span>Masjid</span></a>
-                  <ul>
+                  <a href="#uiElements" class="has-arrow" aria-expanded="<?php echo $aria[0];?>"><i class="lnr lnr-magic-wand"></i> <span>Masjid</span></a>
+                  <ul <?php echo $colps[0]; ?>>
                     <li class=""><a href="<?php echo base_url('profilm')?>">Profil Masjid</a></li>
                     <li class=""><a href="<?php echo base_url('takmir')?>">Takmir</a></li>
                     <li class=""><a href="<?php echo base_url('ustadz')?>">Ustadz</a></li>
@@ -220,8 +233,8 @@ switch ($page) {
                   </ul>
                 </li>
                 <li class="">
-                  <a href="<?php echo base_url('post')?>" class="has-arrow" aria-expanded="false"><i class="lnr lnr-pencil"></i> <span>Post</span></a>
-                  <ul>
+                  <a href="<?php echo base_url('post')?>" class="has-arrow" aria-expanded="<?php echo $aria[1];?>"><i class="lnr lnr-pencil"></i> <span>Post</span></a>
+                  <ul <?php echo $colps[1]; ?>>
                     <li class=""><a href="<?php echo base_url('post')?>">Post</a></li>
                     <li class=""><a href="<?php echo base_url('tag')?>">Tag</a></li>
                   </ul>
@@ -233,8 +246,8 @@ switch ($page) {
                   <a href="<?php echo base_url('media')?>" class="" aria-expanded="false"><i class="lnr lnr-file-empty"></i> <span>Media</span></a>
                 </li>
                 <li class="">
-                  <a href="#charts" class="has-arrow" aria-expanded="false"><i class="lnr lnr-chart-bars"></i> <span>Keuangan Masjid</span></a>
-                  <ul aria-expanded="true">
+                  <a href="#charts" class="has-arrow" aria-expanded="<?php echo $aria[2];?>"><i class="lnr lnr-chart-bars"></i> <span>Keuangan Masjid</span></a>
+                  <ul <?php echo $colps[2]; ?>>
                     <li class=""><a href="<?php echo base_url('keuanganmasjid')?>">Keuangan</a></li>
                     <li class=""><a href="<?php echo base_url('rekamdonasi')?>">Rekam Donasi</a></li>
                   </ul>
