@@ -46,12 +46,18 @@ if(!isset($mode)){
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/toastr/toastr.min.css');?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css');?>">
-<link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css');?>">
-<link rel="stylesheet" href="<?php echo base_url('assets/css/set1.css');?>">
+<!-- <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css');?>">
+<link rel="stylesheet" href="<?php echo base_url('assets/css/set1.css');?>"> -->
 
 <!-- Main JS ? -->
 <?php }else{
  ?>
+ <!-- =======================================================
+    Theme Name: eNno
+    Theme URL: https://bootstrapmade.com/enno-free-simple-bootstrap-template/
+    Author: BootstrapMade
+    Author URL: https://bootstrapmade.com
+  ======================================================= -->
  <!-- CSS Template NetizenUI -->
  <link rel="stylesheet" href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.min.css'); ?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css');?>">
@@ -93,6 +99,7 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
   .phitam {
     color:#000000;
     font-size: 17px;
+    font-family: Arial;
   }
   .container .phitam {
     color:#000000;
@@ -100,6 +107,36 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
   }
   th {
     text-align: center;
+
+  .nomargin {
+    margin:0px;
+  }
+
+  .nopadding {
+    padding: 0px;
+    width: 430px;
+  }
+
+  .textfooter {
+    padding-top: 0px;
+    text-align: justify;
+  }
+
+  .backgroundpict {
+    background:url('<?php echo base_url('assets/img/img-4.jpg');?>');
+    background-attachment: fixed;
+    width: 100%;
+    height: 350px;
+  }
+
+  .backgroundpictop {
+    background:url("<?php echo base_url('assets/img/img-4.jpg');?>");
+    background-attachment: fixed;
+    width: 100%;
+    height: 650px;
+  }
+  .nav .container .navbar-header .navbar-brand{
+    font-size:50px;
   }
 </style>
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>">

@@ -28,6 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
         </button>
+          <!-- <a class="navbar-brand" href="<?php echo base_url('');?>"><span><?php echo $cmprofil->pnama;?></span></a> -->
           <a class="navbar-brand" href="<?php echo base_url('');?>"><span><?php echo $cmprofil->pnama;?></span></a>
         </div>
         <div class="navbar-collapse collapse">
