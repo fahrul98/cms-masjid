@@ -144,4 +144,10 @@ unset(variabel) => hapus variabel dari memori
 		$q = $this->db->query("update cmpost set vcount=vcount+1 where postid=?",array($postid));
 		unset($data,$q);
 	}
+
+	public function statistik(){
+		$q = $this->db->query("select sum(vcount) as totalp,max(vcount) as maxp from cmpost");
+		return $q;
+		unset($data,$q);
+	}
 }

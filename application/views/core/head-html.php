@@ -107,6 +107,7 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
   }
   th {
     text-align: center;
+  }
 
   .nomargin {
     margin:0px;
@@ -134,9 +135,12 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
     background-attachment: fixed;
     width: 100%;
     height: 650px;
+<<<<<<< HEAD
   }
   .nav .container .navbar-header .navbar-brand{
     font-size:50px;
+=======
+>>>>>>> e0139efed710b6f21f821604df62fbc9682001b3
   }
 </style>
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>">

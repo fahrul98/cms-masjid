@@ -28,7 +28,7 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
             <div class="col-md-4 f-about">
               <a href="<?php echo base_url('');?>"><h1><span><?php echo $cmprofil->pnama;?></span></h1></a>
 
-              <p class="phitam textfooter">Sesungguhnya perjalanan terberat bukanlah perjalanan mendaki puncak gunung tertinggi, perjalanan terberat merupakan perjalanan ke masjid</p>
+              <p class="phitam textfooter"> <?php echo nl2br($pgt->cmfoot1);?></p>
             </div>
             <div class="col-md-4 l-posts">
               <h3 class="widgetheading">Post terbaru</h3>
@@ -52,12 +52,17 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
               </div>
             </div>
             <div class="col-md-4 f-contact">
-              <h3 class="widgetheading">Hubungi Kami</h3>
+              <h3 class="widgetheading">Info</h3>
+              <div class="col-md l-posts phitam">
+                <?php echo nl2br($pgt->cmfoot2);?>
+            </div>
+              <!-- <h3 class="widgetheading">Hubungi Kami</h3>
+
               <a href="#">
                 <p class="phitam nomargin nopadding"><i class="fa fa-envelope"></i>masjidtaqwa@gmail.com</p>
               </a>
               <p class="phitam nomargin nopadding"><i class="fa fa-phone"></i> +345 578 59 45 416</p>
-              <p class="phitam nomargin nopadding"><i class="fa fa-home"></i> Masjid taqwa | Tulusrejo Lowokwaru, Malang</p>
+              <p class="phitam nomargin nopadding"><i class="fa fa-home"></i> Masjid taqwa | Tulusrejo Lowokwaru, Malang</p> -->
             </div>
           </div>
         </div>

@@ -21,6 +21,8 @@ class Admin extends CI_Controller {
 		// define('CONF', '\config');
 			define('CONF', '/config');
 		}
+		$this->load->model('mpost');
+		$this->load->model('mprofiladmin');
 	}
 
 	// if (file_exists(FCPATH.APP.CONF.'\cms_settings.php')) {
@@ -31,8 +33,9 @@ class Admin extends CI_Controller {
 			if ($this->session->userdata('username') and $this->session->userdata('userpass')){
 				// redirect(base_url('admin'));
 				//load fullname admin
-				$this->load->model('mprofiladmin');
+
 				$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
+				$data['statistik']=$this->mpost->statistik()->row();
 
 				$data['page'] = "Beranda Admin";
 				$data['configpath'] = FCPATH.APP.CONF.'/cms_settings.php';
@@ -57,6 +60,7 @@ class Admin extends CI_Controller {
 		// $this->m_aplikasi->putus_koneksi();
 
 		// semua variabel session akan dihapus dari memory
+		delete_cookie('remember');
 		$array_session = $this->session->all_userdata();
 		$this->session->unset_userdata($array_session);
 		unset($array_session);
