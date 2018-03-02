@@ -60,7 +60,7 @@ mediaid
 				<div class="col-md-6 col-md-offset-3" style="margin-top: 130px">
 					<div class="text-center">
 						<h1>Selamat Datang di Website <br><?php echo $cmprofil->pnama; ?></h1>
-						<p class="phitam">Mari kita memuliakan rumah Allah</p>
+						<p >Mari kita memuliakan rumah Allah</p>
 					</div>
 				</div>
 				</div>
