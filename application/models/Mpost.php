@@ -67,15 +67,10 @@ unset(variabel) => hapus variabel dari memori
 	}
 
 	public function tampilpaging($jumlah, $batas,$st=null){
-		$q = $this->db->get('cmpost',$jumlah,$batas)->result();
+		// $q = $this->db->get('cmpost',$jumlah,$batas)->result();
 		if (!isset($batas)) {
 			$batas=0;
 		}
-		// $this->db->select('*');
-		// $this->db->from('cmpost cmp');
-		// $this->db->join('cmtag ct', 'cmp.tagid=ct.tagid','left');
-		// $this->db->limit($jumlah,$batas);
-		// $q = $this->db->get();
 
 		//jika st di set maka hanya menampilkan post public saja
 		$qa = $st!=null?" where cmp.pspublic=1 ":"";
@@ -92,7 +87,7 @@ unset(variabel) => hapus variabel dari memori
 	}
 
 	public function buatpost($data){
-		$q = $this->db->query("insert into cmpost (psjudul,psustadz,pstext,tagid) values (?,?,?,?)",
+		$q = $this->db->query("insert into cmpost (psjudul,psustadz,pstext,tagid,psbuat) values (?,?,?,?,now())",
 		array($data['psjudul'],
 			$data['psustadz'],
 			$data['pstext'],

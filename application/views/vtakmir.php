@@ -36,14 +36,12 @@ if ($page=="Takmir") {
 				<?php
 		$n = 1;
 		foreach ($cmtakmir as $v) {
-			echo "<tr>
+			echo "<tr align='center'>
 			<td>".$n."</td>";
 			// <td>"$v->mediaid."</td>"
 			?>
 					<td>
-					<div class="thumbnail">
-						<img src="<?php echo base_url('uploads/takmir/'.$v->mediadir);?>" width=60 height=80 />
-					</div>
+						<img class="thumbnail" src="<?php echo base_url('uploads/takmir/'.$v->mediadir);?>" width=80 height=80 />
 					</td>
 					<?php
 			echo '<td>'.$v->tknama.'</td>
@@ -58,11 +56,11 @@ if ($page=="Takmir") {
 		}
 		  ?>
 			</table>
-			<a class="btn btn-primary" href="<?php echo base_url('takmir/tambahtk');?>"><i class="fa fa-pencil-square-o"> </i><span>Tambah Takmir</span></a>
+			<a class="btn btn-default" href="<?php echo base_url('takmir/tambahtk');?>"><i class="fa fa-pencil-square-o"> </i><span>Tambah Takmir</span></a>
 			<?php }else if ($page=="Tambah Takmir") {?>
 			<?php echo form_open_multipart('takmir/dbtambahtk','class=form');	?>
 			<div class="container">
-				<div class="row">					
+				<div class="row">
 					<div class="col-md-4">
 						<div class="panel-content">
 							<h2 class="heading"><i class="fa fa-square"></i>Media</h2>

@@ -60,7 +60,7 @@ mediaid
 				<div class="col-md-6 col-md-offset-3" style="margin-top: 130px">
 					<div class="text-center">
 						<h1>Selamat Datang di Website <br><?php echo $cmprofil->pnama; ?></h1>
-						<p class="phitam">Mari kita memuliakan rumah Allah</p>
+						<p >Mari kita memuliakan rumah Allah</p>
 					</div>
 				</div>
 				</div>
@@ -224,10 +224,11 @@ mediaid
 						<a href="<?php echo base_url('beranda/post/'.urlencode($v->psjudul));?>">
 							<h3 class="media-heading"><?php echo $v->psjudul; ?></h3>
 							<p class="text-muted">
-								<?php echo $v->psbuat." |	".$v->psustadz." | ".$v->tag." | ";?><i class='fa fa-eye' aria-hidden='true'></i> <span> <?php echo $v->vcount; ?></span>
+								<?php echo htmlentities($v->psbuat." |	".$v->psustadz." | ".$v->tag." | ");?><i class='fa fa-eye' aria-hidden='true'></i> <span> <?php echo $v->vcount; ?></span>
 							</p>
 							<div class="phitam">
-								<?php echo substr($v->pstext,0,100)."...</p>"; ?>
+								<?php echo $this->security->xss_clean(substr($v->pstext,0,50));
+								//."...</p>"; ?>
 							</div>
 							<a href="<?php echo base_url('beranda/post/'.urlencode($v->psjudul));?>" alt="">Lebih banyak...</a>
 						</a>
@@ -395,7 +396,6 @@ mediaid
 				</table>
 				</div>
 				</div>
-
 				<?php }else if ($page=="Ustadz") {?>
 					<div class="container">
 						<div class="row">

@@ -41,7 +41,7 @@ $n = 1;
 		}
 		 ?>
 	</table>
-<a class="btn btn-primary"href="<?php echo base_url('tag/tambahtag');?>"><i class="fa fa-pencil-square-o"> </i><span> Tambah tag</span></a>
+<a class="btn btn-default"href="<?php echo base_url('tag/tambahtag');?>"><i class="fa fa-pencil-square-o"> </i><span> Tambah tag</span></a>
 
 <?php }else if ($page=="Tambah Tag") {?>
 

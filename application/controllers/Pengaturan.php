@@ -10,6 +10,7 @@ class Pengaturan extends CI_Controller{
     $this->load->model('mprofiladmin');
     $this->load->model('mpengaturan');
   }
+  
   public function index(){
     $data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
@@ -24,6 +25,7 @@ class Pengaturan extends CI_Controller{
 		$this->session->set_userdata('err',null);
 		$this->session->set_userdata('input',null);
   }
+
   public function dbubahp(){
     $this->form_validation->set_rules('dsid2','Desain','required|min_length[1]|max_length[2]',
 			array(

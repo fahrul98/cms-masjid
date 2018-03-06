@@ -28,7 +28,7 @@ $q = $this->db->query("",
 
 	public function tampiljkegiatan($data = null){
 		if ($data == null) {
-			$q = $this->db->query('select * from cmjkegiatan');
+			$q = $this->db->query('select *,cmt.tag from cmjkegiatan cmj left join cmtag cmt on cmj.tagid=cmt.tagid');
 		}else{
 			$q = $this->db->query('select * from cmjkegiatan where jkid=?',
 				array($data['jkid']

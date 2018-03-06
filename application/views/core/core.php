@@ -8,6 +8,8 @@ lihat contoh : di controller admin aku gawe
 ok?
 
 */
+
+  //resend $page
   $data['page'] = $page;
   //include_once('head-html.php');
   $this->load->view('core/head-html',$data);
@@ -20,10 +22,9 @@ ok?
 
   // if($this->session->userdata('username')&&$this->session->userdata('password')){
 
-  // jika ada login, muncul navbar admin. jika tidak muncul navbar pengunjung
-  if(true){
-    $this->load->view('core/navbar',$data);
-  }
+
+  $this->load->view('core/navbar',$data);
+
   if($this->session->userdata('username') and $this->session->userdata('userpass')){
 ?>
 <div class="container">

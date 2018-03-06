@@ -51,15 +51,19 @@ $n = 1;
 		 ?>
 	</table>
 	<a class="btn btn-default" href="<?php echo base_url('rekamdonasi/tambahrdonasi');?>"><i class="fa fa-pencil-square-o"> </i><span>Tambah Entri</span></a>
-<?php }else if ($page=="Tambah rekamdonasi") {?>
-	<?php echo $error; ?>
+<?php }else if ($page=="Tambah Rekam Donasi") {?>
 	<div class="container">
 		<div class="row">
 			<div class="panel col-md-4">
 	<?php echo form_open('rekamdonasi/dbtambahrdonasi','class=form');	?>
 				<div class="form-group">
-					<label for="rdwaktu">Waktu :  </label>
-					<input type="text" class="form-control" name="rdwaktu" value="<?php echo $input['rdwaktu']; ?>">
+					<label for="rdwaktu">Waktu</label>
+					<!-- <label for="dtp_input1" class="col-md-2 control-label">DateTime Picking</label> -->
+					<div class="input-group date form_datetime" data-date="" data-date-format="yyyy-mm-dd hh:mm:ss" data-link-field="rdwaktu">
+						<input class="form-control" size="16" type="text" value="" readonly name="rdwaktu">
+						<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+						<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+					</div>
 				</div>
 				<div class="form-group">
 					<label for="rdjumlah">Jumlah : </label>
@@ -80,16 +84,20 @@ $n = 1;
 </div>
 
 
-<?php }else if ($page=="Ubah rekamdonasi") {?>
-	<?php echo $error; ?>
+<?php }else if ($page=="Ubah Rekam Donasi") {?>
 <div class="container">
 	<div class="row">
 		<div class="panel col-md-4">
 	<?php echo form_open('rekamdonasi/dbubah','class=form');	?>
 	<input type="hidden" name="rdid" value="<?php echo $cmrdonasi->rdid;?>">
 	<div class="form-group">
-		<label for="rdwaktu">Waktu : </label>
-		<input type="text" class="form-control" name="rdwaktu" value="<?php echo $cmrdonasi->rdwaktu;?>">
+		<label for="rdwaktu">Waktu</label>
+		<!-- <label for="dtp_input1" class="col-md-2 control-label">DateTime Picking</label> -->
+		<div class="input-group date form_datetime" data-date="" data-date-format="yyyy-mm-dd hh:mm:ss" data-link-field="rdwaktu">
+			<input class="form-control" size="16" type="text" value="<?php echo $cmrdonasi->rdwaktu;?>" readonly name="rdwaktu">
+			<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+			<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+		</div>
 	</div>
 	<div class="form-group">
 		<label for="rdjumlah">Jumlah</label>

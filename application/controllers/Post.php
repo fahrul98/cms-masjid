@@ -27,6 +27,7 @@ mediaid
 		$this->load->model('mpost');
 		$this->load->model('mprofilm');
 		$this->load->model('mprofiladmin');
+		$this->load->model('mpengaturan');
 	}
 
 	//view all post
@@ -41,7 +42,7 @@ mediaid
 		$this->load->library('pagination');
 		$config['base_url'] = base_url().'post/index/';
 		$config['total_rows'] = $jumlah_data;
-		$config['per_page'] = 3;
+		$config['per_page'] = 5;
 		$from = $this->uri->segment(3);
 		$this->pagination->initialize($config);
 
@@ -59,8 +60,9 @@ mediaid
 	function search(){
 		$data['cmpost'] = $this->mpost->get_search();
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
-		$data['page'] = "post";
-		$data['mode'] = 'viewall';
+		$data['page'] = "Post";
+		$data['page2'] = "balik";// untuk tombol kembali
+		// $data['mode'] = '';
 		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
 		$this->load->view('core/core',$data);
 		$this->load->view('vpost',$data);
@@ -89,6 +91,7 @@ mediaid
 			$this->add_count($data['post']->postid);
 		}
 		$data['ctrl'] = "post";
+		$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();//4 footer
 		$this->load->view('core/core',$data);
 		$this->load->view('vpost',$data);
 		$this->load->view('core/footer',$data);
@@ -133,7 +136,7 @@ method-method untuk operasi admin
 				'pspublic' => '',
 				'tagid' => ''
 			);
-$data['ctrl'] = "post";
+		$data['ctrl'] = "post";
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpost',$data);
@@ -145,10 +148,10 @@ $data['ctrl'] = "post";
 	}
 
 	public function dbtulis(){
-		$this->form_validation->set_rules('judul','Judul','required|min_length[8]|max_length[50]',
+		$this->form_validation->set_rules('judul','Judul','required|min_length[3]|max_length[100]',
 			array(
 				'required' => '%s harus diisi',
-				'min_length' => '%s harus >=8 karakter',
+				'min_length' => '%s harus >=3 karakter',
 				'max_length' => '%s harus <=50 karakter'
 			)
 		);
@@ -178,6 +181,21 @@ $data['ctrl'] = "post";
 	}
 
 	public function dbubah(){
+		$this->form_validation->set_rules('judul','Judul','required|min_length[3]|max_length[100]',
+			array(
+				'required' => '%s harus diisi',
+				'min_length' => '%s harus >=3 karakter',
+				'max_length' => '%s harus <=50 karakter'
+			)
+		);
+		$this->form_validation->set_rules('text','Teks','required|min_length[8]|max_length[50000]',
+			array(
+				'required' => '%s harus diisi',
+				'min_length' => '%s harus >=8 karakter',
+				'max_length' => '%s harus <=50000 karakter'
+			)
+		);
+		
 		$data['postid'] = $this->input->post('postid');
 		$data['psjudul'] = $this->input->post('judul');
 		$data['psustadz'] = $this->input->post('ustadz');

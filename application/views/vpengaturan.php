@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="panel panel-default row">
 				<!-- <?php echo form_open('profiladmin/dbubahprofiladmin');?> -->
 				<?php echo form_open_multipart('pengaturan/dbubahp','class=form');	?>
-			<div class="panel-content col-md-4">
+			<div class="panel-content col-md-12">
 			<div class="form-group">
 				<label for="dsid">dsid : </label>
 				<input type="text" required="required" class="form-control" name="dsid2" value="<?php echo $pgt->dsid;?>">

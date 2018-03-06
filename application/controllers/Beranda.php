@@ -82,10 +82,11 @@ method-method halaman pengunjung
 			$config['base_url'] = base_url().'beranda/post/';
 			$config['total_rows'] = $jumlah_data;
 			$config['per_page'] = 5;
-			$this->pagination->initialize($config);
 			$from = $this->uri->segment(3);
+			$this->pagination->initialize($config);
 			//$data['user'] = $this->m_data->data($config['per_page'],$from);
-			$data['cmpost'] = $this->mpost->tampilpaging($config['per_page'],$from,"publik on")->result();
+			$data['cmpost'] = $this->mpost->tampilpaging($config['per_page'],$from," ")->result();
+
 			$str_links=$this->pagination->create_links();
 			$data["links"] = explode('.',$str_links );
 			// $postid = 1;

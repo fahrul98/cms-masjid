@@ -53,13 +53,15 @@ $n = 1;
 	<div class="container">
 		<div class="row">
 			<div class="panel col-md-4">
-		<div class="form-group">
-			<label for="kmwaktu">Waktu</label>
-				<div class="input-group date" data-date-autoclose="true" >
-					<input type="text" class="form-control" name="kmwaktu" data-date-format="yyyy-mm-dd" data-provide="datepicker">
-					<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+				<div class="form-group">
+					<label for="kmwaktu">Waktu</label>
+					<!-- <label for="dtp_input1" class="col-md-2 control-label">DateTime Picking</label> -->
+					<div class="input-group date form_datetime" data-date="" data-date-format="yyyy-mm-dd hh:mm:ss" data-link-field="kmwaktu">
+						<input class="form-control" size="16" type="text" value="" readonly name="kmwaktu">
+						<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+						<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+					</div>
 				</div>
-		</div>
 		<div class="form-group">
 			<label for="kmketerangan">Keterangan</label>
 			<textarea name="kmketerangan" class="form-control" rows="5" value=""></textarea>
@@ -86,14 +88,15 @@ $n = 1;
 			<div class="panel col-md-4">
 	<?php echo form_open('keuanganmasjid/dbubah','class=form');	?>
 	<input type="hidden" name="kmid" value="<?php echo $kmasjid->kmid;?>">
-		
-		<div class="form-group">
-			<label for="kmwaktu">Waktu</label>
-			<div class="input-group date" data-date-autoclose="true" >
-					<input type="text" class="form-control" name="kmwaktu" data-date-format="yyyy-mm-dd" data-provide="datepicker" value="<?php echo $kmasjid->kmwaktu;?>">
-					<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-			</div>
+	<div class="form-group">
+		<label for="kmwaktu">Waktu</label>
+		<!-- <label for="dtp_input1" class="col-md-2 control-label">DateTime Picking</label> -->
+		<div class="input-group date form_datetime" data-date="" data-date-format="yyyy-mm-dd hh:mm:ss" data-link-field="kmwaktu">
+			<input class="form-control" size="16" type="text" value="<?php echo $kmasjid->kmwaktu;?>" readonly name="kmwaktu">
+			<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+			<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
 		</div>
+	</div>
 		<div class="form-group">
 			<label for="kmketerangan">Keterangan</label>
 			<textarea name="kmketerangan" class="form-control" rows="5" value="<?php echo $kmasjid->kmketerangan;?>"></textarea>
