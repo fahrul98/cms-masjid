@@ -51,7 +51,6 @@ input->proses->hapus dari memori
 		userfullname=?,
 		useremail=?,
 		displayname=?,
-		mediaid=?,
 		useralamat=?,
 		usertelp=?,
 		mediadir=? where userid=1",
@@ -61,7 +60,6 @@ input->proses->hapus dari memori
 			$data['userfullname'],
 			$data['useremail'],
 			$data['displayname'],
-			$data['mediaid'],
 			$data['useralamat'],
 			$data['usertelp'],
 			$data['filename']

@@ -122,17 +122,19 @@ method-method halaman pengunjung
 
 		// $data['expire']=60*60*24;
 		//eksperimen view time=1s biar lebih cepat
+
+		//gapleki :v
 		$data['expire']=1;
 		if ($data['visitor'] == false) {
-      $cookie = array(
-        "name"   => $postid,
-        "value"  => $data['ip'],
-        "expire" => $data['expire'],
-        "secure" => false
-      );
-      $this->input->set_cookie($cookie);
-      $this->mpost->update_counter($postid);
-  	}
+	     	$cookie = array(
+	        "name"   => $postid,
+	        "value"  => $data['ip'],
+	        "expire" => $data['expire'],
+	        "secure" => false
+	      );
+	      $this->input->set_cookie($cookie);
+	      $this->mpost->update_counter($postid);
+	  	}
 		unset($data, $postid, $cookie);
 	}
 

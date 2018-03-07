@@ -144,8 +144,8 @@ usertelp
 		}
 
 		$this->mprofiladmin->ubahpadmin($data);
-		redirect(base_url('profiladmin'));
-		unset($data);
+		// redirect(base_url('profiladmin'));
+		// unset($data);
 	}
 
 	//upload gambar
