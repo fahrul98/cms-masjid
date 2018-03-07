@@ -257,8 +257,8 @@ switch ($page) {
                 <li class="<?php echo $akt[4].$akt[5];?>">
                   <a href="<?php echo base_url('post')?>" class="has-arrow" aria-expanded="<?php echo $aria[1];?>"><i class="lnr lnr-pencil"></i> <span>Post</span></a>
                   <ul <?php echo $colps[1]; ?>>
-                    <li class="" <?php echo $akt[4]; ?>><a href="<?php echo base_url('post')?>">Post</a></li>
-                    <li class=""  <?php echo $akt[5]; ?>><a href="<?php echo base_url('tag')?>">Tag</a></li>
+                    <li class="<?php echo $akt[4]; ?>" ><a href="<?php echo base_url('post')?>">Post</a></li>
+                    <li class="<?php echo $akt[5]; ?>"><a href="<?php echo base_url('tag')?>">Tag</a></li>
                   </ul>
                 </li>
                 <li class="<?php echo $akt[6]; ?>" >
@@ -270,8 +270,8 @@ switch ($page) {
                 <li class="<?php echo $akt[8].$akt[9]; ?>">
                   <a href="#charts" class="has-arrow" aria-expanded="<?php echo $aria[2];?>"><i class="lnr lnr-chart-bars"></i> <span>Keuangan Masjid</span></a>
                   <ul <?php echo $colps[2]; ?>>
-                    <li class="" <?php echo $akt[8]; ?>><a href="<?php echo base_url('keuanganmasjid')?>">Keuangan</a></li>
-                    <li class="" <?php echo $akt[9]; ?>><a href="<?php echo base_url('rekamdonasi')?>">Rekam Donasi</a></li>
+                    <li class="<?php echo $akt[8]; ?>"><a href="<?php echo base_url('keuanganmasjid')?>">Keuangan</a></li>
+                    <li class="<?php echo $akt[9]; ?>"><a href="<?php echo base_url('rekamdonasi')?>">Rekam Donasi</a></li>
                   </ul>
                 </li>
                 <li class="<?php echo $akt[10]; ?>">

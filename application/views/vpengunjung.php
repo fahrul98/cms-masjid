@@ -16,53 +16,48 @@ mediaid
 	<!-- Template -->
 
 	<?php
+	function indonesian_date ($timestamp = '', $date_format = 'l, j F Y | H:i', $suffix = 'WIB') {
+		if (trim ($timestamp) == ''){
+						$timestamp = time ();
+		}	elseif (!ctype_digit ($timestamp))		{
+				$timestamp = strtotime ($timestamp);
+		}
+		# remove S (st,nd,rd,th) there are no such things in indonesia :p
+		$date_format = preg_replace ("/S/", "", $date_format);
+		$pattern = array (
+				'/Mon[^day]/','/Tue[^sday]/','/Wed[^nesday]/','/Thu[^rsday]/',
+				'/Fri[^day]/','/Sat[^urday]/','/Sun[^day]/','/Monday/','/Tuesday/',
+				'/Wednesday/','/Thursday/','/Friday/','/Saturday/','/Sunday/',
+				'/Jan[^uary]/','/Feb[^ruary]/','/Mar[^ch]/','/Apr[^il]/','/May/',
+				'/Jun[^e]/','/Jul[^y]/','/Aug[^ust]/','/Sep[^tember]/','/Oct[^ober]/',
+				'/Nov[^ember]/','/Dec[^ember]/','/January/','/February/','/March/',
+				'/April/','/June/','/July/','/August/','/September/','/October/',
+				'/November/','/December/',
+		);
+		$replace = array ( 'Sen','Sel','Rab','Kam','Jum','Sab','Min',
+				'Senin','Selasa','Rabu','Kamis','Jumat','Sabtu','Minggu',
+				'Jan','Feb','Mar','Apr','Mei','Jun','Jul','Ags','Sep','Okt','Nov','Des',
+				'Januari','Februari','Maret','April','Juni','Juli','Agustus','Sepember',
+				'Oktober','November','Desember',
+		);
+		$date = date ($date_format, $timestamp);
+		$date = preg_replace ($pattern, $replace, $date);
+		$date = "{$date} {$suffix}";
+		return $date;
+	}
 	if ($page=="Beranda") {
 
 ?>
 
-		<!-- SlideShow -->
-		<!-- <div class="container">
-			<div class="row">
-				<div class="slider">
-					<div class="img-responsive">
-						<ul class="bxslider">
-							<li>
-								<img src="assets/img/01.jpg" alt="www.malasngoding.com">
-								<div class="carousel-caption" style="padding-bottom: 120px">
-									<h3>Galeri</h3>
-									<p>Tentang Masjid <?php echo $cmprofil->pnama; ?></p>
-								</div>
-							</li>
-							<li>
-								<img src="assets/img/01.jpg" alt="www.malasngoding.com">
-								<div class="carousel-caption" style="padding-bottom: 120px">
-									<h3>Galeri</h3>
-									<p>Foto foto kegiatan Masjid</p>
-								</div>
-							</li>
-							<li>
-								<img src="assets/img/01.jpg" alt="www.malasngoding.com">
-								<div class="carousel-caption" style="padding-bottom: 120px">
-									<h3>Galeri</h3>
-									<p>Foto foto kegiatan Masjid</p>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div> -->
-		<!-- END Show -->
-
 		<div class="container backgroundpictop" style="margin-left: 0px;margin-right: 0px; margin-bottom: 50px ;width: 100%">
 			<div class="row">
 				<div class="slider">
-				<div class="col-md-6 col-md-offset-3" style="margin-top: 130px">
-					<div class="text-center">
-						<h1>Selamat Datang di Website <br><?php echo $cmprofil->pnama; ?></h1>
-						<p >Mari kita memuliakan rumah Allah</p>
+					<div class="col-md-6 col-md-offset-3" style="margin-top: 130px">
+						<div class="text-center">
+							<h1>Selamat Datang di Website <br><?php echo $cmprofil->pnama; ?></h1>
+							<p>Mari kita memuliakan rumah Allah</p>
+						</div>
 					</div>
-				</div>
 				</div>
 			</div>
 		</div>
@@ -149,32 +144,32 @@ mediaid
 		</div>
 
 		<div class="container content">
-				<div class="grid" style="">
+			<div class="grid" style="">
 
-			<?php
+				<?php
 			//iterate pic
 			foreach ($imgs as $v) {?>
-				<!-- <div class="col-md-3">
+					<!-- <div class="col-md-3">
 					<div class="thumbnail">
 						<img src="<?php echo base_url('uploads/'.$v->mdir);?>"/>
 						<a class="btn btn-danger" href="<?php echo base_url('media/dbmhapus?mediaid='.$v->mediaid.'&mdir='.$v->mdir); ?>">hapus</a><br>
 					</div>
 				</div> -->
-				<figure class="effect-zoe">
-					<!-- <img src="assets/img/25.jpg" alt="img25"> -->
-					<img src="<?php echo base_url('uploads/'.$v->mdir);?>"/>
-					<figcaption>
-						<h2>Opsi <span>></span></h2>
-						<p class="icon-links">
-							<a class="" href="<?php echo base_url('beranda/galeri');?>">
+					<figure class="effect-zoe">
+						<!-- <img src="assets/img/25.jpg" alt="img25"> -->
+						<img src="<?php echo base_url('uploads/'.$v->mdir);?>" />
+						<figcaption>
+							<h2>Opsi <span>></span></h2>
+							<p class="icon-links">
+								<a class="" href="<?php echo base_url('beranda/galeri');?>">
 								<span class="fa fa-eye"></span>
 							</a>
-						</p>
-					</figcaption>
-				</figure>
-		<?php	}	?>
-				</div>
+							</p>
+						</figcaption>
+					</figure>
+					<?php	}	?>
 			</div>
+		</div>
 
 		<?php }else if ($page=="Semua Post") {?>
 
@@ -207,7 +202,7 @@ mediaid
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					<h5><?php echo "Sekarang tanggal : tgl hr ini"; ?></h5>
+					<h5><?php echo "Sekarang : ".indonesian_date(date("Y-m-d"),'l, j F Y',''); ?></h5>
 					<hr>
 					<?php
 							$n = 1;
@@ -224,10 +219,12 @@ mediaid
 						<a href="<?php echo base_url('beranda/post/'.urlencode($v->psjudul));?>">
 							<h3 class="media-heading"><?php echo $v->psjudul; ?></h3>
 							<p class="text-muted">
-								<?php echo htmlentities($v->psbuat." |	".$v->psustadz." | ".$v->tag." | ");?><i class='fa fa-eye' aria-hidden='true'></i> <span> <?php echo $v->vcount; ?></span>
+								<?php echo htmlentities(indonesian_date($v->psbuat)." |	".$v->psustadz." | ".$v->tag." | ");?><i class='fa fa-eye' aria-hidden='true'></i> <span> <?php echo $v->vcount; ?></span>
 							</p>
 							<div class="phitam">
-								<?php echo $this->security->xss_clean(substr($v->pstext,0,50));
+								<?php
+								// echo $this->security->xss_clean(substr($v->pstext,0,50));
+								echo htmlspecialchars_decode(substr($v->pstext,0,50));
 								//."...</p>"; ?>
 							</div>
 							<a href="<?php echo base_url('beranda/post/'.urlencode($v->psjudul));?>" alt="">Lebih banyak...</a>
@@ -270,7 +267,7 @@ mediaid
 		<td>".$n."</td>
 		<td><a href=".base_url('beranda/post/'.urlencode($v->psjudul)).">".$v->psjudul."</a></td>
 		<td>".$v->psustadz."</td>
-		<td>".$v->psubah."</td>
+		<td>".indonesian_date($v->psbuat)."</td>
 		<td>".$v->tagid."</td>
 		</tr>";
 	?>
@@ -298,7 +295,7 @@ mediaid
 						<div class="col-lg-12">
 							<img src="assets/img/01.jpg" class="img-responsive" alt="" />
 							<h1><a href="<?php echo base_url('beranda/post/'.urlencode($v->psjudul));?>"><?php echo $v->psjudul;?></a></h1>
-							<h5><?php echo $v->psbuat." | ".$v->psustadz." | ".$v->tag." | ";?><i class='fa fa-eye' aria-hidden='true'></i> <span> <?php echo $v->vcount; ?></span></h5>
+							<h5><?php echo indonesian_date($v->psbuat)." | ".$v->psustadz." | ".$v->tag." | ";?><i class='fa fa-eye' aria-hidden='true'></i> <span> <?php echo $v->vcount; ?></span></h5>
 							<p class="phitam">
 								<?php echo $v->pstext;?>
 							</p>
@@ -346,32 +343,32 @@ mediaid
 				</div>
 				<hr>
 				<?php }else if ($page=="Takmir Masjid") {?>
-					<div class="container">
-						<div class="row">
-							<div class="col-md-6 col-md-offset-3">
-								<div class="portfolios">
-									<div class="text-center">
-										<h2><?php echo $page;?></h2>
-										<h5 class="phitam">Daftar Takmir <?php echo $cmprofil->pnama; ?><br>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+							<div class="portfolios">
+								<div class="text-center">
+									<h2><?php echo $page;?></h2>
+									<h5 class="phitam">Daftar Takmir <?php echo $cmprofil->pnama; ?><br>
 										</h5>
-									</div>
-									<hr>
 								</div>
+								<hr>
 							</div>
 						</div>
 					</div>
-					<div class="container">
-						<div class="row">
-				<table class="table table-bordered table-striped table-hover" >
-					<thead>
-						<th>No.</th>
-						<th>Foto</th>
-						<th>Nama takmir</th>
-						<th>Jabatan</th>
-						<th>Masa Jabatan</th>
-						<th>No. Telp</th>
-					</thead>
-					<?php
+				</div>
+				<div class="container">
+					<div class="row">
+						<table class="table table-bordered table-striped table-hover">
+							<thead>
+								<th>No.</th>
+								<th>Foto</th>
+								<th>Nama takmir</th>
+								<th>Jabatan</th>
+								<th>Masa Jabatan</th>
+								<th>No. Telp</th>
+							</thead>
+							<?php
 
 	$n = 1;
 		foreach ($cmtakmir as $v) {
@@ -379,10 +376,10 @@ mediaid
 			echo "<tr align=center>
 			<td>".$n."</td>";
 			?>
-					<td align=center>
-						<img class="thumbnail" src="<?php echo base_url('uploads/takmir/'.$v->mediadir);?>" width=80 height=80 />
-					</td>
-					<?php
+								<td align=center>
+									<img class="thumbnail" src="<?php echo base_url('uploads/takmir/'.$v->mediadir);?>" width=80 height=80 />
+								</td>
+								<?php
 			echo "</td>
 			<td>".$v->tknama."</td>
 			<td>".$v->tkjabatan."</td>
@@ -393,45 +390,45 @@ mediaid
 			$n++;
 		}
 		 ?>
-				</table>
-				</div>
+						</table>
+					</div>
 				</div>
 				<?php }else if ($page=="Ustadz") {?>
-					<div class="container">
-						<div class="row">
-							<div class="col-md-6 col-md-offset-3">
-								<div class="portfolios">
-									<div class="text-center">
-										<h2><?php echo $page;?></h2>
-										<h5 class="phitam">Daftar Ustadz <?php echo $cmprofil->pnama; ?><br>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+							<div class="portfolios">
+								<div class="text-center">
+									<h2><?php echo $page;?></h2>
+									<h5 class="phitam">Daftar Ustadz <?php echo $cmprofil->pnama; ?><br>
 										</h5>
-									</div>
-									<hr>
 								</div>
+								<hr>
 							</div>
 						</div>
 					</div>
-					<div class="container">
-						<div class="row">
-				<table class="table table-bordered table-striped table-hover">
-					<thead>
-						<th>No.</th>
-						<th>Foto</th>
-						<th>Nama ust.</th>
-						<th>No. Telp</th>
-						<th>Alamat</th>
-					</thead>
-					<?php
+				</div>
+				<div class="container">
+					<div class="row">
+						<table class="table table-bordered table-striped table-hover">
+							<thead>
+								<th>No.</th>
+								<th>Foto</th>
+								<th>Nama ust.</th>
+								<th>No. Telp</th>
+								<th>Alamat</th>
+							</thead>
+							<?php
 
 $n = 1;
 		foreach ($cmustadz as $v) {
 			echo "<tr align='center'>
 			<td>".$n."</td>";
 			?>
-			<td align="center">
-				<img class="thumbnail" src="<?php echo base_url('uploads/ustadz/'.$v->mediadir);?>" width=80 height=80 />
-			</td>
-<?php
+								<td align="center">
+									<img class="thumbnail" src="<?php echo base_url('uploads/ustadz/'.$v->mediadir);?>" width=80 height=80 />
+								</td>
+								<?php
 			echo
 			"<td>".$v->usnama."</td>
 			<td>".$v->usnotelp."</td>
@@ -441,8 +438,8 @@ $n = 1;
 			$n++;
 		}
 		 ?>
-				</table>
-				</div>
+						</table>
+					</div>
 				</div>
 				<?php }else if ($page=="Keuangan Masjid") {?>
 				<div class="container">
@@ -505,7 +502,7 @@ $n = 1;
 										<th>Donatur</th>
 										<th>Total</th>
 									</thead>
-							<?php
+									<?php
 
 							$n = 1;
 									foreach ($cmrdonasi as $v) {
@@ -551,15 +548,17 @@ $n = 1;
 							<th>Waktu</th>
 							<th>Tag</th>
 						</thead>
-						<?php
+	<?php
+
+
 		$n = 1;
 			foreach ($jadwalk as $v) {
 				echo "<tr>
 				<td>".$n."</td>
 				<td>".$v->jknama."</td>
 				<td>".$v->jkpihak."</td>
-				<td>".$v->jkwaktu."</td>
-				<td>".$v->tagid."</td>
+				<td>".indonesian_date($v->jkwaktu)."</td>
+				<td>".$v->tag."</td>
 
 				</tr>";
 				$n++;
@@ -569,50 +568,50 @@ $n = 1;
 				</div>
 
 				<?php } else if ($page=="Galeri") {?>
-					<div class="container">
-						<div class="row">
-							<div class="col-md-6 col-md-offset-3">
-								<div class="portfolios">
-									<div class="text-center">
-										<h2><?php echo $page;?></h2>
-										<h5 class="phitam">Galeri <?php echo $cmprofil->pnama;?><br>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+							<div class="portfolios">
+								<div class="text-center">
+									<h2><?php echo $page;?></h2>
+									<h5 class="phitam">Galeri <?php echo $cmprofil->pnama;?><br>
 										</h5>
-									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<hr>
+				</div>
+				<hr>
 				<div class="container">
 					<div class="row">
-								<div class="container content">
-										<div class="grid" style="">
+						<div class="container content">
+							<div class="grid" style="">
 
-									<?php
+								<?php
 									//iterate pic
 									foreach ($imgs as $v) {?>
-										<!-- <div class="col-md-3">
+									<!-- <div class="col-md-3">
 											<div class="thumbnail">
 												<img src="<?php echo base_url('uploads/'.$v->mdir);?>"/>
 												<a class="btn btn-danger" href="<?php echo base_url('media/dbmhapus?mediaid='.$v->mediaid.'&mdir='.$v->mdir); ?>">hapus</a><br>
 											</div>
 										</div> -->
-										<figure class="effect-zoe">
-											<!-- <img src="assets/img/25.jpg" alt="img25"> -->
-											<img src="<?php echo base_url('uploads/'.$v->mdir);?>"/>
-											<figcaption>
-												<h2>Opsi <span>></span></h2>
-												<p class="icon-links">
-													<!-- <a class="" href="<?php echo base_url('#');?>"> -->
-													<a class="" href="#">
+									<figure class="effect-zoe">
+										<!-- <img src="assets/img/25.jpg" alt="img25"> -->
+										<img src="<?php echo base_url('uploads/'.$v->mdir);?>" />
+										<figcaption>
+											<h2>Opsi <span>></span></h2>
+											<p class="icon-links">
+												<!-- <a class="" href="<?php echo base_url('#');?>"> -->
+												<a class="" href="#">
 														<span class="fa fa-eye"></span>
 													</a>
-												</p>
-											</figcaption>
-										</figure>
-								<?php	}	?>
-										</div>
-									</div>
+											</p>
+										</figcaption>
+									</figure>
+									<?php	}	?>
+							</div>
+						</div>
 
 					</div>
 				</div>
@@ -655,10 +654,9 @@ $n = 1;
 					<br>
 					<div class="row text-center">
 						<div class="col-md-4 col-md-offset-4">
-							<img class="img-circle" src="<?php echo base_url('uploads/default.png');?>" alt="gb1" width="300" height="300"/>
+							<img class="img-circle" src="<?php echo base_url('uploads/default.png');?>" alt="gb1" width="300" height="300" />
 							<p class="phitam">
-								CMS Masjid Al-Afa <br>
-								AFAdev <br> @2018
+								CMS Masjid Al-Afa <br> AFAdev <br> @2018
 							</p>
 						</div>
 					</div>

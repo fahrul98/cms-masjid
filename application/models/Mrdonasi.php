@@ -68,4 +68,11 @@ unset(variabel) => hapus variabel dari memori
 		$q = $this->db->query("delete from cmrdonasi where rdid=?",array($data['rdid']));
 		unset($data,$q);
 	}
+
+	public function statistik(){
+		$q = $this->db->query("select sum(rdjumlah) as totaldonasi from cmrdonasi");
+
+		return $q;
+		unset($q);
+	}
 }

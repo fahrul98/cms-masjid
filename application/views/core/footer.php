@@ -227,6 +227,7 @@ if($page=="Tambah Kegiatan"||$page=="Ubah Kegiatan"|| $page=="Tambah Entri" || $
               });
 
               drEvent.on('dropify.afterClear', function(event, element) {
+                drEvent.value = "";
                 alert('Terhapus');
               });
             });

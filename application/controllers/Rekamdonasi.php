@@ -32,6 +32,7 @@ rdtotal
 		$data['page'] = "Rekam Donasi";
 		$data['ctrl'] = "kmasjid";
 		$data['cmrdonasi'] = $this->mrdonasi->tampilrdonasi()->result();
+		$data['stat'] = $this->mrdonasi->statistik()->row();
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
 
 		$this->load->view('core/core',$data);
