@@ -58,7 +58,7 @@ class Login extends CI_Controller {
 			$this->session->set_userdata($arrsess);
 
 			if ($data['remember']) {
-                $key = substr(sha1(rand()), 0, 30); 
+                $key = substr(sha1(rand()), 0, 30);
                 set_cookie('remember', $key, 60*60*7); // set expired 1 minggu kedepan
 
                 $this->mprofiladmin->updateCookie($key);
@@ -87,27 +87,27 @@ class Login extends CI_Controller {
 	}
 
 	public function dbtoken(){
-		$data['email'] = $this->input->post('email');   
-        $clean= $this->security->xss_clean($data['email']);  
+		$data['email'] = $this->input->post('email');
+        $clean= $this->security->xss_clean($data['email']);
         $userInfo = $this->mprofiladmin->getUserInfoByEmail($clean);
 
         $this->load->helper('cookie');
 		$data['cookie']=get_cookie('email');
 		$data['expire']=60*60*24;
 
-        if(!$userInfo){ 
+        if(!$userInfo){
         	$message="Email Tidak ditemukan!";
         	$this->forget($message);
         }else if ($data['cookie'] != $clean) {
-			$this->input->set_cookie('email', $clean, $data['expire']);			
+			$this->input->set_cookie('email', $clean, $data['expire']);
 
-	      	$token = $this->mprofiladmin->insertToken($userInfo->userid); 
-	        $url = base_url().'login/reset_password/'.$token;  
-	        $link = '<a href="' . $url . '">' . $url . '</a>'; 
+	      	$token = $this->mprofiladmin->insertToken($userInfo->userid);
+	        $url = base_url().'login/reset_password/'.$token;
+	        $link = '<a href="' . $url . '">' . $url . '</a>';
 
-	               
-	        $message = '';             
-	        $message .= '<strong>Hai, anda menerima email ini karena ada permintaan untuk memperbaharui password anda.</strong><br>';  
+
+	        $message = '';
+	        $message .= '<strong>Hai, anda menerima email ini karena ada permintaan untuk memperbaharui password anda.</strong><br>';
 	        $message .= '<strong>Silakan klik link ini:</strong> ' . $link;
 
 
@@ -121,21 +121,21 @@ class Login extends CI_Controller {
 	  		$message="Email sudah terkirim, silahkan cek inbox anda!";
 	  		$this->forget($message);
 	  	}
-        
+
 	}
 
 	public function send_email($message, $email){
 		$config = array(
         'protocol' => 'smtp',
         'smtp_host' => 'mail.smtp2go.com',
-        'smtp_port' =>  2525, 
+        'smtp_port' =>  2525,
         'smtp_user' => 'fahrul.gh@gmail.com',
         'smtp_pass' => 'qlSyNllvbmT6',
         // 'smtp_crypto' => 'tls',
         // "verify_peer"=>false,
         // "verify_peer_name"=>false,
         'smtp_timeout' => '30',
-        'mailtype'  => 'html', 
+        'mailtype'  => 'html',
         'charset'   => 'utf-8',
         'newline'	=>	"\r\n"
     	);
@@ -158,7 +158,7 @@ class Login extends CI_Controller {
 				'to' => $email,
 				'bodyHtml' => $pesan,
 				'isTransactional' => true);
-				
+
 				$ch = curl_init();
 				curl_setopt_array($ch, array(
 		            CURLOPT_URL => $url,
@@ -168,10 +168,10 @@ class Login extends CI_Controller {
 		            CURLOPT_HEADER => false,
 					CURLOPT_SSL_VERIFYPEER => false
 		        ));
-				
+
 		        $result=curl_exec ($ch);
 		        curl_close ($ch);
-		        //echo $result;	
+		        //echo $result;
 		}
 		catch(Exception $ex){
 			echo $ex->getMessage();
@@ -179,13 +179,13 @@ class Login extends CI_Controller {
 	}
 
 	public function reset_password(){
-		$token = $this->uri->segment(3);           
-    	$cleanToken = $this->security->xss_clean($token);  
-        $data['user'] = $this->mprofiladmin->isTokenValid($cleanToken);         
-         
-		if(!$data['user']){ 
+		$token = $this->uri->segment(3);
+    	$cleanToken = $this->security->xss_clean($token);
+        $data['user'] = $this->mprofiladmin->isTokenValid($cleanToken);
+
+		if(!$data['user']){
 			//echo $cleanToken." ok";
-		 	redirect(base_url('login'));   
+		 	redirect(base_url('login'));
 		}
 
 		$data['page'] = "Change Password";

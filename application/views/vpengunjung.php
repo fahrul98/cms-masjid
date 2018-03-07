@@ -224,10 +224,11 @@ mediaid
 						<a href="<?php echo base_url('beranda/post/'.urlencode($v->psjudul));?>">
 							<h3 class="media-heading"><?php echo $v->psjudul; ?></h3>
 							<p class="text-muted">
-								<?php echo $v->psbuat." |	".$v->psustadz." | ".$v->tag." | ";?><i class='fa fa-eye' aria-hidden='true'></i> <span> <?php echo $v->vcount; ?></span>
+								<?php echo htmlentities($v->psbuat." |	".$v->psustadz." | ".$v->tag." | ");?><i class='fa fa-eye' aria-hidden='true'></i> <span> <?php echo $v->vcount; ?></span>
 							</p>
 							<div class="phitam">
-								<?php echo substr($v->pstext,0,100)."...</p>"; ?>
+								<?php echo $this->security->xss_clean(substr($v->pstext,0,50));
+								//."...</p>"; ?>
 							</div>
 							<a href="<?php echo base_url('beranda/post/'.urlencode($v->psjudul));?>" alt="">Lebih banyak...</a>
 						</a>
@@ -325,21 +326,21 @@ mediaid
 					<div class="row">
 						<h2 class="text-center">Deskripsi</h2>
 						<p class="phitam">
-							<?php echo $profil->pdeskripsi;?>
+							<?php echo nl2br($profil->pdeskripsi);?>
 						</p>
 					</div>
 					<hr>
 					<div class="row">
 						<h2 class="text-center">Sejarah</h2>
 						<p class="phitam">
-							<?php echo $profil->psejarah;?>
+							<?php echo nl2br($profil->psejarah);?>
 						</p>
 					</div>
 					<hr>
 					<div class="row">
 						<h2 class="text-center">Visi Misi</h2>
 						<p class="phitam">
-							<?php echo $profil->pvisimisi;?>
+							<?php echo nl2br($profil->pvisimisi);?>
 						</p>
 					</div>
 				</div>
@@ -359,6 +360,8 @@ mediaid
 							</div>
 						</div>
 					</div>
+					<div class="container">
+						<div class="row">
 				<table class="table table-bordered table-striped table-hover" >
 					<thead>
 						<th>No.</th>
@@ -391,7 +394,8 @@ mediaid
 		}
 		 ?>
 				</table>
-
+				</div>
+				</div>
 				<?php }else if ($page=="Ustadz") {?>
 					<div class="container">
 						<div class="row">
@@ -407,6 +411,8 @@ mediaid
 							</div>
 						</div>
 					</div>
+					<div class="container">
+						<div class="row">
 				<table class="table table-bordered table-striped table-hover">
 					<thead>
 						<th>No.</th>
@@ -436,6 +442,8 @@ $n = 1;
 		}
 		 ?>
 				</table>
+				</div>
+				</div>
 				<?php }else if ($page=="Keuangan Masjid") {?>
 				<div class="container">
 					<div class="row">

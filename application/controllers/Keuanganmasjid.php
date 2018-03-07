@@ -66,7 +66,7 @@ insert + delete
 
 	public function dbentri(){
 		// $data['kmid']=$this->input->post('kmid');
-		$this->form_validation->set_rules('kmketerangan','Keterangan','required|min_length[5]|max_length[30]',
+		$this->form_validation->set_rules('kmketerangan','Keterangan','required|min_length[3]|max_length[30]',
 			array(
 				'required' => '%s harus diisi',
 				'min_length' => '%s harus >=3 karakter',

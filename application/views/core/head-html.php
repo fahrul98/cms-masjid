@@ -52,6 +52,12 @@ if(!isset($mode)){
 <!-- Main JS ? -->
 <?php }else{
  ?>
+ <!-- =======================================================
+    Theme Name: eNno
+    Theme URL: https://bootstrapmade.com/enno-free-simple-bootstrap-template/
+    Author: BootstrapMade
+    Author URL: https://bootstrapmade.com
+  ======================================================= -->
  <!-- CSS Template NetizenUI -->
  <link rel="stylesheet" href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.min.css'); ?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css');?>">
@@ -73,9 +79,9 @@ if(!isset($mode)){
 
 <?php } ?>
 
-<?php if($page=="Tambah Kegiatan"||$page=="Ubah Kegiatan"){?>
+<?php if($page=="Tambah Kegiatan"||$page=="Ubah Kegiatan"||$page=="Tambah Rekam Donasi"||$page=="Ubah Rekam Donasi"||$page=="Tambah Entri"||$page=="Ubah Entri"){?>
   <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap-datepicker/css/prettify-1.0.css'); ?>">
-  <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap-datepicker/css/bootstrap-datetimepicker.css'); ?>">
+  <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css'); ?>">
 <?php } ?>
 
 <?php //jika media
@@ -94,6 +100,7 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
   .phitam {
     color:#000000;
     font-size: 17px;
+    font-family: Arial;
   }
   .container .phitam {
     color:#000000;
@@ -102,10 +109,9 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
   th {
     text-align: center;
   }
+
   .nomargin {
     margin:0px;
-    margin-left: 0px;
-    margin-right: 0px;
   }
 
   .nopadding {
@@ -127,10 +133,10 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
     color:gold;
   }
 
-  <?php 
+  <?php
     $dsid=1;
     $d = array(
-      'nav' => '212121', 
+      'nav' => '212121',
       'lnr' => 'fff',
       'border' => '424242',
       'textcol' => 'fff',
@@ -139,7 +145,7 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
     switch ($dsid) {
       case 1: //Dark
       $d = array(
-      'nav' => '212121', 
+      'nav' => '212121',
       'lnr' => 'fff',
       'border' => '424242',
       'textcol' => 'fff',
@@ -151,7 +157,7 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
 
       case 2:
       $d = array(
-      'nav' => '345698', 
+      'nav' => '345698',
       'lnr' => 'ddd',
       'border' => '424242',
       'textcol' => 'fff',
@@ -160,7 +166,7 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
       'hover' => '424242'
     );
         break;
-      
+
       default:
         # code...
         break;
@@ -192,11 +198,11 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
   }
 
   .inner-footer .row a {
-    color: #<?php echo $d['textcol']; ?>; 
+    color: #<?php echo $d['textcol']; ?>;
   }
 
   .inner-footer .row p {
-    color: #<?php echo $d['textcol']; ?>; 
+    color: #<?php echo $d['textcol']; ?>;
   }
 
   /*netizen*/
@@ -209,11 +215,11 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
   }
 
   .navbar .navbar-collapse a:hover{
-    background-color: #<?php echo $d['hover']; ?>; 
+    background-color: #<?php echo $d['hover']; ?>;
   }
 
   .navbar .navbar-collapse .active a{
-    background-color: #<?php echo $d['hover']; ?>; 
+    background-color: #<?php echo $d['hover']; ?>;
   }
 
   .container .text-center{
@@ -238,7 +244,7 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
   }
 
   #wrapper .dropdown-menu a {
-    color: #<?php echo $d['linkcol']; ?>; 
+    color: #<?php echo $d['linkcol']; ?>;
   }
 
   .lnr {

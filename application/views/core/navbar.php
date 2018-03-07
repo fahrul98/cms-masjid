@@ -132,7 +132,7 @@ switch ($page) {
               <!-- search form -->
               <!-- <div id="navbar-search" class="navbar-form search-form"> -->
               <?php echo form_open('post/search','id="navbar-search" class="navbar-form search-form" style="padding-left:0px; padding-right:0px"');?>
-              <input name="search" value="" class="form-control" placeholder="Cari admin..." type="text">
+              <input name="search" value="" class="form-control" placeholder="Cari post..." type="text">
               <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
               <!-- </div> -->
               </form>
@@ -185,17 +185,17 @@ $akt=array('','','','','',
 '','','','','',
 '','','','','',);
 switch ($page) {
-  case "Beranda Admin":$akt[0]='class="active"';break;
-  case "Profil Masjid":$akt[1]='class="active"';break;
-  case "Takmir":$akt[2]='class="active"';break;
-  case "Ustadz":$akt[3]='class="active"';break;
-  case "Post":$akt[4]='class="active"';break;
-  case "Tag":$akt[5]='class="active"';break;
-  case "Jadwal kegiatan":$akt[6]='class="active"';break;
-  case "Media":$akt[7]='class="active"';break;
-  case "Keuangan Masjid":$akt[8]='class="active"';break;
-  case "Rekam Donasi":$akt[9]='class="active"';break;
-  case "Pengaturan":$akt[10]='class="active"';break;
+  case "Beranda Admin":$akt[0]='active';break;
+  case "Profil Masjid":$akt[1]='active';break;
+  case "Takmir":$akt[2]='active';break;
+  case "Ustadz":$akt[3]='active';break;
+  case "Post":$akt[4]='active';break;
+  case "Tag":$akt[5]='active';break;
+  case "Jadwal Kegiatan":$akt[6]='active';break;
+  case "Media":$akt[7]='active';break;
+  case "Keuangan Masjid":$akt[8]='active';break;
+  case "Rekam Donasi":$akt[9]='active';break;
+  case "Pengaturan":$akt[10]='active';break;
   default:break;
 }?>
 
@@ -242,39 +242,39 @@ switch ($page) {
             <nav id="left-sidebar-nav" class="sidebar-nav">
               <ul id="main-menu" class="metismenu">
                 <li class=""  <?php echo $akt[0]; ?>><a href="<?php echo base_url('admin')?>"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-                <li class="">
-                  <a href="#uiElements" class="has-arrow" aria-expanded="false"><i class="lnr lnr-magic-wand"></i> <span>Masjid</span></a>
-                  <ul>
-                    <li class="" <?php echo $akt[1]; ?>><a href="<?php echo base_url('profilm')?>">Profil Masjid</a></li>
-                    <li class="" <?php echo $akt[2]; ?>><a href="<?php echo base_url('takmir')?>">Takmir</a></li>
-                    <li class="" <?php echo $akt[3]; ?>><a href="<?php echo base_url('ustadz')?>">Ustadz</a></li>
+                <li class="<?php echo $akt[1].$akt[2].$akt[3];?>">
+                  <a href="#uiElements" class="has-arrow" aria-expanded="<?php echo $aria[0];?>"><i class="lnr lnr-magic-wand"></i> <span>Masjid</span></a>
+                  <ul <?php echo $colps[0]; ?>>
+                    <li class="<?php echo $akt[1];?>" ><a href="<?php echo base_url('profilm')?>">Profil Masjid</a></li>
+                    <li class="<?php echo $akt[2];?>" ><a href="<?php echo base_url('takmir')?>">Takmir</a></li>
+                    <li class="<?php echo $akt[3];?>" ><a href="<?php echo base_url('ustadz')?>">Ustadz</a></li>
 
                     <!-- <li class=""><a href="ui-buttons.html">Buttons</a></li>
             <li class=""><a href="ui-bootstrap.html">Bootstrap UI</a></li>
             <li class=""><a href="ui-icons.html"><span>Icons</span></a></li> -->
                   </ul>
                 </li>
-                <li class="">
-                  <a href="<?php echo base_url('post')?>" class="has-arrow" aria-expanded="false"><i class="lnr lnr-pencil"></i> <span>Post</span></a>
-                  <ul>
+                <li class="<?php echo $akt[4].$akt[5];?>">
+                  <a href="<?php echo base_url('post')?>" class="has-arrow" aria-expanded="<?php echo $aria[1];?>"><i class="lnr lnr-pencil"></i> <span>Post</span></a>
+                  <ul <?php echo $colps[1]; ?>>
                     <li class="" <?php echo $akt[4]; ?>><a href="<?php echo base_url('post')?>">Post</a></li>
                     <li class=""  <?php echo $akt[5]; ?>><a href="<?php echo base_url('tag')?>">Tag</a></li>
                   </ul>
                 </li>
-                <li class="" <?php echo $akt[6]; ?>>
+                <li class="<?php echo $akt[6]; ?>" >
                   <a href="<?php echo base_url('jadwalkegiatan')?>" class="" aria-expanded="false"><i class="lnr lnr-file-empty"></i> <span>Jadwal Kegiatan</span></a>
                 </li>
-                <li class="" <?php echo $akt[7]; ?>>
+                <li class="<?php echo $akt[7]; ?>">
                   <a href="<?php echo base_url('media')?>" class="" aria-expanded="false"><i class="lnr lnr-file-empty"></i> <span>Media</span></a>
                 </li>
-                <li class="">
-                  <a href="#charts" class="has-arrow" aria-expanded="false"><i class="lnr lnr-chart-bars"></i> <span>Keuangan Masjid</span></a>
-                  <ul aria-expanded="true">
+                <li class="<?php echo $akt[8].$akt[9]; ?>">
+                  <a href="#charts" class="has-arrow" aria-expanded="<?php echo $aria[2];?>"><i class="lnr lnr-chart-bars"></i> <span>Keuangan Masjid</span></a>
+                  <ul <?php echo $colps[2]; ?>>
                     <li class="" <?php echo $akt[8]; ?>><a href="<?php echo base_url('keuanganmasjid')?>">Keuangan</a></li>
                     <li class="" <?php echo $akt[9]; ?>><a href="<?php echo base_url('rekamdonasi')?>">Rekam Donasi</a></li>
                   </ul>
                 </li>
-                <li class="" <?php echo $akt[10]; ?>>
+                <li class="<?php echo $akt[10]; ?>">
                   <a href="<?php echo base_url('pengaturan')?>" class="" aria-expanded="false"><i class="lnr lnr-cog"></i><span>Pengaturan</span></a>
                 </li>
                 <!-- <li class=""><a href="notifications.html"><i class="lnr lnr-alarm"></i> <span>Notifications</span> <span class="badge bg-danger">15</span></a></li>

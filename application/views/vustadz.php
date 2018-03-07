@@ -36,13 +36,11 @@ if ($page=="Ustadz") {
 
 $n = 1;
 		foreach ($cmustadz as $v) {
-			echo "<tr>
+			echo "<tr align='center'>
 			<td>".$n."</td>";
 			?>
-			<td>
-					<div class="thumbnail">
-						<img src="<?php echo base_url('uploads/ustadz/'.$v->mediadir);?>" width=60 height=80 />
-					</div>
+			<td >
+				<img class="thumbnail" src="<?php echo base_url('uploads/ustadz/'.$v->mediadir);?>" width=80 height=80 />
 			</td>
 <?php
 			echo '<td>'.$v->usnama.'</td>
@@ -56,7 +54,7 @@ $n = 1;
 		}
 		 ?>
 			</table>
-			<a class="btn btn-primary" href="<?php echo base_url('ustadz/tambahust');?>"><i class="fa fa-pencil-square-o"> </i> <span>Tambah Ustad</span></a>
+			<a class="btn btn-default" href="<?php echo base_url('ustadz/tambahust');?>"><i class="fa fa-pencil-square-o"> </i> <span>Tambah Ustad</span></a>
 <?php }else if ($page=="Tambah Ustadz") {?>
 			<div class="container">
 				<div class="row">

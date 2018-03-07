@@ -46,7 +46,7 @@ insert + delete
 */
 	public function tambahrdonasi(){
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
-		$data['page'] = "Tambah rekamdonasi";
+		$data['page'] = "Tambah Rekam Donasi";
 		$data['ctrl'] = "kmasjid";
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
 		$data['input']=$this->session->userdata('input')?$this->session->userdata('input'):
@@ -69,7 +69,7 @@ insert + delete
 
 	public function dbtambahrdonasi(){
 		//rekamdonasi id auto incremented
-		$this->form_validation->set_rules('rdjumlah','Nominal','required|min_length[8]|max_length[11]',
+		$this->form_validation->set_rules('rdjumlah','Nominal','required|min_length[4]|max_length[11]',
 			array(
 				'required' => '%s harus diisi',
 				'min_length' => '%s harus >=4 karakter',
@@ -97,7 +97,7 @@ insert + delete
 	}
 
 	public function dbubah(){
-		$this->form_validation->set_rules('rdjumlah','Nominal','required|min_length[8]|max_length[11]',
+		$this->form_validation->set_rules('rdjumlah','Nominal','required|min_length[4]|max_length[11]',
 			array(
 				'required' => '%s harus diisi',
 				'min_length' => '%s harus >=4 karakter',
@@ -132,7 +132,7 @@ insert + delete
 
 	public function ubahrdonasi($rdid){
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
-		$data['page'] = "Ubah rekamdonasi";
+		$data['page'] = "Ubah Rekam Donasi";
 		$data['ctrl'] = "kmasjid";
 		$data['rdid'] = $rdid;
 		$data['cmrdonasi'] = $this->mrdonasi->tampilrdonasi($data)->row();
