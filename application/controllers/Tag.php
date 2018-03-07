@@ -82,7 +82,15 @@ jkwaktu
 	}
 
 	public function dbhapus($tagid){
+		$this->load->model('mpost');
+		$this->load->model('mjkegiatan');
+
+		$data['mode'] = "set";//untuk edit tag massal
 		$data['tagid'] = $tagid;
+
+		//menghapus tag didahului pengubahan nilai idtag di tabel yang mereferensi
+		$this->mpost->ubahpost($data);
+		$this->mjkegiatan->ubahjkegiatan($data);
 		$this->mpost->hapustag($data);
 		redirect(base_url('tag'));
 	}

@@ -27,7 +27,7 @@ usertelp
 			<div class="col-md-4">
 				<div class="panel-content form-group">
 					<label for="mediaid">Media</label>
-					<input type="file" id="dropify-event" name="filename" data-file="<?php echo base_url('uploads/takmir/'.$padmin['mediadir']);?>" data-default-file="<?php echo base_url('uploads/takmir/default.png');?>">
+					<input type="file" id="dropify-event" name="filename" data-file="<?php echo base_url('uploads/takmir/'.$padmin['mediadir']);?>" data-default-file="<?php echo base_url('uploads/takmir/'.$padmin['mediadir']);?>">
 					<input type="hidden" name="oldmedia" value="<?php echo $padmin['mediadir'];?>">
 				</div>
 			</div>

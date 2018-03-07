@@ -51,16 +51,20 @@ $q = $this->db->query("",
 	}
 
 	public function ubahjkegiatan($data){
-		if ($data['tagid']=='') {
-			$data['tagid']=2;
+		if (isset($data['mode'])) {
+			$q = $this->db->query("update cmjkegiatan set tagid=1 where tagid=?",array($data['tagid']));
+		}else{
+			if ($data['tagid']=='') {
+				$data['tagid']=2;
+			}
+			$q = $this->db->query("update cmjkegiatan set jknama=?,jkpihak=?,jkwaktu=?,tagid=? where jkid=?",
+			array($data['jknama'],
+				$data['jkpihak'],
+				$data['jkwaktu'],
+				$data['tagid'],
+				$data['jkid']
+			));
 		}
-		$q = $this->db->query("update cmjkegiatan set jknama=?,jkpihak=?,jkwaktu=?,tagid=? where jkid=?",
-		array($data['jknama'],
-			$data['jkpihak'],
-			$data['jkwaktu'],
-			$data['tagid'],
-			$data['jkid']
-		));
 		unset($data);
 	}
 
