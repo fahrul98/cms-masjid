@@ -35,7 +35,11 @@ class Admin extends CI_Controller {
 				//load fullname admin
 
 				$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
-				$data['statistik']=$this->mpost->statistik()->row();
+				$data['total']=$this->mpost->total()->row();
+				$data['poppost']=$this->mpost->ppost()->result();
+				$data['poptag']=$this->mpost->ptag()->result();
+				$data['chart']=$this->mpost->viewsPerDate("day")->result();
+
 
 				$data['page'] = "Beranda Admin";
 				$data['configpath'] = FCPATH.APP.CONF.'/cms_settings.php';

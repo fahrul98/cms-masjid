@@ -140,13 +140,43 @@ unset(variabel) => hapus variabel dari memori
 	}
 
 	public function update_counter($postid) {
+		$date = date('Y-m-d H:i:s');
 		$q = $this->db->query("update cmpost set vcount=vcount+1 where postid=?",array($postid));
-		unset($data,$q);
+		$r = $this->db->query("insert into cmlogs (tipe_log, time, other_id) values (?,?,?)",array('cmpost',$date,$postid));
+		unset($q);
 	}
 
-	public function statistik(){
-		$q = $this->db->query("select sum(vcount) as totalp,max(vcount) as maxp from cmpost");
-		return $q;
-		unset($data,$q);
+	public function total(){
+		$data = $this->db->query("select sum(vcount) as totalp, max(vcount) as maxp from cmpost");
+		return $data;
+		unset($data);
 	}
+
+	public function ppost(){
+		$data= $this->db->query("SELECT psjudul, vcount FROM cmpost order by vcount desc limit 5");
+		return $data;
+		unset($data);
+	}
+
+	public function ptag(){
+		$data= $this->db->query("SELECT t.tag, SUM(p.vcount) as views FROM cmpost as p, cmtag as t WHERE t.tagid=p.tagid GROUP by t.tagid limit 5");
+		return $data;
+		unset($data);
+	}
+
+	public function viewsPerDate($time){
+		if ($time=='day') {
+			$data= $this->db->query("SELECT COUNT(*) views, DATE(time) Date FROM `cmlogs` WHERE tipe_log='cmpost' GROUP BY Date ORDER BY DATE DESC LIMIT 7");
+		}else if ($time=='month') {
+			$data= $this->db->query("SELECT COUNT(*) views, MONTH(time) Date FROM `cmlogs` WHERE tipe_log='cmpost' GROUP BY Date ORDER BY DATE ASC LIMIT 12");
+		}else{
+			$data= $this->db->query("SELECT COUNT(*) views, YEAR(time) Date FROM `cmlogs` WHERE tipe_log='cmpost' GROUP BY Date ORDER BY DATE ASC");
+		}
+		
+		return $data;
+		unset($data);
+	}
+
+
+
 }

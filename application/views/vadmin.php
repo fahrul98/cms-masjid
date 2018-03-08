@@ -7,10 +7,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div id="main-content">
 		<!-- <h1>Welcome to CodeIgniter!</h1> -->
 		<h2><?php echo $page; ?></h2>
+		<div class="col-md-8 col-sm-7 left">
+			<div id="demo-line-chart" class="ct-chart"></div>
+		</div>
 		<div class="col-md-3 col-sm-6">
 			<div class="number-chart">
 				<div class="mini-stat">
-					<h1><span><?php echo $statistik->totalp; ?></span></h1>
+					<h1><span><?php echo $total->totalp; ?></span></h1>
 					<!-- <p class="text-muted"><i class="fa fa-caret-up text-success"></i> 44% compared to last week</p> -->
 				</div>
 				<div class="number"><span></span> <span>Total penayangan halaman</span></div>
@@ -19,10 +22,110 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="col-md-3 col-sm-6">
 			<div class="number-chart">
 				<div class="mini-stat">
-					<h1><span><?php echo $statistik->maxp; ?></span></h1>
+					<h1><span><?php echo $total->maxp; ?></span></h1>
 					<!-- <p class="text-muted"><i class="fa fa-caret-up text-success"></i> 44% compared to last week</p> -->
 				</div>
 				<div class="number"><span></span> <span>Penayangan Post terbaik</span></div>
 			</div>
 		</div>
+		<div class="col-md-3 col-sm-6">
+			<div class="number-chart">
+				<div class="mini-stat">
+					<table>
+						<thead>
+							<th>Judul</th>
+							<th>Total views</th>
+						</thead>
+						<?php 
+							foreach ($poppost as $p) {
+								echo "<tr>
+								<td>".$p->psjudul."</td>
+								<td>".$p->vcount."</td>
+								</tr>";
+							}
+						 ?>
+					</table>
+				</div>
+				<div class="number"><span></span> <span>Post Terpopuler</span></div>
+			</div>
+		</div>
+		<div class="col-md-3 col-sm-6">
+			<div class="number-chart">
+				<div class="mini-stat">
+					<table>
+						<thead>
+							<th>Tag</th>
+							<th>Total views</th>
+						</thead>
+						<?php 
+							foreach ($poptag as $t) {
+								echo "<tr>
+								<td>".$t->tag."</td>
+								<td>".$t->views."</td>
+								</tr>";
+							}
+						 ?>
+					</table>
+				</div>
+				<div class="number"><span></span> <span>Tag Terpopuler</span></div>
+			</div>
+		</div>
 	</div>
+  <?php
+//jika butuh chart
+if($page="Beranda Admin"){?>
+    <script src="<?php echo base_url('assets/vendor/chartist/js/chartist.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/chartist-plugin-axistitle/chartist-plugin-axistitle.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/chartist-plugin-legend-latest/chartist-plugin-legend.js'); ?>"></script>
+<?php } ?>
+<script>
+				// line chart
+		var data = {
+			labels: [<?php foreach (array_reverse($chart) as $D) { Print('"'.$D->Date.'",'); }?>],
+			series: [[<?php foreach (array_reverse($chart) as $v) { Print($v->views.','); }?>],
+			]
+		};
+
+		var options = {
+			height: "200px",
+			showPoint: true,
+			showArea: true,
+			axisX: {
+				showGrid: false
+			},
+			lineSmooth: false,
+			chartPadding: {
+				top: 0,
+				right: 0,
+				bottom: 30,
+				left: 30
+			},
+			plugins: [
+				Chartist.plugins.tooltip({
+					appendToBody: true
+				}),
+				Chartist.plugins.ctAxisTitle({
+					axisX: {
+						axisTitle: 'Day',
+						axisClass: 'ct-axis-title',
+						offset: {
+							x: 0,
+							y: 50
+						},
+						textAnchor: 'middle'
+					},
+					axisY: {
+						axisTitle: 'Reach',
+						axisClass: 'ct-axis-title',
+						offset: {
+							x: 0,
+							y: -10
+						},
+					}
+				})
+			]
+		};
+
+		new Chartist.Line('#demo-line-chart', data, options);
+</script>
