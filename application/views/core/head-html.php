@@ -102,7 +102,7 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
     font-size: 17px;
     font-family: Arial;
   }
-  .container .phitam {
+  .container .text-center .phitam {
     color:#000000;
     font-size: 15px;
   }
@@ -133,40 +133,69 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
     color:gold;
   }
 
-  <?php
+  <?php 
     $dsid=1;
     $d = array(
-      'nav' => '212121',
+      'nav' => '212121', 
       'lnr' => 'fff',
       'border' => '424242',
       'textcol' => 'fff',
-      'img-bg' => 'img-4.jpg'
+      'img-bg' => 'img-4.jpg',
+      'linkcol' => '0000bb',
+      'hover' => '424242',
+      'tab' => 'fff',
+      'tabact' => '212121',
+      'textisi' => '000000'
+
     );
     switch ($dsid) {
       case 1: //Dark
       $d = array(
-      'nav' => '212121',
+      'nav' => '212121', 
       'lnr' => 'fff',
       'border' => '424242',
       'textcol' => 'fff',
       'img-bg' => 'img-3.jpg',
       'linkcol' => '0000bb',
-      'hover' => '424242'
+      'hover' => '424242',
+      'icon' => '424242',
+      'tab' => 'fff',
+      'tabact' => '4f4f4f',
+      'textisi' => '000000'
     );
         break;
 
       case 2:
       $d = array(
-      'nav' => '345698',
+      'nav' => '345698', 
       'lnr' => 'ddd',
       'border' => '424242',
       'textcol' => 'fff',
       'img-bg' => 'img-2.jpg',
       'linkcol' => '0000bb',
-      'hover' => '424242'
+      'hover' => '424242',
+      'icon' => '424242',
+      'tab' => 'fff',
+      'tabact' => '4f4f4f',
+      'textisi' => '000000'
     );
         break;
-
+    
+    case 3:
+      $d = array(
+      'nav' => '00796B', 
+      'lnr' => 'ddd',
+      'border' => '00897B',
+      'textcol' => '000000',
+      'img-bg' => 'img-4.jpg',
+      'linkcol' => '0000bb',
+      'hover' => '00897B',
+      'icon' => '00796B ',
+      'tab' => 'fff',
+      'tabact' => '4f4f4f',
+      'textisi' => '000000'
+    );
+        break;
       default:
         # code...
         break;
@@ -189,6 +218,12 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
   }
 
   /*Footer*/
+  .pputih {
+    color: #<?php echo $d['textcol']; ?>;
+    font-size: 17px;
+    font-family: Arial;
+  }
+
   body .last-div {
     background-color:#<?php echo $d['nav'];?>;
   }
@@ -222,8 +257,41 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
     background-color: #<?php echo $d['hover']; ?>;
   }
 
-  .container .text-center{
+  .container .center{
+    color: #<?php echo $d['textisi']; ?>;
+    text-align: center;
+    margin-top: 0px;
+  }
+
+  .container .text-center h2{
     color: #<?php echo $d['textcol']; ?>;
+  }
+
+  .container .text-center p{
+    color: #<?php echo $d['textcol']; ?>;
+  }
+
+  .container .row .text-center{
+    color: #<?php echo $d['textcol']; ?>; 
+  }
+
+  .container .icon {
+    color: #<?php echo $d['icon']; ?>; 
+  }
+
+  .container .nav a {
+    color: #<?php echo $d['tab']; ?>; 
+    background-color: #<?php echo $d['nav']; ?>
+  }
+
+  .container .nav a:hover {
+    color: #<?php echo $d['tab']; ?>; 
+    background-color: #<?php echo $d['tabact']; ?>
+  }
+
+  .container .active a{
+    color: #<?php echo $d['tab']; ?>; 
+    background-color: #<?php echo $d['tabact']; ?>
   }
 
   /*Admin*/
