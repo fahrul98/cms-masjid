@@ -119,14 +119,8 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
   </footer>
   <!-- try footer from template  -->
   <!-- Javascript -->
-  <?php
-//jika butuh chart
-if(false){?>
-    <script src="<?php echo base_url('assets/vendor/chartist/js/chartist.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/vendor/chartist-plugin-axistitle/chartist-plugin-axistitle.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/vendor/chartist-plugin-legend-latest/chartist-plugin-legend.js'); ?>"></script>
-    <?php }
+
+    <?php
 
         //jika pengunjung true
         if (isset($mode)) {

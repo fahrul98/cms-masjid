@@ -67,4 +67,65 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="number"><span></span> <span>Tag Terpopuler</span></div>
 			</div>
 		</div>
+		<div class="col-md-8 col-sm-7 left">
+			<div id="demo-line-chart" class="ct-chart"></div>
+		</div>
 	</div>
+  <?php
+//jika butuh chart
+if($page="Beranda Admin"){?>
+    <script src="<?php echo base_url('assets/vendor/chartist/js/chartist.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/chartist-plugin-axistitle/chartist-plugin-axistitle.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/chartist-plugin-legend-latest/chartist-plugin-legend.js'); ?>"></script>
+<?php } ?>
+<script>
+				// line chart
+		var data = {
+			labels: [<?php foreach (array_reverse($chart) as $D) { Print('"'.$D->Date.'",'); }?>],
+			series: [[<?php foreach (array_reverse($chart) as $v) { Print($v->views.','); }?>],
+			]
+		};
+
+		var options = {
+			height: "200px",
+			showPoint: true,
+			showArea: true,
+			axisX: {
+				showGrid: false
+			},
+			lineSmooth: false,
+			chartPadding: {
+				top: 0,
+				right: 0,
+				bottom: 30,
+				left: 30
+			},
+			plugins: [
+				Chartist.plugins.tooltip({
+					appendToBody: true
+				}),
+				Chartist.plugins.ctAxisTitle({
+					axisX: {
+						axisTitle: 'Day',
+						axisClass: 'ct-axis-title',
+						offset: {
+							x: 0,
+							y: 50
+						},
+						textAnchor: 'middle'
+					},
+					axisY: {
+						axisTitle: 'Reach',
+						axisClass: 'ct-axis-title',
+						offset: {
+							x: 0,
+							y: -10
+						},
+					}
+				})
+			]
+		};
+
+		new Chartist.Line('#demo-line-chart', data, options);
+</script>

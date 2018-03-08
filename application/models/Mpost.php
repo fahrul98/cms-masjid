@@ -164,10 +164,19 @@ unset(variabel) => hapus variabel dari memori
 		unset($data);
 	}
 
-	public function viewsPerDate(){
-		$data= $this->db->query("SELECT COUNT(*) views, DATE(time) Date FROM `cmlogs` WHERE tipe_log='cmpost' GROUP BY Date");
+	public function viewsPerDate($time){
+		if ($time=='day') {
+			$data= $this->db->query("SELECT COUNT(*) views, DATE(time) Date FROM `cmlogs` WHERE tipe_log='cmpost' GROUP BY Date ORDER BY DATE DESC LIMIT 7");
+		}else if ($time=='month') {
+			$data= $this->db->query("SELECT COUNT(*) views, MONTH(time) Date FROM `cmlogs` WHERE tipe_log='cmpost' GROUP BY Date ORDER BY DATE ASC LIMIT 12");
+		}else{
+			$data= $this->db->query("SELECT COUNT(*) views, YEAR(time) Date FROM `cmlogs` WHERE tipe_log='cmpost' GROUP BY Date ORDER BY DATE ASC");
+		}
+		
 		return $data;
 		unset($data);
 	}
+
+
 
 }
