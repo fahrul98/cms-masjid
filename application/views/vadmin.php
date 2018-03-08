@@ -7,6 +7,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div id="main-content">
 		<!-- <h1>Welcome to CodeIgniter!</h1> -->
 		<h2><?php echo $page; ?></h2>
+		<div class="col-md-8 col-sm-7 left">
+			<div id="demo-line-chart" class="ct-chart"></div>
+		</div>
 		<div class="col-md-3 col-sm-6">
 			<div class="number-chart">
 				<div class="mini-stat">
@@ -66,9 +69,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 				<div class="number"><span></span> <span>Tag Terpopuler</span></div>
 			</div>
-		</div>
-		<div class="col-md-8 col-sm-7 left">
-			<div id="demo-line-chart" class="ct-chart"></div>
 		</div>
 	</div>
   <?php
