@@ -25,16 +25,17 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
       <div class="inner-footer backgroundpict">
         <div class="container">
           <div class="row">
-            <div class="col-md-4 f-about">
-              <a href="<?php echo base_url('');?>"><h1><span><?php echo $cmprofil->pnama;?></span></h1></a>
+            <div class="col-md-4 col-xs-12 f-about">
+              <h3 class="widgetheading" style="margin-left:15px"><?php echo $cmprofil->pnama;?></h3></a>
+
 
               <p class="phitam textfooter">
                 <?php echo nl2br($pgt->cmfoot1);?>
               </p>
             </div>
-            <div class="col-md-4 l-posts">
+            <div class="col-md-4 col-xs-12 l-posts">
               <h3 class="widgetheading">Post terbaru</h3>
-              <div class="col-md l-posts">
+              <div class="col-xs l-posts">
                 <ul>
                   <?php
                   $n = 1;
@@ -53,9 +54,9 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
                 </ul>
               </div>
             </div>
-            <div class="col-md-4 f-contact">
+            <div class="col-md-4 col-xs-12 f-contact">
               <h3 class="widgetheading">Info</h3>
-              <div class="col-md l-posts phitam">
+              <div class="col-xs l-posts pputih">
                 <?php echo nl2br($pgt->cmfoot2);?>
               </div>
               <!-- <h3 class="widgetheading">Hubungi Kami</h3>

@@ -321,21 +321,21 @@ mediaid
 				<hr>
 				<div class="container">
 					<div class="row">
-						<h2 class="text-center">Deskripsi</h2>
+						<h2 class="center">Deskripsi</h2>
 						<p class="phitam">
 							<?php echo nl2br($profil->pdeskripsi);?>
 						</p>
 					</div>
 					<hr>
 					<div class="row">
-						<h2 class="text-center">Sejarah</h2>
+						<h2 class="center">Sejarah</h2>
 						<p class="phitam">
 							<?php echo nl2br($profil->psejarah);?>
 						</p>
 					</div>
 					<hr>
 					<div class="row">
-						<h2 class="text-center">Visi Misi</h2>
+						<h2 class="center">Visi Misi</h2>
 						<p class="phitam">
 							<?php echo nl2br($profil->pvisimisi);?>
 						</p>
