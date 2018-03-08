@@ -14,7 +14,8 @@ mediaid
 ?>
 	<!-- <div class="wrapper"> -->
 	<!-- Template -->
-
+<div class="">
+</div>
 	<?php
 	function indonesian_date ($timestamp = '', $date_format = 'l, j F Y | H:i', $suffix = 'WIB') {
 		if (trim ($timestamp) == ''){
@@ -224,7 +225,7 @@ mediaid
 							<div class="phitam">
 								<?php
 								// echo $this->security->xss_clean(substr($v->pstext,0,50));
-								echo htmlspecialchars_decode(substr($v->pstext,0,50));
+								echo htmlspecialchars_decode(substr($v->pstext,0,100))."...";
 								//."...</p>"; ?>
 							</div>
 							<a href="<?php echo base_url('beranda/post/'.urlencode($v->psjudul));?>" alt="">Lebih banyak...</a>
@@ -263,13 +264,6 @@ mediaid
 			<?php
 		$n = 1;
 		$v=$post;
-		echo "<tr>
-		<td>".$n."</td>
-		<td><a href=".base_url('beranda/post/'.urlencode($v->psjudul)).">".$v->psjudul."</a></td>
-		<td>".$v->psustadz."</td>
-		<td>".indonesian_date($v->psbuat)."</td>
-		<td>".$v->tagid."</td>
-		</tr>";
 	?>
 
 
@@ -288,18 +282,18 @@ mediaid
 							</div>
 						</div>
 					</div> -->
-
+<hr>
 				<div class="container">
-					<hr>
 					<div class="row">
 						<div class="col-lg-12">
 							<img src="assets/img/01.jpg" class="img-responsive" alt="" />
 							<h1><a href="<?php echo base_url('beranda/post/'.urlencode($v->psjudul));?>"><?php echo $v->psjudul;?></a></h1>
 							<h5><?php echo indonesian_date($v->psbuat)." | ".$v->psustadz." | ".$v->tag." | ";?><i class='fa fa-eye' aria-hidden='true'></i> <span> <?php echo $v->vcount; ?></span></h5>
-							<p class="phitam">
-								<?php echo $v->pstext;?>
-							</p>
-							<div class="panel-content">
+							<!-- <p class="phitam">
+							<p class="phitam" style="font-size:15px;">
+							</p> -->
+							<div class="phitam">
+							<?php echo $v->pstext;?>
 							</div>
 							<!-- sidebar -->
 						</div>

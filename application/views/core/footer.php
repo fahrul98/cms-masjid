@@ -165,6 +165,7 @@ if($page=="Tulis Postingan"||$page=="Ubah Postingan"){
   ?>
 
         <script src="<?php echo base_url('assets/vendor/summernote/summernote.min.js');?>"></script>
+        <script src="<?php echo base_url('assets/vendor/summernote/summernote-cleaner.js');?>"></script>
         <script src="<?php echo base_url('assets/vendor/markdown/markdown.js');?>"></script>
         <script src="<?php echo base_url('assets/vendor/to-markdown/to-markdown.js');?>"></script>
         <script src="<?php echo base_url('assets/vendor/bootstrap-markdown/bootstrap-markdown.js');?>"></script>
@@ -175,6 +176,7 @@ if($page=="Tulis Postingan"||$page=="Ubah Postingan"){
             $('.summernote').summernote({
               height: 300,
               focus: true,
+              fontSizes: ['8', '9', '10', '11', '12', '14', '18', '24', '36', '48' , '64', '82', '150'],
               onpaste: function() {
                 alert('You have pasted something to the editor');
               }
