@@ -145,7 +145,8 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
       'hover' => '424242',
       'tab' => 'fff',
       'tabact' => '212121',
-      'textisi' => '000000'
+      'textisi' => '000000',
+      'licol' => '000000'
 
     );
     switch ($dsid) {
@@ -161,7 +162,8 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
       'icon' => '424242',
       'tab' => 'fff',
       'tabact' => '4f4f4f',
-      'textisi' => '000000'
+      'textisi' => '000000',
+      'licol' => 'fff'
     );
         break;
 
@@ -177,7 +179,8 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
       'icon' => '424242',
       'tab' => 'fff',
       'tabact' => '4f4f4f',
-      'textisi' => '000000'
+      'textisi' => '000000',
+      'licol' => 'fff'
     );
         break;
     
@@ -193,7 +196,8 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
       'icon' => '00796B ',
       'tab' => 'fff',
       'tabact' => '4f4f4f',
-      'textisi' => '000000'
+      'textisi' => '000000',
+      'licol' => 'fff'
     );
         break;
       default:
@@ -207,7 +211,7 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
     background:url("<?php echo base_url('assets/img/'.$d['img-bg']);?>");
     background-attachment: fixed;
     width: 100%;
-    height: 350px;
+    height: relative;
   }
 
   .backgroundpictop {
@@ -238,6 +242,24 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
 
   .inner-footer .row p {
     color: #<?php echo $d['textcol']; ?>;
+  }
+
+  .container ul.social-network li {
+    display:inline;
+    margin: 0 15px;
+    color: #<?php echo $d['licol']; ?>;
+  }
+
+  .container ul.social-network li a {
+    color: #<?php echo $d['licol']; ?>;
+  }
+
+  .container ul.social-network li a:hover {
+    color: #<?php echo $d['hover']; ?>;
+  }
+
+  a.scrollup:hover {
+    background-color: #<?php echo $d['hover']; ?>;
   }
 
   /*netizen*/
@@ -286,12 +308,17 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
 
   .container .nav a:hover {
     color: #<?php echo $d['tab']; ?>; 
+    background-color: #<?php echo $d['hover']; ?>
+  }
+
+  .container .active a {
+    color: #<?php echo $d['tab']; ?>; 
     background-color: #<?php echo $d['tabact']; ?>
   }
 
-  .container .active a{
+  .container .active a:hover {
     color: #<?php echo $d['tab']; ?>; 
-    background-color: #<?php echo $d['tabact']; ?>
+    background-color: #<?php echo $d['hover']; ?>
   }
 
   /*Admin*/

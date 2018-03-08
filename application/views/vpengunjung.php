@@ -459,8 +459,8 @@ $n = 1;
 				<div class="container">
 					<div class="row">
 						<!-- BASIC TABS -->
-						<ul class="nav nav-pills" role="tablist">
-							<li class="active"><a href="#papandana" role="tab" data-toggle="tab" aria-expanded="true">Papan Dana Masjid</a></li>
+						<ul class="nav nav-tabs" role="tablist">
+							<li class=""><a href="#papandana" role="tab" data-toggle="tab" aria-expanded="true">Papan Dana Masjid</a></li>
 							<li class=""><a href="#donasi" role="tab" data-toggle="tab" aria-expanded="false">Donasi</a></li>
 						</ul>
 						<div class="tab-content tab-content-colored">
