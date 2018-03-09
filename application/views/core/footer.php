@@ -24,18 +24,18 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
       <!-- <footer> -->
       <div class="inner-footer backgroundpict">
         <div class="container">
-          <div class="row">
+          <div class="row" style="padding-bottom: 20px">
             <div class="col-md-4 col-xs-12 f-about" style="padding-left: 37px">
               <h3 class="widgetheading" style="margin-left:15px"><?php echo $cmprofil->pnama;?></h3></a>
-
-
-              <p class="phitam textfooter">
-                <?php echo nl2br($pgt->cmfoot1);?>
-              </p>
+                <div class="transbox">
+                  <p class="phitam textfooter">
+                  <?php echo nl2br($pgt->cmfoot1);?>
+                  </p>
+                </div>
             </div>
-            <div class="col-md-4 col-xs-12 l-posts">
+            <div class="col-md-4 col-xs-12 l-posts" style="padding-left: 32px">
               <h3 class="widgetheading">Post terbaru</h3>
-              <div class="col-xs l-posts">
+              <div class="col-xs l-posts transbox">
                 <ul>
                   <?php
                   $n = 1;
@@ -54,10 +54,14 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
                 </ul>
               </div>
             </div>
-            <div class="col-md-4 col-xs-12 f-contact" style="padding-left: 53px; padding-bottom: 30px">
+            <div class="col-md-4 col-xs-12 f-contact" style="padding-left: 26px; padding-bottom: 30px">
               <h3 class="widgetheading">Info</h3>
+              <div class="transbox">
               <div class="col-xs l-posts pputih">
-                <?php echo nl2br($pgt->cmfoot2);?>
+                <ul>
+                  <li><?php echo nl2br($pgt->cmfoot2);?></li>
+                </ul>
+              </div>
               </div>
               <!-- <h3 class="widgetheading">Hubungi Kami</h3>
 

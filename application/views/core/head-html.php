@@ -120,7 +120,7 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
   }
 
   .navbar .paddinglr {
-    padding-left: 0px;
+    padding-left: 15px;
     padding-right: 0px;
   }
 
@@ -260,6 +260,14 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
 
   a.scrollup:hover {
     background-color: #<?php echo $d['hover']; ?>;
+  }
+
+  div.transbox {
+    height:220px; 
+    width:350px;
+    background-color: #<?php echo $d['hover']; ?>;
+    /*opacity: 0.6;*/
+    background: rgba(0,0,0,0.2);
   }
 
   /*netizen*/
