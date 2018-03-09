@@ -553,13 +553,13 @@ ul.social-network {
 ul.social-network li {
 	display:inline;
 	margin: 0 15px;
-	color:#6EE5A1;
+	color: #<?php echo $d['textcol']; ?>;
 }
 ul.social-network li a {
-	color:#6EE5A1;
+	color: #<?php echo $d['textcol']; ?>;
 }
 ul.social-network li a:hover {
-	color:#36CBD4;
+	color: #<?php echo $d['hover']; ?>;
 }
 
 a.scrollup{
@@ -579,6 +579,6 @@ a.scrollup{
 }
 a.scrollup:hover{
 	opacity:1;
-	background-color:#36CBD4;
+	background-color: #<?php echo $d['hover']; ?>;
 	color:#fff;;
 }
