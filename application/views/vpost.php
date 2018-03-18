@@ -23,12 +23,12 @@ if ($page=="Post") {
 
 <h2><?php echo $page; ?></h2>
 <div class="panel">
-<div class="panel-content">
-<div class="col-sm-6">
-	<a class="btn btn-default" href="<?php echo base_url('post/tulis');?>"><i class="fa fa-pencil-square-o"> </i> Tulis postingan</a>
-	<a class="btn btn-default" href="<?php echo base_url('beranda/post');?>">Tampil Semua</a></button>
-</div>
-</div>
+	<div class="panel-content">
+		<div class="col-sm-6">
+			<a class="btn btn-default" href="<?php echo base_url('post/tulis');?>"><i class="fa fa-pencil-square-o"> </i> Tulis postingan</a>
+			<a class="btn btn-default" href="<?php echo base_url('beranda/post');?>">Tampil Semua</a></button>
+		</div>
+	</div>
 <div class="panel-content">
 	<table class="table table-bordered table-striped table-hover">
 		<thead>
@@ -93,7 +93,7 @@ if ($page=="Post") {
 		}
 		?>><span>Publik</span></label>
 	<div class="row">
-		<div class="form-group col-md-3">
+		<div class="form-group col-md-6">
 			<label for="judul">Judul</label>
 			<input type="text" class="form-control" name="judul" value="<?php echo $input['psjudul']; ?>">
 		</div>
@@ -111,11 +111,13 @@ if ($page=="Post") {
 				?>
 			</select>
 		</div>
+		</div>
+		<!-- <div class="row">
 		<div class="form-group col-md-3">
 			<label for="mediaid">Mediaid</label>
 			<input type="file" class="form-control" name="mediaid" value="">
 		</div>
-	</div>
+	</div> -->
 
 	<!-- gk jadi <div class="form-group ">
 		<label for="text">Text</label>
@@ -147,7 +149,7 @@ if ($page=="Post") {
 		?>><span>Publik</span></label>
 	<input type="hidden" name="postid" value="<?php echo $post->postid;?>">
 	<div class="row">
-		<div class="form-group col-md-3">
+		<div class="form-group col-md-6">
 			<label for="judul">Judul</label>
 			<input type="text" class="form-control" name="judul" value="<?php echo $post->psjudul;?>">
 		</div>
@@ -169,12 +171,13 @@ if ($page=="Post") {
 				?>
 			</select>
 		</div>
-
+	</div>
+	<!-- <div class="row">
 		<div class="form-group col-md-3">
 			<label for="mediaid">Mediaid</label>
 			<input type="file" class="form-control" name="mediaid" value="">
 		</div>
-	</div>
+	</div> -->
 	<div class="row">
 		<div class="form-group col-md-8">
 			<button type="submit" class="btn btn-primary" name="submit" value="ubah">Ubah</button>

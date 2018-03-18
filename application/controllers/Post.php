@@ -195,12 +195,12 @@ method-method untuk operasi admin
 				'max_length' => '%s harus <=50000 karakter'
 			)
 		);
-		
+
 		$data['postid'] = $this->input->post('postid');
 		$data['psjudul'] = $this->input->post('judul');
 		$data['psustadz'] = $this->input->post('ustadz');
 		$data['pstext'] = $this->input->post('text');
-		$data['tagid'] = $this->input->post('tagid');
+		$data['tagid'] = $this->input->post('tagid')?$this->input->post('tagid'):1;
 		//jika diset maka 1, jika tidak sebaliknya
 		$data['pspublic']=$this->input->post('pspublic')?1:0;
 
