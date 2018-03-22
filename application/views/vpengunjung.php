@@ -14,38 +14,10 @@ mediaid
 ?>
 	<!-- <div class="wrapper"> -->
 	<!-- Template -->
-<div class="">
-</div>
 	<?php
-	function indonesian_date ($timestamp = '', $date_format = 'l, j F Y | H:i', $suffix = 'WIB') {
-		if (trim ($timestamp) == ''){
-						$timestamp = time ();
-		}	elseif (!ctype_digit ($timestamp))		{
-				$timestamp = strtotime ($timestamp);
-		}
-		# remove S (st,nd,rd,th) there are no such things in indonesia :p
-		$date_format = preg_replace ("/S/", "", $date_format);
-		$pattern = array (
-				'/Mon[^day]/','/Tue[^sday]/','/Wed[^nesday]/','/Thu[^rsday]/',
-				'/Fri[^day]/','/Sat[^urday]/','/Sun[^day]/','/Monday/','/Tuesday/',
-				'/Wednesday/','/Thursday/','/Friday/','/Saturday/','/Sunday/',
-				'/Jan[^uary]/','/Feb[^ruary]/','/Mar[^ch]/','/Apr[^il]/','/May/',
-				'/Jun[^e]/','/Jul[^y]/','/Aug[^ust]/','/Sep[^tember]/','/Oct[^ober]/',
-				'/Nov[^ember]/','/Dec[^ember]/','/January/','/February/','/March/',
-				'/April/','/June/','/July/','/August/','/September/','/October/',
-				'/November/','/December/',
-		);
-		$replace = array ( 'Sen','Sel','Rab','Kam','Jum','Sab','Min',
-				'Senin','Selasa','Rabu','Kamis','Jumat','Sabtu','Minggu',
-				'Jan','Feb','Mar','Apr','Mei','Jun','Jul','Ags','Sep','Okt','Nov','Des',
-				'Januari','Februari','Maret','April','Juni','Juli','Agustus','Sepember',
-				'Oktober','November','Desember',
-		);
-		$date = date ($date_format, $timestamp);
-		$date = preg_replace ($pattern, $replace, $date);
-		$date = "{$date} {$suffix}";
-		return $date;
-	}
+//tanggal, dll
+include('opsional.php');
+
 	if ($page=="Beranda") {
 
 ?>
@@ -453,14 +425,14 @@ $n = 1;
 				<div class="container">
 					<div class="row">
 						<!-- BASIC TABS -->
-						<ul class="nav nav-pills" role="tablist">
+						<ul class="nav nav-tabs" role="tablist">
 							<li class="active"><a href="#papandana" role="tab" data-toggle="tab" aria-expanded="true">Papan Dana Masjid</a></li>
 							<li class=""><a href="#donasi" role="tab" data-toggle="tab" aria-expanded="false">Donasi</a></li>
 						</ul>
 						<div class="tab-content tab-content-colored">
 							<div class="tab-pane fade active in" id="papandana">
 								<h5>Papan Dana Masjid</h5>
-								<table class="table table-bordered table-striped table-hover">
+								<table id="datatable" class="table table-bordered table-striped table-hover">
 									<thead>
 										<th>No.</th>
 										<th>Waktu</th>
@@ -488,7 +460,7 @@ $n = 1;
 							</div>
 							<div class="tab-pane fade" id="donasi">
 								<h5>Donasi</h5>
-								<table class="table table-bordered table-striped table-hover">
+								<table id="datatable2" class="table table-bordered table-striped table-hover">
 									<thead>
 										<th>No.</th>
 										<th>Waktu</th>
@@ -534,7 +506,8 @@ $n = 1;
 					</div>
 				</div>
 				<div class="container">
-					<table class="table table-bordered table-striped table-hover">
+					<div class="row">
+					<table id="datatable" class="table table-bordered table-striped table-hover">
 						<thead>
 							<th>No.</th>
 							<th>Nama Kegiatan</th>
@@ -559,6 +532,7 @@ $n = 1;
 			}
 			 ?>
 					</table>
+				</div>
 				</div>
 
 				<?php } else if ($page=="Galeri") {?>

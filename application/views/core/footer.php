@@ -121,6 +121,7 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
   <!-- try footer from template  -->
   <!-- Javascript -->
 
+  <script src="<?php echo base_url('assets/vendor/jquery/jquery-3.3.1.min.js');?>"></script>
     <?php
 
         //jika pengunjung true
@@ -128,8 +129,8 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
           ?>
 
     <!-- JS Netizen -->
-    <script src="<?php echo base_url('assets/js/jquery-2.1.1.min.js');?>"></script>
-    <script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
+    <!-- <script src="<?php echo base_url('assets/js/jquery-2.1.1.min.js');?>"></script> -->
+    <script src="<?php echo base_url('assets/vendor/bootstrap/js/bootstrap.min.js');?>"></script>
     <script src="<?php echo base_url('assets/js/wow.min.js');?>"></script>
     <script src="<?php echo base_url('assets/js/jquery.easing.1.3.js');?>"></script>
     <script src="<?php echo base_url('assets/js/jquery.isotope.min.js');?>"></script>
@@ -140,6 +141,20 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
       $('.portfolio').flipLightBox()
     </script>
 
+    <script src="<?php echo base_url('assets/vendor/datatables/js/datatables.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/vendor/datatables/js/dataTables.jqueryui.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/vendor/datatables/js/dataTables.bootstrap.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/vendor/datatables/js/dataTables.foundation.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/vendor/datatables/js/dataTables.semanticui.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/vendor/datatables/js/jquery.dataTables.min.js');?>"></script>
+
+    <script type="text/javascript">
+      $(document).ready(
+        function() {
+          $('#datatable').DataTable();
+          $('#datatable2').DataTable();
+      })
+    </script>
     <?php
         //jika admin
       }else{

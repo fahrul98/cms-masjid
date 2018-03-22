@@ -37,7 +37,7 @@ if(!isset($mode)){
 
 ?>
 <!-- MAIN CSS -->
-<link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>">
+<!-- <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>"> -->
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.min.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/linearicons/style.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/metisMenu/metisMenu.css'); ?>">
@@ -59,8 +59,8 @@ if(!isset($mode)){
     Author URL: https://bootstrapmade.com
   ======================================================= -->
  <!-- CSS Template NetizenUI -->
- <link rel="stylesheet" href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.min.css'); ?>">
- <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css');?>">
+ <!-- <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css');?>"> -->
+ <!-- <link rel="stylesheet" href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.min.css'); ?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/animate.css');?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css');?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/normalize.css');?>">
@@ -68,7 +68,10 @@ if(!isset($mode)){
  <link rel="stylesheet" href="<?php echo base_url('assets/css/set1.css');?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/overwrite.css');?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/jquery.bxslider.css');?>">
- <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>"> -->
+ <link rel="stylesheet" href="<?php echo base_url('assets/vendor/datatables/css/datatables.min.css');?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/vendor/datatables/css/dataTables.bootstrap.min.css');?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/vendor/datatables/css/dataTables.jqueryui.min.css');?>">
 
 <?php
 } ?>
@@ -133,10 +136,10 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
     color:gold;
   }
 
-  <?php 
+  <?php
     $dsid=1;
     $d = array(
-      'nav' => '212121', 
+      'nav' => '212121',
       'lnr' => 'fff',
       'border' => '424242',
       'textcol' => 'fff',
@@ -151,7 +154,7 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
     switch ($dsid) {
       case 1: //Dark
       $d = array(
-      'nav' => '212121', 
+      'nav' => '212121',
       'lnr' => 'fff',
       'border' => '424242',
       'textcol' => 'fff',
@@ -167,7 +170,7 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
 
       case 2:
       $d = array(
-      'nav' => '345698', 
+      'nav' => '345698',
       'lnr' => 'ddd',
       'border' => '424242',
       'textcol' => 'fff',
@@ -180,10 +183,10 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
       'textisi' => '000000'
     );
         break;
-    
+
     case 3:
       $d = array(
-      'nav' => '00796B', 
+      'nav' => '00796B',
       'lnr' => 'ddd',
       'border' => '00897B',
       'textcol' => '000000',
@@ -272,25 +275,25 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
   }
 
   .container .row .text-center{
-    color: #<?php echo $d['textcol']; ?>; 
+    color: #<?php echo $d['textcol']; ?>;
   }
 
   .container .icon {
-    color: #<?php echo $d['icon']; ?>; 
+    color: #<?php echo $d['icon']; ?>;
   }
 
   .container .nav a {
-    color: #<?php echo $d['tab']; ?>; 
+    color: #<?php echo $d['tab']; ?>;
     background-color: #<?php echo $d['nav']; ?>
   }
 
   .container .nav a:hover {
-    color: #<?php echo $d['tab']; ?>; 
+    color: #<?php echo $d['tab']; ?>;
     background-color: #<?php echo $d['tabact']; ?>
   }
 
   .container .active a{
-    color: #<?php echo $d['tab']; ?>; 
+    color: #<?php echo $d['tab']; ?>;
     background-color: #<?php echo $d['tabact']; ?>
   }
 
