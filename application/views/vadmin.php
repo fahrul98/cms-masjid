@@ -107,7 +107,7 @@ if($page="Beranda Admin"){?>
 				}),
 				Chartist.plugins.ctAxisTitle({
 					axisX: {
-						axisTitle: 'Day',
+						axisTitle: 'Days',
 						axisClass: 'ct-axis-title',
 						offset: {
 							x: 0,
@@ -116,7 +116,7 @@ if($page="Beranda Admin"){?>
 						textAnchor: 'middle'
 					},
 					axisY: {
-						axisTitle: 'Reach',
+						axisTitle: 'Views',
 						axisClass: 'ct-axis-title',
 						offset: {
 							x: 0,
