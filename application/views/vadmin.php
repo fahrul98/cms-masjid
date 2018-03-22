@@ -7,7 +7,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div id="main-content">
 		<!-- <h1>Welcome to CodeIgniter!</h1> -->
 		<h2><?php echo $page; ?></h2>
-		<div class="col-md-8 col-sm-7 left">
+		<div class="row">
+		<div class="col-md-6 col-sm-7 left">
 			<div id="demo-line-chart" class="ct-chart"></div>
 		</div>
 		<div class="col-md-3 col-sm-6">
@@ -28,15 +29,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="number"><span></span> <span>Penayangan Post terbaik</span></div>
 			</div>
 		</div>
-		<div class="col-md-3 col-sm-6">
-			<div class="number-chart">
-				<div class="mini-stat">
-					<table>
-						<thead>
+		</div>
+				<div class="row">
+		<div class="col-md-6 col-sm-6">
+			<div class="panel">
+				<div class="panel-content">
+					<h3>Post Terpopuler</h3>
+					<table class="table table-bordered">
+						<thead style="margin:0px auto">
 							<th>Judul</th>
 							<th>Total views</th>
 						</thead>
-						<?php 
+						<?php
 							foreach ($poppost as $p) {
 								echo "<tr>
 								<td>".$p->psjudul."</td>
@@ -46,18 +50,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						 ?>
 					</table>
 				</div>
-				<div class="number"><span></span> <span>Post Terpopuler</span></div>
 			</div>
 		</div>
-		<div class="col-md-3 col-sm-6">
-			<div class="number-chart">
-				<div class="mini-stat">
-					<table>
+
+		<div class="col-md-6 col-sm-6">
+			<div class="panel">
+				<div class="panel-content">
+					<h3>Tag Terpopuler</h3>
+					<table class="table table-bordered">
 						<thead>
 							<th>Tag</th>
 							<th>Total views</th>
 						</thead>
-						<?php 
+						<?php
 							foreach ($poptag as $t) {
 								echo "<tr>
 								<td>".$t->tag."</td>
@@ -67,8 +72,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						 ?>
 					</table>
 				</div>
-				<div class="number"><span></span> <span>Tag Terpopuler</span></div>
 			</div>
+		</div>
 		</div>
 	</div>
   <?php
@@ -108,6 +113,7 @@ if($page="Beranda Admin"){?>
 				Chartist.plugins.ctAxisTitle({
 					axisX: {
 						axisTitle: 'Days',
+						axisTitle: 'Tanggal',
 						axisClass: 'ct-axis-title',
 						offset: {
 							x: 0,
@@ -117,6 +123,7 @@ if($page="Beranda Admin"){?>
 					},
 					axisY: {
 						axisTitle: 'Views',
+						axisTitle: 'Tayangan',
 						axisClass: 'ct-axis-title',
 						offset: {
 							x: 0,

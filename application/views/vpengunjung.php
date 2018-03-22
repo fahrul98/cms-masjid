@@ -14,37 +14,10 @@ mediaid
 ?>
 	<!-- <div class="wrapper"> -->
 	<!-- Template -->
-
 	<?php
-	function indonesian_date ($timestamp = '', $date_format = 'l, j F Y | H:i', $suffix = 'WIB') {
-		if (trim ($timestamp) == ''){
-						$timestamp = time ();
-		}	elseif (!ctype_digit ($timestamp))		{
-				$timestamp = strtotime ($timestamp);
-		}
-		# remove S (st,nd,rd,th) there are no such things in indonesia :p
-		$date_format = preg_replace ("/S/", "", $date_format);
-		$pattern = array (
-				'/Mon[^day]/','/Tue[^sday]/','/Wed[^nesday]/','/Thu[^rsday]/',
-				'/Fri[^day]/','/Sat[^urday]/','/Sun[^day]/','/Monday/','/Tuesday/',
-				'/Wednesday/','/Thursday/','/Friday/','/Saturday/','/Sunday/',
-				'/Jan[^uary]/','/Feb[^ruary]/','/Mar[^ch]/','/Apr[^il]/','/May/',
-				'/Jun[^e]/','/Jul[^y]/','/Aug[^ust]/','/Sep[^tember]/','/Oct[^ober]/',
-				'/Nov[^ember]/','/Dec[^ember]/','/January/','/February/','/March/',
-				'/April/','/June/','/July/','/August/','/September/','/October/',
-				'/November/','/December/',
-		);
-		$replace = array ( 'Sen','Sel','Rab','Kam','Jum','Sab','Min',
-				'Senin','Selasa','Rabu','Kamis','Jumat','Sabtu','Minggu',
-				'Jan','Feb','Mar','Apr','Mei','Jun','Jul','Ags','Sep','Okt','Nov','Des',
-				'Januari','Februari','Maret','April','Juni','Juli','Agustus','Sepember',
-				'Oktober','November','Desember',
-		);
-		$date = date ($date_format, $timestamp);
-		$date = preg_replace ($pattern, $replace, $date);
-		$date = "{$date} {$suffix}";
-		return $date;
-	}
+//tanggal, dll
+include('opsional.php');
+
 	if ($page=="Beranda") {
 
 ?>
@@ -224,7 +197,7 @@ mediaid
 							<div class="phitam">
 								<?php
 								// echo $this->security->xss_clean(substr($v->pstext,0,50));
-								echo htmlspecialchars_decode(substr($v->pstext,0,50));
+								echo htmlspecialchars_decode(substr($v->pstext,0,100))."...";
 								//."...</p>"; ?>
 							</div>
 							<a href="<?php echo base_url('beranda/post/'.urlencode($v->psjudul));?>" alt="">Lebih banyak...</a>
@@ -263,13 +236,6 @@ mediaid
 			<?php
 		$n = 1;
 		$v=$post;
-		echo "<tr>
-		<td>".$n."</td>
-		<td><a href=".base_url('beranda/post/'.urlencode($v->psjudul)).">".$v->psjudul."</a></td>
-		<td>".$v->psustadz."</td>
-		<td>".indonesian_date($v->psbuat)."</td>
-		<td>".$v->tagid."</td>
-		</tr>";
 	?>
 
 
@@ -288,18 +254,18 @@ mediaid
 							</div>
 						</div>
 					</div> -->
-
+<hr>
 				<div class="container">
-					<hr>
 					<div class="row">
 						<div class="col-lg-12">
 							<img src="assets/img/01.jpg" class="img-responsive" alt="" />
 							<h1><a href="<?php echo base_url('beranda/post/'.urlencode($v->psjudul));?>"><?php echo $v->psjudul;?></a></h1>
 							<h5><?php echo indonesian_date($v->psbuat)." | ".$v->psustadz." | ".$v->tag." | ";?><i class='fa fa-eye' aria-hidden='true'></i> <span> <?php echo $v->vcount; ?></span></h5>
-							<p class="phitam">
-								<?php echo $v->pstext;?>
-							</p>
-							<div class="panel-content">
+							<!-- <p class="phitam">
+							<p class="phitam" style="font-size:15px;">
+							</p> -->
+							<div class="phitam">
+							<?php echo $v->pstext;?>
 							</div>
 							<!-- sidebar -->
 						</div>
@@ -460,13 +426,13 @@ $n = 1;
 					<div class="row">
 						<!-- BASIC TABS -->
 						<ul class="nav nav-tabs" role="tablist">
-							<li class=""><a href="#papandana" role="tab" data-toggle="tab" aria-expanded="true">Papan Dana Masjid</a></li>
+							<li class="active"><a href="#papandana" role="tab" data-toggle="tab" aria-expanded="true">Papan Dana Masjid</a></li>
 							<li class=""><a href="#donasi" role="tab" data-toggle="tab" aria-expanded="false">Donasi</a></li>
 						</ul>
 						<div class="tab-content tab-content-colored">
 							<div class="tab-pane fade active in" id="papandana">
 								<h5>Papan Dana Masjid</h5>
-								<table class="table table-bordered table-striped table-hover">
+								<table id="datatable" class="table table-bordered table-striped table-hover">
 									<thead>
 										<th>No.</th>
 										<th>Waktu</th>
@@ -494,7 +460,7 @@ $n = 1;
 							</div>
 							<div class="tab-pane fade" id="donasi">
 								<h5>Donasi</h5>
-								<table class="table table-bordered table-striped table-hover">
+								<table id="datatable2" class="table table-bordered table-striped table-hover">
 									<thead>
 										<th>No.</th>
 										<th>Waktu</th>
@@ -540,7 +506,8 @@ $n = 1;
 					</div>
 				</div>
 				<div class="container">
-					<table class="table table-bordered table-striped table-hover">
+					<div class="row">
+					<table id="datatable" class="table table-bordered table-striped table-hover">
 						<thead>
 							<th>No.</th>
 							<th>Nama Kegiatan</th>
@@ -565,6 +532,7 @@ $n = 1;
 			}
 			 ?>
 					</table>
+				</div>
 				</div>
 
 				<?php } else if ($page=="Galeri") {?>

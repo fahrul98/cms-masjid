@@ -144,7 +144,7 @@ usertelp
 		}
 
 		$this->mprofiladmin->ubahpadmin($data);
-		// redirect(base_url('profiladmin'));
+		redirect(base_url('profiladmin'));
 		// unset($data);
 	}
 

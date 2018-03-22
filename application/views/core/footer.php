@@ -125,6 +125,7 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
   <!-- try footer from template  -->
   <!-- Javascript -->
 
+  <script src="<?php echo base_url('assets/vendor/jquery/jquery-3.3.1.min.js');?>"></script>
     <?php
 
         //jika pengunjung true
@@ -132,8 +133,8 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
           ?>
 
     <!-- JS Netizen -->
-    <script src="<?php echo base_url('assets/js/jquery-2.1.1.min.js');?>"></script>
-    <script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
+    <!-- <script src="<?php echo base_url('assets/js/jquery-2.1.1.min.js');?>"></script> -->
+    <script src="<?php echo base_url('assets/vendor/bootstrap/js/bootstrap.min.js');?>"></script>
     <script src="<?php echo base_url('assets/js/wow.min.js');?>"></script>
     <script src="<?php echo base_url('assets/js/jquery.easing.1.3.js');?>"></script>
     <script src="<?php echo base_url('assets/js/jquery.isotope.min.js');?>"></script>
@@ -144,6 +145,20 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
       $('.portfolio').flipLightBox()
     </script>
 
+    <script src="<?php echo base_url('assets/vendor/datatables/js/datatables.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/vendor/datatables/js/dataTables.jqueryui.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/vendor/datatables/js/dataTables.bootstrap.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/vendor/datatables/js/dataTables.foundation.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/vendor/datatables/js/dataTables.semanticui.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/vendor/datatables/js/jquery.dataTables.min.js');?>"></script>
+
+    <script type="text/javascript">
+      $(document).ready(
+        function() {
+          $('#datatable').DataTable();
+          $('#datatable2').DataTable();
+      })
+    </script>
     <?php
         //jika admin
       }else{
@@ -164,6 +179,7 @@ if($page=="Tulis Postingan"||$page=="Ubah Postingan"){
   ?>
 
         <script src="<?php echo base_url('assets/vendor/summernote/summernote.min.js');?>"></script>
+        <script src="<?php echo base_url('assets/vendor/summernote/summernote-cleaner.js');?>"></script>
         <script src="<?php echo base_url('assets/vendor/markdown/markdown.js');?>"></script>
         <script src="<?php echo base_url('assets/vendor/to-markdown/to-markdown.js');?>"></script>
         <script src="<?php echo base_url('assets/vendor/bootstrap-markdown/bootstrap-markdown.js');?>"></script>
@@ -174,6 +190,7 @@ if($page=="Tulis Postingan"||$page=="Ubah Postingan"){
             $('.summernote').summernote({
               height: 300,
               focus: true,
+              fontSizes: ['8', '9', '10', '11', '12', '14', '18', '24', '36', '48' , '64', '82', '150'],
               onpaste: function() {
                 alert('You have pasted something to the editor');
               }
