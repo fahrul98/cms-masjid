@@ -46,8 +46,8 @@ switch ($page) {
   case "Keuangan Masjid":$akt[3]='class="active"';break;
   case "Rekam Donasi":$akt[4]='class="active"';break;
   case "Bantuan":$akt[5]='class="active"';break;
-  case "Tentang":$akt[6]='class="active"';break;
-  case "Beranda":$akt[7]='class="active"';break;
+  case "Galeri":$akt[6]='class="active"';break;
+  case "Pengembang":$akt[7]='class="active"';break;
   default:break;
 }?>
                 <li role="presentation"><a href="<?php echo base_url('beranda');?>">Beranda</a></li>
@@ -56,7 +56,7 @@ switch ($page) {
                   <a class="dropdown-toggle" data-toggle="dropdown" href="<?php echo base_url('beranda');?>">Profil
                       <span class="caret"></span>
                   </a>
-                  <ul class="dropdown-menu">
+                  <ul class="dropdown-menu" style="padding-top: 0px; padding-bottom: 0px">
                     <li role="presentation"><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
                     <li role="presentation"><a href="<?php echo base_url('beranda/takmirm');?>">Takmir</a></li>
                     <li role="presentation"><a href="<?php echo base_url('beranda/ustadz');?>">Ustadz</a></li>
@@ -77,10 +77,10 @@ switch ($page) {
                   <a class="dropdown-toggle" data-toggle="dropdown" href="<?php echo base_url('beranda');?>">Lebih
                       <span class="caret"></span>
                     </a>
-                  <ul class="dropdown-menu">
-                    <li role="presentation" <?php echo $akt[7]; ?>><a href="<?php echo base_url('beranda/galeri');?>">Galeri</a></li>
+                  <ul class="dropdown-menu" style="padding-top: 0px; padding-bottom: 0px">
+                    <li role="presentation" <?php echo $akt[6]; ?>><a href="<?php echo base_url('beranda/galeri');?>">Galeri</a></li>
                     <!-- <li role="presentation" <?php echo $akt[5]; ?>><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li> -->
-                    <li role="presentation" <?php echo $akt[6]; ?>><a href="<?php echo base_url('beranda/tentang');?>">Pengembang</a></li>
+                    <li role="presentation" <?php echo $akt[7]; ?>><a href="<?php echo base_url('beranda/tentang');?>">Pengembang</a></li>
                   </ul>
                 </li>
                 <?php if ($this->session->userdata('username')&&$this->session->userdata('userpass')) {
