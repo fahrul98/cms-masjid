@@ -31,13 +31,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <!-- VENDOR CSS -->
+<link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css');?>">
 <?php
 
 if(!isset($mode)){
 
 ?>
 <!-- MAIN CSS -->
-<!-- <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>"> -->
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.min.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/linearicons/style.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/metisMenu/metisMenu.css'); ?>">
@@ -59,8 +59,8 @@ if(!isset($mode)){
     Author URL: https://bootstrapmade.com
   ======================================================= -->
  <!-- CSS Template NetizenUI -->
- <!-- <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css');?>"> -->
- <!-- <link rel="stylesheet" href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.min.css'); ?>">
+
+ <link rel="stylesheet" href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.min.css'); ?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/animate.css');?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css');?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/normalize.css');?>">
@@ -68,7 +68,7 @@ if(!isset($mode)){
  <link rel="stylesheet" href="<?php echo base_url('assets/css/set1.css');?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/overwrite.css');?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/jquery.bxslider.css');?>">
- <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>"> -->
+ <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/vendor/datatables/css/datatables.min.css');?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/vendor/datatables/css/dataTables.bootstrap.min.css');?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/vendor/datatables/css/dataTables.jqueryui.min.css');?>">
@@ -137,7 +137,7 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
   }
 
   <?php
-    $dsid=1;
+    $dsid=$pgt->dsid;
     $d = array(
       'nav' => '212121',
       'lnr' => 'fff',
@@ -266,11 +266,17 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
   }
 
   div.transbox {
-    height:220px;
+    height:300px;
     width:350px;
+    padding:15px;
     background-color: #<?php echo $d['hover']; ?>;
     /*opacity: 0.6;*/
     background: rgba(0,0,0,0.2);
+  }
+
+  .clearspc {
+    padding:0px;
+    margin:0px;
   }
 
   /*netizen*/
@@ -367,8 +373,10 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
   #wrapper .sidebar .active a {
     background-color: #<?php echo $d['hover']; ?>; ;
   }
+  /*keuangan*/
+
 </style>
-<link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>">
+
   </head>
   <!-- <body style="background-color: #79b79c; padding-top:100px;"> -->
   <!-- <body style="color:#000000;"> -->
