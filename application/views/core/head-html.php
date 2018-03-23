@@ -233,7 +233,6 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
     margin-left: 90px;
     margin-right: 90px;
   }
-
   body .whitebg .container {
     width: relative;
   }
@@ -446,7 +445,25 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
 </style>
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>">
   </head>
-  <!-- <body style="background-color: #79b79c; padding-top:100px;"> -->
-  <!-- <body style="color:#000000;"> -->
+  
+  <?php
+  //jika $mode di controller ada dan halaman bukan hal.instalasi , maka muncul body utk pengunjung
+  if ($page!='Instalasi'&&isset($mode)) {
+  ?>
   <body style="background-color: #<?php echo $d['secondary']; ?>;">
-  <!-- padding-top: 70px; -->
+  <?php
+
+//jika tidak maka muncul punya si admin
+  }else if (!isset($mode)&&$this->session->userdata('username') and $this->session->userdata('userpass')){
+  ?>
+  <body>
+  <?php
+  }else if ($page=='Instalasi') {
+
+  //navigasi instalasi next>next>next mungkin?
+
+  ?>
+
+  <?php
+  }
+  ?>
