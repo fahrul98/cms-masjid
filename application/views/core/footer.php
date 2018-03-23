@@ -25,43 +25,47 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
       <div class="inner-footer backgroundpict">
         <div class="container">
           <div class="row" style="padding-bottom: 20px">
-            <div class="col-md-4 col-xs-12 f-about" style="padding-left: 37px">
-              <h3 class="widgetheading" style="margin-left:40px"><?php echo $cmprofil->pnama;?></h3></a>
-                <div class="transbox">
-                  <p class="phitam textfooter" style="padding-left: 40px;">
+            <div class="col-md-4 col-xs-12 f-about">
+              <h3 class="widgetheading" style=""><?php echo $cmprofil->pnama;?></h3>
+              <div class="transbox">
+                <p class="phitam textfooter clearspc">
                   <?php echo nl2br($pgt->cmfoot1);?>
-                  </p>
-                </div>
+                </p>
+              </div>
             </div>
-            <div class="col-md-4 col-xs-12 l-posts" style="padding-left: 32px">
-              <h3 class="widgetheading">Post terbaru</h3>
-              <div class="col-xs l-posts transbox">
-                <ul>
+            <div class="col-md-4 col-xs-12 l-posts">
+              <h3 class="widgetheading clearspc">Post terbaru</h3>
+              <div class="col-md-12 transbox">
+                <ul class="clearspc">
                   <?php
                   $n = 1;
                   // <td><a href=".base_url('beranda/post/'.$v->postid).">".$v->psjudul."</a></td>
                   if (isset($cmpostfoot)) {
                     $cmpost=$cmpostfoot;
                   }
+                  ?>
+                    <!-- <li>a</li> -->
+                    <?php
                     foreach ($cmpost as $v) {
-                     echo "<li style='text-decoration: none;'><a class='phitam' href=".base_url('beranda/post/'.urlencode($v->psjudul)).">".$v->psjudul."</a></li>";
-                     //tampil 5 post terbaru
-                     if ($n==5) {
-                       break;
-                     }
-                     $n++;
+                      //  echo "<li style='text-decoration: none;'><a class='phitam' href=".base_url('beranda/post/'.urlencode($v->psjudul)).">".$v->psjudul."</a></li>";
+                       echo "<li style=''><a class='phitam' href=".base_url('beranda/post/'.urlencode($v->psjudul)).">".$v->psjudul."</a></li>";
+                       //tampil 5 post terbaru
+                       if ($n==5) {
+                         break;
+                       }
+                       $n++;
                     }?>
                 </ul>
               </div>
             </div>
-            <div class="col-md-4 col-xs-12 f-contact" style="padding-left: 26px; padding-bottom: 30px">
-              <h3 class="widgetheading" style="margin-left: 40px">Info</h3>
+            <div class="col-md-4 col-xs-12 f-contact" style="">
+              <h3 class="widgetheading">Info</h3>
               <div class="transbox">
-              <div class="col-xs l-posts pputih">
-                <ul>
-                  <li><?php echo nl2br($pgt->cmfoot2);?></li>
-                </ul>
-              </div>
+                <div class="col-xs l-posts pputih clearspc">
+                  <p class="phitam textfooter clearspc">
+                    <?php echo nl2br($pgt->cmfoot2);?>
+                  </p>
+                </div>
               </div>
               <!-- <h3 class="widgetheading">Hubungi Kami</h3>
 
@@ -78,7 +82,7 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
       <div class="last-div" style="margin:0px">
         <div class="container">
           <div class="row">
-            <div class="copyright" style="padding-left: 15px">
+            <div class="col-md-12 copyright">
               &copy; eNno Theme. All Rights Reserved
               <div class="credits">
                 <!--
@@ -115,7 +119,7 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
   <!-- Javascript -->
 
   <script src="<?php echo base_url('assets/vendor/jquery/jquery-3.3.1.min.js');?>"></script>
-    <?php
+  <?php
 
         //jika pengunjung true
         if (isset($mode)) {
@@ -146,7 +150,7 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
         function() {
           $('#datatable').DataTable();
           $('#datatable2').DataTable();
-      })
+        })
     </script>
     <?php
         //jika admin
@@ -179,7 +183,7 @@ if($page=="Tulis Postingan"||$page=="Ubah Postingan"){
             $('.summernote').summernote({
               height: 300,
               focus: true,
-              fontSizes: ['8', '9', '10', '11', '12', '14', '18', '24', '36', '48' , '64', '82', '150'],
+              fontSizes: ['8', '9', '10', '11', '12', '14', '18', '24', '36', '48', '64', '82', '150'],
               onpaste: function() {
                 alert('You have pasted something to the editor');
               }

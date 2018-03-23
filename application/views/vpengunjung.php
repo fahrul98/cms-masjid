@@ -147,7 +147,7 @@ include('opsional.php');
 		</div>
 		</div>
 
-		
+
 		<?php }else if ($page=="Semua Post") {?>
 		<div class="whitebg" style="padding-top: 0px">
 		<div class="container" style="">
@@ -341,7 +341,7 @@ include('opsional.php');
 					// <td>"$v->mediaid."</td>"
 					// echo "<tr align=center>
 					// <td>".$n."</td>";
-					?>		
+					?>
 					<div class="card">
   						<img class="img" src="<?php echo base_url('uploads/takmir/'.$v->mediadir);?>"/>
   						<div class="container2">
@@ -385,7 +385,7 @@ include('opsional.php');
 					// <td>"$v->mediaid."</td>"
 					// echo "<tr align=center>
 					// <td>".$n."</td>";
-					?>		
+					?>
 					<div class="card">
   						<img class="img" src="<?php echo base_url('uploads/ustadz/'.$v->mediadir);?>" width=250 height=250 />
   						<div class="container2">
@@ -422,9 +422,10 @@ include('opsional.php');
 				<div class="container">
 					<div class="row">
 						<!-- BASIC TABS -->
+						<div class="col-md-12">
 						<ul class="nav nav-tabs" role="tablist">
-							<li class="active"><a href="#papandana" role="tab" data-toggle="tab" aria-expanded="true">Papan Dana Masjid</a></li>
-							<li class=""><a href="#donasi" role="tab" data-toggle="tab" aria-expanded="false">Donasi</a></li>
+							<li class="active"><a href="#papandana" role="tab" data-toggle="tab" aria-expanded="true" style="height:40px;padding:10px">Papan Dana Masjid</a></li>
+							<li class=""><a href="#donasi" role="tab" data-toggle="tab" aria-expanded="false" style="height:40px;padding:10px">Donasi</a></li>
 						</ul>
 						<div class="tab-content tab-content-colored">
 							<div class="tab-pane fade active in" id="papandana">
@@ -444,7 +445,7 @@ include('opsional.php');
 					foreach ($kmasjid as $v) {
 						echo "<tr>
 						<td>".$n."</td>
-						<td>".$v->kmwaktu."</td>
+						<td>".indonesian_date($v->kmwaktu)."</td>
 						<td>".$v->kmketerangan."</td>
 						<td>".$v->kmpengeluaran."</td>
 						<td>".$v->kmsaldo."</td>
@@ -466,12 +467,11 @@ include('opsional.php');
 										<th>Total</th>
 									</thead>
 									<?php
-
 							$n = 1;
 									foreach ($cmrdonasi as $v) {
 										echo "<tr>
 										<td>".$n."</td>
-										<td>".$v->rdwaktu."</td>
+										<td>".indonesian_date($v->rdwaktu)."</td>
 										<td>".$v->rdjumlah."</td>
 										<td>".$v->rddonatur."</td>
 										<td>".$v->rdtotal."</td>
@@ -483,7 +483,7 @@ include('opsional.php');
 							</div>
 						</div>
 						<!-- END BASIC TABS -->
-
+						</div>
 					</div>
 				</div>
 				</div>
@@ -507,6 +507,7 @@ include('opsional.php');
 				</div>
 				<div class="container">
 					<div class="row">
+					<div class="col-md-12 ">
 					<table id="datatable" class="table table-bordered table-striped table-hover">
 						<thead>
 							<th>No.</th>
@@ -532,6 +533,7 @@ include('opsional.php');
 			}
 			 ?>
 					</table>
+				</div>
 				</div>
 				</div>
 
@@ -606,9 +608,9 @@ include('opsional.php');
 					</div>
 				</div>
 				</div>
-				
+
 				<?php }else if ($page=="Tentang") {?>
-				
+
 				<div class="whitebg" style="padding-top: 0px; margin-left: 70px; margin-right: 70px">
 				<div class="container">
 					<div class="row">
@@ -623,7 +625,7 @@ include('opsional.php');
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="container">
 					<div class="row text-center">
 						<h2 class="hitam">Pengembang (Developer)</h2>
