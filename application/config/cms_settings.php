@@ -2,6 +2,6 @@
 	$host='localhost';
 	$username='root';
 	$password='';
-//	$dbname='dump';
+	// $dbname='dump';
 	$dbname='cmsmasjid';
 ?>

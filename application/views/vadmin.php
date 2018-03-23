@@ -112,6 +112,7 @@ if($page="Beranda Admin"){?>
 				}),
 				Chartist.plugins.ctAxisTitle({
 					axisX: {
+						axisTitle: 'Days',
 						axisTitle: 'Tanggal',
 						axisClass: 'ct-axis-title',
 						offset: {
@@ -121,6 +122,7 @@ if($page="Beranda Admin"){?>
 						textAnchor: 'middle'
 					},
 					axisY: {
+						axisTitle: 'Views',
 						axisTitle: 'Tayangan',
 						axisClass: 'ct-axis-title',
 						offset: {
