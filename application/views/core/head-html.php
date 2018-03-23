@@ -31,13 +31,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <!-- VENDOR CSS -->
+<link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css');?>">
 <?php
 
 if(!isset($mode)){
 
 ?>
 <!-- MAIN CSS -->
+<<<<<<< HEAD
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>">
+=======
+>>>>>>> 328ecad1edb613f36505b6ab8de76d0a2570fcc8
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.min.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/linearicons/style.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/metisMenu/metisMenu.css'); ?>">
@@ -99,8 +103,21 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
 <!-- ICONS -->
 <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url('assets/img/apple-icon.png');?>">
 <link rel="icon" type="image/png" sizes="96x96" href="<?php echo base_url('assets/img/favicon.png');?>">
+
+
 <style>
 /* min */
+
+  .wrapper {
+    padding-right:; 
+    padding-left:;
+  }
+  .container .row .card {
+    border: 2px;
+  }
+  .container .text-center .hitam {
+    color: #000000;
+  }
   .phitam {
     color:#000000;
     font-size: 17px;
@@ -138,9 +155,12 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
   }
 
   <?php
-    $dsid=1;
+    $dsid=$pgt->dsid;
     $d = array(
-      'nav' => '212121',
+
+      'nav' => '212121', 
+      'secondary' => '424242', 
+      'container' => 'adabab',
       'lnr' => 'fff',
       'border' => '424242',
       'textcol' => 'fff',
@@ -156,13 +176,15 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
     switch ($dsid) {
       case 1: //Dark
       $d = array(
-      'nav' => '212121',
+      'nav' => '212121', 
+      'secondary' => 'ededed', 
+      'container' => 'fff',
       'lnr' => 'fff',
       'border' => '424242',
       'textcol' => 'fff',
       'img-bg' => 'img-3.jpg',
       'linkcol' => '0000bb',
-      'hover' => '424242',
+      'hover' => 'adabab',
       'icon' => '424242',
       'tab' => 'fff',
       'tabact' => '4f4f4f',
@@ -171,9 +193,11 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
     );
         break;
 
-      case 2:
+      case 2: //Light
       $d = array(
-      'nav' => '345698',
+      'nav' => 'E0E0E0', 
+      'secondary' => 'E0E0E0', 
+      'container' => '',
       'lnr' => 'ddd',
       'border' => '424242',
       'textcol' => 'fff',
@@ -190,7 +214,9 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
 
     case 3:
       $d = array(
-      'nav' => '00796B',
+      'nav' => '00796B', 
+      'secondary' => 'E0E0E0', 
+      'container' => '',
       'lnr' => 'ddd',
       'border' => '00897B',
       'textcol' => '000000',
@@ -209,9 +235,65 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
         break;
     }
   ?>
+  body .whitebg{
+    background-color: #<?php echo $d['container']; ?>;
+    padding-top: 50px;
+    width: relative;
+    margin-left: 90px;
+    margin-right: 90px;
+  }
+  body .whitebg .container {
+    width: relative;
+  }
+
+  .container .icon:hover {
+    background-color: #<?php echo $d['hover']; ?>;
+  }
+
+  /*CARD CSS*/
+  .container2 {
+    width: 250px;
+    height: 150px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+  }
+  .card {
+  /* Add shadows to create the "card" effect */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    width: 250px; 
+    height: 100px
+    padding-left:20px;
+    padding-right: ;
+    margin-right: 50px;
+    margin-bottom: 100px;
+  }
+
+  /* On mouse-over, add a deeper shadow */
+  .card:hover {
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+  }
+
+  /* Add some padding inside the card container */
+  .container {
+    padding: 2px 16px;
+  }
+
+  .img {
+    border-radius: 5px 5px 0 0;
+    width:250px;
+    height:250;
+  }
+  /*END CARD CSS*/
 
   /*Background-image*/
   .backgroundpict {
+    background-color: #<?php echo $d['secondary']; ?>;
     background:url("<?php echo base_url('assets/img/'.$d['img-bg']);?>");
     background-attachment: fixed;
     width: 100%;
@@ -219,10 +301,11 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
   }
 
   .backgroundpictop {
+    background-color: #<?php echo $d['secondary']; ?>;
     background:url("<?php echo base_url('assets/img/'.$d['img-bg']);?>");
     background-attachment: fixed;
     width: 100%;
-    height: 650px;
+    height: 676px;
   }
 
   /*Footer*/
@@ -231,7 +314,7 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
     font-size: 17px;
     font-family: Arial;
   }
-
+  
   body .last-div {
     background-color:#<?php echo $d['nav'];?>;
   }
@@ -267,11 +350,17 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
   }
 
   div.transbox {
-    height:220px;
+    height:300px;
     width:350px;
+    padding:15px;
     background-color: #<?php echo $d['hover']; ?>;
     /*opacity: 0.6;*/
     background: rgba(0,0,0,0.2);
+  }
+
+  .clearspc {
+    padding:0px;
+    margin:0px;
   }
 
   /*netizen*/
@@ -368,10 +457,30 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
   #wrapper .sidebar .active a {
     background-color: #<?php echo $d['hover']; ?>; ;
   }
+  /*keuangan*/
+
 </style>
-<link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>">
+
   </head>
-  <!-- <body style="background-color: #79b79c; padding-top:100px;"> -->
-  <!-- <body style="color:#000000;"> -->
+  
+  <?php
+  //jika $mode di controller ada dan halaman bukan hal.instalasi , maka muncul body utk pengunjung
+  if ($page!='Instalasi'&&isset($mode)) {
+  ?>
+  <body style="background-color: #<?php echo $d['secondary']; ?>;">
+  <?php
+
+//jika tidak maka muncul punya si admin
+  }else if (!isset($mode)&&$this->session->userdata('username') and $this->session->userdata('userpass')){
+  ?>
   <body>
-  <!-- padding-top: 70px; -->
+  <?php
+  }else if ($page=='Instalasi') {
+
+  //navigasi instalasi next>next>next mungkin?
+
+  ?>
+
+  <?php
+  }
+  ?>

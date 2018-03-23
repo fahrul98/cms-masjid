@@ -16,7 +16,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="panel-content col-md-12">
 			<div class="form-group">
 				<label for="dsid">dsid : </label>
-				<input type="text" required="required" class="form-control" name="dsid2" value="<?php echo $pgt->dsid;?>">
+<?php
+$dsarr=array(1,2,3);
+$dsarr2=array("Hitam","Biru","Hijau");
+ ?>
+				<select class="form-control " name="dsid2" required="required">
+					<?php
+					$s='';$n=0;
+					foreach ($dsarr as $d) {
+						$selected = $pgt->dsid==$d?"selected='selected'":" ";
+						echo "<option value='$d' $selected>".$dsarr2[$n]."</option>";
+						$n++;
+					}
+					 ?>
+				</select>
 				<input type="hidden" required="required" class="form-control" name="dsid1" value="<?php echo $pgt->dsid;?>">
 			</div>
 			<div class="form-group">

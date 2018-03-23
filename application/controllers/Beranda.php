@@ -42,6 +42,8 @@ sidebar?
 
 		$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
 
+		//tema
+
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengunjung',$data);
 		$this->load->view('core/footer',$data);
