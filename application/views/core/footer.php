@@ -26,9 +26,9 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
         <div class="container">
           <div class="row" style="padding-bottom: 20px">
             <div class="col-md-4 col-xs-12 f-about" style="padding-left: 37px">
-              <h3 class="widgetheading" style="margin-left:15px"><?php echo $cmprofil->pnama;?></h3></a>
+              <h3 class="widgetheading" style="margin-left:40px"><?php echo $cmprofil->pnama;?></h3></a>
                 <div class="transbox">
-                  <p class="phitam textfooter">
+                  <p class="phitam textfooter" style="padding-left: 40px;">
                   <?php echo nl2br($pgt->cmfoot1);?>
                   </p>
                 </div>
@@ -55,7 +55,7 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
               </div>
             </div>
             <div class="col-md-4 col-xs-12 f-contact" style="padding-left: 26px; padding-bottom: 30px">
-              <h3 class="widgetheading">Info</h3>
+              <h3 class="widgetheading" style="margin-left: 40px">Info</h3>
               <div class="transbox">
               <div class="col-xs l-posts pputih">
                 <ul>
@@ -78,7 +78,7 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
       <div class="last-div" style="margin:0px">
         <div class="container">
           <div class="row">
-            <div class="copyright">
+            <div class="copyright" style="padding-left: 15px">
               &copy; eNno Theme. All Rights Reserved
               <div class="credits">
                 <!--
@@ -90,17 +90,6 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
                 <a href="https://bootstrapmade.com/">Bootstrap Themes</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <ul class="social-network">
-              <li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook fa-1x"></i></a></li>
-              <li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter fa-1x"></i></a></li>
-              <li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin fa-1x"></i></a></li>
-              <li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest fa-1x"></i></a></li>
-              <li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus fa-1x"></i></a></li>
-            </ul>
           </div>
         </div>
 

@@ -49,7 +49,7 @@ mediaid
 
 ?>
 
-		<div class="container backgroundpictop" style="margin-left: 0px;margin-right: 0px; margin-bottom: 50px ;width: 100%">
+		<div class="container backgroundpictop" style="margin-left: 0px;margin-right: 0px ;width: 100%">
 			<div class="row">
 				<div class="slider">
 					<div class="col-md-6 col-md-offset-3" style="margin-top: 130px">
@@ -61,7 +61,7 @@ mediaid
 				</div>
 			</div>
 		</div>
-
+		<div class="whitebg">
 		<div class="container">
 			<div class="row">
 				<div class="box">
@@ -117,7 +117,7 @@ mediaid
 				<div class="text-center">
 					<!-- <div class="col-md-10"> -->
 					<div class="col-md-10 col-md-offset-1">
-						<h2>Profil Masjid</h2><br>
+						<h2 class="hitam">Profil Masjid</h2><br>
 						<h3>Sejarah</h3>
 						<p class="phitam">
 							<?php echo substr($profil->psejarah,0,300)." ...";?>
@@ -125,23 +125,25 @@ mediaid
 						<h3>Visi Misi</h3>
 						<p class="phitam">
 							<?php echo substr($profil->pvisimisi,0,300)." ...";?>
+						</p><br>
+						<h3>Galeri</h3>
+						<p class="phitam">Tentang Masjid <?php echo $cmprofil->pnama; ?>
 						</p>
 					</div>
-					<hr>
 				</div>
 			</div>
 		</div>
-		<div class="container">
+		<!-- <div class="container">
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
-					<div class="text-center">
+					<div class="center">
 						<h2>Galeri</h2>
 						<h5 class="phitam">Tentang Masjid <?php echo $cmprofil->pnama; ?></p>
 						</h5>
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 		<div class="container content">
 			<div class="grid" style="">
@@ -170,9 +172,11 @@ mediaid
 					<?php	}	?>
 			</div>
 		</div>
+		</div>
 
+		
 		<?php }else if ($page=="Semua Post") {?>
-
+		<div class="whitebg" style="padding-top: 0px">
 		<div class="container" style="">
 			<div class="row">
 				<div class="col-lg-8">
@@ -255,6 +259,7 @@ mediaid
 				</div>
 			</div>
 		</div>
+		</div>
 		<?php
 
 //tampilpost
@@ -288,7 +293,7 @@ mediaid
 							</div>
 						</div>
 					</div> -->
-
+				<div class="whitebg" style="padding-top: 0px; margin-left: 90px; margin-right: 90px">
 				<div class="container">
 					<hr>
 					<div class="row">
@@ -306,10 +311,11 @@ mediaid
 					</div>
 				</div>
 				</div>
-
+				</div>
 				<?php }else if ($page=="Profil Masjid") {?>
 
-				<div class="container" style="">
+				<div class="whitebg" style="padding-top: 0px; margin-left: 90px; margin-right: 90px">
+				<div class="container" style="margin-left: 20px">
 					<div class="row">
 						<div class="service">
 							<h2><?php echo $page;?></h2>
@@ -342,13 +348,16 @@ mediaid
 					</div>
 				</div>
 				<hr>
+				</div>
 				<?php }else if ($page=="Takmir Masjid") {?>
+
+				<div class="whitebg" style="padding-top: 0px">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3">
 							<div class="portfolios">
 								<div class="text-center">
-									<h2><?php echo $page;?></h2>
+									<h2 class="hitam"><?php echo $page;?></h2>
 									<h5 class="phitam">Daftar Takmir <?php echo $cmprofil->pnama; ?><br>
 										</h5>
 								</div>
@@ -358,48 +367,41 @@ mediaid
 					</div>
 				</div>
 				<div class="container">
-					<div class="row">
-						<table class="table table-bordered table-striped table-hover">
-							<thead>
-								<th>No.</th>
-								<th>Foto</th>
-								<th>Nama takmir</th>
-								<th>Jabatan</th>
-								<th>Masa Jabatan</th>
-								<th>No. Telp</th>
-							</thead>
+					<div class="row col-md-offset-3">
 							<?php
 
-	$n = 1;
-		foreach ($cmtakmir as $v) {
-			// <td>"$v->mediaid."</td>"
-			echo "<tr align=center>
-			<td>".$n."</td>";
-			?>
-								<td align=center>
-									<img class="thumbnail" src="<?php echo base_url('uploads/takmir/'.$v->mediadir);?>" width=80 height=80 />
-								</td>
-								<?php
-			echo "</td>
-			<td>".$v->tknama."</td>
-			<td>".$v->tkjabatan."</td>
-			<td>".$v->tkmasajabatan."</td>
-			<td>".$v->tknotelp."</td>
-
-			</tr>";
-			$n++;
-		}
-		 ?>
-						</table>
+					$n = 1;
+					foreach ($cmtakmir as $v) {
+					// <td>"$v->mediaid."</td>"
+					// echo "<tr align=center>
+					// <td>".$n."</td>";
+					?>		
+					<div class="card">
+  						<img class="img" src="<?php echo base_url('uploads/takmir/'.$v->mediadir);?>"/>
+  						<div class="container2">
+    						<?php
+								echo "<h4>".$v->tknama."</h4>
+									  <h5>"."Jabatan : ".$v->tkjabatan."</h5>
+									  <h5>"."Masa Jabatan :".$v->tkmasajabatan."</h5>
+									  <h5>"."No Telp : ".$v->tknotelp."</h5>";
+								$n++;
+								}
+							?>
+  						</div>
+					</div>
 					</div>
 				</div>
+				</div>
+
 				<?php }else if ($page=="Ustadz") {?>
+
+				<div class="whitebg" style="padding-top: 0px">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3">
 							<div class="portfolios">
 								<div class="text-center">
-									<h2><?php echo $page;?></h2>
+									<h2 class="hitam"><?php echo $page;?></h2>
 									<h5 class="phitam">Daftar Ustadz <?php echo $cmprofil->pnama; ?><br>
 										</h5>
 								</div>
@@ -409,45 +411,40 @@ mediaid
 					</div>
 				</div>
 				<div class="container">
-					<div class="row">
-						<table class="table table-bordered table-striped table-hover">
-							<thead>
-								<th>No.</th>
-								<th>Foto</th>
-								<th>Nama ust.</th>
-								<th>No. Telp</th>
-								<th>Alamat</th>
-							</thead>
+					<div class="row col-md-offset-3">
 							<?php
 
-$n = 1;
-		foreach ($cmustadz as $v) {
-			echo "<tr align='center'>
-			<td>".$n."</td>";
-			?>
-								<td align="center">
-									<img class="thumbnail" src="<?php echo base_url('uploads/ustadz/'.$v->mediadir);?>" width=80 height=80 />
-								</td>
-								<?php
-			echo
-			"<td>".$v->usnama."</td>
-			<td>".$v->usnotelp."</td>
-			<td>".$v->usalamat."</td>
-
-			</tr>";
-			$n++;
-		}
-		 ?>
-						</table>
+					$n = 1;
+					foreach ($cmustadz as $v) {
+					// <td>"$v->mediaid."</td>"
+					// echo "<tr align=center>
+					// <td>".$n."</td>";
+					?>		
+					<div class="card">
+  						<img class="img" src="<?php echo base_url('uploads/ustadz/'.$v->mediadir);?>" width=250 height=250 />
+  						<div class="container2">
+    						<?php
+								echo "<h4>"."Nama : ".$v->usnama."</h4>
+									  <h4>"."Tahun : ".$v->usnotelp."</h4>
+									  <h4>"."No Telp : ".$v->usalamat."</h4>";
+								$n++;
+								}
+							?>
+  						</div>
+					</div>
 					</div>
 				</div>
+				</div>
+
 				<?php }else if ($page=="Keuangan Masjid") {?>
+
+				<div class="whitebg" style="padding-top: 0px; margin-left: 70px; margin-right: 70px">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3">
 							<div class="portfolios">
 								<div class="text-center">
-									<h2><?php echo $page;?></h2>
+									<h2 class="hitam"><?php echo $page;?></h2>
 									<h5 class="phitam">Keuangan <?php echo $cmprofil->pnama;?><br> Untuk donasi silahkan menuju Tab Donasi<br>
 									</h5>
 								</div>
@@ -523,14 +520,17 @@ $n = 1;
 
 					</div>
 				</div>
+				</div>
+
 				<?php }else if ($page=="Jadwal Kegiatan") {?>
 
+				<div class="whitebg" style="padding-top: 0px; margin-left: 70px; margin-right: 70px">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3">
 							<div class="portfolios">
 								<div class="text-center">
-									<h2><?php echo $page;?></h2>
+									<h2 class="hitam"><?php echo $page;?></h2>
 									<h5>Jadwal kegiatan-kegiatan <?php echo $cmprofil->pnama;?><br>
 									</h5>
 								</div>
@@ -568,12 +568,14 @@ $n = 1;
 				</div>
 
 				<?php } else if ($page=="Galeri") {?>
+
+				<div class="whitebg" style="padding-top: 0px; margin-left: 70px; margin-right: 70px">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3">
 							<div class="portfolios">
 								<div class="text-center">
-									<h2><?php echo $page;?></h2>
+									<h2 class="hitam"><?php echo $page;?></h2>
 									<h5 class="phitam">Galeri <?php echo $cmprofil->pnama;?><br>
 										</h5>
 								</div>
@@ -584,7 +586,7 @@ $n = 1;
 				<hr>
 				<div class="container">
 					<div class="row">
-						<div class="container content">
+						<div class="container content" style="padding-bottom: 50px">
 							<div class="grid" style="">
 
 								<?php
@@ -615,8 +617,12 @@ $n = 1;
 
 					</div>
 				</div>
+				</div>
+				</div>
 
 				<?php }else if ($page=="Bantuan") {?>
+
+				<div class="whitebg" style="padding-top: 0px; margin-left: 70px; margin-right: 70px">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3">
@@ -631,14 +637,17 @@ $n = 1;
 						</div>
 					</div>
 				</div>
-
+				</div>
+				
 				<?php }else if ($page=="Tentang") {?>
+				
+				<div class="whitebg" style="padding-top: 0px; margin-left: 70px; margin-right: 70px">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3">
 							<div class="portfolios">
 								<div class="text-center">
-									<h2><?php echo $page;?></h2>
+									<h2 class="hitam"><?php echo $page;?></h2>
 									<h5 class="phitam">Tentang CMS & Developer<br>
 									</h5>
 								</div>
@@ -646,10 +655,10 @@ $n = 1;
 						</div>
 					</div>
 				</div>
-				<hr>
+				
 				<div class="container">
 					<div class="row text-center">
-						<h2 class="">Pengembang (Developer)</h2>
+						<h2 class="hitam">Pengembang (Developer)</h2>
 					</div>
 					<br>
 					<div class="row text-center">
@@ -661,7 +670,7 @@ $n = 1;
 						</div>
 					</div>
 				</div>
-
+				</div>
 				<?php }?>
 				<!-- end wrapp -->
 				</div>
