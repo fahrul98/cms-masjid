@@ -75,10 +75,9 @@ input->proses->hapus dari memori
   }
 
   public function getByCookie($cookie){
-     $q = $this->db->get_where('cmusers', array('cookie' => $cookie), 1);
+     $q = $this->db->get_where('cmusers', array('remember' => $cookie), 1);
      if($this->db->affected_rows() > 0){
-       $row = $q->row();
-       return $row;
+       return $q;
      }
       unset($data,$q,$row);
   }

@@ -38,6 +38,7 @@ class Admin extends CI_Controller {
 				$data['total']=$this->mpost->total()->row();
 				$data['poppost']=$this->mpost->ppost()->result();
 				$data['poptag']=$this->mpost->ptag()->result();
+				$data['chart']=$this->mpost->viewsPerDate("day")->result();
 
 
 				$data['page'] = "Beranda Admin";

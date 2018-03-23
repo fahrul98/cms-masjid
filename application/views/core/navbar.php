@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //tombol navbar aktif
 $akt=array('','','','','',
 '','','','','',
-'','','','','',);
+'','','','','');
 switch ($page) {
   case "Semua Post":$akt[0]='class="active"';break;
   case "Profil Masjid":$akt[1]='class="active"';break;
@@ -73,7 +73,7 @@ switch ($page) {
                          <li role="presentation" <?php echo $akt[4]; ?>><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>
                       </ul>
                     </li> -->
-                <li class="dropdown">
+                <li class="dropdown presentation">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="<?php echo base_url('beranda');?>">Lebih
                       <span class="caret"></span>
                     </a>

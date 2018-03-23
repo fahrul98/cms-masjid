@@ -37,7 +37,7 @@ if(!isset($mode)){
 
 ?>
 <!-- MAIN CSS -->
-<link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>">
+<!-- <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>"> -->
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.min.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/linearicons/style.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/metisMenu/metisMenu.css'); ?>">
@@ -59,8 +59,8 @@ if(!isset($mode)){
     Author URL: https://bootstrapmade.com
   ======================================================= -->
  <!-- CSS Template NetizenUI -->
- <link rel="stylesheet" href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.min.css'); ?>">
- <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css');?>">
+ <!-- <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css');?>"> -->
+ <!-- <link rel="stylesheet" href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.min.css'); ?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/animate.css');?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css');?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/normalize.css');?>">
@@ -68,7 +68,10 @@ if(!isset($mode)){
  <link rel="stylesheet" href="<?php echo base_url('assets/css/set1.css');?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/overwrite.css');?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/jquery.bxslider.css');?>">
- <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>"> -->
+ <link rel="stylesheet" href="<?php echo base_url('assets/vendor/datatables/css/datatables.min.css');?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/vendor/datatables/css/dataTables.bootstrap.min.css');?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/vendor/datatables/css/dataTables.jqueryui.min.css');?>">
 
 <?php
 } ?>
@@ -146,9 +149,10 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
     color:gold;
   }
 
-  <?php 
+  <?php
     $dsid=1;
     $d = array(
+
       'nav' => '212121', 
       'secondary' => '424242', 
       'container' => 'adabab',
@@ -202,7 +206,7 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
       'licol' => 'fff'
     );
         break;
-    
+
     case 3:
       $d = array(
       'nav' => '00796B', 
@@ -342,7 +346,7 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
   }
 
   div.transbox {
-    height:220px; 
+    height:220px;
     width:350px;
     background-color: #<?php echo $d['hover']; ?>;
     /*opacity: 0.6;*/
@@ -381,30 +385,30 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
   }
 
   .container .row .text-center{
-    color: #<?php echo $d['textcol']; ?>; 
+    color: #<?php echo $d['textcol']; ?>;
   }
 
   .container .icon {
-    color: #<?php echo $d['icon']; ?>; 
+    color: #<?php echo $d['icon']; ?>;
   }
 
   .container .nav a {
-    color: #<?php echo $d['tab']; ?>; 
+    color: #<?php echo $d['tab']; ?>;
     background-color: #<?php echo $d['nav']; ?>
   }
 
   .container .nav a:hover {
-    color: #<?php echo $d['tab']; ?>; 
+    color: #<?php echo $d['tab']; ?>;
     background-color: #<?php echo $d['hover']; ?>
   }
 
   .container .active a {
-    color: #<?php echo $d['tab']; ?>; 
+    color: #<?php echo $d['tab']; ?>;
     background-color: #<?php echo $d['tabact']; ?>
   }
 
   .container .active a:hover {
-    color: #<?php echo $d['tab']; ?>; 
+    color: #<?php echo $d['tab']; ?>;
     background-color: #<?php echo $d['hover']; ?>
   }
 

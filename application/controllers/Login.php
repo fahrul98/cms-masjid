@@ -25,10 +25,11 @@ class Login extends CI_Controller {
 			$q = $this->mprofiladmin->getByCookie($cookie)->row();
             if ($q) {
                 $arrsess = array('username' => $q->username,
-				'userpass' => $data['userpass'],
+				'userpass' => $q->userpass,
 				'userfullname' => $q->userfullname
 				);
 				$this->session->set_userdata($arrsess);
+				var_dump($arrsess);
             	redirect(base_url('admin'));
             } else {
             	$this->load->view('core/core',$data);
