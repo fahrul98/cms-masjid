@@ -25,7 +25,7 @@ ok?
 
   $this->load->view('core/navbar',$data);
 
-  if($this->session->userdata('username') and $this->session->userdata('userpass')){
+  if($this->session->userdata('username') and $this->session->userdata('userpass') && !isset($mode)){
 ?>
 <div class="container">
 <?php

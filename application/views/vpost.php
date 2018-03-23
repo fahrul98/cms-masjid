@@ -85,7 +85,7 @@ if ($page=="Post") {
 <?php }else if ($page=="Tulis Postingan") {?>
 	<h2><?php echo $page; ?></h2>
 	<?php echo $error; ?>
-	<?php echo form_open('post/dbtulis','class=form');	?>
+	<?php echo form_open_multipart('post/dbtulis','class=form');	?>
 	<label class="fancy-checkbox custom-bgcolor-green">
 		<input type="checkbox" name="pspublic"<?php
 		if ($input['pspublic']==1) {
@@ -110,6 +110,14 @@ if ($page=="Post") {
 					}
 				?>
 			</select>
+		</div>
+	</div>
+		<div class="row">
+		<div class="form-group col-md-6">
+			<div class="panel-content">
+				<label for="filename">Media</label>
+				<input type="file" id="dropify-event" name="filename" data-default-file="<?php echo base_url('uploads/default.png');?>" data-allowed-file-extensions="jpg gif png" />
+			</div>
 		</div>
 		</div>
 		<!-- <div class="row">
@@ -140,7 +148,7 @@ if ($page=="Post") {
 
 	<h2><?php echo $page; ?></h2>
 	<?php echo $error; ?>
-	<?php echo form_open('post/dbubah','class=form');	?>
+	<?php echo form_open_multipart('post/dbubah','class=form');	?>
 	<label class="fancy-checkbox custom-bgcolor-green">
 		<input type="checkbox" name="pspublic"<?php
 		if ($post->pspublic==1) {
@@ -170,6 +178,15 @@ if ($page=="Post") {
 					}
 				?>
 			</select>
+		</div>
+	</div>
+		<div class="row">
+		<div class="form-group col-md-6">
+			<div class="panel-content">
+				<label for="filename">Media</label>
+				<input type="file" id="dropify-event" name="filename" data-default-file="<?php echo base_url('uploads/post/'.$post->mediadir);?>" data-allowed-file-extensions="jpg gif png">
+				<input type="hidden" name="oldmedia" value="<?php echo $post->mediadir;?>" />
+			</div>
 		</div>
 	</div>
 	<!-- <div class="row">

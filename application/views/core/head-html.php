@@ -37,7 +37,7 @@ if(!isset($mode)){
 
 ?>
 <!-- MAIN CSS -->
-<!-- <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>"> -->
+<link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.min.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/linearicons/style.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/metisMenu/metisMenu.css'); ?>">
@@ -59,8 +59,8 @@ if(!isset($mode)){
     Author URL: https://bootstrapmade.com
   ======================================================= -->
  <!-- CSS Template NetizenUI -->
- <!-- <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css');?>"> -->
- <!-- <link rel="stylesheet" href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.min.css'); ?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css');?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.min.css'); ?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/animate.css');?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css');?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/normalize.css');?>">
@@ -68,7 +68,8 @@ if(!isset($mode)){
  <link rel="stylesheet" href="<?php echo base_url('assets/css/set1.css');?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/overwrite.css');?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/css/jquery.bxslider.css');?>">
- <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>"> -->
+ <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>">
+ <link rel="stylesheet" href="<?php echo base_url('assets/css/slide.css');?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/vendor/datatables/css/datatables.min.css');?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/vendor/datatables/css/dataTables.bootstrap.min.css');?>">
  <link rel="stylesheet" href="<?php echo base_url('assets/vendor/datatables/css/dataTables.jqueryui.min.css');?>">

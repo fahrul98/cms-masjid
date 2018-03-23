@@ -48,7 +48,7 @@ insert + delete
 
 //upload gambar
 	public function do_upload($data){
-	    $config['upload_path']= './uploads/ustadz';
+	    $config['upload_path']= '../uploads/ustadz';
 	    $config['allowed_types']= 'gif|jpg|png';
 	    $config['max_size']= 5000;
 	    // $config['max_width']= 1024;
@@ -73,7 +73,7 @@ insert + delete
 	//hapus gambar
 	public function hapusmedia($mediadir){
 		$data['mediadir']=$mediadir;
-		$data['path']="./uploads/ustadz/".$data['mediadir'];
+		$data['path']="../uploads/ustadz/".$data['mediadir'];
 	    if (unlink($data['path'])) {
 	      $data['konfirmasi']= $data['mediadir'].' terhapus';
 	    }else{

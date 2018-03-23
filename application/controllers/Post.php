@@ -56,6 +56,44 @@ mediaid
 		$this->load->view('core/footer',$data);
 	}
 
+		//upload gambar
+	public function do_upload($data){
+	    $config['upload_path']= '../uploads/post';
+	    $config['allowed_types']= 'gif|jpg|png';
+	    $config['max_size']= 5000;
+	    // $config['max_width']= 1024;
+	    // $config['max_height']= 768;
+
+	    $this->load->library('upload', $config);
+
+	    if (!$this->upload->do_upload('filename')){
+	      $data = array('konfirmasi' => $this->upload->display_errors());
+	      // print($data['filename']);
+				// redirect(base_url('media'));
+	    }else{
+	      $data['filename'] = $this->upload->data('file_name');
+	      $data['upload_data']= $this->upload->data();
+	      $data['konfirmasi']= 'sukses';
+	      // $this->load->view('upload_success', $data);
+	    }
+	    //$this->session->set_flashdata('data',$data);
+	    return $data['filename'];
+	    unset($data);
+	}
+
+	//hapus gambar
+	public function hapusmedia($mediadir){
+		$data['mediadir']=$mediadir;
+		$data['path']="../uploads/post/".$data['mediadir'];
+	    if (unlink($data['path'])) {
+	      $data['konfirmasi']= $data['mediadir'].' terhapus';
+	    }else{
+	      // print("gagal");
+	      $data['konfirmasi']= $data['mediadir'].' tidak terhapus';
+	    }
+	    $this->session->set_flashdata('data',$data);
+	}
+
 	//search
 	function search(){
 		$data['cmpost'] = $this->mpost->get_search();
@@ -127,6 +165,7 @@ method-method untuk operasi admin
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['cmtag'] = $this->mpost->tampiltag()->result();
 		$data['page'] = "Tulis Postingan";
+		$data['search'] = "tulisps";
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
 		$data['input']=$this->session->userdata('input')?$this->session->userdata('input'):
 			array(
@@ -168,6 +207,7 @@ method-method untuk operasi admin
 		$data['pstext'] = $this->input->post('text');
 		$data['tagid'] = $this->input->post('tagid');
 		$data['pspublic']=$this->input->post('pspublic')?1:0;
+		$data['filename']= $this->do_upload($this->input->post('filename'));
 
 		if (!$this->form_validation->run()) {
 			$this->session->set_userdata('err',validation_errors());
@@ -175,8 +215,9 @@ method-method untuk operasi admin
 			redirect('post/tulis');
 		}
 
-		$this->mpost->buatpost($data);
-		redirect(base_url('post'));
+		var_dump($data);
+		// $this->mpost->buatpost($data);
+		// redirect(base_url('post'));
 		unset($data);
 	}
 
@@ -203,9 +244,26 @@ method-method untuk operasi admin
 		$data['tagid'] = $this->input->post('tagid')?$this->input->post('tagid'):1;
 		//jika diset maka 1, jika tidak sebaliknya
 		$data['pspublic']=$this->input->post('pspublic')?1:0;
+		$data['oldmedia']= $this->input->post('oldmedia');
+		$data['newmedia']=$this->input->post('filename');
 
-		$this->mpost->ubahpost($data);
-		redirect(base_url('post'));
+		if (!$this->form_validation->run()) {
+			$this->session->set_userdata('err',validation_errors());
+			$this->session->set_userdata('input',$data);
+			redirect('post/ubahpost/'.urldecode($data['psjudul']));
+		}
+
+		if($_FILES['filename']['name']!="") {
+			$data['filename']= $this->do_upload($data['newmedia']);
+			$this->hapusmedia($data['oldmedia']);
+		}else{
+			$data['filename']=$data['oldmedia'];
+		}
+
+		var_dump($data);
+
+		// $this->mpost->ubahpost($data);
+		// redirect(base_url('post'));
 		unset($data);
 	}
 
@@ -229,6 +287,7 @@ method-method untuk operasi admin
 	public function ubahpost($slug){
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Ubah Postingan";
+		$data['search'] = "ubahps";
 		$data['ctrl'] = "post";
 		// $data['postid'] = $postid;
 		$data['slug'] = $slug;

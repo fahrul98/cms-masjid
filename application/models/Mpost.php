@@ -38,11 +38,17 @@ unset(variabel) => hapus variabel dari memori
 		$q=null;
 		unset($data);
 	}
+
+	public function tampilslide(){
+		$q = $this->db->query("SELECT * FROM cmpost order by psbuat asc limit 3");
+		return $q;
+		$q=null;
+	}
 	public function tampiltag($data =null){
 		if(isset($data['tagid'])){
 			$q = $this->db->query("select * from cmtag where tagid=?",array($data['tagid']));
 		}else{
-			$q = $this->db->query("select * from cmtag where tagid>2");
+			$q = $this->db->query("select * from cmtag");
 		}
 		return $q;
 		$q=null;
@@ -74,11 +80,12 @@ unset(variabel) => hapus variabel dari memori
 		$q=null;
 	}
 	public function buatpost($data){
-		$q = $this->db->query("insert into cmpost (psjudul,psustadz,pstext,tagid,psbuat) values (?,?,?,?,now())",
+		$q = $this->db->query("insert into cmpost (psjudul,psustadz,pstext,tagid,psbuat,mediadir) values (?,?,?,?,now(),?)",
 		array($data['psjudul'],
 			$data['psustadz'],
 			$data['pstext'],
-			$data['tagid']
+			$data['tagid'],
+			$data['filename']
 		));
 		unset($data);
 	}
@@ -92,12 +99,13 @@ unset(variabel) => hapus variabel dari memori
 		if (isset($data['mode'])) {
 			$q = $this->db->query("update cmpost set tagid=1 where tagid=?",array($data['tagid']));
 		}else{
-			$q = $this->db->query("update cmpost set psjudul=?,psustadz=?,pstext=?,pspublic=?,tagid=? where postid=?",
+			$q = $this->db->query("update cmpost set psjudul=?,psustadz=?,pstext=?,pspublic=?,tagid=?, mediadir=? where postid=?",
 			array($data['psjudul'],
 				$data['psustadz'],
 				$data['pstext'],
 				$data['pspublic'],
 				$data['tagid'],
+				$data['filename'],
 				$data['postid']
 			));
 		}

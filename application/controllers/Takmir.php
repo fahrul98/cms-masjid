@@ -53,7 +53,7 @@ insert + delete
 
 	//upload gambar
 	public function do_upload($data){
-	    $config['upload_path']= './uploads/takmir';
+	    $config['upload_path']= '../uploads/takmir';
 	    $config['allowed_types']= 'gif|jpg|png';
 	    $config['max_size']= 5000;
 	    // $config['max_width']= 1024;
@@ -79,7 +79,7 @@ insert + delete
 	//hapus gambar
 	public function hapusmedia($mediadir){
 		$data['mediadir']=$mediadir;
-		$data['path']="./uploads/takmir/".$data['mediadir'];
+		$data['path']="../uploads/takmir/".$data['mediadir'];
 	    if (unlink($data['path'])) {
 	      $data['konfirmasi']= $data['mediadir'].' terhapus';
 	    }else{

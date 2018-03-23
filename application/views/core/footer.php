@@ -133,7 +133,7 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
           ?>
 
     <!-- JS Netizen -->
-    <!-- <script src="<?php echo base_url('assets/js/jquery-2.1.1.min.js');?>"></script> -->
+    <script src="<?php echo base_url('assets/js/jquery-2.1.1.min.js');?>"></script>
     <script src="<?php echo base_url('assets/vendor/bootstrap/js/bootstrap.min.js');?>"></script>
     <script src="<?php echo base_url('assets/js/wow.min.js');?>"></script>
     <script src="<?php echo base_url('assets/js/jquery.easing.1.3.js');?>"></script>

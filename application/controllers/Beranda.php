@@ -35,6 +35,7 @@ sidebar?
 		$data['mode'] = "pengunjung";
 		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
 		$data['cmpost'] = $this->mpost->tampilpost($data)->result();
+		$data['cmslide'] = $this->mpost->tampilslide()->result();
 		$data['profil'] = $this->mprofilm->tampilprofilm()->row();
 		$batas['batas'] = 4;
 		$data['imgs'] = $this->mmedia->tampilmedia($batas)->result();

@@ -582,3 +582,5 @@ a.scrollup:hover{
 	background-color: #<?php echo $d['hover']; ?>;
 	color:#fff;;
 }
+
+

@@ -64,7 +64,7 @@ if ($page=="Takmir") {
 					<div class="col-md-4">
 						<div class="panel-content">
 							<h2 class="heading"><i class="fa fa-square"></i>Media</h2>
-							<input type="file" id="dropify-event" name="filename" data-default-file="<?php echo base_url('uploads/default.png');?>">
+							<input type="file" id="dropify-event" name="filename" data-default-file="<?php echo base_url('uploads/default.png');?>" data-allowed-file-extensions="jpg gif png">
 						</div>
 					</div>
 					<div class="panel col-md-4">
@@ -99,7 +99,7 @@ if ($page=="Takmir") {
 					<div class="panel col-md-4">
 						<div class="form-group">
 							<label for="mediaid">Media</label>
-							<input type="file" id="dropify-event" name="filename" data-default-file="<?php echo base_url('uploads/takmir/'.$takmir->mediadir);?>">
+							<input type="file" id="dropify-event" name="filename" data-default-file="<?php echo base_url('uploads/takmir/'.$takmir->mediadir);?>" data-allowed-file-extensions="jpg gif png">
 							<input type="hidden" name="oldmedia" value="<?php echo $takmir->mediadir;?>">
 						</div>
 					</div>

@@ -20,20 +20,66 @@ include('opsional.php');
 
 	if ($page=="Beranda") {
 
-?>
+?>	
+<div class="fill">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+  	<?php 
+  		$no=0;
+  		foreach ($cmslide as $s) {
+  			if ($no==0) {
+  				echo '<div class="active item">';
+  			}else{
+  				echo '<div class="item">';
+  			}
+  	?>
+  	<div class="fill" style="background-image:url('//placehold.it/1024x700/CC1111/FFF');">
 
-		<div class="container backgroundpictop" style="margin-left: 0px;margin-right: 0px; margin-bottom: 50px ;width: 100%">
-			<div class="row">
-				<div class="slider">
-					<div class="col-md-6 col-md-offset-3" style="margin-top: 130px">
-						<div class="text-center">
-							<h1>Selamat Datang di Website <br><?php echo $cmprofil->pnama; ?></h1>
-							<p>Mari kita memuliakan rumah Allah</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+      	<div class="carousel-caption"><?php echo $s->psjudul; ?></div>
+        <div class="container">
+          
+        </div>
+      </div>
+    </div>
+
+<?php
+  			$no++;
+  		}
+  	 ?>
+    <!-- 
+      <div class="fill" style="background-image:url('//placehold.it/1024x700/449955/FFF');">
+      	<div class="carousel-caption"><p>***</p></div>
+        <div class="container">
+          
+        </div>
+      </div>
+    </div>
+
+    
+      <div class="fill" style="background-image:url('//placehold.it/1024x700');">
+      	<div class="carousel-caption"><p>***</p></div>
+        <div class="container">
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="fill" style="background-image:url('//placehold.it/1024x700/CC1111/FFF');">
+      	<div class="carousel-caption"><p>***</p></div>
+        <div class="container">
+          
+        </div>
+      </div>
+    </div> -->
+
+  </div>
+  <div class="pull-center">
+	<a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
+	<a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
+  </div>
+</div>
+</div>
 
 		<div class="container">
 			<div class="row">

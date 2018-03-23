@@ -15,7 +15,7 @@ class Pengaturan extends CI_Controller{
     $data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
     $data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
-    $data['page'] = "Pengaturan";
+    $data['page'] = "Pengaturan Info";
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vpengaturan',$data);
