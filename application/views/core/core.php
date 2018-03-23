@@ -27,7 +27,7 @@ ok?
 
   if($this->session->userdata('username') and $this->session->userdata('userpass') && !isset($mode)){
 ?>
-<div class="container" style="margin-right:0px; margin-left:0px; width:100%; padding-left: 0px; padding-right: 0px">
+<div class="container">
 <?php
   }
 ?>

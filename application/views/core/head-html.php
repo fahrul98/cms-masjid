@@ -38,10 +38,7 @@ if(!isset($mode)){
 
 ?>
 <!-- MAIN CSS -->
-<<<<<<< HEAD
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>">
-=======
->>>>>>> 328ecad1edb613f36505b6ab8de76d0a2570fcc8
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.min.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/linearicons/style.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/metisMenu/metisMenu.css'); ?>">

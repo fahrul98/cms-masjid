@@ -45,32 +45,6 @@ include('opsional.php');
   			$no++;
   		}
   	 ?>
-    <!-- 
-      <div class="fill" style="background-image:url('//placehold.it/1024x700/449955/FFF');">
-      	<div class="carousel-caption"><p>***</p></div>
-        <div class="container">
-          
-        </div>
-      </div>
-    </div>
-
-    
-      <div class="fill" style="background-image:url('//placehold.it/1024x700');">
-      	<div class="carousel-caption"><p>***</p></div>
-        <div class="container">
-          
-        </div>
-      </div>
-    </div>
-
-    <div class="item">
-      <div class="fill" style="background-image:url('//placehold.it/1024x700/CC1111/FFF');">
-      	<div class="carousel-caption"><p>***</p></div>
-        <div class="container">
-          
-        </div>
-      </div>
-    </div> -->
 
   </div>
   <div class="pull-center">
