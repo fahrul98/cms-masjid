@@ -46,7 +46,7 @@ unset(variabel) => hapus variabel dari memori
 			$data['usalamat'],
 			$data['filename']
 		));
-
+		// echo "filename ".$data['filename'];
 		unset($data);
 	}
 
@@ -59,10 +59,9 @@ unset(variabel) => hapus variabel dari memori
 			$data['filename'],
 			$data['usid']
 		));
-
+		// echo "filename ".$data['filename'];
 		unset($data);
 	}
-
 	public function hapusust($data){
 		$q = $this->db->query("delete from cmustadz where usid=?",array($data['usid']));
 		unset($data,$q);

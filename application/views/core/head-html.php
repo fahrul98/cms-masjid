@@ -106,7 +106,7 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
 /* min */
 
   .wrapper {
-    padding-right:; 
+    padding-right:;
     padding-left:;
   }
   .container .row .card {
@@ -155,15 +155,16 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
     $dsid=$pgt->dsid;
     $d = array(
 
-      'nav' => '212121', 
-      'secondary' => '424242', 
+      'nav' => '212121',
+      'secondary' => '424242',
       'container' => 'adabab',
       'lnr' => 'fff',
       'border' => '424242',
       'textcol' => 'fff',
       'img-bg' => 'img-4.jpg',
       'linkcol' => '0000bb',
-      'hover' => '424242',
+      // 'hover' => '424242',
+      'hover' => '101010',
       'tab' => 'fff',
       'tabact' => '212121',
       'textisi' => '000000',
@@ -173,8 +174,8 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
     switch ($dsid) {
       case 1: //Dark
       $d = array(
-      'nav' => '212121', 
-      'secondary' => 'ededed', 
+      'nav' => '212121',
+      'secondary' => 'ededed',
       'container' => 'fff',
       'lnr' => 'fff',
       'border' => '424242',
@@ -192,8 +193,8 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
 
       case 2: //Light
       $d = array(
-      'nav' => 'E0E0E0', 
-      'secondary' => 'E0E0E0', 
+      'nav' => 'E0E0E0',
+      'secondary' => 'E0E0E0',
       'container' => '',
       'lnr' => 'ddd',
       'border' => '424242',
@@ -211,8 +212,8 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
 
     case 3:
       $d = array(
-      'nav' => '00796B', 
-      'secondary' => 'E0E0E0', 
+      'nav' => '00796B',
+      'secondary' => 'E0E0E0',
       'container' => '',
       'lnr' => 'ddd',
       'border' => '00897B',
@@ -232,19 +233,19 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
         break;
     }
   ?>
-  body .whitebg{
+  /*body .whitebg{
     background-color: #<?php echo $d['container']; ?>;
     padding-top: 50px;
     width: relative;
-    margin-left: 90px;
-    margin-right: 90px;
-  }
-  body .whitebg .container {
-    width: relative;
-  }
+    margin-left: 10px;
+    margin-right: 10px;
+    margin:10px;
+  }*/
 
   .container .icon:hover {
-    background-color: #<?php echo $d['hover']; ?>;
+    /*background-color: #<?php echo $d['hover']; ?>;*/
+    color: #<?php echo $d['hover']; ?>;
+    /*font-size: 35pt;*/
   }
 
   /*CARD CSS*/
@@ -263,7 +264,7 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 5px; /* 5px rounded corners */
-    width: 250px; 
+    width: 250px;
     height: 100px
     padding-left:20px;
     padding-right: ;
@@ -311,7 +312,7 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
     font-size: 17px;
     font-family: Arial;
   }
-  
+
   body .last-div {
     background-color:#<?php echo $d['nav'];?>;
   }
@@ -459,7 +460,7 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
 </style>
 
   </head>
-  
+
   <?php
   //jika $mode di controller ada dan halaman bukan hal.instalasi , maka muncul body utk pengunjung
   if ($page!='Instalasi'&&isset($mode)) {

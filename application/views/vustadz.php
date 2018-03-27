@@ -14,7 +14,12 @@ mediaid
 ?>
 	<div id="main-content">
 		<!-- <div class="container" style="margin-left: 400px; margin-top: 50px;"> -->
-		<h2><?php echo $page; ?></h2>
+		<!-- <h2><?php echo $page; ?></h2> -->
+<div class="row">
+		<div class="col-md-9">
+			<h2><?php echo $page; ?></h2>
+		</div>
+
 		<?php echo $error; ?>
 <?php
 if ($page=="Ustadz") {
@@ -22,6 +27,10 @@ if ($page=="Ustadz") {
 		echo $tanya;
 	}
 ?>
+<div class="col-md-3">
+	<h2><a class="btn btn-default" href="<?php echo base_url('ustadz/tambahust');?>"><i class="fa fa-pencil-square-o"> </i> <span>Tambah Ustad</span></a></h2>
+</div>
+</div>
 
 			<table class="table table-bordered table-striped table-hover">
 				<thead>
@@ -54,8 +63,8 @@ $n = 1;
 		}
 		 ?>
 			</table>
-			<a class="btn btn-default" href="<?php echo base_url('ustadz/tambahust');?>"><i class="fa fa-pencil-square-o"> </i> <span>Tambah Ustad</span></a>
 <?php }else if ($page=="Tambah Ustadz") {?>
+</div>
 			<div class="container">
 				<div class="row">
 					<?php echo form_open_multipart('ustadz/dbtambahust','class=form');	?>
@@ -87,6 +96,7 @@ $n = 1;
 
 
 <?php }else if ($page=="Ubah Ustadz") {?>
+	</div>
 	<div class="container">
 		<div class="row">
 				<?php echo form_open_multipart('ustadz/dbubah','class=form');	?>
@@ -109,7 +119,7 @@ $n = 1;
 				</div>
 				<div class="form-group">
 					<label for="usalamat">Alamat</label>
-					<textarea name="usalamat" required="required" class="form-control" rows="5" value="<?php echo $ustadz->usalamat;?>"></textarea>
+					<textarea name="usalamat" required="required" class="form-control" rows="5" value=""><?php echo $ustadz->usalamat;?></textarea>
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary" name="submit" value="update">Update</button>

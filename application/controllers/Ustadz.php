@@ -48,16 +48,18 @@ insert + delete
 
 //upload gambar
 	public function do_upload($data){
-	    $config['upload_path']= '../uploads/ustadz';
+	    $config['upload_path']= './uploads/ustadz';
 	    $config['allowed_types']= 'gif|jpg|png';
 	    $config['max_size']= 5000;
 	    // $config['max_width']= 1024;
 	    // $config['max_height']= 768;
-
-	    $this->load->library('upload', $config);
+	    // $this->load->library('upload', $config);
+			$this->load->library('upload');
+			$this->upload->initialize($config);
 
 	    if (!$this->upload->do_upload('filename')){
 	      $data = array('konfirmasi' => $this->upload->display_errors());
+
 	      //print($data['filename']);
 	    }else{
 	      $data['filename'] = $this->upload->data('file_name');
@@ -73,7 +75,7 @@ insert + delete
 	//hapus gambar
 	public function hapusmedia($mediadir){
 		$data['mediadir']=$mediadir;
-		$data['path']="../uploads/ustadz/".$data['mediadir'];
+		$data['path']="./uploads/ustadz".$data['mediadir'];
 	    if (unlink($data['path'])) {
 	      $data['konfirmasi']= $data['mediadir'].' terhapus';
 	    }else{
@@ -107,7 +109,6 @@ insert + delete
 
 	public function dbtambahust(){
 		//ustadz id auto incremented
-		// $data['usid'] = $this->input->post('usid');
 		$this->form_validation->set_rules('usnama','Nama Ustadz','required|min_length[2]|max_length[50]',
 			array(
 				'required' => '%s harus diisi',
@@ -125,16 +126,18 @@ insert + delete
 				'max_length' => '%s harus <=255 karakter'
 			)
 		);
-		$this->form_validation->set_rules('mediaid','Nama Ustadz','max_length[11]',
-			array(
-				'max_length' => '%s harus <=11 karakter'
-			)
-		);
+		// $this->form_validation->set_rules('mediaid','Nama Ustadz','max_length[11]',
+		// 	array(
+		// 		'max_length' => '%s harus <=11 karakter'
+		// 	)
+		// );
 
 		$data['usnama'] = $this->input->post('usnama');
 		$data['usnotelp'] = $this->input->post('usnotelp');
 		$data['usalamat'] = $this->input->post('usalamat');
-		$data['filename']= $this->do_upload($this->input->post('filename'));
+		// $data['filename']= $this->do_upload($this->input->post('filename'));
+		// $data['filename']= $this->do_upload($this->input->post('filename'));
+		$data['filename']= $this->do_upload('filename');
 
 		if (!$this->form_validation->run()) {
 			$this->session->set_userdata('err',validation_errors());
@@ -142,7 +145,7 @@ insert + delete
 			redirect('ustadz/tambahust');
 		}
 
-		$this->mustadz->tambahust($data);
+		$this->mustadz->tambahust(	$data);
 		redirect(base_url('ustadz'));
 		unset($data);
 	}
@@ -165,11 +168,11 @@ insert + delete
 				'max_length' => '%s harus <=255 karakter'
 			)
 		);
-		$this->form_validation->set_rules('mediaid','Nama Ustadz','max_length[11]',
-			array(
-				'max_length' => '%s harus <=11 karakter'
-			)
-		);
+		// $this->form_validation->set_rules('mediaid','Nama Ustadz','max_length[11]',
+		// 	array(
+		// 		'max_length' => '%s harus <=11 karakter'
+		// 	)
+		// );
 		//rawan
 		$data['usid'] = $this->input->post('usid');
 		$data['usnama'] = $this->input->post('usnama');
@@ -196,7 +199,7 @@ insert + delete
 		unset($data);
 	}
 
-	public function dbhapus($usid,$mediadir){
+	public function dbhapus($usid,$mediadir = null){
 		$data['usid'] = $usid;
 		$this->hapusmedia($mediadir);
 		$this->mustadz->hapusust($data);

@@ -120,17 +120,6 @@ if ($page=="Post") {
 			</div>
 		</div>
 		</div>
-		<!-- <div class="row">
-		<div class="form-group col-md-3">
-			<label for="mediaid">Mediaid</label>
-			<input type="file" class="form-control" name="mediaid" value="">
-		</div>
-	</div> -->
-
-	<!-- gk jadi <div class="form-group ">
-		<label for="text">Text</label>
-		<input type="textarea" style="height: 300px; width: 600px" class="form-control" name="text" value="">
-	</div> -->
 	<div class="row">
 		<div class="form-group col-md-6">
 			<button type="submit" class="btn btn-primary" name="submit" value="Tulis">Tulis</button>
@@ -184,7 +173,12 @@ if ($page=="Post") {
 		<div class="form-group col-md-6">
 			<div class="panel-content">
 				<label for="filename">Media</label>
-				<input type="file" id="dropify-event" name="filename" data-default-file="<?php echo base_url('uploads/post/'.$post->mediadir);?>" data-allowed-file-extensions="jpg gif png">
+				<input type="file" id="dropify-event" name="filename" data-default-file=" <?php if ($post->mediadir) {
+					echo base_url('uploads/posts/'.$post->mediadir);
+				}else{
+					echo base_url('uploads/default.png');
+				}
+				?>" data-allowed-file-extensions="jpg gif png">
 				<input type="hidden" name="oldmedia" value="<?php echo $post->mediadir;?>" />
 			</div>
 		</div>

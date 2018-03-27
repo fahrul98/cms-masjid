@@ -15,7 +15,16 @@ mediaid
 ?>
 	<div id="main-content">
 		<!-- <div class="container" style="margin-left: 400px; margin-top: 50px;"> -->
-		<h2><?php echo $page; ?></h2>
+<div class="row">
+<div class="col-md-9">
+	<h2><?php echo $page; ?></h2>
+</div>
+<div class="col-md-3">
+	<h2>
+	<a class="btn btn-default" href="<?php echo base_url('takmir/tambahtk');?>"><i class="fa fa-pencil-square-o"> </i><span>Tambah Takmir</span></a>
+</h2>
+</div>
+</div>
 		<?php echo $error; ?>
 		<?php
 if ($page=="Takmir") {
@@ -41,7 +50,7 @@ if ($page=="Takmir") {
 			// <td>"$v->mediaid."</td>"
 			?>
 					<td>
-						<img class="thumbnail" src="<?php echo base_url('uploads/takmir/'.$v->mediadir);?>" width=80 height=80 />
+						<img class="thumbnail" src="<?php echo base_url('uploads/takmir/'.$v->mediadir);?>" alt="<?php echo $v->tknama;?>" width=80 height=80 />
 					</td>
 					<?php
 			echo '<td>'.$v->tknama.'</td>
@@ -56,7 +65,7 @@ if ($page=="Takmir") {
 		}
 		  ?>
 			</table>
-			<a class="btn btn-default" href="<?php echo base_url('takmir/tambahtk');?>"><i class="fa fa-pencil-square-o"> </i><span>Tambah Takmir</span></a>
+
 			<?php }else if ($page=="Tambah Takmir") {?>
 			<?php echo form_open_multipart('takmir/dbtambahtk','class=form');	?>
 			<div class="container">
@@ -85,7 +94,7 @@ if ($page=="Takmir") {
 							<input type="text" class="form-control" name="tknotelp" value="<?php echo $input['tknotelp']; ?>">
 						</div>
 						<div class="form-group">
-							<a type="submit" class="btn btn-primary" name="submit" value="tambah">Tambah</a>
+							<input type="submit" class="btn btn-primary" name="submit" value="tambah">
 							<a class="btn btn-danger" style="text-decoration: none" href="<?php echo base_url('takmir');?>">Kembali</a>
 						</div>
 					</div>

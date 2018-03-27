@@ -94,7 +94,7 @@ method-method halaman pengunjung
 			$data["links"] = explode('.',$str_links );
 			// $postid = 1;
 
-			$data['page'] = "Semua Post";
+			$data['page'] = "Semua Artikel";
 		}else {
 			$data['slug'] = $slug;
 			$data['post'] = $this->mpost->tampilpost($data)->row();
