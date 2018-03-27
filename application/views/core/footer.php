@@ -118,7 +118,7 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
   <!-- try footer from template  -->
   <!-- Javascript -->
 
-  <script src="<?php echo base_url('assets/vendor/jquery/jquery-3.3.1.min.js');?>"></script>
+
   <?php
 
         //jika pengunjung true
@@ -156,6 +156,7 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
         //jika admin
       }else{
         ?>
+        <!-- <script src="<?php echo base_url('assets/vendor/jquery/jquery-3.3.1.min.js');?>"></script> -->
       <script src="<?php echo base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
       <script src="<?php echo base_url('assets/vendor/bootstrap/js/bootstrap.min.js'); ?>"></script>
       <script src="<?php echo base_url('assets/vendor/metisMenu/metisMenu.js'); ?>"></script>

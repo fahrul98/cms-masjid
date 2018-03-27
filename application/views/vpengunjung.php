@@ -20,11 +20,12 @@ include('opsional.php');
 
 	if ($page=="Beranda") {
 
-?>	
+?>
+<!-- slide -->
 <div class="fill">
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
-  	<?php 
+  	<?php
   		$no=0;
   		foreach ($cmslide as $s) {
   			if ($no==0) {
@@ -37,7 +38,7 @@ include('opsional.php');
 
       	<div class="carousel-caption"><?php echo $s->psjudul; ?></div>
         <div class="container">
-          
+
         </div>
       </div>
     </div>
@@ -45,8 +46,8 @@ include('opsional.php');
   			$no++;
   		}
   	 ?>
-
   </div>
+	<!-- end slide -->
   <div class="pull-center">
 	<a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
 	<a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
@@ -72,25 +73,21 @@ include('opsional.php');
 				<div class="box">
 					<div class="col-md-4">
 						<!-- <div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.4s"> -->
-						<div>
+						<!-- <div> -->
 							<h4>Portal Donasi</h4>
-							<div class="icon">
-								<i class="fa fa-heart-o fa-3x"></i>
-							</div>
+							<i class="fa fa-heart-o fa-3x icon"></i>
 							<p>Pastikan kita menggunakan harta kita di jalan Allah</p>
 							<div class="ficon">
 								<a href="<?php echo base_url('');?>" class="btn btn-default" role="button">Buka</a>
 							</div>
-						</div>
+						<!-- </div> -->
 					</div>
 
 					<div class="col-md-4">
 						<!-- <div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.0s"> -->
 						<div>
 							<h4>Jadwal Kegiatan</h4>
-							<div class="icon">
-								<i class="fa fa-calendar fa-3x"></i>
-							</div>
+								<i class="fa fa-calendar fa-3x icon"></i>
 							<p>Jangan sampai hari ini berakhir tanpa ada satu ilmu pun yang kita dapatkan</p>
 							<div class="ficon">
 								<a href="<?php echo base_url('beranda/jadwalkegiatan');?>" class="btn btn-default" role="button">Buka</a>
@@ -102,9 +99,7 @@ include('opsional.php');
 						<!-- <div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.6s"> -->
 						<div>
 							<h4>Materi Kajian</h4>
-							<div class="icon">
-								<i class="fa fa-location-arrow fa-3x"></i>
-							</div>
+							<i class="fa fa-location-arrow fa-3x icon"></i>
 							<p>Klik untuk melihat daftar judul kajian</p>
 							<div class="ficon">
 								<a href="#" class="btn btn-default" role="button">Buka</a>
@@ -180,7 +175,7 @@ include('opsional.php');
 		</div>
 
 
-		<?php }else if ($page=="Semua Post") {?>
+		<?php }else if ($page=="Semua Artikel") {?>
 		<div class="whitebg" style="padding-top: 0px">
 		<div class="container" style="">
 			<div class="row">
@@ -296,7 +291,7 @@ include('opsional.php');
 					<div class="row">
 						<div class="col-lg-12">
 							<img src="assets/img/01.jpg" class="img-responsive" alt="" />
-							<h1><a href="<?php echo base_url('beranda/post/'.urlencode($v->psjudul));?>"><?php echo $v->psjudul;?></a></h1>
+							<h1 class="services"><a href="<?php echo base_url('beranda/post/'.urlencode($v->psjudul));?>"><?php echo $v->psjudul;?></a></h1>
 							<h5><?php echo indonesian_date($v->psbuat)." | ".$v->psustadz." | ".$v->tag." | ";?><i class='fa fa-eye' aria-hidden='true'></i> <span> <?php echo $v->vcount; ?></span></h5>
 							<!-- <p class="phitam">
 							<p class="phitam" style="font-size:15px;">

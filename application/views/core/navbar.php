@@ -51,7 +51,7 @@ switch ($page) {
   default:break;
 }?>
                 <li role="presentation"><a href="<?php echo base_url('beranda');?>">Beranda</a></li>
-                <li role="presentation" <?php echo $akt[0]; ?>><a href="<?php echo base_url('beranda/post');?>">Post</a></li>
+                <li role="presentation" <?php echo $akt[0]; ?>><a href="<?php echo base_url('beranda/post');?>">Artikel</a></li>
                 <li class="dropdown presentation" <?php echo $akt[1]; ?>>
                   <a class="dropdown-toggle" data-toggle="dropdown" href="<?php echo base_url('beranda');?>">Profil
                       <span class="caret"></span>

@@ -28,16 +28,17 @@ class Media extends CI_Controller{
   }
 
   public function do_upload(){
-    $config['upload_path']= './uploads/';
+    $config['upload_path']= './uploads';
     $config['allowed_types']= 'gif|jpg|png';
     $config['max_size']= 1000;
     // $config['max_width']= 1024;
     // $config['max_height']= 768;
-
-    $this->load->library('upload', $config);
+    // $this->load->library('upload', $config);
+    $this->load->library('upload');
+    $this->upload->initialize($config);
 
     if (!$this->upload->do_upload('filename')){
-      $data = array('konfirmasi' => $this->upload->display_errors());
+      $data = array('konfirmasi' => $this->upload->display_errors()."<br>".$config['upload_path']);
     }else{
       $data['filename'] = $this->upload->data('file_name');
       $this->dbmbuat($data);

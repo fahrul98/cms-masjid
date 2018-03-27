@@ -53,13 +53,15 @@ insert + delete
 
 	//upload gambar
 	public function do_upload($data){
-	    $config['upload_path']= '../uploads/takmir';
+	    $config['upload_path']= './uploads/takmir';
 	    $config['allowed_types']= 'gif|jpg|png';
 	    $config['max_size']= 5000;
 	    // $config['max_width']= 1024;
 	    // $config['max_height']= 768;
 
-	    $this->load->library('upload', $config);
+	    // $this->load->library('upload', $config);
+	    $this->load->library('upload');
+			$this->upload->initialize($config);
 
 	    if (!$this->upload->do_upload('filename')){
 	      $data = array('konfirmasi' => $this->upload->display_errors());
