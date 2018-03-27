@@ -103,7 +103,11 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
 
 
 <style>
-/* min */
+/*
+
+min
+
+ */
 
   .wrapper {
     padding-right:;
@@ -154,38 +158,24 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
   <?php
     $dsid=$pgt->dsid;
     $d = array(
-
-      'nav' => '212121',
-      'secondary' => '424242',
-      'container' => 'adabab',
-      'lnr' => 'fff',
-      'border' => '424242',
-      'textcol' => 'fff',
-      'img-bg' => 'img-4.jpg',
-      'linkcol' => '0000bb',
-      // 'hover' => '424242',
-      'hover' => '101010',
-      'tab' => 'fff',
-      'tabact' => '212121',
-      'textisi' => '000000',
-      'licol' => '000000'
+      'nav' => '212121','secondary' => '424242',
+      'container' => 'adabab','lnr' => 'fff',
+      'border' => '424242','textcol' => 'fff',
+      'img-bg' => 'img-4.jpg','linkcol' => '0000bb',
+      // 'hover' => '424242','hover' => '101010',
+      'tab' => 'fff','tabact' => '212121',
+      'textisi' => '000000','licol' => '000000'
 
     );
     switch ($dsid) {
       case 1: //Dark
       $d = array(
-      'nav' => '212121',
-      'secondary' => 'ededed',
-      'container' => 'fff',
-      'lnr' => 'fff',
-      'border' => '424242',
-      'textcol' => 'fff',
-      'img-bg' => 'img-3.jpg',
-      'linkcol' => '0000bb',
-      'hover' => 'adabab',
-      'icon' => '424242',
-      'tab' => 'fff',
-      'tabact' => '4f4f4f',
+      'nav' => '212121','secondary' => 'ededed',
+      'container' => 'fff','lnr' => 'fff',
+      'border' => '424242','textcol' => 'fff',
+      'img-bg' => 'img-3.jpg','linkcol' => '0000bb',
+      'hover' => 'adabab','icon' => '424242',
+      'tab' => 'fff','tabact' => '4f4f4f',
       'textisi' => '000000',
       'licol' => 'fff'
     );
@@ -193,39 +183,25 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
 
       case 2: //Light
       $d = array(
-      'nav' => 'E0E0E0',
-      'secondary' => 'E0E0E0',
-      'container' => '',
-      'lnr' => 'ddd',
-      'border' => '424242',
-      'textcol' => 'fff',
-      'img-bg' => 'img-2.jpg',
-      'linkcol' => '0000bb',
-      'hover' => '424242',
-      'icon' => '424242',
-      'tab' => 'fff',
-      'tabact' => '4f4f4f',
-      'textisi' => '000000',
-      'licol' => 'fff'
+      'nav' => 'E0E0E0','secondary' => 'E0E0E0',
+      'container' => '','lnr' => 'ddd',
+      'border' => '424242','textcol' => 'fff',
+      'img-bg' => 'img-2.jpg','linkcol' => '0000bb',
+      'hover' => '424242','icon' => '424242',
+      'tab' => 'fff','tabact' => '4f4f4f',
+      'textisi' => '000000','licol' => 'fff'
     );
         break;
 
     case 3:
       $d = array(
-      'nav' => '00796B',
-      'secondary' => 'E0E0E0',
-      'container' => '',
-      'lnr' => 'ddd',
-      'border' => '00897B',
-      'textcol' => '000000',
-      'img-bg' => 'img-4.jpg',
-      'linkcol' => '0000bb',
-      'hover' => '00897B',
-      'icon' => '00796B ',
-      'tab' => 'fff',
-      'tabact' => '4f4f4f',
-      'textisi' => '000000',
-      'licol' => 'fff'
+      'nav' => '00796B','secondary' => 'E0E0E0',
+      'container' => '','lnr' => 'ddd',
+      'border' => '00897B','textcol' => '000000',
+      'img-bg' => 'img-4.jpg','linkcol' => '0000bb',
+      'hover' => '00897B','icon' => '00796B ',
+      'tab' => 'fff','tabact' => '4f4f4f',
+      'textisi' => '000000','licol' => 'fff'
     );
         break;
       default:
@@ -242,220 +218,7 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
     margin:10px;
   }*/
 
-  .container .icon:hover {
-    /*background-color: #<?php echo $d['hover']; ?>;*/
-    color: #<?php echo $d['hover']; ?>;
-    /*font-size: 35pt;*/
-  }
-
-  /*CARD CSS*/
-  .container2 {
-    width: 250px;
-    height: 150px;
-    padding-left: 10px;
-    padding-right: 10px;
-    text-align: center;
-  }
-  .card {
-  /* Add shadows to create the "card" effect */
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    border-radius: 5px; /* 5px rounded corners */
-    width: 250px;
-    height: 100px
-    padding-left:20px;
-    padding-right: ;
-    margin-right: 50px;
-    margin-bottom: 100px;
-  }
-
-  /* On mouse-over, add a deeper shadow */
-  .card:hover {
-    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
-  }
-
-  /* Add some padding inside the card container */
-  .container {
-    padding: 2px 16px;
-  }
-
-  .img {
-    border-radius: 5px 5px 0 0;
-    width:250px;
-    height:250;
-  }
-  /*END CARD CSS*/
-
-  /*Background-image*/
-  .backgroundpict {
-    background-color: #<?php echo $d['secondary']; ?>;
-    background:url("<?php echo base_url('assets/img/'.$d['img-bg']);?>");
-    background-attachment: fixed;
-    width: 100%;
-    height: relative;
-  }
-
-  .backgroundpictop {
-    background-color: #<?php echo $d['secondary']; ?>;
-    background:url("<?php echo base_url('assets/img/'.$d['img-bg']);?>");
-    background-attachment: fixed;
-    width: 100%;
-    height: 676px;
-  }
-
-  /*Footer*/
-  .pputih {
-    color: #<?php echo $d['textcol']; ?>;
-    font-size: 17px;
-    font-family: Arial;
-  }
-
-  body .last-div {
-    background-color:#<?php echo $d['nav'];?>;
-  }
-
-  .inner-footer .widgetheading {
-    color: #<?php echo $d['textcol']; ?>;
-  }
-
-  .inner-footer .row a {
-    color: #<?php echo $d['textcol']; ?>;
-  }
-
-  .inner-footer .row p {
-    color: #<?php echo $d['textcol']; ?>;
-  }
-
-  .container ul.social-network li {
-    display:inline;
-    margin: 0 15px;
-    color: #<?php echo $d['licol']; ?>;
-  }
-
-  .container ul.social-network li a {
-    color: #<?php echo $d['licol']; ?>;
-  }
-
-  .container ul.social-network li a:hover {
-    color: #<?php echo $d['hover']; ?>;
-  }
-
-  a.scrollup:hover {
-    background-color: #<?php echo $d['hover']; ?>;
-  }
-
-  div.transbox {
-    height:300px;
-    width:350px;
-    padding:15px;
-    background-color: #<?php echo $d['hover']; ?>;
-    /*opacity: 0.6;*/
-    background: rgba(0,0,0,0.2);
-  }
-
-  .clearspc {
-    padding:0px;
-    margin:0px;
-  }
-
-  /*netizen*/
-  body .navbar{
-    background-color:#<?php echo $d['nav'];?>;
-  }
-
-  .navbar .size {
-    font-size: 24px;
-  }
-
-  .navbar .navbar-collapse a:hover{
-    background-color: #<?php echo $d['hover']; ?>;
-  }
-
-  .navbar .navbar-collapse .active a{
-    background-color: #<?php echo $d['hover']; ?>;
-  }
-
-  .container .center{
-    color: #<?php echo $d['textisi']; ?>;
-    text-align: center;
-    margin-top: 0px;
-  }
-
-  .container .text-center h2{
-    color: #<?php echo $d['textcol']; ?>;
-  }
-
-  .container .text-center p{
-    color: #<?php echo $d['textcol']; ?>;
-  }
-
-  .container .row .text-center{
-    color: #<?php echo $d['textcol']; ?>;
-  }
-
-  .container .icon {
-    color: #<?php echo $d['icon']; ?>;
-  }
-
-  .container .nav a {
-    color: #<?php echo $d['tab']; ?>;
-    background-color: #<?php echo $d['nav']; ?>
-  }
-
-  .container .nav a:hover {
-    color: #<?php echo $d['tab']; ?>;
-    background-color: #<?php echo $d['hover']; ?>
-  }
-
-  .container .active a {
-    color: #<?php echo $d['tab']; ?>;
-    background-color: #<?php echo $d['tabact']; ?>
-  }
-
-  .container .active a:hover {
-    color: #<?php echo $d['tab']; ?>;
-    background-color: #<?php echo $d['hover']; ?>
-  }
-
-  /*Admin*/
-  #wrapper .navbar{
-    background-color:#<?php echo $d['nav']; ?>;
-  }
-
-  #wrapper .sidebar{
-    background-color:#<?php echo $d['nav'] ;?>;
-    color: #<?php echo $d['textcol'] ?>;
-  }
-
-  #wrapper a {
-    color: #<?php echo $d['textcol']; ?>;
-  }
-  #wrapper #main-content a {
-    color: #<?php echo $d['linkcol']; ?>;
-  }
-
-  #wrapper .dropdown-menu a {
-    color: #<?php echo $d['linkcol']; ?>;
-  }
-
-  .lnr {
-    color:#<?php echo $d['lnr']; ?>;
-  }
-
-  #wrapper .border {
-    border-color:#<?php echo $d['border'] ;?>;
-  }
-
-  #wrapper .sidebar-nav a:hover {
-    background-color: #<?php echo $d['hover']; ?>; ;
-  }
-  #wrapper .sidebar .active a {
-    background-color: #<?php echo $d['hover']; ?>; ;
-  }
-  /*keuangan*/
+  <?php include('cmscss.php'); ?>
 
 </style>
 
@@ -465,7 +228,8 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
   //jika $mode di controller ada dan halaman bukan hal.instalasi , maka muncul body utk pengunjung
   if ($page!='Instalasi'&&isset($mode)) {
   ?>
-  <body style="background-color: #<?php echo $d['secondary']; ?>;">
+  <!-- <body style="background-color: #<?php echo $d['secondary']; ?>;"> -->
+  <body>
   <?php
 
 //jika tidak maka muncul punya si admin

@@ -17,7 +17,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   //jika $mode di controller ada dan halaman bukan hal.instalasi , maka muncul navbar utk pengunjung
   if ($page!='Instalasi'&&isset($mode)) {
 ?>
-
     <!-- NAVBAR Netizen -->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>">
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -27,12 +26,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand paddinglr" href="<?php echo base_url('');?>"><span class="size"><?php echo $cmprofil->pnama;?></span></a>
         </div>
         <div class="navbar-collapse collapse">
           <div class="menu">
-            <ul class="nav nav-tabs" role="tablist">
+            <!-- <ul class="nav nav-tabs" role="tablist"> -->
+            <ul class="nav nav-tabs">
 
               <?php
 //tombol navbar aktif
@@ -52,34 +54,23 @@ switch ($page) {
 }?>
                 <li role="presentation"><a href="<?php echo base_url('beranda');?>">Beranda</a></li>
                 <li role="presentation" <?php echo $akt[0]; ?>><a href="<?php echo base_url('beranda/post');?>">Artikel</a></li>
-                <li class="dropdown presentation" <?php echo $akt[1]; ?>>
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="<?php echo base_url('beranda');?>">Profil
-                      <span class="caret"></span>
-                  </a>
-                  <ul class="dropdown-menu" style="padding-top: 0px; padding-bottom: 0px">
-                    <li role="presentation"><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
-                    <li role="presentation"><a href="<?php echo base_url('beranda/takmirm');?>">Takmir</a></li>
-                    <li role="presentation"><a href="<?php echo base_url('beranda/ustadz');?>">Ustadz</a></li>
+                <li class="dropdown" <?php echo $akt[1]; ?>>
+                  <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="<?php echo base_url('beranda');?>">Profil -->
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">Profil<span class="caret"></span></a>
+                  <!-- <ul class="dropdown-menu" style="padding-top: 0px; padding-bottom: 0px"> -->
+                  <ul class="dropdown-menu">
+                    <li><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
+                    <li><a href="<?php echo base_url('beranda/takmirm');?>">Takmir</a></li>
+                    <li><a href="<?php echo base_url('beranda/ustadz');?>">Ustadz</a></li>
                   </ul>
                 </li>
                 <li role="presentation" <?php echo $akt[2]; ?>><a href="<?php echo base_url('beranda/jadwalkegiatan');?>">Jadwal</a></li>
 
                 <li role="presentation" <?php echo $akt[3]; ?>><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a></li>
-                <!-- <li class="dropdown">
-                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Keuangan
-                      <span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                    <li role="presentation" <?php echo $akt[3]; ?>><a href="<?php echo base_url('beranda/keuanganmasjid');?>">Keuangan Masjid</a ></li>
-                         <li role="presentation" <?php echo $akt[4]; ?>><a href="<?php echo base_url('rekamdonasi');?>">Donasi</a></li>
-                      </ul>
-                    </li> -->
-                <li class="dropdown presentation">
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="<?php echo base_url('beranda');?>">Lebih
-                      <span class="caret"></span>
-                    </a>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="<?php echo base_url('beranda');?>" role="button">Lebih<span class="caret"></span></a>
                   <ul class="dropdown-menu" style="padding-top: 0px; padding-bottom: 0px">
                     <li role="presentation" <?php echo $akt[6]; ?>><a href="<?php echo base_url('beranda/galeri');?>">Galeri</a></li>
-                    <!-- <li role="presentation" <?php echo $akt[5]; ?>><a href="<?php echo base_url('beranda/bantuan');?>">Bantuan</a></li> -->
                     <li role="presentation" <?php echo $akt[7]; ?>><a href="<?php echo base_url('beranda/tentang');?>">Pengembang</a></li>
                   </ul>
                 </li>
@@ -98,6 +89,23 @@ switch ($page) {
         </div>
       </div>
     </nav>
+<?php if ($page=="Beranda") { ?>
+
+    <nav id="navquick" class="navbar navbar-fixed-bottom" role="navigation">
+      <div class="container">
+        <div class="menu">
+          <ul class="nav navbar-nav nav-tabs">
+            <li role="presentation"><a href="#myCarousel">^</a></li>
+            <li role="presentation"><a href="#1">1</a></li>
+            <li role="presentation"><a href="#2">2</a></li>
+            <li role="presentation"><a href="#3">3</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <?php
+    } ?>
+
     <!-- END NAVBAR -->
     <?php
 
@@ -139,11 +147,9 @@ switch ($page) {
               <!-- end search form -->
               <!-- navbar menu -->
               <div id="navbar-menu">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav col-md-12 col-xs-12">
                   <li class="dropdown">
-                    <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-              <i class="lnr lnr-cog"></i>
-            </a>
+                    <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown"><i class="lnr lnr-cog"></i></a>
                     <ul class="dropdown-menu user-menu menu-icon">
                       <li class="menu-heading">Akun</li>
                       <li><a href="<?php echo base_url('profiladmin')?>"><i class="fa fa-fw fa-edit"></i>Profil Saya</a></li>
@@ -179,7 +185,7 @@ switch ($page) {
         <!-- END NAVBAR -->
         <!-- LEFT SIDEBAR -->
 
-<?php
+        <?php
 //tombol navbar aktif
 $akt=array('','','','','',
 '','','','','',
@@ -199,34 +205,34 @@ switch ($page) {
   default:break;
 }?>
 
-        <div id="left-sidebar" class="sidebar">
-          <button type="button" class="btn btn-xs btn-link btn-toggle-fullwidth">
+          <div id="left-sidebar" class="sidebar">
+            <button type="button" class="btn btn-xs btn-link btn-toggle-fullwidth">
     <span class="sr-only">Toggle Fullwidth</span>
     <i class="fa fa-angle-left"></i>
   </button>
-          <div class="sidebar-scroll">
-            <div class="user-account">
-              <a href="<?php echo base_url('profiladmin'); ?>">
+            <div class="sidebar-scroll">
+              <div class="user-account">
+                <a href="<?php echo base_url('profiladmin'); ?>">
               <img src="<?php
                 //2
                 $mediadir = isset($padmin->mediadir)?$padmin->mediadir:$padmin['mediadir'];
                 echo base_url('uploads/takmir/'.$mediadir);
               ?>" class="img-responsive img-circle user-photo" alt="Admin Masjid" style="width:150px;height:150px"></a>
-              <div class="dropdown">
-                <a href="#" class="aputih dropdown-toggle user-name" data-toggle="dropdown">Assalamualaikum, <strong><?php if(isset($padmin->username)){
+                <div class="dropdown">
+                  <a href="#" class="aputih dropdown-toggle user-name" data-toggle="dropdown">Assalamualaikum, <strong><?php if(isset($padmin->username)){
                   echo $padmin->username;
                 }else{
                   echo $padmin['username'];
                 }?></strong> <i class="fa fa-caret-down"></i></a>
-                <ul class="dropdown-menu dropdown-menu-right account">
-                  <li><a href="<?php echo base_url('profiladmin')?>">Profil Saya</a></li>
-                  <li><a href="<?php echo base_url('pengaturan')?>">Pengaturan</a></li>
-                  <li class="divider"></li>
-                  <li><a href="<?php echo base_url('admin/logout')?>">Logout</a></li>
-                </ul>
+                  <ul class="dropdown-menu dropdown-menu-right account">
+                    <li><a href="<?php echo base_url('profiladmin')?>">Profil Saya</a></li>
+                    <li><a href="<?php echo base_url('pengaturan')?>">Pengaturan</a></li>
+                    <li class="divider"></li>
+                    <li><a href="<?php echo base_url('admin/logout')?>">Logout</a></li>
+                  </ul>
+                </div>
               </div>
-            </div>
-    <?php
+              <?php
     //tombol navbar aktif
     $aria=array('false','false','false');
     $colps=array('','','');
@@ -239,58 +245,56 @@ switch ($page) {
       default:break;
     }
     }?>
-            <nav id="left-sidebar-nav" class="sidebar-nav">
-              <ul id="main-menu" class="metismenu">
-                <li class=""  <?php echo $akt[0]; ?>><a href="<?php echo base_url('admin')?>"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-                <li class="<?php echo $akt[1].$akt[2].$akt[3];?>">
-                  <a href="#uiElements" class="has-arrow" aria-expanded="<?php echo $aria[0];?>"><i class="lnr lnr-magic-wand"></i> <span>Masjid</span></a>
-                  <ul <?php echo $colps[0]; ?>>
-                    <li class="<?php echo $akt[1];?>" ><a href="<?php echo base_url('profilm')?>">Profil Masjid</a></li>
-                    <li class="<?php echo $akt[2];?>" ><a href="<?php echo base_url('takmir')?>">Takmir</a></li>
-                    <li class="<?php echo $akt[3];?>" ><a href="<?php echo base_url('ustadz')?>">Ustadz</a></li>
+                <nav id="left-sidebar-nav" class="sidebar-nav">
+                  <ul id="main-menu" class="metismenu">
+                    <li class="" <?php echo $akt[0]; ?>><a href="<?php echo base_url('admin')?>"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+                    <li class="<?php echo $akt[1].$akt[2].$akt[3];?>">
+                      <a href="#uiElements" class="has-arrow" aria-expanded="<?php echo $aria[0];?>"><i class="lnr lnr-magic-wand"></i> <span>Masjid</span></a>
+                      <ul <?php echo $colps[0]; ?>>
+                        <li class="<?php echo $akt[1];?>"><a href="<?php echo base_url('profilm')?>">Profil Masjid</a></li>
+                        <li class="<?php echo $akt[2];?>"><a href="<?php echo base_url('takmir')?>">Takmir</a></li>
+                        <li class="<?php echo $akt[3];?>"><a href="<?php echo base_url('ustadz')?>">Ustadz</a></li>
 
-                    <!-- <li class=""><a href="ui-buttons.html">Buttons</a></li>
+                        <!-- <li class=""><a href="ui-buttons.html">Buttons</a></li>
             <li class=""><a href="ui-bootstrap.html">Bootstrap UI</a></li>
             <li class=""><a href="ui-icons.html"><span>Icons</span></a></li> -->
+                      </ul>
+                    </li>
+                    <li class="<?php echo $akt[4].$akt[5];?>">
+                      <a href="<?php echo base_url('post')?>" class="has-arrow" aria-expanded="<?php echo $aria[1];?>"><i class="lnr lnr-pencil"></i> <span>Post</span></a>
+                      <ul <?php echo $colps[1]; ?>>
+                        <li class="<?php echo $akt[4]; ?>"><a href="<?php echo base_url('post')?>">Post</a></li>
+                        <li class="<?php echo $akt[5]; ?>"><a href="<?php echo base_url('tag')?>">Tag</a></li>
+                      </ul>
+                    </li>
+                    <li class="<?php echo $akt[6]; ?>">
+                      <a href="<?php echo base_url('jadwalkegiatan')?>" class="" aria-expanded="false"><i class="lnr lnr-file-empty"></i> <span>Jadwal Kegiatan</span></a>
+                    </li>
+                    <li class="<?php echo $akt[7]; ?>">
+                      <a href="<?php echo base_url('media')?>" class="" aria-expanded="false"><i class="lnr lnr-file-empty"></i> <span>Media</span></a>
+                    </li>
+                    <li class="<?php echo $akt[8].$akt[9]; ?>">
+                      <a href="#charts" class="has-arrow" aria-expanded="<?php echo $aria[2];?>"><i class="lnr lnr-chart-bars"></i> <span>Keuangan Masjid</span></a>
+                      <ul <?php echo $colps[2]; ?>>
+                        <li class="<?php echo $akt[8]; ?>"><a href="<?php echo base_url('keuanganmasjid')?>">Keuangan</a></li>
+                        <li class="<?php echo $akt[9]; ?>"><a href="<?php echo base_url('rekamdonasi')?>">Rekam Donasi</a></li>
+                      </ul>
+                    </li>
+                    <li class="<?php echo $akt[10]; ?>">
+                      <a href="<?php echo base_url('pengaturan')?>" class="" aria-expanded="false"><i class="lnr lnr-cog"></i><span>Pengaturan</span></a>
+                    </li>
                   </ul>
-                </li>
-                <li class="<?php echo $akt[4].$akt[5];?>">
-                  <a href="<?php echo base_url('post')?>" class="has-arrow" aria-expanded="<?php echo $aria[1];?>"><i class="lnr lnr-pencil"></i> <span>Post</span></a>
-                  <ul <?php echo $colps[1]; ?>>
-                    <li class="<?php echo $akt[4]; ?>" ><a href="<?php echo base_url('post')?>">Post</a></li>
-                    <li class="<?php echo $akt[5]; ?>"><a href="<?php echo base_url('tag')?>">Tag</a></li>
-                  </ul>
-                </li>
-                <li class="<?php echo $akt[6]; ?>" >
-                  <a href="<?php echo base_url('jadwalkegiatan')?>" class="" aria-expanded="false"><i class="lnr lnr-file-empty"></i> <span>Jadwal Kegiatan</span></a>
-                </li>
-                <li class="<?php echo $akt[7]; ?>">
-                  <a href="<?php echo base_url('media')?>" class="" aria-expanded="false"><i class="lnr lnr-file-empty"></i> <span>Media</span></a>
-                </li>
-                <li class="<?php echo $akt[8].$akt[9]; ?>">
-                  <a href="#charts" class="has-arrow" aria-expanded="<?php echo $aria[2];?>"><i class="lnr lnr-chart-bars"></i> <span>Keuangan Masjid</span></a>
-                  <ul <?php echo $colps[2]; ?>>
-                    <li class="<?php echo $akt[8]; ?>"><a href="<?php echo base_url('keuanganmasjid')?>">Keuangan</a></li>
-                    <li class="<?php echo $akt[9]; ?>"><a href="<?php echo base_url('rekamdonasi')?>">Rekam Donasi</a></li>
-                  </ul>
-                </li>
-                <li class="<?php echo $akt[10]; ?>">
-                  <a href="<?php echo base_url('pengaturan')?>" class="" aria-expanded="false"><i class="lnr lnr-cog"></i><span>Pengaturan</span></a>
-                </li>
-                <!-- <li class=""><a href="notifications.html"><i class="lnr lnr-alarm"></i> <span>Notifications</span> <span class="badge bg-danger">15</span></a></li>
-        <li class=""><a href="typography.html"><i class="lnr lnr-text-format"></i> <span>Typography</span></a></li> -->
-              </ul>
-            </nav>
+                </nav>
+            </div>
           </div>
-        </div>
-        <!-- END LEFT SIDEBAR -->
-        <?php
+          <!-- END LEFT SIDEBAR -->
+          <?php
 }else if ($page=='Instalasi') {
 
   //navigasi instalasi next>next>next mungkin?
 
 ?>
 
-          <?php
+            <?php
 }
 ?>

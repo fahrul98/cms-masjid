@@ -8,12 +8,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 if ($this->session->userdata('username') and $this->session->userdata('userpass')){
  ?>
+
   </div>
   <!-- END CONTAINER -->
   </div>
   <!-- END WRAPPER -->
   <!-- CREDIT -->
   <?php } ?>
+  <hr>
   <footer>
     <?php
   //jika $mode di controller ada dan halaman bukan hal.instalasi , maka muncul navbar utk pengunjung
@@ -25,18 +27,18 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
       <div class="inner-footer backgroundpict">
         <div class="container">
           <div class="row" style="padding-bottom: 20px">
-            <div class="col-md-4 col-xs-12 f-about">
+            <div class="col-xs-12 col-md-12 col-lg-4 f-about">
               <h3 class="widgetheading" style=""><?php echo $cmprofil->pnama;?></h3>
-              <div class="transbox">
-                <p class="phitam textfooter clearspc">
+              <!-- <div class="transbox"> -->
+                <p class="phitam textfooter clearspc transbox">
                   <?php echo nl2br($pgt->cmfoot1);?>
                 </p>
-              </div>
+              <!-- </div> -->
             </div>
-            <div class="col-md-4 col-xs-12 l-posts">
+            <div class="col-xs-12 col-md-12 col-lg-4 l-posts">
               <h3 class="widgetheading clearspc">Post terbaru</h3>
-              <div class="col-md-12 transbox">
-                <ul class="clearspc">
+              <!-- <div class="col-md-12 transbox"> -->
+                <ul class="clearspc transbox">
                   <?php
                   $n = 1;
                   // <td><a href=".base_url('beranda/post/'.$v->postid).">".$v->psjudul."</a></td>
@@ -56,17 +58,17 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
                        $n++;
                     }?>
                 </ul>
-              </div>
+              <!-- </div> -->
             </div>
-            <div class="col-md-4 col-xs-12 f-contact" style="">
+            <div class="col-xs-12 col-md-12 col-lg-4 f-contact" style="">
               <h3 class="widgetheading">Info</h3>
-              <div class="transbox">
+              <!-- <div class="transbox"> -->
                 <div class="col-xs l-posts pputih clearspc">
-                  <p class="phitam textfooter clearspc">
+                  <p class="phitam textfooter clearspc transbox">
                     <?php echo nl2br($pgt->cmfoot2);?>
                   </p>
                 </div>
-              </div>
+              <!-- </div> -->
               <!-- <h3 class="widgetheading">Hubungi Kami</h3>
 
               <a href="#">
@@ -83,15 +85,9 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
         <div class="container">
           <div class="row">
             <div class="col-md-12 copyright">
-              &copy; eNno Theme. All Rights Reserved
+              <?php echo date('Y'); ?> &copy; eNno Theme. All Rights Reserved. Customized by AFAdev
               <div class="credits">
-                <!--
-                  All the links in the footer should remain intact.
-                  You can delete the links only if you purchased the pro version.
-                  Licensing information: https://bootstrapmade.com/license/
-                  Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=eNno
-                -->
-                <a href="https://bootstrapmade.com/">Bootstrap Themes</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                Thx <a href="https://bootstrapmade.com/">Bootstrap Themes</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>
               </div>
             </div>
           </div>
@@ -156,8 +152,8 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
         //jika admin
       }else{
         ?>
-        <!-- <script src="<?php echo base_url('assets/vendor/jquery/jquery-3.3.1.min.js');?>"></script> -->
-      <script src="<?php echo base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/vendor/jquery/jquery-3.3.1.min.js');?>"></script>
+      <!-- <script src="<?php echo base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script> -->
       <script src="<?php echo base_url('assets/vendor/bootstrap/js/bootstrap.min.js'); ?>"></script>
       <script src="<?php echo base_url('assets/vendor/metisMenu/metisMenu.js'); ?>"></script>
       <script src="<?php echo base_url('assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js'); ?>"></script>
