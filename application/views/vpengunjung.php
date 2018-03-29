@@ -35,7 +35,12 @@ include('opsional.php');
   	?>
   	<div class="fill" style="background-image:url('//placehold.it/1024x700/CC1111/FFF');">
 
-      	<div class="carousel-caption"><?php echo $s->psjudul; ?></div>
+      	<div class="carousel-caption"><h3><a href="<?php echo base_url('beranda/post/'.urlencode($s->psjudul)); ?>"><?php echo $s->psjudul; ?></a></h3><br/>
+      		<?php
+								// echo $this->security->xss_clean(substr($v->pstext,0,50));
+								echo htmlspecialchars_decode(substr($s->pstext,0,50))."...";
+								//."...</p>"; ?>
+      	</div>
         <div class="container">
           
         </div>
