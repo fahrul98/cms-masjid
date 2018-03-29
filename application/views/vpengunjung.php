@@ -37,18 +37,19 @@ include('opsional.php');
   	<!-- <div class="fill" style="background-image:url('//placehold.it/1024x700/CC1111/FFF');"> -->
   	<div class="fill" style="background-image:url('<?php echo base_url('uploads/'.$s->mediadir); ?>');">
 
-
       	<div class="carousel-caption">
-					<h2 style="color:white;">
-					<?php echo $s->psjudul; ?>
-				</h2>
-				<?php echo substr($s->pstext,1,100); ?>
-				<p style="color:white;">
+					<a href="<?php echo base_url('beranda/post/'.urlencode($s->psjudul)); ?>">
+					<!-- <h2 style="color:white;"> -->
+					<h2 style="">
+						<?php echo $s->psjudul; ?>
+					</h2>
+			</a>
+				<?php
+							// echo $this->security->xss_clean(substr($v->pstext,0,50));
+							echo htmlspecialchars_decode(substr($s->pstext,0,100))."...";
+							//."...</p>"; ?>
 				</p>
 			</div>
-        <div class="container">
-
-        </div>
       </div>
     </div>
 <?php
