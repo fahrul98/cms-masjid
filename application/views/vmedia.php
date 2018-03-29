@@ -3,16 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 // view admin
 ?>
-	<!-- <h1>Welcome to CodeIgniter!</h1> -->
-	<!-- <h2><?php echo $page; ?></h2> -->
-	<?php //echo form_open_multipart('post/dbtulis','class=form');	?>
-	<!-- <label for="judul">Judul</label><input type="text" name="judul" value="">
-	<label for="ustadz">Ustadz</label><input type="text" name="ustadz" value="">
-	<label for="text">Text</label><input type="textarea" name="text" value="">
-	<label for="tagid">Tagid</label><input type="textarea" name="tagid" value="">
-	<label for="mediaid">Tagid</label><input type="file" name="mediaid" value="">
-	<input type="submit" name="submit" value="Tulis"> -->
-<!-- <div class="container" style="margin-top: 160px; margin-left: 400px"> -->
+
 <div id="main-content">
 
 	<?php if(isset($error))echo $error;
