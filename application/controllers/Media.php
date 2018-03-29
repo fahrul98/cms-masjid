@@ -44,7 +44,7 @@ class Media extends CI_Controller{
       $this->dbmbuat($data);
 
       $data['upload_data']= $this->upload->data();
-      $data['konfirmasi']= 'sukses';
+      $data['konfirmasi']= 'Berhasil diupload';
       // $this->load->view('upload_success', $data);
     }
     $this->session->set_flashdata('data',$data);

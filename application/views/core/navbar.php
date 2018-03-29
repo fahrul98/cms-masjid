@@ -58,6 +58,7 @@ switch ($page) {
                   <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="<?php echo base_url('beranda');?>">Profil -->
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">Profil<span class="caret"></span></a>
                   <!-- <ul class="dropdown-menu" style="padding-top: 0px; padding-bottom: 0px"> -->
+                  <!-- <ul class="dropdown-menu"> -->
                   <ul class="dropdown-menu">
                     <li><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
                     <li><a href="<?php echo base_url('beranda/takmirm');?>">Takmir</a></li>

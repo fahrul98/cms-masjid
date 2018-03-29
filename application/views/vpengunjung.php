@@ -34,9 +34,18 @@ include('opsional.php');
   				echo '<div class="item">';
   			}
   	?>
-  	<div class="fill" style="background-image:url('//placehold.it/1024x700/CC1111/FFF');">
+  	<!-- <div class="fill" style="background-image:url('//placehold.it/1024x700/CC1111/FFF');"> -->
+  	<div class="fill" style="background-image:url('<?php echo base_url('uploads/'.$s->mediadir); ?>');">
 
-      	<div class="carousel-caption"><?php echo $s->psjudul; ?></div>
+
+      	<div class="carousel-caption">
+					<h2 style="color:white;">
+					<?php echo $s->psjudul; ?>
+				</h2>
+				<?php echo substr($s->pstext,1,100); ?>
+				<p style="color:white;">
+				</p>
+			</div>
         <div class="container">
 
         </div>
@@ -132,25 +141,44 @@ include('opsional.php');
 				<p class="phitam">Tentang Masjid <?php echo $cmprofil->pnama; ?>
 				</p>
 			</div>
-			<div class="grid row" style="">
-
+			<section>
+		  <div class="container gal-container">
 				<?php
-			//iterate pic
-			foreach ($imgs as $v) {?>
-					<figure class="effect-zoe">
-						<!-- <img src="assets/img/25.jpg" alt="img25"> -->
-						<img src="<?php echo base_url('uploads/'.$v->mdir);?>" />
-						<figcaption>
-							<h2>Opsi <span>></span></h2>
-							<p class="icon-links">
-								<a class="" href="<?php echo base_url('beranda/galeri');?>">
-								<span class="fa fa-eye"></span>
-							</a>
-							</p>
-						</figcaption>
-					</figure>
-					<?php	}	?>
-			</div>
+				$n=1;
+				// $val= rand(1,10);
+				$val= 5;
+					//iterate pic
+					foreach ($imgs as $v) {?>
+						<?php if ($n%$val==0){ ?>
+							<div class="col-md-8 col-sm-12 co-xs-12 gal-item">
+						<?php }else {?>
+							<div class="col-md-4 col-sm-12 co-xs-12 gal-item">
+						<?php } ?>
+		      <div class="box">
+		        <a href="#<?php echo $n; ?>" data-toggle="modal" data-target="#<?php echo $n; ?>">
+							<img src="<?php echo base_url('uploads/'.$v->mdir);?>" />
+		        </a>
+		        <div class="modal fade" id="<?php echo $n; ?>" role="dialog">
+		          <div class="modal-dialog">
+		            <div class="modal-content">
+		                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+		              <div class="modal-body">
+										<img src="<?php echo base_url('uploads/'.$v->mdir);?>" />
+		              </div>
+		                <div class="col-md-12 description">
+		                  <h4>Desk</h4>
+		                </div>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+				<?php
+				$n++;
+			}	?>
+		  </div>
+		  </div>
+		</section>
 		</div>
 		</div>
 
@@ -358,7 +386,7 @@ include('opsional.php');
 					?>
 					<div class="col-xs-6 col-md-3 col-lg-3">
 					<div class="card">
-  						<img class="img" src="<?php echo base_url('uploads/takmir/'.$v->mediadir);?>"/>
+  						<img class="" src="<?php echo base_url('uploads/takmir/'.$v->mediadir);?>" width="250" height="250" />
   						<div class="container2">
 								<h4><?php echo $v->tknama;?></h4>
 							  <h5><?php echo $v->tkjabatan;?></h5>
@@ -404,7 +432,14 @@ include('opsional.php');
 					?>
 					<div class="col-xs-6 col-md-3 col-lg-3">
 						<div class="card">
-	  					<img class="img" src="<?php echo base_url('uploads/ustadz/'.$v->mediadir);?>" width=250 height=250 />
+	  					<img class="" src="<?php
+							if ($v->mediadir) {
+								echo base_url('uploads/ustadz/'.$v->mediadir);
+							}else{
+								echo base_url('uploads/default.png');
+							}
+
+							 ?>" width="250" height="250" />
 	  						<div class="container2">
 									<h5><?php echo $v->usnama;?></h4>
 									<h5><?php echo $v->usnotelp;?></h4>
@@ -573,40 +608,45 @@ include('opsional.php');
 					</div>
 				</div>
 				<hr>
-				<div class="container">
-					<div class="row">
-						<div class="container content" style="padding-bottom: 50px">
-							<div class="grid" style="">
-
-								<?php
-									//iterate pic
-									foreach ($imgs as $v) {?>
-									<!-- <div class="col-md-3">
-											<div class="thumbnail">
-												<img src="<?php echo base_url('uploads/'.$v->mdir);?>"/>
-												<a class="btn btn-danger" href="<?php echo base_url('media/dbmhapus?mediaid='.$v->mediaid.'&mdir='.$v->mdir); ?>">hapus</a><br>
-											</div>
-										</div> -->
-									<figure class="effect-zoe">
-										<!-- <img src="assets/img/25.jpg" alt="img25"> -->
-										<img src="<?php echo base_url('uploads/'.$v->mdir);?>" />
-										<figcaption>
-											<h2>Opsi <span>></span></h2>
-											<p class="icon-links">
-												<!-- <a class="" href="<?php echo base_url('#');?>"> -->
-												<a class="" href="#">
-														<span class="fa fa-eye"></span>
-													</a>
-											</p>
-										</figcaption>
-									</figure>
-									<?php	}	?>
-							</div>
-						</div>
-
-					</div>
-				</div>
-				</div>
+	<section>
+  <div class="container gal-container">
+		<?php
+		$n=1;
+		// $val= rand(1,10);
+		$val= 5;
+			//iterate pic
+			foreach ($imgs as $v) {?>
+				<?php if ($n%$val==0){ ?>
+					<div class="col-md-8 col-sm-12 co-xs-12 gal-item">
+				<?php }else {?>
+					<div class="col-md-4 col-sm-12 co-xs-12 gal-item">
+				<?php } ?>
+      <div class="box">
+        <a href="#<?php echo $n; ?>" data-toggle="modal" data-target="#<?php echo $n; ?>">
+					<img src="<?php echo base_url('uploads/'.$v->mdir);?>" />
+        </a>
+        <div class="modal fade" id="<?php echo $n; ?>" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+              <div class="modal-body">
+								<img src="<?php echo base_url('uploads/'.$v->mdir);?>" />
+              </div>
+                <div class="col-md-12 description">
+                  <h4>Desk</h4>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+		<?php
+		$n++;
+	}	?>
+  </div>
+  </div>
+</section>
+				<!-- </div> -->
 				</div>
 
 				<?php }else if ($page=="Bantuan") {?>

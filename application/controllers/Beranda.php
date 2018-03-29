@@ -84,7 +84,7 @@ method-method halaman pengunjung
 			$this->load->library('pagination');
 			$config['base_url'] = base_url().'beranda/post/';
 			$config['total_rows'] = $jumlah_data;
-			$config['per_page'] = 5;
+			$config['per_page'] = 10;
 			$from = $this->uri->segment(3);
 			$this->pagination->initialize($config);
 			//$data['user'] = $this->m_data->data($config['per_page'],$from);

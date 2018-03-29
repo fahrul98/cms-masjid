@@ -15,16 +15,8 @@ mediaid
 ?>
 	<div id="main-content">
 		<!-- <div class="container" style="margin-left: 400px; margin-top: 50px;"> -->
-<div class="row">
-<div class="col-md-9">
-	<h2><?php echo $page; ?></h2>
-</div>
-<div class="col-md-3">
-	<h2>
-	<a class="btn btn-default" href="<?php echo base_url('takmir/tambahtk');?>"><i class="fa fa-pencil-square-o"> </i><span>Tambah Takmir</span></a>
-</h2>
-</div>
-</div>
+		<h2><?php echo $page; if ($page=="Takmir") {?> <a class="btn btn-default" href="<?php echo base_url('takmir/tambahtk');?>"><i class="fa fa-pencil-square-o"> </i><span>Tambah Takmir</span></a><?php } ?></h2>
+
 		<?php echo $error; ?>
 		<?php
 if ($page=="Takmir") {

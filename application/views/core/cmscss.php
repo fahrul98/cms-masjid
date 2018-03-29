@@ -1,6 +1,6 @@
 <?php
  ?>
- // <style media="screen">
+ <!-- // <style media="screen"> -->
 .container .icon:hover {
   /*background-color: #<?php echo $d['hover']; ?>;*/
   color: #<?php echo $d['hover']; ?>;
@@ -256,6 +256,6 @@ Admin
   background-color: #<?php echo $d['hover']; ?>; ;
 }
 /*keuangan*/
-// </style>
 <?php
+/*// </style>*/
  ?>
