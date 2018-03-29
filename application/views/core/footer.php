@@ -120,13 +120,13 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
         //jika pengunjung true
         if (isset($mode)) {
           ?>
-
     <!-- JS Netizen -->
     <script src="<?php echo base_url('assets/js/jquery-2.1.1.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/wow.min.js');?>"></script>
     <script src="<?php echo base_url('assets/js/jquery.easing.1.3.js');?>"></script>
     <script src="<?php echo base_url('assets/js/jquery.isotope.min.js');?>"></script>
     <script src="<?php echo base_url('assets/js/jquery.bxslider.min.js');?>"></script>
-    <script src="<?php echo base_url('assets/js/wow.min.js');?>"></script>   
+    <script src="<?php echo base_url('assets/js/wow.min.js');?>"></script>
     <script src="<?php echo base_url('assets/js/fliplightbox.min.js');?>"></script>
     <script src="<?php echo base_url('assets/js/functions.js');?>"></script>
     <script src="<?php echo base_url('assets/vendor/datatables/js/jquery.dataTables.min.js');?>"></script>
@@ -150,7 +150,7 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
       }else{
         ?>
         <script src="<?php echo base_url('assets/vendor/jquery/jquery-3.3.1.min.js');?>"></script>
-      <!-- <script src="<?php echo base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script> -->
+      <script src="<?php echo base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
       <script src="<?php echo base_url('assets/vendor/bootstrap/js/bootstrap.min.js'); ?>"></script>
       <script src="<?php echo base_url('assets/vendor/metisMenu/metisMenu.js'); ?>"></script>
       <script src="<?php echo base_url('assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js'); ?>"></script>

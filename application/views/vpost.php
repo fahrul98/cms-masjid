@@ -21,14 +21,9 @@ if ($page=="Post") {
 	}
 ?>
 
-<h2><?php echo $page; ?></h2>
+<h2><?php echo $page; ?>&nbsp &nbsp <a class="btn btn-default" href="<?php echo base_url('post/tulis');?>"><i class="fa fa-pencil-square-o"> </i> Tulis postingan</a>
+<a class="btn btn-default" href="<?php echo base_url('beranda/post');?>">Tampil Semua</a></h2>
 <div class="panel">
-	<div class="panel-content">
-		<div class="col-sm-6">
-			<a class="btn btn-default" href="<?php echo base_url('post/tulis');?>"><i class="fa fa-pencil-square-o"> </i> Tulis postingan</a>
-			<a class="btn btn-default" href="<?php echo base_url('beranda/post');?>">Tampil Semua</a></button>
-		</div>
-	</div>
 <div class="panel-content">
 	<table class="table table-bordered table-striped table-hover">
 		<thead>

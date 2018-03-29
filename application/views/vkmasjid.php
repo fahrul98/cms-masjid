@@ -41,7 +41,7 @@ function indonesian_date ($timestamp = '', $date_format = 'l, j F Y | H:i', $suf
 ?>
 <!-- <div class="container" style="margin-left: 400px; margin-top: 50px;"	> -->
 <div id="main-content">
-	<h2><?php echo $page; ?></h2>
+	<h2><?php echo $page; ?> <a class="btn btn-default" href="<?php echo base_url('keuanganmasjid/tambahentri');?>"><i class="fa fa-pencil-square-o"> </i> Tambah Entri</a></h2>
 <?php
 if ($page=="Keuangan Masjid") {
 	if (isset($tanya)) {
@@ -75,7 +75,7 @@ $n = 1;
 		}
 		 ?>
 	</table>
-	<a class="btn btn-default" href="<?php echo base_url('keuanganmasjid/tambahentri');?>"><i class="fa fa-pencil-square-o"> </i> Tambah Entri</a>
+
 <?php }else if ($page=="Tambah Entri") {?>
 	<?php echo $error; ?>
 	<?php echo form_open('keuanganmasjid/dbentri','class=form');	?>

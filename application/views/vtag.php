@@ -21,7 +21,7 @@ if ($page=="Tag") {
 		echo $tanya;
 	}
 ?>
-<h2><?php echo $page; ?></h2>
+<h2><?php echo $page; ?> &nbsp <a class="btn btn-default" href="<?php echo base_url('tag/tambahtag');?>"><i class="fa fa-pencil-square-o"> </i><span> Tambah tag</span></a></h2>
 	<table class="table table-bordered table-striped table-hover">
 		<thead>
 			<th>No.</th>
@@ -41,7 +41,7 @@ $n = 1;
 		}
 		 ?>
 	</table>
-<a class="btn btn-default"href="<?php echo base_url('tag/tambahtag');?>"><i class="fa fa-pencil-square-o"> </i><span> Tambah tag</span></a>
+
 
 <?php }else if ($page=="Tambah Tag") {?>
 

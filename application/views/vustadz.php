@@ -15,11 +15,7 @@ mediaid
 	<div id="main-content">
 		<!-- <div class="container" style="margin-left: 400px; margin-top: 50px;"> -->
 		<!-- <h2><?php echo $page; ?></h2> -->
-<div class="row">
-		<div class="col-md-9">
-			<h2><?php echo $page; ?></h2>
-		</div>
-
+		<h2><?php echo $page; if ($page=="Ustadz") {?> <a class="btn btn-default" href="<?php echo base_url('ustadz/tambahust');?>"><i class="fa fa-pencil-square-o"> </i> <span>Tambah Ustad</span></a><?php } ?></h2>
 		<?php echo $error; ?>
 <?php
 if ($page=="Ustadz") {
@@ -27,10 +23,6 @@ if ($page=="Ustadz") {
 		echo $tanya;
 	}
 ?>
-<div class="col-md-3">
-	<h2><a class="btn btn-default" href="<?php echo base_url('ustadz/tambahust');?>"><i class="fa fa-pencil-square-o"> </i> <span>Tambah Ustad</span></a></h2>
-</div>
-</div>
 
 			<table class="table table-bordered table-striped table-hover">
 				<thead>

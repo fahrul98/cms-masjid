@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 if ($page=="Jadwal Kegiatan") {
 ?>
 			<!-- <div class="container" style="margin-left: 400px; margin-top: 50px;"> -->
-			<h2><?php echo $page; ?></h2>
+			<h2><?php echo $page; ?> <a class="btn btn-default" href="<?php echo base_url('jadwalkegiatan/tambahkegiatan');?>"><i class="fa fa-pencil-square-o"> </i><span>Tambah Kegiatan</span></a></h2>
 			<table class="table table-bordered table-striped table-hover">
 				<thead>
 					<th>No.</th>
@@ -68,7 +68,7 @@ if ($page=="Jadwal Kegiatan") {
 		}
 		 ?>
 			</table>
-			<a class="btn btn-default" href="<?php echo base_url('jadwalkegiatan/tambahkegiatan');?>"><i class="fa fa-pencil-square-o"> </i><span>Tambah Kegiatan</span></a>
+
 			<?php }else if ($page=="Tambah Kegiatan") {?>
 			<h3>Tambah kegiatan</h3>
 			<?php echo $error; ?>
