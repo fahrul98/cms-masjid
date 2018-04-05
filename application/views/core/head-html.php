@@ -109,7 +109,11 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
 min
 
  */
-
+  .imsize {
+    width: 100%;
+    height: 50%;
+    padding:15px;
+  }
   .wrapper {
     padding-right:;
     padding-left:;
