@@ -306,12 +306,13 @@ include('opsional.php');
 				<div class="container" id="pengunjung">
 					<div class="row">
 						<div class="blogs col-lg-12">
-							<img src="assets/img/01.jpg" class="img-responsive" alt="" />
+							
 							<h1 class=""><a href="<?php echo base_url('beranda/post/'.urlencode($v->psjudul));?>"><?php echo $v->psjudul;?></a></h1>
 							<h5><?php echo indonesian_date($v->psbuat)." | ".$v->psustadz." | ".$v->tag." | ";?><i class='fa fa-eye' aria-hidden='true'></i> <span> <?php echo $v->vcount; ?></span></h5>
 							<!-- <p class="phitam">
 							<p class="phitam" style="font-size:15px;">
 							</p> -->
+							<img src="<?php echo base_url('uploads/posts/'.$v->mediadir);?>" class="img-responsive imsize" alt="" />
 							<div class="phitam">
 							<?php echo $v->pstext;?>
 							</div>
