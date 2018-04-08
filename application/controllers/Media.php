@@ -12,6 +12,7 @@ class Media extends CI_Controller{
     // }
     $this->load->helper("file");
     $this->load->model('mmedia');
+    $this->load->model('mpengaturan');
   }
 
   public function index(){
@@ -19,6 +20,7 @@ class Media extends CI_Controller{
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
     $data['page'] = "Media";
     // $data['mode'] = "med";
+    $data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
     $data['imgs'] = $this->mmedia->tampilmedia()->result();
 
 		$this->load->view('core/core',$data);

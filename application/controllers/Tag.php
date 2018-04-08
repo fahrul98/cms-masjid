@@ -23,6 +23,7 @@ jkwaktu
 		//load model
 		$this->load->model('mpost');
 		$this->load->model('mprofiladmin');
+		$this->load->model('mpengaturan');
 	}
 
 	public function index(){
@@ -30,6 +31,7 @@ jkwaktu
 		$data['ctrl'] = "post";
 		$data['cmtag'] = $this->mpost->tampiltag()->result();
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
+		$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
 
 		$this->load->view('core/core',$data);
@@ -43,6 +45,7 @@ jkwaktu
 		$data['ctrl'] = "post";
 		$this->load->model('mprofiladmin');
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
+		$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
 
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
 		$data['input']=$this->session->userdata('input')?$this->session->userdata('input'):

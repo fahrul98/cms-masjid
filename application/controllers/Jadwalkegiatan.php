@@ -25,12 +25,14 @@ jkwaktu
 		$this->load->model('mjkegiatan');
 		$this->load->model('mprofiladmin');//
 		$this->load->model('mpost');
+		$this->load->model('mpengaturan');
 	}
 
 	public function index(){
 	  $data['page'] = "Jadwal Kegiatan";
 		$data['jadwalk'] = $this->mjkegiatan->tampiljkegiatan()->result();
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
+		$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
 
 		$this->load->view('core/core',$data);
 		$this->load->view('vjkegiatan',$data);
@@ -41,6 +43,7 @@ jkwaktu
 		$data['page'] = "Tambah Kegiatan";
 		$data['cmtag'] = $this->mpost->tampiltag()->result();
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
+		$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
 		$data['input']=$this->session->userdata('input')?$this->session->userdata('input'):
 			array(
@@ -66,6 +69,7 @@ jkwaktu
 		$data['page'] = "Ubah Kegiatan";
 		$data['jkid'] = $jkid;
 		$data['jadwalk'] = $this->mjkegiatan->tampiljkegiatan($data)->row();
+		$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
 		$data['cmtag'] = $this->mpost->tampiltag()->result();
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
 		$data['input']=$this->session->userdata('input')?$this->session->userdata('input'):

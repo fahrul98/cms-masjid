@@ -24,6 +24,7 @@ rdtotal
 		//load model
 		$this->load->model('mrdonasi');
 		$this->load->model('mprofiladmin');
+		$this->load->model('mpengaturan');
 	}
 
 	//view all rekamdonasi
@@ -31,6 +32,7 @@ rdtotal
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Rekam Donasi";
 		$data['ctrl'] = "kmasjid";
+		$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
 		$data['cmrdonasi'] = $this->mrdonasi->tampilrdonasi()->result();
 		$data['stat'] = $this->mrdonasi->statistik()->row();
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
@@ -49,6 +51,7 @@ insert + delete
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Tambah Rekam Donasi";
 		$data['ctrl'] = "kmasjid";
+		$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
 		$data['input']=$this->session->userdata('input')?$this->session->userdata('input'):
 			array(
@@ -137,6 +140,7 @@ insert + delete
 		$data['ctrl'] = "kmasjid";
 		$data['rdid'] = $rdid;
 		$data['cmrdonasi'] = $this->mrdonasi->tampilrdonasi($data)->row();
+		$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
 		$data['input']=$this->session->userdata('input')?$this->session->userdata('input'):
 			array(

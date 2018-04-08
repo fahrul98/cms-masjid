@@ -21,13 +21,15 @@ pvisimisi
 		//load model
 		$this->load->model('mprofilm');
 		$this->load->model('mprofiladmin');
+		$this->load->model('mpengaturan');
 	}
+	
 	public function index(){
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
     $data['page'] = "Profil Masjid";
 		$data['ctrl'] = "masjid";
     $data['profil'] = $this->mprofilm->tampilprofilm()->row();
-
+		$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
 		$data['profil']=$this->session->userdata('input')?$this->session->userdata('input'):
 			array(

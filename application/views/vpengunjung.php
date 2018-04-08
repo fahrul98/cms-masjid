@@ -40,15 +40,16 @@ include('opsional.php');
       	<div class="carousel-caption">
 					<a href="<?php echo base_url('beranda/post/'.urlencode($s->psjudul)); ?>">
 					<!-- <h2 style="color:white;"> -->
-					<h2 style="">
+					<h2 style="font-size:30pt;color:white;text-shadow: 1px 1px 10px #000000;">
 						<?php echo $s->psjudul; ?>
 					</h2>
-			</a>
+				</a>
+				<!-- <div class="" style="color:white;text-shadow: 0 1px 0 #333322;">
 				<?php
 							// echo $this->security->xss_clean(substr($v->pstext,0,50));
 							echo htmlspecialchars_decode(substr($s->pstext,0,100))."...";
 							//."...</p>"; ?>
-				</p>
+			</div> -->
 			</div>
       </div>
     </div>
@@ -78,25 +79,24 @@ include('opsional.php');
 				</div>
 			</div>
 		</div> -->
-		<div class="whitebg">
-
-		<div class="container" >
-			<hr id="1">
+	<div class="whitebg">
+		<div class="container">
+			<!-- <hr id="1"> -->
 			<div class="row center">
 				<h2 class="hitam">Selamat Datang di website
+				</h2>
 				<p class="phitam"><?php echo $cmprofil->pnama; ?></p>
-			</h2>
 			</div>
 			<div class="row">
 				<div class="box">
-					<div class="col-md-4">
+					<div class="col-xs-12 col-md-4 col-lg-4 part">
 							<h4>Portal Donasi</h4>
-							<a href="<?php echo base_url('');?>"<i class="fa fa-money fa-5x icon"></i></a>
+							<a href="<?php echo base_url('beranda/keuanganmasjid');?>"><i class="fa fa-money fa-5x icon"></i></a>
 							<p>Pastikan kita menggunakan harta kita di jalan Allah</p>
 							<div class="ficon">
 							</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-xs-12 col-md-4 col-lg-4">
 						<div>
 							<h4>Jadwal Kegiatan</h4>
 								<a href="<?php echo base_url('beranda/jadwalkegiatan');?>"><i class="fa fa-calendar fa-5x icon"></i></a>
@@ -105,10 +105,10 @@ include('opsional.php');
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-xs-12 col-md-4 col-lg-4 part">
 						<div>
 							<h4>Materi Kajian</h4>
-							<a href="#"><i class="fa fa-book fa-5x icon"></i></a>
+							<a href="<?php echo base_url('beranda/post');?>"><i class="fa fa-book fa-5x icon"></i></a>
 							<p>Klik untuk melihat daftar judul kajian</p>
 							<div class="ficon">
 							</div>
@@ -116,31 +116,30 @@ include('opsional.php');
 					</div>
 				</div>
 			</div>
-			<hr id="2">
+			<!-- <hr id="2"> -->
 		</div>
-		<div class="container">
+		<div class="container-fluid section" style="background-color:#cdcdcd;">
 			<div class="row">
 				<div class="center">
 					<div class="col-md-10 col-md-offset-1">
 						<h2 class="hitam">Profil Masjid</h2><br>
 						<h3>Sejarah</h3>
-						<p class="phitam">
+						<p class="">
 							<?php echo substr($profil->psejarah,0,300)." ...";?>
 						</p><br>
 						<h3>Visi Misi</h3>
-						<p class="phitam">
+						<p class="">
 							<?php echo substr($profil->pvisimisi,0,300)." ...";?>
 						</p><br>
 					</div>
 				</div>
 			</div>
-			<hr id="3">
+			<!-- <hr id="3"> -->
 		</div>
-		<div class="container">
+		<div class="container section">
 			<div class="row center">
 				<h2 class="hitam">Galeri</h2>
-				<p class="phitam">Tentang Masjid <?php echo $cmprofil->pnama; ?>
-				</p>
+				<p class="">Tentang Masjid <?php echo $cmprofil->pnama; ?></p>
 			</div>
 			<section>
 		  <div class="container gal-container">
@@ -306,12 +305,15 @@ include('opsional.php');
 				<div class="container" id="pengunjung">
 					<div class="row">
 						<div class="blogs col-lg-12">
-							<img src="assets/img/01.jpg" class="img-responsive" alt="" />
+
 							<h1 class=""><a href="<?php echo base_url('beranda/post/'.urlencode($v->psjudul));?>"><?php echo $v->psjudul;?></a></h1>
 							<h5><?php echo indonesian_date($v->psbuat)." | ".$v->psustadz." | ".$v->tag." | ";?><i class='fa fa-eye' aria-hidden='true'></i> <span> <?php echo $v->vcount; ?></span></h5>
 							<!-- <p class="phitam">
 							<p class="phitam" style="font-size:15px;">
 							</p> -->
+							<img src="
+							<?php echo base_url('assets/uploads/'.$v->psjudul); ?>
+							" class="img-responsive" alt="" />
 							<div class="phitam">
 							<?php echo $v->pstext;?>
 							</div>
@@ -325,10 +327,10 @@ include('opsional.php');
 
 				<!-- <div class="whitebg" style="padding-top: 0px; margin-left: 90px; margin-right: 90px"> -->
 				<div class="whitebg">
-				<div class="container" style="margin-left: 20px">
+				<div class="container">
 					<div class="row">
-						<div class="service">
-							<h2><?php echo $page;?></h2>
+							<div class="blogs text-center">
+							<h2 class="hitam"><?php echo $page;?></h2>
 							<h3 class="phitam">Lanjutkan membaca untuk mengenal <?php echo $cmprofil->pnama; ?> lebih dekat
 									</h3>
 						</div>

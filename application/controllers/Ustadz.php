@@ -25,6 +25,7 @@ mediaid
 		//load model
 		$this->load->model('mustadz');
 		$this->load->model('mprofiladmin');
+		$this->load->model('mpengaturan');
 	}
 
 	//view all ustadz
@@ -33,6 +34,7 @@ mediaid
 		$data['page'] = "Ustadz";
 		$data['ctrl'] = "masjid";
 		$data['cmustadz'] = $this->mustadz->tampilustadz()->result();
+		$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
 
 		$this->load->view('core/core',$data);
@@ -90,6 +92,7 @@ insert + delete
 		$data['page'] = "Tambah Ustadz";
 		$data['ctrl'] = "masjid";
 		$data['search'] = "ustadz";
+		$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
 		$data['input']=$this->session->userdata('input')?$this->session->userdata('input'):
 			array(
@@ -215,6 +218,7 @@ insert + delete
 		$data['search'] = "ustadz";
 		$data['usid'] = $usid;
 		$data['ustadz'] = $this->mustadz->tampilustadz($data)->row();
+		$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
 		$data['input']=$this->session->userdata('input')?$this->session->userdata('input'):
 			array(

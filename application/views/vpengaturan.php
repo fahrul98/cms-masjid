@@ -7,8 +7,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- <div class="container"> -->
 	<!-- <h1>Welcome to CodeIgniter!</h1> -->
 	<h2><?php echo $page; ?></h2>
-	<?php echo $error; 
-		// if ($page=="Pengaturan Info") {
+	<?php echo $error;
+		if ($page=="Pengaturan Info") {
 	?>
 	<div class="panel panel-default row">
 				<!-- <?php echo form_open('profiladmin/dbubahprofiladmin');?> -->
@@ -48,8 +48,8 @@ $dsarr2=array("Hitam","Biru","Hijau");
 		</div>
 	</div>
 </div>
-<!-- <?php }else if ($page=="Slide Show") { ?>
-	<div class="panel panel-default row">
+ <?php }else if ($page=="Slide Show") { ?>
+<!--	<div class="panel panel-default row">
 				<?php echo form_open_multipart('pengaturan/dbubahslide','class=form');	?>
 			<div class="panel-content col-md-12">
 			<div class="form-group">
@@ -74,5 +74,5 @@ $dsarr2=array("Hitam","Biru","Hijau");
 	</div>
 </div>
 
+-->
 <?php } ?>
- -->

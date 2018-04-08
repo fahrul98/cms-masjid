@@ -1,11 +1,10 @@
 <?php
  ?>
- <!-- // <style media="screen"> -->
-.container .icon:hover {
-  /*background-color: #<?php echo $d['hover']; ?>;*/
-  color: #<?php echo $d['hover']; ?>;
-  /*font-size: 35pt;*/
-}
+ // <style media="screen">
+ .container .icon:hover {
+   color: #<?php echo $d['hover']; ?>;
+   /*font-size: 35pt;*/
+ }
 
 /*CARD CSS*/
 .container2 {
@@ -143,11 +142,26 @@ body .navbar{
   /*font-size: 24px;*/
   font-size: 20px;
 }
-@media screen and (min-width: 480px) {
+
+@media screen and (min-width: 320px) {
   .navbar .size {
     /*font-size: 24px;*/
     font-size: 24px;
   }
+  /*body .section {
+    height:1200px;
+    padding-top:60px;
+    padding-bottom:60px;
+  }*/
+}
+
+.part {
+  background-color: #dfdfdf;
+}
+
+body .section {
+  padding-top:60px;
+  padding-bottom:60px;
 }
 
 .navbar .navbar-collapse a:hover{
@@ -158,14 +172,33 @@ body .navbar{
   background-color: #<?php echo $d['hover']; ?>;
 }
 
+.nav-tabs > li > a:hover {
+	background-color: #<?php echo $d['hover']; ?>;
+}
+
+.nav-tabs > li.active > a {
+	color: #fff;
+  cursor: default;
+  background-color:#<?php echo $d['hover']; ?>;
+  border: 0;
+  border-bottom-color: transparent;
+
+}
+.nav-tabs > li.active > a:hover {
+	color: #fff;
+	border: 0;
+	background-color: #<?php echo $d['hover']; ?>;
+	cursor: pointer;
+}
+
 .container .center{
   color: #<?php echo $d['textisi']; ?>;
   text-align: center;
   margin-top: 0px;
 }
+
 #navquick{
   width: 10px;
-
 }
 
 .container .text-center h2{
@@ -206,14 +239,14 @@ body .navbar{
 
 .container hr{
   background-color: #<?php echo $d['icon'];?>;
-  height: 5px; border: 0;
+  height: 2px; border: 0;
   margin-top: 20px;
   margin-bottom: 55px;
 }
 
 hr{
   background-color: #<?php echo $d['icon'];?>;
-  height: 5px; border: 0;
+  <!-- height: 3px; border: 0; -->
 }
 
 /*
@@ -255,6 +288,11 @@ Admin
 #wrapper .sidebar .active a {
   background-color: #<?php echo $d['hover']; ?>; ;
 }
+
+body h1,h2,h3,h4,h5,h6 {
+  color:black;
+}
+
 /*keuangan*/
 <?php
 /*// </style>*/

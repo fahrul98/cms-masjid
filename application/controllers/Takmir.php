@@ -25,6 +25,7 @@ mediaid
 		//load model
 		$this->load->model('mtakmir');
 		$this->load->model('mprofiladmin');
+		$this->load->model('mpengaturan');
 	}
 
 	//view all takmir
@@ -34,6 +35,7 @@ mediaid
 		$data['page'] = "Takmir";
 		$data['ctrl'] = "masjid";
 		$data['cmtakmir'] = $this->mtakmir->tampiltakmir()->result();
+		$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
 		$data['error'] = $this->session->userdata('err')?$this->session->userdata('err'):'';
 		$data['input'] = $this->session->userdata('input')?$this->session->userdata('input'):'';
 
@@ -96,6 +98,7 @@ insert + delete
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Tambah Takmir";
 		$data['ctrl'] = "masjid";
+		$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
 		$data['input']=$this->session->userdata('input')?$this->session->userdata('input'):
 			array(
@@ -225,6 +228,7 @@ insert + delete
 		$data['ctrl'] = "masjid";
 		$data['tkid'] = $tkid;
 		$data['takmir'] = $this->mtakmir->tampiltakmir($data)->row();
+		$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
 		$data['input']=$this->session->userdata('input')?$this->session->userdata('input'):
 			array(
