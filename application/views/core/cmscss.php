@@ -1,6 +1,6 @@
 <?php
  ?>
- <!-- // <style media="screen"> -->
+
 .container .icon:hover {
   /*background-color: #<?php echo $d['hover']; ?>;*/
   color: #<?php echo $d['hover']; ?>;
@@ -22,7 +22,7 @@
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 5px; /* 5px rounded corners */
-  /*width: 250px;*/
+  width: 250px;
   /*margin:15px;*/
   margin-bottom:30px;
   /*padding:30px;*/
