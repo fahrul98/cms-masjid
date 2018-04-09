@@ -15,7 +15,7 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
   <!-- END WRAPPER -->
   <!-- CREDIT -->
   <?php } ?>
-  <hr>
+ 
   <footer>
     <?php
   //jika $mode di controller ada dan halaman bukan hal.instalasi , maka muncul navbar utk pengunjung
