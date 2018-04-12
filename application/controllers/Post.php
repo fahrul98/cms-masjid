@@ -43,6 +43,7 @@ mediaid
 		$config['base_url'] = base_url().'post/index/';
 		$config['total_rows'] = $jumlah_data;
 		$config['per_page'] = 5;
+		$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
 		$from = $this->uri->segment(3);
 		$this->pagination->initialize($config);
 
@@ -108,6 +109,7 @@ mediaid
 		$data['page'] = "Post";
 		$data['page2'] = "balik";// untuk tombol kembali
 		// $data['mode'] = '';
+		$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
 		$data['cmprofil'] = $this->mprofilm->tampilprofilm()->row();
 		$this->load->view('core/core',$data);
 		$this->load->view('vpost',$data);
@@ -173,6 +175,7 @@ method-method untuk operasi admin
 		$data['cmtag'] = $this->mpost->tampiltag()->result();
 		$data['page'] = "Tulis Postingan";
 		$data['search'] = "tulisps";
+		$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
 		$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
 		$data['input']=$this->session->userdata('input')?$this->session->userdata('input'):
 			array(
@@ -297,6 +300,7 @@ method-method untuk operasi admin
 		$data['search'] = "ubahps";
 		$data['ctrl'] = "post";
 		// $data['postid'] = $postid;
+		$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
 		$data['slug'] = $slug;
 		$data['cmtag'] = $this->mpost->tampiltag()->result();
 		$data['post'] = $this->mpost->tampilpost($data)->row();

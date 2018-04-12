@@ -109,10 +109,11 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
 min
 
  */
-  .imsize {
+  .imgpost-view {
     width: 100%;
     height: 50%;
     padding:15px;
+    margin:auto;
   }
   .wrapper {
     padding-right:;
@@ -126,8 +127,8 @@ min
   }
   .phitam {
     color:#000000;
-    font-size: 17px;
-    font-family: Arial;
+    font-size: 15px;
+    /*font-family: Arial;*/
   }
   .container .text-center .phitam {
     color:#000000;
@@ -170,7 +171,6 @@ min
       // 'hover' => '424242','hover' => '101010',
       'tab' => 'fff','tabact' => '212121',
       'textisi' => '000000','licol' => '000000'
-
     );
     switch ($dsid) {
       case 1: //Dark
@@ -179,7 +179,7 @@ min
       'container' => 'fff','lnr' => 'fff',
       'border' => '424242','textcol' => 'fff',
       'img-bg' => 'img-3.jpg','linkcol' => '0000bb',
-      'hover' => 'adabab','icon' => '424242',
+      'hover' => '2a882a','icon' => '424242',
       'tab' => 'fff','tabact' => '4f4f4f',
       'textisi' => '000000',
       'licol' => 'fff'
@@ -231,9 +231,6 @@ min
 
   */
   <?php include('galeri.php'); ?>
-
-
-
 </style>
 
   </head>

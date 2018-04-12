@@ -2,12 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
   /*
   navbar.php navigasi di sebelah
-  updates
-  16/1/2018
-    - bootstrap navbar
-  28/1/2018
-
-  - diffdash : navbar ada 2 komponen, navbar atas & sidebar
 
   */
 ?>
@@ -29,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand paddinglr" href="<?php echo base_url('');?>"><span class="size"><?php echo $cmprofil->pnama;?></span></a>
+          <a class="navbar-brand paddinglr" href="<?php echo base_url('');?>" style="font-style:bold;"><span class="size"> <?php echo $cmprofil->pnama;?></span></a>
         </div>
         <div class="navbar-collapse collapse">
           <div class="menu">
@@ -92,18 +86,6 @@ switch ($page) {
     </nav>
 <?php if ($page=="Beranda") { ?>
 
-    <nav id="navquick" class="navbar navbar-fixed-bottom" role="navigation">
-      <div class="container">
-        <div class="menu">
-          <ul class="nav navbar-nav nav-tabs">
-            <li role="presentation"><a href="#myCarousel">^</a></li>
-            <li role="presentation"><a href="#1">1</a></li>
-            <li role="presentation"><a href="#2">2</a></li>
-            <li role="presentation"><a href="#3">3</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
     <?php
     } ?>
 
@@ -139,7 +121,6 @@ switch ($page) {
             <!-- end logo -->
             <div class="navbar-right">
               <!-- search form -->
-              <!-- <div id="navbar-search" class="navbar-form search-form"> -->
               <?php echo form_open('post/search','id="navbar-search" class="navbar-form search-form" style="padding-left:0px; padding-right:0px"');?>
               <input name="search" value="" class="form-control" placeholder="Cari post..." type="text">
               <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
@@ -202,15 +183,15 @@ switch ($page) {
   case "Media":$akt[7]='active';break;
   case "Keuangan Masjid":$akt[8]='active';break;
   case "Rekam Donasi":$akt[9]='active';break;
-  case "Pengaturan":$akt[10]='active';break;
+  case "Pengaturan Info":$akt[10]='active';break;
   default:break;
 }?>
 
           <div id="left-sidebar" class="sidebar">
             <button type="button" class="btn btn-xs btn-link btn-toggle-fullwidth">
-    <span class="sr-only">Toggle Fullwidth</span>
-    <i class="fa fa-angle-left"></i>
-  </button>
+              <span class="sr-only">Toggle Fullwidth</span>
+              <i class="fa fa-angle-left"></i>
+            </button>
             <div class="sidebar-scroll">
               <div class="user-account">
                 <a href="<?php echo base_url('profiladmin'); ?>">
@@ -255,10 +236,6 @@ switch ($page) {
                         <li class="<?php echo $akt[1];?>"><a href="<?php echo base_url('profilm')?>">Profil Masjid</a></li>
                         <li class="<?php echo $akt[2];?>"><a href="<?php echo base_url('takmir')?>">Takmir</a></li>
                         <li class="<?php echo $akt[3];?>"><a href="<?php echo base_url('ustadz')?>">Ustadz</a></li>
-
-                        <!-- <li class=""><a href="ui-buttons.html">Buttons</a></li>
-            <li class=""><a href="ui-bootstrap.html">Bootstrap UI</a></li>
-            <li class=""><a href="ui-icons.html"><span>Icons</span></a></li> -->
                       </ul>
                     </li>
                     <li class="<?php echo $akt[4].$akt[5];?>">

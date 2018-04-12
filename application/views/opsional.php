@@ -29,4 +29,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$date = "{$date} {$suffix}";
 		return $date;
 	}
+
+	function short_name($str, $limit){
+    if ($limit < 3) $limit = 3;
+
+    if (strlen($str) > $limit) {
+    	$str = substr($str, 0, strpos(wordwrap($str, $limit), "\
+"));
+    }
+
+    return $str;
+}
 	?>

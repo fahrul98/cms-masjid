@@ -23,6 +23,7 @@ class Admin extends CI_Controller {
 		}
 		$this->load->model('mpost');
 		$this->load->model('mprofiladmin');
+		$this->load->model('mpengaturan');
 	}
 
 	// if (file_exists(FCPATH.APP.CONF.'\cms_settings.php')) {
@@ -39,6 +40,7 @@ class Admin extends CI_Controller {
 				$data['poppost']=$this->mpost->ppost()->result();
 				$data['poptag']=$this->mpost->ptag()->result();
 				$data['chart']=$this->mpost->viewsPerDate("day")->result();
+				$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
 
 
 				$data['page'] = "Beranda Admin";

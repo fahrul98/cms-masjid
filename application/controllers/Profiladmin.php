@@ -29,12 +29,13 @@ usertelp
 		}
 		//load model
 		$this->load->model('mprofiladmin');
+		$this->load->model('mpengaturan');
 	}
 
 	public function index(){
 	    $data['page'] = "Profil Admin";
 			$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
-
+			$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
 			$data['error']=$this->session->userdata('err')?$this->session->userdata('err'):'';
 			$data['padmin']=$this->session->userdata('input')?$this->session->userdata('input'):
 				array(

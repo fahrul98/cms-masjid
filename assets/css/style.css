@@ -84,7 +84,7 @@ a.navbar-brand span {
   font-weight:600;
   color:#fff;
 }
-.nav-tabs > li > a:hover {
+/*.nav-tabs > li > a:hover {
 	background-color: #36CBD4;
 }
 .nav-tabs > li.active > a {
@@ -100,7 +100,7 @@ a.navbar-brand span {
 	border: 0;
 	background-color: #36CBD4;
 	cursor: pointer;
-}
+}*/
 
 .slider {
 	margin-top:110px;
@@ -582,5 +582,3 @@ a.scrollup:hover{
 	background-color: #<?php echo $d['hover']; ?>;
 	color:#fff;;
 }
-
-

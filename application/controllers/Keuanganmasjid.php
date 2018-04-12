@@ -24,6 +24,7 @@ kmsaldo
 		//load model
 		$this->load->model('mkmasjid');
 		$this->load->model('mprofiladmin');
+		$this->load->model('mpengaturan');
 	}
 //view all post
 
@@ -31,6 +32,7 @@ kmsaldo
 		$data['padmin']=$this->mprofiladmin->tampilpadmin()->row();
 		$data['page'] = "Keuangan Masjid";
 		$data['ctrl'] = "kmasjid";
+		$data['pgt']=$this->mpengaturan->tampilpengaturan()->row();
 		$data['kmasjid'] = $this->mkmasjid->tampilkmasjid()->result();
 
 		$this->load->view('core/core',$data);
