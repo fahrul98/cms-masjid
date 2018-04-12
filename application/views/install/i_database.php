@@ -6,7 +6,7 @@
 				<div class="header">
 					<div class="logo text-center"><img src="<?php echo base_url('assets/img/logo.png'); ?>" alt="DiffDash"></div>
 					<p class="lead">
-						Selamat datang di halaman instalasi, masukkan input berikut untuk mulai menggunakan CMS Masjid Al-
+						Selamat datang di halaman instalasi, masukkan input berikut untuk mulai menggunakan CMS Masjid
 					</p>
 				</div>
 					<form method="POST" class="form-auth-small" id="form" action="<?php echo base_url('installer/dbGenerator'); ?>">

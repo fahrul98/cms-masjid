@@ -23,7 +23,7 @@ usertelp
 
 	<div class="panel panel-default row">
 				<!-- <?php echo form_open('profiladmin/dbubahprofiladmin');?> -->
-				<?php echo form_open_multipart('profiladmin/dbubahprofiladmin','class=form');	?>
+			<?php echo form_open_multipart('profiladmin/dbubahprofiladmin','class=form');	?>
 			<div class="col-md-4">
 				<div class="panel-content form-group">
 					<label for="mediaid">Media</label>

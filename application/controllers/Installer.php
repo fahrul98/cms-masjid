@@ -56,6 +56,7 @@ class Installer extends CI_Controller {
 	}
 
 	public function dbImporter(){
+		ini_set('max_execution_time', 300);
 		$templine = '';
 		// Read in entire file
 		// $lines = file(FCPATH.APP.'\cmsmasjid.sql');
@@ -73,6 +74,125 @@ class Installer extends CI_Controller {
 			$templine = '';
 			}
 		}
-		redirect(base_url('admin'));
+
+		$data['page']='Isi profil masjid';
+		$this->load->view('core/core',$data);
+		$this->load->view('install/i_profilm');
+		//redirect(base_url('admin'));
 	}
+
+	public function profilm(){
+		$this->load->model('mprofilm');
+				$this->form_validation->set_rules('pnama','Nama Masjid','required|min_length[5]|max_length[50]',
+			array(
+				'required' => '%s harus diisi',
+				'min_length' => '%s harus >=5 karakter',
+				'max_length' => '%s harus <=50 karakter'
+			)
+		);
+		$this->form_validation->set_rules('pdeskripsi','Deskripsi','required|min_length[5]|max_length[5000]',
+			array(
+				'required' => '%s harus diisi',
+				'min_length' => '%s harus >=5 karakter',
+				'max_length' => '%s harus <=5000 karakter'
+			)
+		);
+		$this->form_validation->set_rules('psejarah','Deskripsi','required|min_length[5]|max_length[5000]',
+			array(
+				'required' => '%s harus diisi',
+				'min_length' => '%s harus >=5 karakter',
+				'max_length' => '%s harus <=5000 karakter'
+			)
+		);
+		$this->form_validation->set_rules('pvisimisi','Visi Misi','required|min_length[5]|max_length[5000]',
+			array(
+				'required' => '%s harus diisi',
+				'min_length' => '%s harus >=5 karakter',
+				'max_length' => '%s harus <=5000 karakter'
+			)
+		);
+		$data['pnama'] = $this->input->post('pnama');
+		$data['pdeskripsi'] = $this->input->post('pdeskripsi');
+		$data['psejarah'] = $this->input->post('psejarah');
+		$data['pvisimisi'] = $this->input->post('pvisimisi');
+
+		if (!$this->form_validation->run()) {
+			$this->session->set_userdata('err',validation_errors());
+			$this->session->set_userdata('input',$data);
+			$data['page']='Isi profil masjid';
+			$this->load->view('core/core',$data);
+			$this->load->view('install/i_profilm');
+		}else{
+			$this->mprofilm->insertprofilm($data);
+			$data['page']='Isi profil admin';
+			$this->load->view('core/core',$data);
+			$this->load->view('install/i_profiladmin');
+			$this->session->set_userdata('err','Berhasil diubah');
+		}
+		
+	}
+
+	public function profiladmin(){
+		$this->load->model('mprofiladmin');
+		$this->form_validation->set_rules('username','Username','required|min_length[5]|max_length[12]',
+			array(
+				'required' => '%s harus diisi',
+				'min_length' => '%s harus >=8 karakter',
+				'max_length' => '%s harus <=12 karakter'
+			)
+		);
+		$this->form_validation->set_rules('userpass','Password','required|min_length[8]',
+			array(
+				'required' => '%s harus diisi',
+				'min_length' => '%s harus >=8 karakter',
+			)
+		);
+		$this->form_validation->set_rules('userfullname','Nama lengkap','required|min_length[8]|max_length[50]',
+			array(
+				'required' => '%s harus diisi',
+				'min_length' => '%s harus >=8 karakter',
+				'max_length' => '%s harus <=50 karakter'
+			)
+		);
+		$this->form_validation->set_rules('useremail','Email','required|valid_email',
+			array(
+				'required' => '%s harus diisi',
+				'valid_email' => '%s tidak valid'
+			)
+		);
+		$this->form_validation->set_rules('useralamat','Alamat','max_length[255]',
+			array(
+				'max_length' => '%s harus <=255 karakter'
+			)
+		);
+		$this->form_validation->set_rules('usertelp','telepon','max_length[20]',
+			array(
+				'max_length' => '%s harus <=20 karakter'
+			)
+		);
+
+		$data['username'] = $this->input->post('username');
+		$data['userpass'] = $this->input->post('userpass');
+		$data['userfullname'] = $this->input->post('userfullname');
+		$data['useremail'] = $this->input->post('useremail');
+		$data['useralamat'] = $this->input->post('useralamat');
+		$data['usertelp'] = $this->input->post('usertelp');
+		$data['displayname'] = $data['username'];
+
+		if (!$this->form_validation->run()) {
+			$this->session->set_userdata('err',validation_errors());
+			$this->session->set_userdata('input',$data);
+			$data['page']='Isi profil admin';
+			$this->load->view('core/core',$data);
+			$this->load->view('install/i_profiladmin');
+		}else{
+
+			$this->session->set_userdata('err','Berhasil diubah');
+		}
+
+		$this->mprofiladmin->insertadmin($data);
+		redirect(base_url('login'));
+		// unset($data);
+	}
+
 }
