@@ -53,8 +53,8 @@ $n = 1;
 				<input type="text" class="form-control" name="tag" value="<?php echo $input['tag']; ?>">
 			</div>
 				<div class="form-group ">
-				<input type="submit" class="btn btn-primary" name="submit" value="Tambah">
-				<a class="btn btn-danger" name="submit" value="Tambah" href="<?php echo base_url('tag');?>">Kembali</a>
+				<input type="submit" class="btn btn-success" name="submit" value="Tambah">
+				<a class="btn btn-success" name="submit" value="Tambah" href="<?php echo base_url('tag');?>" style="color: #fff">Kembali</a>
 			</div>
 		</div>
 	</div>

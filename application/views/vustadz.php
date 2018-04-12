@@ -56,10 +56,10 @@ $n = 1;
 		 ?>
 			</table>
 <?php }else if ($page=="Tambah Ustadz") {?>
-</div>
+<?php echo form_open_multipart('ustadz/dbtambahust','class=form');	?>
 			<div class="container">
 				<div class="row">
-					<?php echo form_open_multipart('ustadz/dbtambahust','class=form');	?>
+					
 					<div class="panel col-md-4">
 						<div class="form-group">
 							<label for="mediaid">Media id</label>
@@ -80,15 +80,15 @@ $n = 1;
 							<textarea name="usalamat" class="form-control" rows="5" value=""></textarea>
 						</div>
 						<div class="form-group">
-							<button type="submit" class="btn btn-primary" name="submit" value="tambah">Tambah</button>
-							<a class="btn btn-danger" href="<?php echo base_url('ustadz');?>">Kembali</a>
+							<button type="submit" class="btn btn-success" name="submit" value="tambah">Tambah</button>
+							<a class="btn btn-success" href="<?php echo base_url('ustadz');?>" style="color: #fff">Kembali</a>
 						</div>
 					</div>
 				</div>
-
+			</div>
 
 <?php }else if ($page=="Ubah Ustadz") {?>
-	</div>
+	
 	<div class="container">
 		<div class="row">
 				<?php echo form_open_multipart('ustadz/dbubah','class=form');	?>
@@ -114,12 +114,11 @@ $n = 1;
 					<textarea name="usalamat" required="required" class="form-control" rows="5" value=""><?php echo $ustadz->usalamat;?></textarea>
 				</div>
 				<div class="form-group">
-					<button type="submit" class="btn btn-primary" name="submit" value="update">Update</button>
-					<a class="btn btn-danger" href="<?php echo base_url('ustadz');?>">Kembali</a></button>
-					<a class="btn btn-danger" href="<?php echo base_url('ustadz/dbhapus/'.$ustadz->usid);?>">Hapus Ustadz</a></button>
+					<button type="submit" class="btn btn-success" name="submit" value="update">Update</button>
+					<a class="btn btn-success" href="<?php echo base_url('ustadz');?>" style="color: #fff">Kembali</a></button>
+					<a class="btn btn-success" href="<?php echo base_url('ustadz/dbhapus/'.$ustadz->usid);?>" style="color: #fff">Hapus Ustadz</a></button>
 				</div>
-				</div>
-				</div>
-				</div>
+		</div>
+	</div>
 				<?php } ?>
-			</div>
+</div>

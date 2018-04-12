@@ -86,8 +86,8 @@ if ($page=="Takmir") {
 							<input type="text" class="form-control" name="tknotelp" value="<?php echo $input['tknotelp']; ?>">
 						</div>
 						<div class="form-group">
-							<input type="submit" class="btn btn-primary" name="submit" value="tambah">
-							<a class="btn btn-danger" style="text-decoration: none" href="<?php echo base_url('takmir');?>">Kembali</a>
+							<input type="submit" class="btn btn-success" name="submit" value="tambah">
+							<a class="btn btn-success" style="text-decoration: none; color: #fff" href="<?php echo base_url('takmir');?>">Kembali</a>
 						</div>
 					</div>
 				</div>
@@ -121,9 +121,9 @@ if ($page=="Takmir") {
 							<input type="text" required="required" class="form-control" name="tknotelp" value="<?php echo $takmir->tknotelp;?>">
 						</div>
 						<div class="form-group">
-							<button type="submit" class="btn btn-primary" name="submit" value="update">Ubah</button>
-							<a class="btn btn-danger" href="<?php echo base_url('takmir');?>">Kembali</a>
-							<a class="btn btn-danger" href="<?php echo base_url('takmir/dbhapus/'.$takmir->tkid);?>">Hapus Takmir</a>
+							<button type="submit" class="btn btn-success" name="submit" value="update">Ubah</button>
+							<a class="btn btn-success" href="<?php echo base_url('takmir');?>" style="color: #fff">Kembali</a>
+							<a class="btn btn-success" href="<?php echo base_url('takmir/dbhapus/'.$takmir->tkid);?>" style="color: #fff">Hapus Takmir</a>
 						</div>
 					</div>
 				</div>

@@ -109,8 +109,8 @@ $n = 1;
 			</div>
 		</div>
 	</div>
-	<button type="submit" class="btn btn-primary" name="submit" value="tambah">Tambah</button>
-	<a class="btn btn-danger" style="text-decoration: none" href="<?php echo base_url('rekamdonasi');?>">Kembali</a></button>
+	<button type="submit" class="btn btn-success" name="submit" value="tambah">Tambah</button>
+	<a class="btn btn-success" style="text-decoration: none; color: #fff" href="<?php echo base_url('rekamdonasi');?>">Kembali</a></button>
 </div>
 
 
@@ -143,9 +143,9 @@ $n = 1;
 			</div>
 		</div>
 	</div>
-	<button type="submit" class="btn btn-primary" name="submit" value="update">Update</button>
-	<button type="submit" class="btn btn-danger" name="submit" value="kembali"><a style="text-decoration: none" href="<?php echo base_url('rekamdonasi');?>">Kembali</a></button>
-	<button type="submit" class="btn btn-danger" name="submit" value="hapus"><a style="text-decoration: none" href="<?php echo base_url('rekamdonasi/dbhapus/'.$cmrdonasi->rdid);?>">Hapus Rekamdonasi</a></button>
+	<button type="submit" class="btn btn-success" name="submit" value="update">Update</button>
+	<button type="submit" class="btn btn-success" name="submit" value="kembali"><a style="text-decoration: none; color: #fff" href="<?php echo base_url('rekamdonasi');?>">Kembali</a></button>
+	<button type="submit" class="btn btn-success" name="submit" value="hapus"><a style="text-decoration: none; color: #fff" href="<?php echo base_url('rekamdonasi/dbhapus/'.$cmrdonasi->rdid);?>">Hapus Rekamdonasi</a></button>
 </div>
 <?php } ?>
 </div>

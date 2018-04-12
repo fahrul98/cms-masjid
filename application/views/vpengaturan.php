@@ -44,7 +44,7 @@ $dsarr2=array("Hitam","Biru","Hijau");
 				<textarea style="resize: none; height: 100px" type="textarea" class="form-control" name="cmfoot2" value=""><?php echo $pgt->cmfoot2;?></textarea>
 			</div>
 			<div class="form-group">
-				<button type="submit" name="submit" class="btn btn-primary">Terapkan</button>
+				<button type="submit" name="submit" class="btn btn-success">Terapkan</button>
 			</div>
 		</form>
 		</div>

@@ -27,7 +27,7 @@ if ($page=="Media") {?>
 			<div class="panel-content">
 				<h2 class="heading"><i class="fa fa-square"></i>Media</h2>
 				<input type="file" id="dropify-event" name="filename" data-default-file="<?php echo base_url('uploads/default.png');?>">
-				<input type="submit" class="btn btn-primary" value="upload" />
+				<input type="submit" class="btn btn-success" value="upload" />
 			</div>
 			</div>
 		</form>
@@ -63,7 +63,7 @@ if ($page=="Media") {?>
 						</div>
 							<div class="col-md-12 description">
 								<h4>Desk
-								<a class="btn btn-danger" href="<?php echo base_url('media/dbmhapus?mediaid='.$v->mediaid.'&mdir='.$v->mdir); ?>">
+								<a class="btn btn-success" href="<?php echo base_url('media/dbmhapus?mediaid='.$v->mediaid.'&mdir='.$v->mdir); ?>">
 									<span class="fa fa-trash"></span>
 								</a>
 							</h4>

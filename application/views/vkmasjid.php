@@ -103,8 +103,8 @@ $n = 1;
 			<label for="kmsaldo">Saldo</label>
 			<input type="textarea" class="form-control" name="kmsaldo" value="<?php echo $input['kmsaldo']; ?>">
 		</div>
-	<button type="submit" class="btn btn-primary" name="submit" value="entri">Tambah</button>
-		<a class="btn btn-danger" style="text-decoration: none" href="<?php echo base_url('keuanganmasjid');?>">Kembali</a>
+	<button type="submit" class="btn btn-success" name="submit" value="entri">Tambah</button>
+		<a class="btn btn-success" style="text-decoration: none; color: #fff" href="<?php echo base_url('keuanganmasjid');?>">Kembali</a>
 		</div>
 	</div>
 </div>
@@ -139,9 +139,9 @@ $n = 1;
 				<input type="textarea" class="form-control" name="kmsaldo" value="<?php echo $kmasjid->kmsaldo;?>">
 		</div>
 
-	<button type="submit" class="btn btn-primary" name="submit" value="entri">Update</button>
-		<a class="btn btn-danger" href="<?php echo base_url('keuanganmasjid');?>">Kembali</a>
-		<a class="btn btn-danger" href="<?php echo base_url('keuanganmasjid/dbhapus/'.$kmasjid->kmid);?>">Hapus Entri</a>
+	<button type="submit" class="btn btn-success" name="submit" value="entri">Update</button>
+		<a class="btn btn-success" href="<?php echo base_url('keuanganmasjid');?>" style="color: #fff">Kembali</a>
+		<a class="btn btn-success" href="<?php echo base_url('keuanganmasjid/dbhapus/'.$kmasjid->kmid);?>" style="color: #fff">Hapus Entri</a>
 		</div>
 	</div>
 </div>

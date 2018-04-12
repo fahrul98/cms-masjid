@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- <div class="container"> -->
 	<div id="main-content">
 		<!-- <h1>Welcome to CodeIgniter!</h1> -->
-		<h2><?php echo $page; ?></h2>
+		<h2 class=""><?php echo $page; ?></h2>
 		<div class="row">
 		<div class="col-md-6 col-sm-7 left">
 			<div id="demo-line-chart" class="ct-chart"></div>

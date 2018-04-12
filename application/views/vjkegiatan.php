@@ -108,8 +108,8 @@ if ($page=="Jadwal Kegiatan") {
 				</div>
 			</div>
 
-			<button type="submit" class="btn btn-primary" name="submit" value="Tambah">Tambah</button>
-			<a class="btn btn-danger" style="text-decoration: none" href="<?php echo base_url('jadwalkegiatan');?>">Kembali</a></button>
+			<button type="submit" class="btn btn-success" name="submit" value="Tambah">Tambah</button>
+			<a class="btn btn-success" style="text-decoration: none; color: #fff" href="<?php echo base_url('jadwalkegiatan');?>">Kembali</a></button>
 	</div>
 	<?php }else if ($page=="Ubah Kegiatan") {?>
 	<h3>Ubah kegiatan</h3>
@@ -120,9 +120,9 @@ if ($page=="Jadwal Kegiatan") {
 		<div class="row">
 			<div class="panel panel-content col-md-4">
 				<div class="form-group">
-					<button type="submit" class="btn btn-primary" name="submit" value="Ubah">Ubah</button>
-					<a class="btn btn-danger" href="<?php echo base_url('jadwalkegiatan/dbhapus/'.$jadwalk->jkid);?>">Hapus</a>
-					<a class="btn btn-danger" href="<?php echo base_url('jadwalkegiatan');?>">Kembali</a>
+					<button type="submit" class="btn btn-success" name="submit" value="Ubah">Ubah</button>
+					<a class="btn btn-success" href="<?php echo base_url('jadwalkegiatan/dbhapus/'.$jadwalk->jkid);?>" style="color: #fff">Hapus</a>
+					<a class="btn btn-success" href="<?php echo base_url('jadwalkegiatan');?>" style="color: #fff">Kembali</a>
 				</div>
 				<div class="form-group">
 					<label for="jknama">Nama Kegiatan</label>
