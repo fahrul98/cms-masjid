@@ -24,6 +24,7 @@ kmsaldo
 		//load model
 		$this->load->model('mkmasjid');
 		$this->load->model('mprofiladmin');
+		$this->load->model('mpengaturan');
 	}
 //view all post
 

@@ -41,7 +41,7 @@ unset(variabel) => hapus variabel dari memori
 	}
 
 	public function tampilslide(){
-		$q = $this->db->query("SELECT * FROM cmpost order by psbuat asc limit 3");
+		$q = $this->db->query("SELECT * FROM cmpost order by psbuat asc limit 1");
 		return $q;
 		$q=null;
 	}

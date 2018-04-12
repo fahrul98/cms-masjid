@@ -68,14 +68,6 @@ if ($this->session->userdata('username') and $this->session->userdata('userpass'
                     <?php echo nl2br($pgt->cmfoot2);?>
                   </p>
                 </div>
-              <!-- </div> -->
-              <!-- <h3 class="widgetheading">Hubungi Kami</h3>
-
-              <a href="#">
-                <p class="phitam nomargin nopadding"><i class="fa fa-envelope"></i>masjidtaqwa@gmail.com</p>
-              </a>
-              <p class="phitam nomargin nopadding"><i class="fa fa-phone"></i> +345 578 59 45 416</p>
-              <p class="phitam nomargin nopadding"><i class="fa fa-home"></i> Masjid taqwa | Tulusrejo Lowokwaru, Malang</p> -->
             </div>
           </div>
         </div>

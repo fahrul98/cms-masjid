@@ -5,11 +5,18 @@ html,body{height:100%; width: 100%; position: relative;}
 
 /* faster sliding speed */
 .carousel-inner > .item {
-    -webkit-transition: 0.5s ease-in-out left;
-    -moz-transition: 0.5s ease-in-out left;
-    -o-transition: 0.5s ease-in-out left;
-    transition: 0.5s ease-in-out left;
+    -webkit-transition: 0.01s ease-in-out left;
+    -moz-transition: 0.01s ease-in-out left;
+    -o-transition: 0.01s ease-in-out left;
+    transition: 0.01s ease-in-out left;
 }
+
+/*.carousel-inner > .item {
+    -webkit-transition: 20s ease-in-out left;
+    -moz-transition: 20s ease-in-out left;
+    -o-transition: 20s ease-in-out left;
+    transition: 20s ease-in-out left;
+}*/
 
 /* keep full widget on smaller screens */
 @media (max-width: 767px) {
@@ -17,4 +24,16 @@ html,body{height:100%; width: 100%; position: relative;}
 		padding-left: 0;
 		padding-right: 0;
 	}
+}
+
+.carousel-caption h2{
+  font-size:25pt;
+  color:white;
+  text-shadow: 1px 1px 10px #000000;
+}
+
+.carousel-caption p{
+  font-size:12pt;
+  color:white;
+  text-shadow: 1px 1px 10px #000000;
 }

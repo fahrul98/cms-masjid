@@ -75,6 +75,7 @@
 Footer
 
 */
+
 .pputih {
   color: #<?php echo $d['textcol']; ?>;
   font-size: 17px;
@@ -134,6 +135,7 @@ div .transbox {
 netizen
 
 */
+
 body .navbar{
   background-color:#<?php echo $d['nav'];?>;
 }
@@ -143,25 +145,53 @@ body .navbar{
   font-size: 20px;
 }
 
-@media screen and (min-width: 320px) {
-  .navbar .size {
-    /*font-size: 24px;*/
-    font-size: 24px;
+/*
+
+ responsives
+
+ */
+@media screen and (min-width: 1000px) {
+  body .section {
+    height:600px;
+    /*margin-top: 20px;
+    margin-bottom: 20px;*/
+    /*padding: auto;*/
+    position: relative;
   }
-  /*body .section {
-    height:1200px;
-    padding-top:60px;
-    padding-bottom:60px;
-  }*/
+  body .section .section-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .carousel-caption{
+    right: 10%;
+    left: 10%;
+    /*text-align: left;*/
+    /*padding-left: 0px;*/
+  }
+
+  .carousel-cap-bg {
+    /*position: absolute;*/
+    /*background-color:#ffffff;opacity:0.8;*/
+    /*width:1000px;height:100px;*/
+  }
 }
 
 .part {
   background-color: #dfdfdf;
 }
 
-body .section {
-  padding-top:60px;
-  padding-bottom:60px;
+.part2 {
+  background-color: #ffffff;
+}
+
+.part:hover {
+  background-color: #cfcfcf;
+}
+
+.part2:hover {
+  background-color: #dfdfdf;
 }
 
 .navbar .navbar-collapse a:hover{
@@ -247,6 +277,18 @@ body .section {
 hr{
   background-color: #<?php echo $d['icon'];?>;
   <!-- height: 3px; border: 0; -->
+}
+
+p{
+  font-size:12pt;
+}
+
+.box {
+	text-align:center;
+}
+.box:hover {
+  height: 120%;
+	text-align:center;
 }
 
 /*
