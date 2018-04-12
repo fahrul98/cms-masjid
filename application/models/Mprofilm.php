@@ -38,4 +38,14 @@ input->proses->hapus dari memori
 
 		redirect(base_url('profilm'));
 	}
+
+	public function insertprofilm($data){
+		$q = $this->db->query("insert into cmprofilm (pnama,pdeskripsi,psejarah,pvisimisi) values (?,?,?,?)",
+		array($data['pnama'],
+			$data['pdeskripsi'],
+			$data['psejarah'],
+			$data['pvisimisi']
+		));
+		unset($data);
+	}
 }

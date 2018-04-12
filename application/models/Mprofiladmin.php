@@ -69,6 +69,20 @@ input->proses->hapus dari memori
 		unset($data);
 	}
 
+  public function insertadmin($data){
+    $q = $this->db->query("insert into cmusers (username, userpass, userfullname, useremail, usertgldaftar, displayname, useralamat, usertelp ) values (?,?,?,?,now(),?,?,?)",
+    array(
+      $data['username'],
+      md5($data['userpass']),
+      $data['userfullname'],
+      $data['useremail'],
+      $data['displayname'],
+      $data['useralamat'],
+      $data['usertelp'],
+    ));
+    unset($data);
+  }
+
   //method untuk remember
   public function updateCookie($cookie){
     $q = $this->db->query("update cmusers set remember=? where userid=1", array($cookie));
