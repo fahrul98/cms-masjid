@@ -70,10 +70,9 @@ include('opsional.php');
 		<div class="whitebg">
 			<div class="container section">
 				<!-- <hr id="1"> -->
-				<div class="row center">
-					<h2 class="hitam">Selamat Datang di website
-				</h2>
-					<h3>
+				<div class="row center" style="margin-bottom: 30px">
+					<h2 class="fstyle1">Selamat Datang di website</h2>
+					<h3 class="fstyle2">
 					<?php echo $cmprofil->pnama; ?>
 				</h3>
 					<br>
@@ -81,7 +80,7 @@ include('opsional.php');
 				<div class="row">
 					<div class="box">
 						<div class="col-xs-12 col-md-4 col-lg-4 part">
-							<h4>Portal Donasi</h4>
+							<h4 class="fstyle3">Portal Donasi</h4>
 							<a href="<?php echo base_url('beranda/keuanganmasjid');?>"><i class="fa fa-money fa-5x icon"></i></a>
 							<p>Pastikan kita menggunakan harta kita di jalan Allah</p>
 							<div class="ficon">
@@ -89,7 +88,7 @@ include('opsional.php');
 						</div>
 						<div class="col-xs-12 col-md-4 col-lg-4 part2">
 							<div>
-								<h4>Jadwal Kegiatan</h4>
+								<h4 class="fstyle3">Jadwal Kegiatan</h4>
 								<a href="<?php echo base_url('beranda/jadwalkegiatan');?>"><i class="fa fa-calendar fa-5x icon"></i></a>
 								<p>Jangan sampai hari ini berakhir tanpa ada satu ilmu pun yang kita dapatkan</p>
 								<div class="ficon">
@@ -98,7 +97,7 @@ include('opsional.php');
 						</div>
 						<div class="col-xs-12 col-md-4 col-lg-4 part">
 							<div>
-								<h4>Materi Kajian</h4>
+								<h4 class="fstyle3">Materi Kajian</h4>
 								<a href="<?php echo base_url('beranda/post');?>"><i class="fa fa-book fa-5x icon"></i></a>
 								<p>Klik untuk melihat daftar judul kajian</p>
 								<div class="ficon">
@@ -114,12 +113,12 @@ include('opsional.php');
 					<div class="row">
 						<div class="center">
 							<div class="col-md-10 col-md-offset-1">
-								<h2 class="hitam">Profil Masjid</h2><br>
-								<h3>Sejarah</h3>
+								<h2 class="fstyle1">Profil Masjid</h2><br>
+								<h3 class="fstyle4">Sejarah</h3>
 								<p class="" style="font-style: bold;">
 									<?php echo substr($profil->psejarah,0,600)." ...";?>
 								</p><br>
-								<h3>Visi Misi</h3>
+								<h3 class="fstyle4">Visi Misi</h3>
 								<p class="">
 									<?php echo substr($profil->pvisimisi,0,600)." ...";?>
 								</p><br>
@@ -131,13 +130,13 @@ include('opsional.php');
 			</div>
 			<div class="container">
 				<div class="row center">
-					<h2 class="hitam">Galeri</h2>
-					<p class="">Tentang Masjid
+					<h2 class="hitam fstyle1">Galeri</h2>
+					<p class="fstyle2">Tentang Masjid
 						<?php echo $cmprofil->pnama; ?>
 					</p>
 				</div>
 				<section>
-					<div class="container gal-container">
+					<div class="container gal-container" style="padding-top: 25px">
 						<?php
 				$n=1;
 				// $val= rand(1,10);
@@ -185,7 +184,7 @@ include('opsional.php');
 				<div class="row">
 					<div class="col-lg-8">
 						<div class="service">
-							<h2><?php echo $page;?></h2>
+							<h2 class="fstyle1"><?php echo $page;?></h2>
 							<!-- <h3 class="phitam">~hadits~</h3> -->
 							<?php
 						if (isset($page2)&&$page2=="balik") {?>
@@ -210,7 +209,7 @@ include('opsional.php');
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
-						<h5><?php echo "Sekarang : ".indonesian_date(date("Y-m-d"),'l, j F Y',''); ?></h5>
+						<h5 style="font-family: Arial"><?php echo "Sekarang : ".indonesian_date(date("Y-m-d"),'l, j F Y',''); ?></h5>
 					</div>
 					<hr>
 					<?php
@@ -267,7 +266,7 @@ include('opsional.php');
 				<div class="container" id="pengunjung">
 					<div class="row">
 						<div class="blogs col-lg-12">
-							<h1 class=""><a href="<?php echo base_url('beranda/post/'.urlencode($v->psjudul));?>"><?php echo $v->psjudul;?></a></h1>
+							<h1 class="fstyle1"><a href="<?php echo base_url('beranda/post/'.urlencode($v->psjudul));?>"><?php echo $v->psjudul;?></a></h1>
 							<h5><?php echo indonesian_date($v->psbuat)." | ".$v->psustadz." | ".$v->tag." | ";?><i class='fa fa-eye' aria-hidden='true'></i> <span> <?php echo $v->vcount; ?></span></h5>
 							<!-- <p class="phitam">
 							<p class="phitam" style="font-size:15px;">
@@ -291,36 +290,36 @@ include('opsional.php');
 					<div class="container">
 						<div class="row">
 							<div class="blogs text-center">
-								<h2 class="hitam"><?php echo $page;?></h2>
+								<h2 class="fstyle1 hitam"><?php echo $page;?></h2>
 								<h3 class="phitam">Lanjutkan membaca untuk mengenal <?php echo $cmprofil->pnama; ?> lebih dekat
 									</h3>
 							</div>
 						</div>
 					</div>
-					<hr>
+					<hr >
 					<div class="container">
 						<div class="row">
-							<h2 class="center">Deskripsi</h2>
+							<h2 class="fstyle5 center">Deskripsi</h2>
 							<p class="phitam">
 								<?php echo nl2br($profil->pdeskripsi);?>
 							</p>
 						</div>
-						<hr>
+						<hr class="hrstyle">
 						<div class="row">
-							<h2 class="center">Sejarah</h2>
+							<h2 class="fstyle5 center">Sejarah</h2>
 							<p class="phitam">
 								<?php echo nl2br($profil->psejarah);?>
 							</p>
 						</div>
-						<hr>
+						<hr class="hrstyle">
 						<div class="row">
-							<h2 class="center">Visi Misi</h2>
+							<h2 class="fstyle5 center">Visi Misi</h2>
 							<p class="phitam">
 								<?php echo nl2br($profil->pvisimisi);?>
 							</p>
 						</div>
 					</div>
-					<hr>
+					<hr class="hrstyle">
 				</div>
 				<?php }else if ($page=="Takmir Masjid") {?>
 
@@ -330,11 +329,11 @@ include('opsional.php');
 							<div class="col-md-6 col-md-offset-3">
 								<div class="portfolios">
 									<div class="text-center">
-										<h2 class="hitam"><?php echo $page;?></h2>
-										<h5 class="phitam">Daftar Takmir <?php echo $cmprofil->pnama; ?><br>
+										<h2 class="fstyle1 hitam"><?php echo $page;?></h2>
+										<h5 class="phitam fstyle6">Daftar Takmir <?php echo $cmprofil->pnama; ?><br>
 										</h5>
 									</div>
-									<hr>
+									<hr class="hrstyle">
 								</div>
 							</div>
 						</div>
@@ -352,10 +351,10 @@ include('opsional.php');
 									<div class="card">
 										<img class="" src="<?php echo base_url('uploads/takmir/'.$v->mediadir);?>" width="250" height="250" />
 										<div class="container2">
-											<h4><?php echo $v->tknama;?></h4>
-											<h5><?php echo $v->tkjabatan;?></h5>
-											<h5><?php echo $v->tkmasajabatan;?></h5>
-											<h5><?php echo $v->tknotelp;?></h5>
+											<h4 class="fstyle7"><?php echo $v->tknama;?></h4>
+											<h5 class="fstyle6"><?php echo $v->tkjabatan;?></h5>
+											<h5 class="fstyle6"><?php echo $v->tkmasajabatan;?></h5>
+											<h5 class="fstyle6"><?php echo $v->tknotelp;?></h5>
 										</div>
 									</div>
 								</div>
@@ -375,11 +374,11 @@ include('opsional.php');
 							<div class="col-md-6 col-md-offset-3">
 								<div class="portfolios">
 									<div class="text-center">
-										<h2 class="hitam"><?php echo $page;?></h2>
-										<h5 class="phitam">Daftar Ustadz <?php echo $cmprofil->pnama; ?><br>
+										<h2 class="fstyle1 hitam"><?php echo $page;?></h2>
+										<h5 class="fstyle6 phitam">Daftar Ustadz <?php echo $cmprofil->pnama; ?><br>
 										</h5>
 									</div>
-									<hr>
+									<hr class="hrstyle">
 								</div>
 							</div>
 						</div>
@@ -405,9 +404,9 @@ include('opsional.php');
 
 							 ?>" width="250" height="250" />
 										<div class="container2">
-											<h5><?php echo $v->usnama;?></h4>
-									<h5><?php echo $v->usnotelp;?></h4>
-									<h5><?php echo $v->usalamat;?></h4>
+									<h5 class="fstyle7"><?php echo $v->usnama;?></h4>
+									<h5 class="fstyle6"><?php echo $v->usnotelp;?></h4>
+									<h5 class="fstyle6"><?php echo $v->usalamat;?></h4>
 								</div>
 							</div>
 						</div>
@@ -428,11 +427,11 @@ include('opsional.php');
 						<div class="col-md-6 col-md-offset-3">
 							<div class="portfolios">
 								<div class="text-center">
-									<h2 class="hitam"><?php echo $page;?></h2>
-									<h5 class="phitam">Keuangan <?php echo $cmprofil->pnama;?><br> Untuk donasi silahkan menuju Tab Donasi<br>
+									<h2 class="fstyle1 hitam"><?php echo $page;?></h2>
+									<h5 class="fstyle6 phitam">Keuangan <?php echo $cmprofil->pnama;?><br> Untuk donasi silahkan menuju Tab Donasi<br>
 									</h5>
 										</div>
-										<hr>
+										<hr class="hrstyle">
 									</div>
 								</div>
 						</div>
@@ -515,8 +514,8 @@ include('opsional.php');
 							<div class="col-md-6 col-md-offset-3">
 								<div class="portfolios">
 									<div class="text-center">
-										<h2 class="hitam"><?php echo $page;?></h2>
-										<h5>Jadwal kegiatan-kegiatan <?php echo $cmprofil->pnama;?><br>
+										<h2 class="fstyle1 hitam"><?php echo $page;?></h2>
+										<h5 class="fstyle6">Jadwal kegiatan-kegiatan <?php echo $cmprofil->pnama;?><br>
 									</h5>
 									</div>
 									<hr>
@@ -563,15 +562,15 @@ include('opsional.php');
 								<div class="col-md-6 col-md-offset-3">
 									<div class="portfolios">
 										<div class="text-center">
-											<h2 class="hitam"><?php echo $page;?></h2>
-											<h5 class="phitam">Galeri <?php echo $cmprofil->pnama;?><br>
+											<h2 class="fstyle1 hitam"><?php echo $page;?></h2>
+											<h5 class="fstyle6 phitam">Galeri <?php echo $cmprofil->pnama;?><br>
 										</h5>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<hr>
+						<hr class="hrstyle">
 						<section>
 							<div class="container gal-container">
 								<?php
@@ -622,8 +621,8 @@ include('opsional.php');
 								<div class="col-md-6 col-md-offset-3">
 									<div class="portfolios">
 										<div class="text-center">
-											<h2><?php echo $page;?></h2>
-											<h5 class="phitam">Bantuan<br>
+											<h2 class="fstyle1"><?php echo $page;?></h2>
+											<h5 class="fstyle6 phitam">Bantuan<br>
 									</h5>
 										</div>
 										<hr>
@@ -642,8 +641,8 @@ include('opsional.php');
 								<div class="col-md-6 col-md-offset-3">
 									<div class="portfolios">
 										<div class="text-center">
-											<h2 class="hitam"><?php echo $page;?></h2>
-											<h5 class="phitam">Tentang CMS & Developer<br>
+											<h2 class="fstyle1 hitam"><?php echo $page;?></h2>
+											<h5 class="fstyle6 phitam">Tentang CMS & Developer<br>
 									</h5>
 										</div>
 									</div>
@@ -653,13 +652,13 @@ include('opsional.php');
 
 						<div class="container">
 							<div class="row text-center">
-								<h2 class="hitam">Pengembang (Developer)</h2>
+								<h2 class="fstyle1 hitam">Pengembang (Developer)</h2>
 							</div>
 							<br>
 							<div class="row text-center">
 								<div class="col-md-4 col-md-offset-4">
 									<img class="img-circle" src="<?php echo base_url('uploads/default.png');?>" alt="gb1" width="300" height="300" />
-									<p class="phitam">
+									<p class="fstyle6 phitam">
 										CMS Masjid Al-Afa <br> AFAdev <br> @2018
 									</p>
 								</div>

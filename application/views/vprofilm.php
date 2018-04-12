@@ -45,7 +45,7 @@ $adminlogin = $this->session->userdata('username')&&$this->session->userdata('us
 				<label for="pvisimisi">Visi Misi</label>
 				<textarea style="resize: none; height: 300px" type="textarea" class="form-control" name="pvisimisi" value=""><?php echo $profil['pvisimisi'];?></textarea>
 			</div>
-			<button type="submit" name="submit" class="btn btn-primary">Terapkan</button>
-			<a class="btn btn-primary" href="<?php echo base_url('beranda/profilm');?>">Lihat Profile</a>
+			<button type="submit" name="submit" class="btn btn-success">Terapkan</button>
+			<a class="btn btn-success" href="<?php echo base_url('beranda/profilm');?>" style="color:#fff ">Lihat Profile</a>
 		</form>
 </div>

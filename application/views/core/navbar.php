@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand paddinglr" href="<?php echo base_url('');?>" style="font-style:bold;"><span class="size"> <?php echo $cmprofil->pnama;?></span></a>
+          <a class="navbar-brand paddinglr" href="<?php echo base_url('');?>" style="font-style:bold;"><span class="size" style="font-family: Whitney"> <?php echo $cmprofil->pnama;?></span></a>
         </div>
         <div class="navbar-collapse collapse">
           <div class="menu">
@@ -53,7 +53,7 @@ switch ($page) {
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">Profil<span class="caret"></span></a>
                   <!-- <ul class="dropdown-menu" style="padding-top: 0px; padding-bottom: 0px"> -->
                   <!-- <ul class="dropdown-menu"> -->
-                  <ul class="dropdown-menu">
+                  <ul class="dropdown-menu" style="padding:0px">
                     <li><a href="<?php echo base_url('beranda/profilm');?>">Profil</a></li>
                     <li><a href="<?php echo base_url('beranda/takmirm');?>">Takmir</a></li>
                     <li><a href="<?php echo base_url('beranda/ustadz');?>">Ustadz</a></li>

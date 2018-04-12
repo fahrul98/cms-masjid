@@ -117,8 +117,8 @@ if ($page=="Post") {
 		</div>
 	<div class="row">
 		<div class="form-group col-md-6">
-			<button type="submit" class="btn btn-primary" name="submit" value="Tulis">Tulis</button>
-			<a class="btn btn-danger"style="text-decoration: none" href="<?php echo base_url('post');?>">Kembali</a>
+			<button type="submit" class="btn btn-success" name="submit" value="Tulis">Tulis</button>
+			<a class="btn btn-success" style="text-decoration: none; color: #fff" href="<?php echo base_url('post');?>">Kembali</a>
 		</div>
 	</div>
 	<div class="row">
@@ -186,10 +186,10 @@ if ($page=="Post") {
 	</div> -->
 	<div class="row">
 		<div class="form-group col-md-8">
-			<button type="submit" class="btn btn-primary" name="submit" value="ubah">Ubah</button>
-			<a class="btn btn-primary" href="<?php echo base_url('post/view/'.urlencode($post->psjudul));?>">pratinjau</a>
-			<a class="btn btn-danger" style="text-decoration: none" href="<?php echo base_url('post');?>">Kembali</a>
-			<a class="btn btn-danger" style="text-decoration: none" href="<?php echo base_url('post/dbhapus/'.$post->postid);?>"><i class="fa fa-trash-o"></i> 	Hapus Post</a></button>
+			<button type="submit" class="btn btn-success" name="submit" value="ubah">Ubah</button>
+			<a class="btn btn-success" href="<?php echo base_url('post/view/'.urlencode($post->psjudul));?>" style="color: #fff">pratinjau</a>
+			<a class="btn btn-success" style="text-decoration: none; color: #fff" href="<?php echo base_url('post');?>">Kembali</a>
+			<a class="btn btn-success" style="text-decoration: none; color: #fff" href="<?php echo base_url('post/dbhapus/'.$post->postid);?>"><i class="fa fa-trash-o"></i> 	Hapus Post</a></button>
 			<!-- <button type="button" class="btn btn-danger"> <span>Danger</span></button> -->
 		</div>
 	</div>

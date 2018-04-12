@@ -109,6 +109,46 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
 min
 
  */
+  .fstyle1 {
+    font-family: Arial Black; 
+    font-size: 35px;
+  }
+
+  .fstyle2 {
+    font-family: Arial; 
+    font-size: 25px;
+  }
+
+  .fstyle3 {
+    font-family: Arial Black; 
+    font-size: 20px;
+  }
+
+  .fstyle4 {
+    font-family: Geneva; 
+    font-size: 30px;
+  }
+
+  .fstyle5 {
+    font-family: Arial Black; 
+    font-size: 30px;
+  }
+
+  .fstyle6 {
+    font-family: Arial;
+  }
+
+  .fstyle7 {
+    font-family:Arial; 
+    font-weight: bold; 
+    font-size: 20px;
+    padding-bottom: 10px;
+  }
+
+  .container .hrstyle {
+    height: 1px;
+  }
+  
   .imgpost-view {
     width: 100%;
     height: 50%;
@@ -167,7 +207,7 @@ min
       'nav' => '212121','secondary' => '424242',
       'container' => 'adabab','lnr' => 'fff',
       'border' => '424242','textcol' => 'fff',
-      'img-bg' => 'img-4.jpg','linkcol' => '0000bb',
+      'img-bg' => 'img-4.jpg','linkcol' => '19af08',
       // 'hover' => '424242','hover' => '101010',
       'tab' => 'fff','tabact' => '212121',
       'textisi' => '000000','licol' => '000000'
@@ -178,7 +218,7 @@ min
       'nav' => '212121','secondary' => 'ededed',
       'container' => 'fff','lnr' => 'fff',
       'border' => '424242','textcol' => 'fff',
-      'img-bg' => 'img-3.jpg','linkcol' => '0000bb',
+      'img-bg' => 'img-3.jpg','linkcol' => '179e07',
       'hover' => '2a882a','icon' => '424242',
       'tab' => 'fff','tabact' => '4f4f4f',
       'textisi' => '000000',
