@@ -174,7 +174,7 @@ a.navbar-brand span {
 .btn:hover {
   color: #fff;
   text-decoration: none;
-  background-color: #36CBD4;
+  /*background-color: #36CBD4;*/
   transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
@@ -189,7 +189,7 @@ a.navbar-brand span {
 
 .btn-primary {
   padding: 8px 20px;
-  background: #36CBD4;
+  /*background: #36CBD4;*/
   color: #fff;
   border:none;
   margin-top: 10px;
@@ -197,7 +197,7 @@ a.navbar-brand span {
 
 .btn-primary:hover,
 .btn-primary:focus{
-  background: #36CBD4;
+  /*background: #36CBD4;*/
   outline: none;
   box-shadow: none;
 }

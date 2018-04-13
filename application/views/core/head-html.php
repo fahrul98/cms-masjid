@@ -109,46 +109,19 @@ if($page=="Media" || $page=="Profil Admin" or isset($search)){?>
 min
 
  */
-  .fstyle1 {
-    font-family: Arial Black; 
-    font-size: 35px;
+
+  h1,h2,h3,h4,h5,h6{
+    font-family:Geneva;
+    margin:20px;
   }
 
-  .fstyle2 {
-    font-family: Arial; 
-    font-size: 25px;
-  }
+  h1{font-size: 35px;}
+  h2{font-size: 30px;}
+  h3{font-size: 25px;margin:10px;}
+  h4{font-size: 20px;margin:10px;}
+  h5{font-size: 15px;margin:10px;}
+  h6{font-size: 10px;margin:10px;}
 
-  .fstyle3 {
-    font-family: Arial Black; 
-    font-size: 20px;
-  }
-
-  .fstyle4 {
-    font-family: Geneva; 
-    font-size: 30px;
-  }
-
-  .fstyle5 {
-    font-family: Arial Black; 
-    font-size: 30px;
-  }
-
-  .fstyle6 {
-    font-family: Arial;
-  }
-
-  .fstyle7 {
-    font-family:Arial; 
-    font-weight: bold; 
-    font-size: 20px;
-    padding-bottom: 10px;
-  }
-
-  .container .hrstyle {
-    height: 1px;
-  }
-  
   .imgpost-view {
     width: 100%;
     height: 50%;
