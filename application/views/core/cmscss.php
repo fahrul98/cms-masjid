@@ -1,57 +1,14 @@
 <?php
  ?>
  // <style media="screen">
+ .xx{
+
+ }
+
  .container .icon:hover {
    color: #<?php echo $d['hover']; ?>;
    /*font-size: 35pt;*/
  }
-
-/*CARD CSS*/
-.container2 {
-  padding:10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  text-align: center;
-}
-.card {
-/* Add shadows to create the "card" effect */
-  /*position: relative;*/
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  border-radius: 5px; /* 5px rounded corners */
-  width: 250px;
-  /*margin:15px;*/
-  margin-bottom:30px;
-  /*padding:30px;*/
-  padding-top:0px;
-  padding-left:0px;
-  padding-bottom:0px;
-}
-
-/* On mouse-over, add a deeper shadow */
-.card:hover {
-  box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
-}
-
-/* Add some padding inside the card container */
-.container {
-  padding: 2px 16px;
-}
-
-.img {
-  border-radius: 5px 5px 0 0;
-  /*width:250px;
-  height:250px;*/
-  width:100%;
-  height:100%;
-}
-.imgpost {
-  position: absolute;
-  clip: rect(0px,400px,10px,0px);
-}
-/*END CARD CSS*/
 
 /*Background-image*/
 .backgroundpict {
@@ -146,15 +103,14 @@ body .navbar{
 }
 
 /*
-
  responsives
-
  */
+
 @media screen and (min-width: 1000px) {
   body .section {
     height:600px;
-    /*margin-top: 20px;
-    margin-bottom: 20px;*/
+    margin-top: 20px;
+    margin-bottom: 20px;
     /*padding: auto;*/
     position: relative;
   }
@@ -176,23 +132,102 @@ body .navbar{
     /*background-color:#ffffff;opacity:0.8;*/
     /*width:1000px;height:100px;*/
   }
+
+  .part {
+    background-color: #dfdfdf;
+  }
+
+  .part2 {
+    background-color: #ffffff;
+  }
+
+  .part:hover {
+    background-color: #cfcfcf;
+    transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+  }
+
+  .part2:hover {
+    background-color: #dfdfdf;
+    transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+  }
+
+  .img {
+    border-radius: 5px 5px 0 0;
+    width:100%;
+    height:100%;
+  }
+
+  .imgpost {
+    position: absolute;
+    clip: rect(0px,400px,10px,0px);
+  }
 }
 
-.part {
-  background-color: #dfdfdf;
+body .section {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
 }
 
-.part2 {
-  background-color: #ffffff;
+.carousel a{
+  color:white;text-shadow: 0 1px 0 #333322;
 }
 
-.part:hover {
-  background-color: #cfcfcf;
+.container2 {
+  padding:10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
 }
 
-.part2:hover {
-  background-color: #dfdfdf;
+.img {
+  border-radius: 5px 5px 0 0;
+  width:100%;
+  height:100%;
 }
+
+.imgpost {
+  position: absolute;
+  margin: auto;
+  padding: auto;
+  clip: rect(0px,500px,10px,0px);
+}
+
+/*CARD CSS*/
+
+.card {
+/* Add shadows to create the "card" effect */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
+  /*width: 250px;*/
+  /*margin:15px;*/
+  margin-bottom:30px;
+  /*padding:30px;*/
+  padding-top:0px;
+  padding-left:0px;
+  padding-bottom:0px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+/*END CARD CSS*/
 
 .navbar .navbar-collapse a:hover{
   background-color: #<?php echo $d['hover']; ?>;
@@ -269,19 +304,33 @@ body .navbar{
 
 .container hr{
   background-color: #<?php echo $d['icon'];?>;
-  height: 2px; border: 0;
+  height: 1px; border: 0;
   margin-top: 20px;
   margin-bottom: 55px;
 }
 
 hr{
   background-color: #<?php echo $d['icon'];?>;
-  <!-- height: 3px; border: 0; -->
+  height: 1px; border: 0;
 }
 
 p{
   font-size:12pt;
 }
+
+.btn:hover {
+  <?php echo $d['hover'];?>
+}
+
+.btn-primary {
+  /*background: #<?php echo $d['hover'];?>;*/
+}
+
+.btn-primary:hover,
+.btn-primary:focus{
+  background: #<?php echo $d['hover'];?>;
+}
+
 
 .box {
 	text-align:center;

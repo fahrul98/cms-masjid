@@ -135,3 +135,40 @@ echo htmlspecialchars_decode(substr($v->pstext,0,100))."...";
 
 <hr>
 -->
+
+//fstyle
+.fstyle1 {
+  font-family: Arial Black;
+  font-size: 35px;
+}
+
+.fstyle2 {
+  font-family: Arial;
+  font-size: 25px;
+}
+
+.fstyle3 {
+  font-family: Arial Black;
+  font-size: 20px;
+}
+
+.fstyle4 {
+  font-family: Geneva;
+  font-size: 30px;
+}
+
+.fstyle5 {
+  font-family: Arial Black;
+  font-size: 30px;
+}
+
+.fstyle6 {
+  font-family: Arial;
+}
+
+.fstyle7 {
+  font-family:Arial;
+  font-weight: bold;
+  font-size: 20px;
+  padding-bottom: 10px;
+}

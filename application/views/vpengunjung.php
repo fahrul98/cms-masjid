@@ -35,7 +35,7 @@ include('opsional.php');
   			}
   	?>
 					<!-- <div class="fill" style="background-image:url('//placehold.it/1024x700/CC1111/FFF');"> -->
-					<div class="fill" style="background-image:url('<?php echo base_url('uploads/'.$s->mediadir); ?>');">
+					<div class="fill" style="background-image:url('<?php echo base_url('uploads/posts/'.$s->mediadir); ?>');">
 						<!-- <div class="" style="background-color:#ffffff;opacity:0.8;width:1000px;height:100px;"> -->
 						<!-- <div class="carousel-caption carousel-cap-bg" style=""> -->
 						<div class="carousel-caption carousel-cap-bg" style="">
@@ -55,12 +55,12 @@ include('opsional.php');
 						</div>
 						<!-- </div> -->
 					</div>
-					<!-- </div> -->
+					</div>
 					<?php
   			$no++;
   		}
   	 ?>
-			</div>
+			<!-- </div> -->
 			<div class="pull-center">
 				<a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
 				<a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
@@ -68,7 +68,7 @@ include('opsional.php');
 		</div>
 		</div>
 		<div class="whitebg">
-			<div class="container section">
+			<div class="container">
 				<!-- <hr id="1"> -->
 				<div class="row center" style="margin-bottom: 30px">
 					<h2 class="fstyle1">Selamat Datang di website</h2>
@@ -79,31 +79,46 @@ include('opsional.php');
 				</div>
 				<div class="row">
 					<div class="box">
-						<div class="col-xs-12 col-md-4 col-lg-4 part">
+						<div class="col-xs-6 col-md-4 col-lg-4 part">
 							<h4 class="fstyle3">Portal Donasi</h4>
 							<a href="<?php echo base_url('beranda/keuanganmasjid');?>"><i class="fa fa-money fa-5x icon"></i></a>
-							<p>Pastikan kita menggunakan harta kita di jalan Allah</p>
-							<div class="ficon">
-							</div>
+							<p>Laporan sekilas Keuangan Masjid</p>
 						</div>
-						<div class="col-xs-12 col-md-4 col-lg-4 part2">
+						<div class="col-xs-6 col-md-4 col-lg-4 part2">
 							<div>
 								<h4 class="fstyle3">Jadwal Kegiatan</h4>
 								<a href="<?php echo base_url('beranda/jadwalkegiatan');?>"><i class="fa fa-calendar fa-5x icon"></i></a>
-								<p>Jangan sampai hari ini berakhir tanpa ada satu ilmu pun yang kita dapatkan</p>
-								<div class="ficon">
-								</div>
+								<p>Jadwal Kegiatan Masjid</p>
 							</div>
 						</div>
-						<div class="col-xs-12 col-md-4 col-lg-4 part">
+						<div class="col-xs-6 col-md-4 col-lg-4 part">
+							<div>
+								<h4 class="fstyle3">Materi Kajian</h4>
+								<a href="<?php echo base_url('beranda/post');?>"><i class="fa fa-book fa-5x icon"></i></a>
+								<p>Artikel-Artikel Masjid</p>
+							</div>
+						</div>
+
+						<div class="col-xs-6 col-md-4 col-lg-4 part2">
+							<h4 class="fstyle3">Takmir</h4>
+							<a href="<?php echo base_url('beranda/takmirm');?>"><i class="fa fa-address-book fa-5x icon"></i></a>
+							<p>Profil Takmir-takmir Masjid</p>
+						</div>
+						<div class="col-xs-6 col-md-4 col-lg-4 part">
+							<div>
+								<h4 class="fstyle3">Ustadz</h4>
+								<a href="<?php echo base_url('beranda/ustadz');?>"><i class="fa fa-user-circle-o fa-5x icon"></i></a>
+								<p>Profil Ustadz Masjid</p>
+							</div>
+						</div>
+						<div class="col-xs-6 col-md-4 col-lg-4 part2">
 							<div>
 								<h4 class="fstyle3">Materi Kajian</h4>
 								<a href="<?php echo base_url('beranda/post');?>"><i class="fa fa-book fa-5x icon"></i></a>
 								<p>Klik untuk melihat daftar judul kajian</p>
-								<div class="ficon">
-								</div>
 							</div>
 						</div>
+
 					</div>
 				</div>
 				<!-- <hr id="2"> -->
@@ -112,16 +127,17 @@ include('opsional.php');
 				<div class="container section-inner" style="background-color:#ffffff;opacity:0.8;">
 					<div class="row">
 						<div class="center">
-							<div class="col-md-10 col-md-offset-1">
-								<h2 class="fstyle1">Profil Masjid</h2><br>
+							<div class="col-md-12">
+								<h2 class="fstyle1">Profil Masjid</h2>
 								<h3 class="fstyle4">Sejarah</h3>
-								<p class="" style="font-style: bold;">
+								<p>
 									<?php echo substr($profil->psejarah,0,600)." ...";?>
-								</p><br>
+								</p>
 								<h3 class="fstyle4">Visi Misi</h3>
-								<p class="">
+								<p>
 									<?php echo substr($profil->pvisimisi,0,600)." ...";?>
-								</p><br>
+								</p>
+								<a class="btn btn-primary" href="<?php echo base_url('beranda/profilm'); ?>" style="margin-bottom:30px;">Lanjut</a>
 							</div>
 						</div>
 					</div>
@@ -220,7 +236,7 @@ include('opsional.php');
 							<a href="<?php echo base_url('beranda/post/'.urlencode($v->psjudul));?>">
 								<div class="card">
 									<div class="imgpost">
-										<img class="" src="<?php echo base_url('uploads/posts/'.$v->mediadir);?>" />
+										<img class="img" src="<?php echo base_url('uploads/posts/'.$v->mediadir);?>" />
 									</div>
 									<div class="container2" style="text-align: justify;">
 										<h5 class=""><?php echo $v->psjudul; ?></h5>
@@ -299,27 +315,27 @@ include('opsional.php');
 					<hr >
 					<div class="container">
 						<div class="row">
-							<h2 class="fstyle5 center">Deskripsi</h2>
+							<h2 class="fstyle5">Deskripsi</h2>
 							<p class="phitam">
 								<?php echo nl2br($profil->pdeskripsi);?>
 							</p>
 						</div>
-						<hr class="hrstyle">
+						<hr>
 						<div class="row">
-							<h2 class="fstyle5 center">Sejarah</h2>
+							<h2 class="fstyle5">Sejarah</h2>
 							<p class="phitam">
 								<?php echo nl2br($profil->psejarah);?>
 							</p>
 						</div>
-						<hr class="hrstyle">
+						<hr>
 						<div class="row">
-							<h2 class="fstyle5 center">Visi Misi</h2>
+							<h2 class="fstyle5">Visi Misi</h2>
 							<p class="phitam">
 								<?php echo nl2br($profil->pvisimisi);?>
 							</p>
 						</div>
 					</div>
-					<hr class="hrstyle">
+					<hr>
 				</div>
 				<?php }else if ($page=="Takmir Masjid") {?>
 

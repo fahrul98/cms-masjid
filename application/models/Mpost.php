@@ -23,10 +23,6 @@ unset(variabel) => hapus variabel dari memori
 
 	public function tampilpost($data = null){
 		// jika null maka fullselect, else ambil idpost
-		//if ini gk guna kan?
-		// if (isset($data['mode'])&&$data['mode']=='pengunjung') {
-		// 	$q = $this->db->query("select * from cmpost where psjudul=1 order by psid desc");
-		// }else
 		if(isset($data['slug'])){
 			$q = $this->db->query("select * FROM cmpost cmp left join cmtag ct on cmp.tagid=ct.tagid where psjudul=?",array(urldecode($data['slug'])));
 		}else{
@@ -41,7 +37,7 @@ unset(variabel) => hapus variabel dari memori
 	}
 
 	public function tampilslide(){
-		$q = $this->db->query("SELECT * FROM cmpost order by psbuat asc limit 1");
+		$q = $this->db->query("SELECT * FROM cmpost order by psbuat asc limit 5");
 		return $q;
 		$q=null;
 	}
@@ -50,7 +46,7 @@ unset(variabel) => hapus variabel dari memori
 		if(isset($data['tagid'])){
 			$q = $this->db->query("select * from cmtag where tagid=?",array($data['tagid']));
 		}else{
-			$q = $this->db->query("select * from cmtag");
+			$q = $this->db->query("select * from cmtag where tagid>2");
 		}
 		return $q;
 		$q=null;
